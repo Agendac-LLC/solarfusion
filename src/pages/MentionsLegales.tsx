@@ -11,7 +11,7 @@ const MentionsLegales = () => (
           <section>
             <h2 className="mb-3 text-lg font-semibold text-foreground">Éditeur du site</h2>
             <p>
-              Solar Fusion — Entreprise familiale spécialisée dans l'installation de panneaux photovoltaïques.
+              Solar Fusion - Entreprise familiale spécialisée dans l'installation de panneaux photovoltaïques.
               <br />
               Dirigée par Sébastien Chaffardon et son fils.
               <br />
@@ -40,7 +40,7 @@ const MentionsLegales = () => (
 
           <section>
             <h2 className="mb-3 text-lg font-semibold text-foreground">Certifications</h2>
-            <p>QualiPV 36K — Partenaire Hitachi — Garantie décennale française.</p>
+            <p>QualiPV 36K - Partenaire Hitachi - Garantie décennale française.</p>
           </section>
 
           <section>
