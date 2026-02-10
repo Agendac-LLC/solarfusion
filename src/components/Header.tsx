@@ -17,6 +17,7 @@ const Header = () => {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -30,16 +31,34 @@ const Header = () => {
     }
   };
 
+  const textColor = scrolled
+    ? "text-foreground"
+    : "text-primary-foreground";
+
+  const textMuted = scrolled
+    ? "text-muted-foreground"
+    : "text-primary-foreground/70";
+
+  const textShadow = scrolled
+    ? "none"
+    : "0 1px 3px rgba(0,0,0,0.4)";
+
   return (
     <header
-      className={`fixed top-0 z-40 w-full transition-all duration-500 ${
-        scrolled
-          ? "border-b border-border/50 bg-background/90 backdrop-blur-xl"
-          : "bg-transparent"
-      }`}
+      className="fixed top-0 z-40 w-full"
+      style={{
+        transition: "background-color 0.3s ease, box-shadow 0.3s ease",
+        backgroundColor: scrolled ? "hsl(0 0% 100% / 0.98)" : "transparent",
+        boxShadow: scrolled ? "0 1px 12px rgba(0,0,0,0.06)" : "none",
+        backdropFilter: scrolled ? "blur(12px)" : "none",
+      }}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="text-base font-bold tracking-[0.1em]">
+        <Link
+          to="/"
+          className={`text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
+          style={{ textShadow }}
+        >
           SOLAR FUSION
         </Link>
 
@@ -51,9 +70,8 @@ const Header = () => {
                 key={link.label}
                 href={link.to}
                 onClick={() => handleNavClick(link.to)}
-                className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-foreground ${
-                  scrolled ? "text-muted-foreground" : "text-foreground/60"
-                }`}
+                className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:opacity-100 ${textMuted}`}
+                style={{ textShadow }}
               >
                 {link.label}
               </a>
@@ -61,13 +79,10 @@ const Header = () => {
               <Link
                 key={link.label}
                 to={link.to}
-                className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-foreground ${
-                  location.pathname === link.to
-                    ? "text-foreground"
-                    : scrolled
-                    ? "text-muted-foreground"
-                    : "text-foreground/60"
+                className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:opacity-100 ${
+                  location.pathname === link.to ? textColor : textMuted
                 }`}
+                style={{ textShadow }}
               >
                 {link.label}
               </Link>
@@ -75,7 +90,8 @@ const Header = () => {
           )}
           <a
             href="tel:+33762111470"
-            className="flex items-center gap-2 text-xs font-semibold tracking-wide"
+            className={`flex items-center gap-2 text-xs font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
+            style={{ textShadow }}
           >
             <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
             07 62 11 14 70
@@ -84,10 +100,18 @@ const Header = () => {
 
         {/* Mobile */}
         <div className="flex items-center gap-4 md:hidden">
-          <a href="tel:+33762111470" aria-label="Appeler">
+          <a
+            href="tel:+33762111470"
+            aria-label="Appeler"
+            className={`transition-colors duration-300 ${textColor}`}
+          >
             <Phone className="h-4 w-4" strokeWidth={1.5} />
           </a>
-          <button onClick={() => setOpen(!open)} aria-label="Menu">
+          <button
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+            className={`transition-colors duration-300 ${textColor}`}
+          >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
