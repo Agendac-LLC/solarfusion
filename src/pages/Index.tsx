@@ -23,7 +23,7 @@ const Index = () => (
           </p>
           <a
             href="#simulateur"
-            className="btn-invert inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+            className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Simuler mes économies
           </a>

@@ -1,4 +1,4 @@
-import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
+import AnimatedSection from "./AnimatedSection";
 
 const certs = [
   {
@@ -29,11 +29,10 @@ const Certifications = () => (
           Certifié. Garanti. Fiable.
         </h2>
       </AnimatedSection>
-      <AnimatedLine className="mb-0" />
-      <div className="grid md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3">
         {certs.map((cert, i) => (
           <AnimatedSection key={cert.title} delay={i * 0.12}>
-            <div className="border-b border-r border-border bg-background p-10 card-lift h-full">
+            <div className="bg-background p-10 rounded-2xl card-lift h-full">
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
                 {cert.subtitle}
               </p>

@@ -1,4 +1,4 @@
-import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
+import AnimatedSection from "./AnimatedSection";
 import { motion } from "framer-motion";
 import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
 
@@ -47,16 +47,16 @@ const Services = () => (
           De l'installation photovoltaïque au stockage intelligent, nous couvrons l'ensemble de votre transition énergétique.
         </p>
       </AnimatedSection>
-      <AnimatedLine className="mb-0" />
-      <div className="grid md:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         {services.map((service, i) => (
           <AnimatedSection key={service.title} delay={i * 0.12}>
             <motion.div
-              className="flex flex-col bg-background p-10 md:p-14 h-full group cursor-default border-b border-r border-border"
-              whileHover={{ backgroundColor: "hsl(0 0% 98%)" }}
-              transition={{ duration: 0.2 }}
+              className="flex flex-col bg-background p-10 md:p-12 h-full group cursor-default rounded-2xl"
+              style={{ boxShadow: "var(--shadow-soft)" }}
+              whileHover={{ y: -4, boxShadow: "var(--shadow-elevated)" }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
             >
-              <service.icon className="mb-8 h-8 w-8 text-foreground/80 group-hover:text-foreground transition-colors duration-200" strokeWidth={1.2} />
+              <service.icon className="mb-8 h-8 w-8 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
               <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">
                 {service.description}

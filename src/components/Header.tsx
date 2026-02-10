@@ -31,26 +31,18 @@ const Header = () => {
     }
   };
 
-  const textColor = scrolled
-    ? "text-foreground"
-    : "text-primary-foreground";
-
-  const textMuted = scrolled
-    ? "text-muted-foreground"
-    : "text-primary-foreground/70";
-
-  const textShadow = scrolled
-    ? "none"
-    : "0 1px 3px rgba(0,0,0,0.4)";
+  const textColor = scrolled ? "text-foreground" : "text-primary-foreground";
+  const textMuted = scrolled ? "text-muted-foreground" : "text-primary-foreground/70";
+  const textShadow = scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)";
 
   return (
     <header
-      className="fixed top-0 z-40 w-full"
+      className="fixed top-0 z-40 w-full transition-all duration-500 ease-out"
       style={{
-        transition: "background-color 0.3s ease, box-shadow 0.3s ease",
-        backgroundColor: scrolled ? "hsl(0 0% 100% / 0.98)" : "transparent",
-        boxShadow: scrolled ? "0 1px 12px rgba(0,0,0,0.06)" : "none",
-        backdropFilter: scrolled ? "blur(12px)" : "none",
+        backgroundColor: scrolled ? "hsl(0 0% 100% / 0.75)" : "transparent",
+        boxShadow: scrolled ? "0 1px 24px rgba(0,0,0,0.06)" : "none",
+        backdropFilter: scrolled ? "blur(20px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
       }}
     >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
@@ -130,7 +122,7 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden border-t border-border bg-background md:hidden"
+            className="overflow-hidden glass border-t border-border/50 md:hidden"
           >
             <div className="flex flex-col gap-5 px-6 py-8">
               {navLinks.map((link) =>
