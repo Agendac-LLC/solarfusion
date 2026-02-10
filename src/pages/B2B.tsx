@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import Simulator from "@/components/Simulator";
-import ContactForm from "@/components/ContactForm";
+import ContactSection from "@/components/ContactSection";
 import heroB2b from "@/assets/hero-b2b.png";
 import { TrendingUp, Zap, BarChart3, Building2 } from "lucide-react";
 
@@ -140,7 +140,7 @@ const B2B = () => {
         </div>
       </section>
 
-      <ContactForm />
+      <ContactSection />
     </>
   );
 };
