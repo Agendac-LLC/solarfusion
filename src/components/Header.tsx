@@ -8,7 +8,6 @@ const navLinks = [
   { label: "Particuliers", to: "/particuliers" },
   { label: "Professionnels", to: "/b2b" },
   { label: "Domotique & PAC", to: "/domotique-pac" },
-  { label: "Simulateur", to: "/simulateur" },
   { label: "Contact", to: "/#contact" },
 ];
 
@@ -88,6 +87,17 @@ const Header = () => {
               </Link>
             )
           )}
+          <Link
+            to="/simulateur"
+            className={`text-[10px] uppercase tracking-[0.12em] font-semibold transition-all duration-300 px-5 py-2 ${
+              scrolled
+                ? "bg-foreground text-background hover:bg-foreground/90"
+                : "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
+            }`}
+            style={{ borderRadius: "9999px" }}
+          >
+            Simuler mon projet
+          </Link>
           <a
             href="tel:+33762111470"
             className={`flex items-center gap-2 text-[10px] font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
@@ -151,9 +161,16 @@ const Header = () => {
                   </Link>
                 )
               )}
+              <Link
+                to="/simulateur"
+                onClick={() => setOpen(false)}
+                className="btn-pill bg-foreground text-background text-center py-3.5 text-xs font-semibold uppercase tracking-[0.15em] mt-2"
+              >
+                Simuler mon projet
+              </Link>
               <a
                 href="tel:+33762111470"
-                className="flex items-center gap-2 text-xs font-semibold text-foreground mt-2"
+                className="flex items-center justify-center gap-2 text-xs font-semibold text-foreground"
               >
                 <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
                 07 62 11 14 70

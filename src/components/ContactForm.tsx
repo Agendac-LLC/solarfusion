@@ -7,15 +7,12 @@ import { Loader2 } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Nom requis").max(100),
-  email: z.string().trim().email("Email invalide").max(255),
   phone: z.string().trim().min(1, "Téléphone requis").max(20),
   postalCode: z.string().trim().min(1, "Code postal requis").max(10),
-  projectType: z.string().min(1, "Type de projet requis"),
-  message: z.string().trim().min(1, "Message requis").max(2000),
 });
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", postalCode: "", projectType: "", message: "" });
+  const [form, setForm] = useState({ name: "", phone: "", postalCode: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
 
@@ -35,8 +32,8 @@ const ContactForm = () => {
 
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1200));
-    toast.success("Message envoyé avec succès. Nous vous recontacterons rapidement.");
-    setForm({ name: "", email: "", phone: "", postalCode: "", projectType: "", message: "" });
+    toast.success("Demande envoyée. Nous vous rappelons dans les plus brefs délais.");
+    setForm({ name: "", phone: "", postalCode: "" });
     setLoading(false);
   };
 
@@ -44,21 +41,21 @@ const ContactForm = () => {
     "w-full rounded-xl border border-border bg-transparent px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground focus:ring-2 focus:ring-foreground/5 transition-all duration-300";
 
   return (
-    <section id="contact" className="section-padding">
-      <div className="mx-auto max-w-2xl">
+    <section id="contact-form" className="section-padding">
+      <div className="mx-auto max-w-lg">
         <AnimatedSection>
-          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-            Contact
+          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium text-center">
+            Rappel gratuit
           </p>
-          <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-            Parlons de votre projet.
+          <h2 className="mb-4 text-3xl font-bold md:text-4xl text-center">
+            Être rappelé en 24h.
           </h2>
-          <p className="mb-14 text-muted-foreground text-sm">
-            Intervention sur les départements 73 et 74, avec déplacements possibles dans toute la région.
+          <p className="mb-10 text-muted-foreground text-sm text-center">
+            Remplissez ce formulaire rapide, nous vous rappelons pour discuter de votre projet.
           </p>
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
-          <form onSubmit={handleSubmit} className="space-y-5">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <input
                 type="text"
@@ -69,63 +66,25 @@ const ContactForm = () => {
               />
               {errors.name && <p className="mt-1.5 text-xs text-destructive">{errors.name}</p>}
             </div>
-            <div className="grid gap-5 md:grid-cols-2">
-              <div>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className={inputClass}
-                />
-                {errors.email && <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>}
-              </div>
-              <div>
-                <input
-                  type="tel"
-                  placeholder="Téléphone"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className={inputClass}
-                />
-                {errors.phone && <p className="mt-1.5 text-xs text-destructive">{errors.phone}</p>}
-              </div>
-            </div>
-            <div className="grid gap-5 md:grid-cols-2">
-              <div>
-                <input
-                  type="text"
-                  placeholder="Code postal (ex: 73000)"
-                  value={form.postalCode}
-                  onChange={(e) => setForm({ ...form, postalCode: e.target.value })}
-                  className={inputClass}
-                />
-                {errors.postalCode && <p className="mt-1.5 text-xs text-destructive">{errors.postalCode}</p>}
-              </div>
-              <div>
-                <select
-                  value={form.projectType}
-                  onChange={(e) => setForm({ ...form, projectType: e.target.value })}
-                  className={`${inputClass} ${!form.projectType ? "text-muted-foreground/60" : ""}`}
-                >
-                  <option value="">Type de projet</option>
-                  <option value="solaire">Panneaux solaires</option>
-                  <option value="domotique">Domotique</option>
-                  <option value="pac">Pompe à chaleur</option>
-                  <option value="autre">Autre</option>
-                </select>
-                {errors.projectType && <p className="mt-1.5 text-xs text-destructive">{errors.projectType}</p>}
-              </div>
+            <div>
+              <input
+                type="tel"
+                placeholder="Téléphone"
+                value={form.phone}
+                onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                className={inputClass}
+              />
+              {errors.phone && <p className="mt-1.5 text-xs text-destructive">{errors.phone}</p>}
             </div>
             <div>
-              <textarea
-                placeholder="Votre message"
-                rows={5}
-                value={form.message}
-                onChange={(e) => setForm({ ...form, message: e.target.value })}
-                className={inputClass + " resize-none"}
+              <input
+                type="text"
+                placeholder="Code postal (ex: 73000)"
+                value={form.postalCode}
+                onChange={(e) => setForm({ ...form, postalCode: e.target.value })}
+                className={inputClass}
               />
-              {errors.message && <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>}
+              {errors.postalCode && <p className="mt-1.5 text-xs text-destructive">{errors.postalCode}</p>}
             </div>
             <button
               type="submit"
@@ -143,9 +102,12 @@ const ContactForm = () => {
                   Envoi en cours...
                 </>
               ) : (
-                "Envoyer"
+                "Demander un rappel gratuit"
               )}
             </button>
+            <p className="text-center text-xs text-muted-foreground/50 mt-2">
+              Intervention en Savoie (73) et Haute-Savoie (74)
+            </p>
           </form>
         </AnimatedSection>
       </div>

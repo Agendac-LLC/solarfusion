@@ -18,6 +18,11 @@ const stats = [
     label: "accident à ce jour",
     description: "La sécurité est notre priorité absolue sur chaque chantier.",
   },
+  {
+    value: "10 ans",
+    label: "garantie décennale",
+    description: "Couverture décennale française sur chaque installation réalisée.",
+  },
 ];
 
 const Reassurance = () => (
@@ -37,7 +42,7 @@ const Reassurance = () => (
             La confiance comme fondation.
           </h2>
         </AnimatedSection>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <AnimatedSection key={stat.label} delay={i * 0.15}>
               <div className="glass-card rounded-2xl p-8 transition-all duration-300">
