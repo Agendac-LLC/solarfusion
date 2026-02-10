@@ -75,7 +75,7 @@ const B2B = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-            className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light"
+            className="mt-6 max-w-lg text-base text-primary-foreground font-light glass-card rounded-2xl px-6 py-3"
           >
             Des solutions photovoltaïques dimensionnées pour les besoins des entreprises, collectivités et industriels.
           </motion.p>
