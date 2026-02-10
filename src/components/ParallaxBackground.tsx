@@ -48,24 +48,6 @@ const ParallaxBackground = ({
           background: `linear-gradient(to bottom, hsl(0 0% 0% / ${overlayOpacity}) 0%, hsl(0 0% 0% / ${overlayOpacity * 0.6}) 40%, hsl(0 0% 0% / ${overlayOpacity * 0.8}) 70%, hsl(0 0% 0% / ${overlayOpacity}) 100%)`,
         }}
       />
-      {/* Top fade from page background */}
-      {fadeEdges && (
-        <div
-          className="absolute inset-x-0 top-0 h-8 pointer-events-none z-[5]"
-          style={{
-            background: "linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 100%)",
-          }}
-        />
-      )}
-      {/* Bottom fade to page background */}
-      {fadeEdges && (
-        <div
-          className="absolute inset-x-0 bottom-0 h-8 pointer-events-none z-[5]"
-          style={{
-            background: "linear-gradient(to top, hsl(var(--background)) 0%, transparent 100%)",
-          }}
-        />
-      )}
       {/* Content layer */}
       <div className="relative z-10">{children}</div>
     </section>
