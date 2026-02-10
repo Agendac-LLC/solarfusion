@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 
 const certs = [
@@ -41,9 +42,19 @@ const Certifications = () => (
             </div>
           </AnimatedSection>
         ))}
+        </div>
+        <AnimatedSection delay={0.3}>
+          <div className="mt-16 text-center">
+            <Link
+              to="/simulateur"
+              className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            >
+              Simuler mes économies
+            </Link>
+          </div>
+        </AnimatedSection>
       </div>
-    </div>
-  </section>
+    </section>
 );
 
 export default Certifications;

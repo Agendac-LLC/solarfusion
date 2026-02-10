@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 import { motion } from "framer-motion";
 import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
@@ -67,9 +68,31 @@ const Services = () => (
             </motion.div>
           </AnimatedSection>
         ))}
+        </div>
+        <AnimatedSection delay={0.3}>
+          <div className="mt-16 text-center">
+            <p className="mb-6 text-muted-foreground text-sm">
+              Simulez votre projet en moins de 2 minutes et obtenez une étude personnalisée.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row justify-center">
+              <Link
+                to="/simulateur"
+                className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+              >
+                Simuler mon projet
+              </Link>
+              <a
+                href="tel:+33762111470"
+                className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+                style={{ borderRadius: "9999px" }}
+              >
+                Être rappelé gratuitement
+              </a>
+            </div>
+          </div>
+        </AnimatedSection>
       </div>
-    </div>
-  </section>
+    </section>
 );
 
 export default Services;
