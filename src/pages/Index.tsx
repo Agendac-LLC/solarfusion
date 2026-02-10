@@ -41,7 +41,24 @@ const Index = () => (
     <Certifications />
     <Simulator variant="b2c" />
     <Reviews />
-    <div className="py-20" />
+    <section className="section-padding bg-background">
+      <div className="mx-auto max-w-4xl text-center">
+        <AnimatedSection>
+          <h2 className="mb-4 text-3xl font-bold md:text-5xl">
+            Prêt à passer au solaire ?
+          </h2>
+          <p className="mb-8 text-muted-foreground text-sm max-w-xl mx-auto">
+            Discutons de votre projet. Notre équipe vous accompagne de l'étude à la mise en service.
+          </p>
+          <a
+            href="#contact"
+            className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+          >
+            Nous contacter
+          </a>
+        </AnimatedSection>
+      </div>
+    </section>
     <ContactSection />
   </>
 );
