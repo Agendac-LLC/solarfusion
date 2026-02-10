@@ -7,10 +7,9 @@ interface ParallaxBackgroundProps {
   children: ReactNode;
   className?: string;
   overlayOpacity?: number;
-  /** Extra blur on the image for text legibility */
   blur?: number;
-  /** Add a smooth fade-in from page background at the top */
-  fadeIn?: boolean;
+  /** Fade edges into page background for seamless transitions */
+  fadeEdges?: boolean;
 }
 
 const ParallaxBackground = ({
@@ -20,7 +19,7 @@ const ParallaxBackground = ({
   className = "",
   overlayOpacity = 0.55,
   blur = 0,
-  fadeIn = false,
+  fadeEdges = true,
 }: ParallaxBackgroundProps) => {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -49,12 +48,21 @@ const ParallaxBackground = ({
           background: `linear-gradient(to bottom, hsl(0 0% 0% / ${overlayOpacity}) 0%, hsl(0 0% 0% / ${overlayOpacity * 0.6}) 40%, hsl(0 0% 0% / ${overlayOpacity * 0.8}) 70%, hsl(0 0% 0% / ${overlayOpacity}) 100%)`,
         }}
       />
-      {/* Smooth fade from page background */}
-      {fadeIn && (
+      {/* Top fade from page background */}
+      {fadeEdges && (
         <div
-          className="absolute inset-x-0 top-0 h-32 pointer-events-none z-[5]"
+          className="absolute inset-x-0 top-0 h-40 pointer-events-none z-[5]"
           style={{
-            background: "linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 100%)",
+            background: "linear-gradient(to bottom, hsl(var(--background)) 0%, hsl(var(--background) / 0.6) 30%, transparent 100%)",
+          }}
+        />
+      )}
+      {/* Bottom fade to page background */}
+      {fadeEdges && (
+        <div
+          className="absolute inset-x-0 bottom-0 h-40 pointer-events-none z-[5]"
+          style={{
+            background: "linear-gradient(to top, hsl(var(--background)) 0%, hsl(var(--background) / 0.6) 30%, transparent 100%)",
           }}
         />
       )}
