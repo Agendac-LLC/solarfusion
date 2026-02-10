@@ -1,6 +1,5 @@
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
 import { Star, ArrowUpRight } from "lucide-react";
-import { motion } from "framer-motion";
 
 const reviews = [
   {
@@ -34,14 +33,15 @@ const Reviews = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Avis clients
         </p>
-        <h2 className="mb-16 text-3xl font-bold md:text-5xl">
+        <h2 className="mb-20 text-3xl font-bold md:text-5xl">
           Ils nous font confiance.
         </h2>
       </AnimatedSection>
-      <div className="grid gap-[1px] bg-border md:grid-cols-3 mb-16">
+      <AnimatedLine className="mb-0" />
+      <div className="grid md:grid-cols-3 mb-20">
         {reviews.map((review, i) => (
           <AnimatedSection key={review.name} delay={i * 0.1}>
-            <div className="bg-background p-10 h-full flex flex-col">
+            <div className="bg-background p-10 h-full flex flex-col border-b border-r border-border">
               <div className="mb-5 flex gap-0.5">
                 {Array.from({ length: review.rating }).map((_, j) => (
                   <Star key={j} className="h-3.5 w-3.5 fill-foreground text-foreground" />
@@ -58,18 +58,16 @@ const Reviews = () => (
       <AnimatedSection>
         <div className="flex flex-wrap items-center justify-center gap-4">
           {socials.map((s) => (
-            <motion.a
+            <a
               key={s.name}
               href={s.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-premium flex items-center gap-2 border border-border rounded-sm px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] hover:bg-foreground hover:text-background hover:border-foreground transition-colors"
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.98 }}
+              className="btn-ghost-fill flex items-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em]"
             >
               {s.name}
               <ArrowUpRight className="h-3 w-3" />
-            </motion.a>
+            </a>
           ))}
         </div>
       </AnimatedSection>

@@ -29,4 +29,15 @@ const AnimatedSection = ({ children, className = "", delay = 0, direction = "up"
   );
 };
 
+/** Animated horizontal line that stretches from left when scrolled into view */
+export const AnimatedLine = ({ className = "", delay = 0 }: { className?: string; delay?: number }) => (
+  <motion.div
+    initial={{ scaleX: 0 }}
+    whileInView={{ scaleX: 1 }}
+    viewport={{ once: true, margin: "-40px" }}
+    transition={{ duration: 1.2, delay, ease: [0.16, 1, 0.3, 1] }}
+    className={`h-[1px] bg-border origin-left ${className}`}
+  />
+);
+
 export default AnimatedSection;

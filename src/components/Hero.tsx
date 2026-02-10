@@ -60,13 +60,13 @@ const Hero = () => {
         >
           <a
             href="#simulateur"
-            className="btn-premium bg-primary-foreground px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
+            className="btn-brutal bg-primary-foreground px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary border border-primary-foreground"
           >
             Simuler mes économies
           </a>
           <Link
             to="/b2b"
-            className="btn-premium border border-primary-foreground/25 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground hover:border-primary-foreground/50"
+            className="btn-ghost-fill border-primary-foreground/40 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:border-primary-foreground"
           >
             Espace Professionnels
           </Link>

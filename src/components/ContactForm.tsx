@@ -2,7 +2,6 @@ import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { z } from "zod";
 import { toast } from "sonner";
-import { motion } from "framer-motion";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Nom requis").max(100),
@@ -39,7 +38,7 @@ const ContactForm = () => {
   };
 
   const inputClass =
-    "w-full border border-border bg-transparent px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground transition-colors duration-300 rounded-sm";
+    "w-full border border-border bg-transparent px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground transition-colors duration-200";
 
   return (
     <section id="contact" className="section-padding">
@@ -51,7 +50,7 @@ const ContactForm = () => {
           <h2 className="mb-4 text-3xl font-bold md:text-5xl">
             Parlons de votre projet.
           </h2>
-          <p className="mb-12 text-muted-foreground text-sm">
+          <p className="mb-14 text-muted-foreground text-sm">
             Intervention sur les départements 73 et 74, avec déplacements possibles dans toute la région.
           </p>
         </AnimatedSection>
@@ -112,15 +111,13 @@ const ContactForm = () => {
               />
               {errors.message && <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>}
             </div>
-            <motion.button
+            <button
               type="submit"
               disabled={loading}
-              className="btn-premium w-full bg-foreground py-4 text-xs font-semibold uppercase tracking-[0.2em] text-background disabled:opacity-50 rounded-sm"
-              whileHover={{ scale: 1.01 }}
-              whileTap={{ scale: 0.99 }}
+              className="btn-invert w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50"
             >
               {loading ? "Envoi en cours..." : "Envoyer"}
-            </motion.button>
+            </button>
           </form>
         </AnimatedSection>
       </div>

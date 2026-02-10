@@ -1,4 +1,4 @@
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
 
 const stats = [
   {
@@ -25,18 +25,18 @@ const Reassurance = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Pourquoi nous choisir
         </p>
-        <h2 className="mb-16 text-3xl font-bold md:text-5xl">
+        <h2 className="mb-20 text-3xl font-bold md:text-5xl">
           La confiance comme fondation.
         </h2>
       </AnimatedSection>
-      <div className="grid gap-12 md:grid-cols-3">
+      <div className="grid gap-16 md:grid-cols-3">
         {stats.map((stat, i) => (
           <AnimatedSection key={stat.label} delay={i * 0.15}>
             <div className="group">
-              <div className="mb-6 h-[1px] w-12 bg-foreground/20 group-hover:w-20 transition-all duration-500" />
+              <AnimatedLine delay={i * 0.15 + 0.2} className="mb-8 w-full" />
               <p className="text-4xl font-bold tracking-tight">{stat.value}</p>
               <p className="mt-1 text-base font-semibold">{stat.label}</p>
-              <p className="mt-3 text-muted-foreground leading-relaxed text-sm">
+              <p className="mt-4 text-muted-foreground leading-relaxed text-sm">
                 {stat.description}
               </p>
             </div>
