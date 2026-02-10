@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
 
 import Index from "./pages/Index";
 import Particuliers from "./pages/Particuliers";
@@ -40,7 +39,6 @@ const App = () => (
           </Routes>
         </main>
         <Footer />
-        <WhatsAppButton />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
