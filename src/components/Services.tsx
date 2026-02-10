@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
+import KineticText from "./KineticText";
+import LiquidHover from "./LiquidHover";
 import { motion } from "framer-motion";
 import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
 
@@ -41,9 +43,11 @@ const Services = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Ce qu'on fait
         </p>
-        <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-          Quatre métiers, une équipe.
-        </h2>
+        <LiquidHover>
+          <KineticText as="h2" className="mb-4 text-3xl font-bold md:text-5xl">
+            Quatre métiers, une équipe.
+          </KineticText>
+        </LiquidHover>
         <p className="mb-20 text-muted-foreground text-base max-w-xl">
           Du panneau solaire à la domotique, on couvre toute la chaîne pour que votre maison produise, stocke et consomme intelligemment.
         </p>
@@ -53,7 +57,6 @@ const Services = () => (
           <AnimatedSection key={service.title} delay={i * 0.12}>
             <motion.div
               className="flex flex-col glass-card-light p-10 md:p-12 h-full group cursor-default rounded-2xl transition-all duration-300"
-              style={{}}
               whileHover={{ y: -4, boxShadow: "var(--shadow-elevated)" }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >
@@ -77,7 +80,7 @@ const Services = () => (
           <div className="flex flex-col gap-4 sm:flex-row justify-center">
             <Link
               to="/simulateur"
-              className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+              className="btn-pill btn-pulse-organic bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Simuler mon projet
             </Link>
