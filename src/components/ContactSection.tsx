@@ -6,7 +6,7 @@ import installImage from "@/assets/install-chalet-savoie.png";
 const PHONE = "+33 7 62 11 14 70";
 const PHONE_LINK = "tel:+33762111470";
 const EMAIL = "sebastien@solarfusion.fr";
-const WHATSAPP_LINK = `https://wa.me/33762111470?text=${encodeURIComponent("Bonjour, je souhaite en savoir plus sur vos solutions solaires.")}`;
+const WHATSAPP_LINK = `https://wa.me/33762111470?text=${encodeURIComponent("Bonjour, je souhaite discuter d'un projet solaire.")}`;
 
 const contactMethods = [
   {
@@ -14,14 +14,14 @@ const contactMethods = [
     label: "Téléphone",
     value: PHONE,
     href: PHONE_LINK,
-    description: "Du lundi au vendredi, 8h-18h",
+    description: "Lundi-vendredi, 8h-18h",
   },
   {
     icon: MessageCircle,
     label: "WhatsApp",
     value: "Envoyez-nous un message",
     href: WHATSAPP_LINK,
-    description: "Réponse rapide garantie",
+    description: "Réponse sous 1h en journée",
     external: true,
   },
   {
@@ -35,7 +35,7 @@ const contactMethods = [
     icon: MapPin,
     label: "Zone d'intervention",
     value: "Savoie & Haute-Savoie",
-    description: "Départements 73 et 74, déplacements possibles en région",
+    description: "Départements 73 et 74. Déplacements possibles en région.",
   },
 ];
 
@@ -53,10 +53,10 @@ const ContactSection = () => (
             Contact
           </p>
           <h2 className="mb-4 text-3xl font-bold md:text-5xl text-primary-foreground">
-            Parlons de votre projet.
+            On en discute ?
           </h2>
           <p className="mb-16 text-primary-foreground/75 text-sm max-w-xl">
-            Contactez-nous directement par le moyen qui vous convient. Nous vous répondons rapidement.
+            Appelez, écrivez ou passez par WhatsApp. Sébastien ou son fils vous répond directement.
           </p>
         </AnimatedSection>
         <div className="grid gap-5 sm:grid-cols-2">

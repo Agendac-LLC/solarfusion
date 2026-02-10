@@ -16,7 +16,7 @@ const Hero = () => {
     <section ref={ref} className="relative h-screen w-full overflow-hidden">
       <motion.img
         src={heroImage}
-        alt="Installation panneaux solaires sur maison moderne"
+        alt="Panneaux solaires installés sur toiture en Savoie"
         className="absolute inset-0 w-full h-full object-cover"
         style={{ y: imageY }}
         loading="eager"
@@ -32,7 +32,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
         >
-          Autoconsommation photovoltaïque
+          Savoie & Haute-Savoie
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -40,9 +40,9 @@ const Hero = () => {
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl lg:text-7xl"
         >
-          L'énergie solaire,
+          Produisez votre
           <br />
-          simplement.
+          propre électricité.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
           className="mt-6 max-w-lg text-base text-primary-foreground/75 md:text-lg leading-relaxed font-light"
         >
-          Produisez, stockez et consommez votre propre électricité grâce à nos solutions photovoltaïques et batteries virtuelles ou physiques.
+          15 ans d'installations solaires. 0 accident. Garantie décennale. Père et fils, on pose vos panneaux comme si c'était chez nous.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 20 }}

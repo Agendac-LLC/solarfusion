@@ -26,7 +26,7 @@ const Index = () => (
         <div className="mx-auto max-w-4xl text-center">
           <AnimatedSection>
             <p className="mb-4 text-primary-foreground/70 text-sm">
-              Découvrez combien vous pourriez économiser chaque année.
+              Gratuit, sans engagement, résultat en 2 minutes.
             </p>
             <a
               href="#simulateur"
@@ -45,10 +45,10 @@ const Index = () => (
       <div className="mx-auto max-w-4xl text-center">
         <AnimatedSection>
           <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-            Prêt à passer au solaire ?
+            On en parle ?
           </h2>
           <p className="mb-8 text-muted-foreground text-sm max-w-xl mx-auto">
-            Discutons de votre projet. Notre équipe vous accompagne de l'étude à la mise en service.
+            Appelez-nous ou remplissez le formulaire. On vous rappelle pour discuter de votre toiture.
           </p>
           <a
             href="#contact"

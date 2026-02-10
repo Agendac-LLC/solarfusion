@@ -5,23 +5,23 @@ import chaletBoisImage from "@/assets/install-chalet-bois.png";
 const stats = [
   {
     value: "15 ans",
-    label: "d'expérience",
-    description: "Une expertise solide au service de votre transition énergétique.",
+    label: "d'expérience terrain",
+    description: "Installations en Savoie et Haute-Savoie depuis 2009.",
   },
   {
-    value: "Famille",
+    value: "Père & fils",
     label: "Chaffardon",
-    description: "Entreprise familiale dirigée par Sébastien Chaffardon et son fils.",
+    description: "On pose nous-mêmes. Pas de sous-traitance.",
   },
   {
     value: "0",
-    label: "accident à ce jour",
-    description: "La sécurité est notre priorité absolue sur chaque chantier.",
+    label: "accident",
+    description: "Bilan sécurité parfait sur l'ensemble de nos chantiers.",
   },
   {
     value: "10 ans",
     label: "garantie décennale",
-    description: "Couverture décennale française sur chaque installation réalisée.",
+    description: "Couverture décennale française sur chaque installation.",
   },
 ];
 
@@ -36,10 +36,10 @@ const Reassurance = () => (
       <div className="mx-auto max-w-6xl">
         <AnimatedSection>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
-            Pourquoi nous choisir
+            Pourquoi nous
           </p>
           <h2 className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground">
-            La confiance comme fondation.
+            Les faits, pas les promesses.
           </h2>
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">

@@ -5,17 +5,17 @@ const certs = [
   {
     title: "QualiPV 36K",
     subtitle: "Certification RGE",
-    description: "Garantissant la qualité de nos installations photovoltaïques conformément aux normes en vigueur.",
+    description: "Obligatoire pour bénéficier des aides de l'État. Renouvelée tous les 4 ans après audit.",
   },
   {
     title: "Partenaire Hitachi",
-    subtitle: "Partenariat officiel",
-    description: "Solutions de climatisation et pompes à chaleur de haute performance.",
+    subtitle: "Installateur agréé",
+    description: "Accès direct aux gammes pro Hitachi pour les PAC air-air et air-eau.",
   },
   {
     title: "Garantie Décennale",
-    subtitle: "Couverture française",
-    description: "Tranquillité d'esprit totale avec une couverture décennale sur chaque installation.",
+    subtitle: "Assurance française",
+    description: "Votre installation est couverte 10 ans. En cas de problème, on intervient.",
   },
 ];
 
@@ -27,7 +27,7 @@ const Certifications = () => (
           Certifications
         </p>
         <h2 className="mb-20 text-3xl font-bold md:text-5xl">
-          Certifié. Garanti. Fiable.
+          Certifié, assuré, vérifié.
         </h2>
       </AnimatedSection>
       <div className="grid gap-6 md:grid-cols-3">
@@ -42,19 +42,19 @@ const Certifications = () => (
             </div>
           </AnimatedSection>
         ))}
-        </div>
-        <AnimatedSection delay={0.3}>
-          <div className="mt-16 text-center">
-            <Link
-              to="/simulateur"
-              className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-            >
-              Simuler mes économies
-            </Link>
-          </div>
-        </AnimatedSection>
       </div>
-    </section>
+      <AnimatedSection delay={0.3}>
+        <div className="mt-16 text-center">
+          <Link
+            to="/simulateur"
+            className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+          >
+            Simuler mes économies
+          </Link>
+        </div>
+      </AnimatedSection>
+    </div>
+  </section>
 );
 
 export default Certifications;

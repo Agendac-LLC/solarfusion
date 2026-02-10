@@ -6,17 +6,17 @@ import maisonPierreImage from "@/assets/install-maison-pierre.png";
 const reviews = [
   {
     name: "Marie L.",
-    text: "Travail impeccable, équipe sérieuse et réactive. Installation réalisée en une journée.",
+    text: "Posé en une journée. Propre, carré, rien à redire. On produit plus que prévu.",
     rating: 5,
   },
   {
     name: "Jean-Pierre D.",
-    text: "Très satisfait de l'installation. Production conforme aux estimations. Je recommande.",
+    text: "Production conforme aux estimations. Sébastien et son fils connaissent leur métier.",
     rating: 5,
   },
   {
     name: "Sophie M.",
-    text: "Entreprise familiale très professionnelle. Suivi excellent du début à la fin.",
+    text: "Suivi du début à la fin. On sent l'entreprise familiale sérieuse. Je recommande.",
     rating: 5,
   },
 ];
@@ -31,7 +31,7 @@ const socials = [
 const Reviews = () => (
   <ParallaxBackground
     image={maisonPierreImage}
-    alt="Installation solaire sur maison en pierre avec jardin"
+    alt="Installation solaire sur maison en pierre"
     overlayOpacity={0.6}
     blur={1}
   >
@@ -42,7 +42,7 @@ const Reviews = () => (
             Avis clients
           </p>
           <h2 className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground">
-            Ils nous font confiance.
+            Ce qu'ils en disent.
           </h2>
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-3 mb-20">

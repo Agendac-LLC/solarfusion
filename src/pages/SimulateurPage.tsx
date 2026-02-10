@@ -13,7 +13,7 @@ const SimulateurPage = () => (
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium"
         >
-          Simulateur
+          Simulateur gratuit
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -21,7 +21,7 @@ const SimulateurPage = () => (
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="text-3xl font-bold md:text-5xl mb-4"
         >
-          Estimez vos économies.
+          Vos économies en 2 minutes.
         </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -29,7 +29,7 @@ const SimulateurPage = () => (
           transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
           className="text-muted-foreground text-base max-w-lg mx-auto"
         >
-          Découvrez en quelques clics combien vous pourriez économiser grâce à l'autoconsommation solaire.
+          Entrez votre adresse et votre facture actuelle. Le simulateur calcule vos économies annuelles et votre retour sur investissement.
         </motion.p>
       </div>
     </section>
@@ -47,7 +47,7 @@ const SimulateurPage = () => (
                 Simulateur Reonic
               </p>
               <p className="text-muted-foreground text-sm max-w-md leading-relaxed text-center">
-                L'intégration du simulateur Reonic sera disponible ici. Connectez votre compte Reonic pour activer le calculateur.
+                Le simulateur Reonic sera intégré ici. Il calcule vos économies selon votre toiture et votre consommation réelle.
               </p>
               <a
                 href="https://www.reonic.de"
