@@ -20,6 +20,8 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover"
         style={{ y: imageY }}
         loading="eager"
+        fetchPriority="high"
+        decoding="async"
       />
       <div className="hero-overlay absolute inset-0" />
       <motion.div

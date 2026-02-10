@@ -40,6 +40,7 @@ const ParallaxBackground = ({
           filter: blur ? `blur(${blur}px)` : undefined,
         }}
         loading="lazy"
+        decoding="async"
       />
       {/* Dark overlay for text contrast */}
       <div
