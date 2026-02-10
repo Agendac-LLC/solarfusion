@@ -41,6 +41,7 @@ const Index = () => (
     <Certifications />
     <Simulator variant="b2c" />
     <Reviews />
+    <div className="py-20" />
     <ContactSection />
   </>
 );
