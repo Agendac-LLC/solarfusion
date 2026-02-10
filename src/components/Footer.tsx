@@ -24,8 +24,20 @@ const Footer = () => (
             <Link to="/" className="text-sm text-background/60 hover:text-background transition-colors duration-200">
               Accueil
             </Link>
+            <Link to="/particuliers" className="text-sm text-background/60 hover:text-background transition-colors duration-200">
+              Particuliers
+            </Link>
             <Link to="/b2b" className="text-sm text-background/60 hover:text-background transition-colors duration-200">
               Professionnels
+            </Link>
+            <Link to="/domotique-pac" className="text-sm text-background/60 hover:text-background transition-colors duration-200">
+              Domotique & PAC
+            </Link>
+            <Link to="/notre-expertise" className="text-sm text-background/60 hover:text-background transition-colors duration-200">
+              Notre expertise
+            </Link>
+            <Link to="/simulateur" className="text-sm text-background/60 hover:text-background transition-colors duration-200">
+              Simulateur
             </Link>
             <Link to="/mentions-legales" className="text-sm text-background/60 hover:text-background transition-colors duration-200">
               Mentions légales & RGPD
