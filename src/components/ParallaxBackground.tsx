@@ -51,7 +51,7 @@ const ParallaxBackground = ({
       {/* Top fade from page background */}
       {fadeEdges && (
         <div
-          className="absolute inset-x-0 top-0 h-16 pointer-events-none z-[5]"
+          className="absolute inset-x-0 top-0 h-8 pointer-events-none z-[5]"
           style={{
             background: "linear-gradient(to bottom, hsl(var(--background)) 0%, transparent 100%)",
           }}
@@ -60,7 +60,7 @@ const ParallaxBackground = ({
       {/* Bottom fade to page background */}
       {fadeEdges && (
         <div
-          className="absolute inset-x-0 bottom-0 h-16 pointer-events-none z-[5]"
+          className="absolute inset-x-0 bottom-0 h-8 pointer-events-none z-[5]"
           style={{
             background: "linear-gradient(to top, hsl(var(--background)) 0%, transparent 100%)",
           }}
