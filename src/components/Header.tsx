@@ -58,14 +58,14 @@ const Header = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-5 md:flex">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.to}
                 onClick={() => handleNavClick(link.to)}
-                className={`text-[11px] uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:opacity-100 ${textMuted}`}
+                className={`text-[10px] uppercase tracking-[0.12em] font-medium transition-colors duration-300 hover:opacity-100 ${textMuted}`}
                 style={{ textShadow }}
               >
                 {link.label}
@@ -79,7 +79,7 @@ const Header = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`text-[11px] uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:opacity-100 ${
+                className={`text-[10px] uppercase tracking-[0.12em] font-medium transition-colors duration-300 hover:opacity-100 ${
                   location.pathname === link.to ? textColor : textMuted
                 }`}
                 style={{ textShadow }}
@@ -90,7 +90,7 @@ const Header = () => {
           )}
           <a
             href="tel:+33762111470"
-            className={`flex items-center gap-2 text-xs font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
+            className={`flex items-center gap-2 text-[10px] font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
             style={{ textShadow }}
           >
             <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
@@ -99,7 +99,7 @@ const Header = () => {
         </nav>
 
         {/* Mobile */}
-        <div className="flex items-center gap-4 lg:hidden">
+        <div className="flex items-center gap-4 md:hidden">
           <a
             href="tel:+33762111470"
             aria-label="Appeler"
@@ -125,7 +125,7 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden glass border-t border-border/50 lg:hidden"
+            className="overflow-hidden glass border-t border-border/50 md:hidden"
           >
             <div className="flex flex-col gap-5 px-6 py-8">
               {navLinks.map((link) =>
