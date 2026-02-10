@@ -3,7 +3,7 @@ import { useRef } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import Simulator from "@/components/Simulator";
 import ContactForm from "@/components/ContactForm";
-import heroB2b from "@/assets/hero-b2b.jpg";
+import heroB2b from "@/assets/hero-b2b.png";
 import { TrendingUp, Zap, BarChart3, Building2 } from "lucide-react";
 
 const benefits = [
