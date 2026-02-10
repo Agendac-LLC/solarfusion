@@ -92,14 +92,13 @@ const Particuliers = () => {
           >
             <Link
               to="/simulateur"
-              className="btn-pill bg-primary-foreground px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
+              className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Simuler mon projet
             </Link>
             <a
               href="tel:+33762111470"
-              className="btn-ghost-fill border-primary-foreground/40 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:border-primary-foreground"
-              style={{ borderRadius: "9999px" }}
+              className="btn-glass-hero px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Être rappelé gratuitement
             </a>

@@ -60,29 +60,13 @@ const Hero = () => {
         >
           <a
             href="#simulateur"
-            className="px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              borderRadius: "9999px",
-              backdropFilter: "blur(20px) saturate(180%)",
-              WebkitBackdropFilter: "blur(20px) saturate(180%)",
-              background: "linear-gradient(135deg, hsla(0,0%,100%,0.2) 0%, hsla(0,0%,100%,0.12) 100%)",
-              border: "1px solid hsla(0,0%,100%,0.2)",
-              boxShadow: "0 8px 32px -8px hsla(0,0%,0%,0.3), inset 0 1px 0 hsla(0,0%,100%,0.15)",
-            }}
+            className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Simuler mes économies
           </a>
           <Link
             to="/b2b"
-            className="px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:scale-[1.02]"
-            style={{
-              borderRadius: "9999px",
-              backdropFilter: "blur(20px) saturate(180%)",
-              WebkitBackdropFilter: "blur(20px) saturate(180%)",
-              background: "linear-gradient(135deg, hsla(0,0%,100%,0.2) 0%, hsla(0,0%,100%,0.12) 100%)",
-              border: "1px solid hsla(0,0%,100%,0.2)",
-              boxShadow: "0 8px 32px -8px hsla(0,0%,0%,0.3), inset 0 1px 0 hsla(0,0%,100%,0.15)",
-            }}
+            className="btn-glass-hero px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Espace Professionnels
           </Link>
