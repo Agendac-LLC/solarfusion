@@ -51,8 +51,8 @@ const Services = () => (
         {services.map((service, i) => (
           <AnimatedSection key={service.title} delay={i * 0.12}>
             <motion.div
-              className="flex flex-col bg-background p-10 md:p-12 h-full group cursor-default rounded-2xl"
-              style={{ boxShadow: "var(--shadow-soft)" }}
+              className="flex flex-col glass-card-light p-10 md:p-12 h-full group cursor-default rounded-2xl transition-all duration-300"
+              style={{}}
               whileHover={{ y: -4, boxShadow: "var(--shadow-elevated)" }}
               transition={{ duration: 0.3, ease: "easeOut" }}
             >

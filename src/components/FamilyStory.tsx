@@ -30,7 +30,7 @@ const FamilyStory = () => (
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="p-8 rounded-2xl card-lift"
+                className="p-8 rounded-2xl glass-card-light transition-all duration-300"
               >
                 <p className="text-4xl font-bold tracking-tight md:text-5xl">{stat.value}</p>
                 <p className="mt-2 text-base font-semibold">{stat.label}</p>
