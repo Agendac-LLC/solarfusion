@@ -20,8 +20,8 @@ const AnimatedSection = ({ children, className = "", delay = 0, direction = "up"
     <motion.div
       initial={{ opacity: 0, x: initial.x, y: initial.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.8, delay, ease: "easeOut" }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.5, delay: delay * 0.7, ease: "easeOut" }}
       className={className}
     >
       {children}
@@ -34,8 +34,8 @@ export const AnimatedLine = ({ className = "", delay = 0 }: { className?: string
   <motion.div
     initial={{ scaleX: 0 }}
     whileInView={{ scaleX: 1 }}
-    viewport={{ once: true, margin: "-40px" }}
-    transition={{ duration: 1, delay, ease: "easeOut" }}
+    viewport={{ once: true, margin: "-20px" }}
+    transition={{ duration: 0.6, delay: delay * 0.7, ease: "easeOut" }}
     className={`h-[1px] bg-border origin-left ${className}`}
   />
 );
