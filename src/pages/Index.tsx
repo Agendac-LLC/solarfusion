@@ -7,6 +7,8 @@ import Simulator from "@/components/Simulator";
 import Reviews from "@/components/Reviews";
 import ContactForm from "@/components/ContactForm";
 import AnimatedSection from "@/components/AnimatedSection";
+import ParallaxBackground from "@/components/ParallaxBackground";
+import fermeImage from "@/assets/install-ferme-alpine.png";
 
 const Index = () => (
   <>
@@ -15,21 +17,28 @@ const Index = () => (
     <Reassurance />
     <Services />
     {/* CTA after services */}
-    <section className="section-padding section-alt">
-      <div className="mx-auto max-w-4xl text-center">
-        <AnimatedSection>
-          <p className="mb-4 text-muted-foreground text-sm">
-            Découvrez combien vous pourriez économiser chaque année.
-          </p>
-          <a
-            href="#simulateur"
-            className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
-          >
-            Simuler mes économies
-          </a>
-        </AnimatedSection>
+    <ParallaxBackground
+      image={fermeImage}
+      alt="Installation solaire sur ferme alpine en Savoie"
+      overlayOpacity={0.55}
+      blur={2}
+    >
+      <div className="section-padding">
+        <div className="mx-auto max-w-4xl text-center">
+          <AnimatedSection>
+            <p className="mb-4 text-primary-foreground/70 text-sm">
+              Découvrez combien vous pourriez économiser chaque année.
+            </p>
+            <a
+              href="#simulateur"
+              className="btn-pill bg-primary-foreground text-primary inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+            >
+              Simuler mes économies
+            </a>
+          </AnimatedSection>
+        </div>
       </div>
-    </section>
+    </ParallaxBackground>
     <Certifications />
     <Simulator variant="b2c" />
     <Reviews />
