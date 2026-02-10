@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, FileText } from "lucide-react";
 
 const Footer = () => (
-  <footer className="bg-foreground text-background" style={{ borderRadius: "24px 24px 0 0" }}>
+  <footer className="bg-foreground text-background">
     <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
       <div className="grid gap-12 md:grid-cols-3">
         {/* Company */}
