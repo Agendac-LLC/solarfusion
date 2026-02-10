@@ -26,7 +26,7 @@ const ParallaxBackground = ({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
 
   return (
     <section ref={ref} className={`relative overflow-hidden ${className}`}>
@@ -34,7 +34,7 @@ const ParallaxBackground = ({
       <motion.img
         src={image}
         alt={alt}
-        className="absolute inset-0 w-full h-[130%] object-cover -top-[15%] pointer-events-none"
+        className="absolute inset-0 w-full h-[150%] object-cover -top-[25%] pointer-events-none"
         style={{
           y,
           filter: blur ? `blur(${blur}px)` : undefined,
