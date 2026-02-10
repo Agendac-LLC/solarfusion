@@ -1,9 +1,8 @@
-import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
+import AnimatedSection from "./AnimatedSection";
 
 const FamilyStory = () => (
   <section className="section-padding">
     <div className="mx-auto max-w-6xl">
-      <AnimatedLine className="mb-20" />
       <div className="grid gap-20 md:grid-cols-2 items-start">
         <AnimatedSection direction="left">
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
@@ -31,14 +30,14 @@ const FamilyStory = () => (
             ].map((stat) => (
               <div
                 key={stat.label}
-                className="border border-border p-8 card-lift"
+                className="p-8 rounded-2xl card-lift"
               >
                 <p className="text-4xl font-bold tracking-tight md:text-5xl">{stat.value}</p>
                 <p className="mt-2 text-base font-semibold">{stat.label}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{stat.sub}</p>
               </div>
             ))}
-            <div className="border border-foreground bg-foreground p-6 text-center">
+            <div className="bg-foreground p-6 text-center rounded-2xl" style={{ boxShadow: "var(--shadow-card)" }}>
               <p className="text-xs uppercase tracking-[0.3em] text-background/60 font-medium">
                 Couverture complète
               </p>

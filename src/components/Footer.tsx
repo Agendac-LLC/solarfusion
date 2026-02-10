@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, FileText } from "lucide-react";
 
 const Footer = () => (
-  <footer className="border-t border-border bg-foreground text-background">
+  <footer className="bg-foreground text-background" style={{ borderRadius: "24px 24px 0 0" }}>
     <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
       <div className="grid gap-12 md:grid-cols-3">
         {/* Company */}
@@ -63,7 +63,8 @@ const Footer = () => (
         </p>
         <a
           href="mailto:sebastien@solarfusion.fr?subject=Demande%20de%20devis%20%C3%A0%20distance"
-          className="inline-flex items-center gap-2 border border-background/30 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-background/70 hover:bg-background hover:text-foreground transition-all duration-200"
+          className="inline-flex items-center gap-2 border border-background/30 px-6 py-3 text-xs font-semibold uppercase tracking-[0.2em] text-background/70 hover:bg-background hover:text-foreground transition-all duration-300"
+          style={{ borderRadius: "9999px" }}
         >
           <FileText className="h-3.5 w-3.5" strokeWidth={1.5} />
           Devis à distance

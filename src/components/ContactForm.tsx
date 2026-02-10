@@ -41,7 +41,7 @@ const ContactForm = () => {
   };
 
   const inputClass =
-    "w-full border border-border bg-transparent px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground transition-colors duration-200";
+    "w-full rounded-xl border border-border bg-transparent px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground focus:ring-2 focus:ring-foreground/5 transition-all duration-300";
 
   return (
     <section id="contact" className="section-padding">
@@ -130,7 +130,7 @@ const ContactForm = () => {
             <button
               type="submit"
               disabled={loading}
-              className="btn-invert w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2"
+              className="btn-pill bg-foreground text-background w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>

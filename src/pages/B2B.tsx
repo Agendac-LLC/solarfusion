@@ -17,7 +17,7 @@ const benefits = [
     icon: Zap,
     title: "Réduction des charges",
     description: "Réduisez vos factures d'énergie jusqu'à 70% grâce à l'autoconsommation.",
-    metric: "–70%",
+    metric: "-70%",
   },
   {
     icon: BarChart3,
@@ -56,7 +56,7 @@ const B2B = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
           >
             Espace Professionnels
@@ -64,7 +64,7 @@ const B2B = () => {
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
           >
             Optimisez votre
@@ -74,7 +74,7 @@ const B2B = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
             className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light"
           >
             Des solutions photovoltaïques dimensionnées pour les besoins des entreprises, collectivités et industriels.
@@ -83,8 +83,8 @@ const B2B = () => {
             href="#simulateur"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="btn-brutal mt-10 bg-primary-foreground px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary border border-primary-foreground"
+            transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
+            className="btn-pill mt-10 bg-primary-foreground px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
           >
             Simuler mon projet
           </motion.a>
@@ -105,7 +105,7 @@ const B2B = () => {
           <div className="grid gap-6 md:grid-cols-2">
             {benefits.map((b, i) => (
               <AnimatedSection key={b.title} delay={i * 0.1}>
-                <div className="flex gap-6 border border-border p-8 card-lift">
+                <div className="flex gap-6 p-8 rounded-2xl card-lift">
                   <div className="shrink-0">
                     <p className="text-2xl font-bold tracking-tight">{b.metric}</p>
                     <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
@@ -132,7 +132,7 @@ const B2B = () => {
             </p>
             <a
               href="#contact"
-              className="btn-invert inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+              className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Demander une étude personnalisée
             </a>

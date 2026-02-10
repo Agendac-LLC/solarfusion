@@ -9,9 +9,9 @@ interface AnimatedSectionProps {
 }
 
 const directionMap = {
-  up: { x: 0, y: 50 },
-  left: { x: -50, y: 0 },
-  right: { x: 50, y: 0 },
+  up: { x: 0, y: 40 },
+  left: { x: -40, y: 0 },
+  right: { x: 40, y: 0 },
 };
 
 const AnimatedSection = ({ children, className = "", delay = 0, direction = "up" }: AnimatedSectionProps) => {
@@ -21,7 +21,7 @@ const AnimatedSection = ({ children, className = "", delay = 0, direction = "up"
       initial={{ opacity: 0, x: initial.x, y: initial.y }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
       viewport={{ once: true, margin: "-80px" }}
-      transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ duration: 0.8, delay, ease: "easeOut" }}
       className={className}
     >
       {children}
@@ -35,7 +35,7 @@ export const AnimatedLine = ({ className = "", delay = 0 }: { className?: string
     initial={{ scaleX: 0 }}
     whileInView={{ scaleX: 1 }}
     viewport={{ once: true, margin: "-40px" }}
-    transition={{ duration: 1.2, delay, ease: [0.16, 1, 0.3, 1] }}
+    transition={{ duration: 1, delay, ease: "easeOut" }}
     className={`h-[1px] bg-border origin-left ${className}`}
   />
 );

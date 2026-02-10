@@ -6,7 +6,7 @@ interface SimulatorProps {
 }
 
 const Simulator = ({ variant = "b2c" }: SimulatorProps) => (
-  <section id="simulateur" className="section-padding section-alt">
+  <section id="simulateur" className="section-padding">
     <div className="mx-auto max-w-4xl text-center">
       <AnimatedSection>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
@@ -24,9 +24,9 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => (
         </p>
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
-        <div className="border border-border bg-background p-12 md:p-16">
+        <div className="section-alt rounded-3xl p-12 md:p-16" style={{ boxShadow: "var(--shadow-soft)" }}>
           <div className="flex flex-col items-center justify-center space-y-5">
-            <div className="h-14 w-14 border border-border flex items-center justify-center">
+            <div className="h-14 w-14 rounded-2xl bg-background flex items-center justify-center" style={{ boxShadow: "var(--shadow-soft)" }}>
               <Sun className="h-6 w-6 text-muted-foreground" strokeWidth={1.2} />
             </div>
             <p className="text-muted-foreground text-xs uppercase tracking-[0.3em] font-medium">
@@ -39,7 +39,7 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => (
               href="https://www.reonic.de"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ghost-fill mt-4 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em]"
+              className="btn-pill bg-foreground text-background mt-4 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               En savoir plus
             </a>

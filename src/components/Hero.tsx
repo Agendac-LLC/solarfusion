@@ -29,7 +29,7 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
         >
           Autoconsommation photovoltaïque
@@ -37,7 +37,7 @@ const Hero = () => {
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl lg:text-7xl"
         >
           L'énergie solaire,
@@ -47,7 +47,7 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
           className="mt-6 max-w-lg text-base text-primary-foreground/75 md:text-lg leading-relaxed font-light"
         >
           Produisez, stockez et consommez votre propre électricité grâce à nos solutions photovoltaïques et batteries virtuelles ou physiques.
@@ -55,18 +55,19 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
           className="mt-10 flex flex-col gap-4 sm:flex-row"
         >
           <a
             href="#simulateur"
-            className="btn-brutal bg-primary-foreground px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary border border-primary-foreground"
+            className="btn-pill bg-primary-foreground px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
           >
             Simuler mes économies
           </a>
           <Link
             to="/b2b"
             className="btn-ghost-fill border-primary-foreground/40 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:border-primary-foreground"
+            style={{ borderRadius: "9999px" }}
           >
             Espace Professionnels
           </Link>

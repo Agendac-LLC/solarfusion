@@ -34,7 +34,7 @@
     --input: 0 0% 91%;
     --ring: 0 0% 4%;
 
-    --radius: 0px;
+    --radius: 16px;
     --border-fine: 0 0% 15%;
 
     --sidebar-background: 0 0% 98%;
@@ -48,9 +48,14 @@
 
     /* Custom tokens */
     --hero-overlay: 0 0% 0% / 0.55;
-    --section-alt: 0 0% 98%;
+    --section-alt: 0 0% 97%;
     --section-alt-deep: 0 0% 95%;
     --text-subtle: 0 0% 50%;
+
+    /* Soft shadows */
+    --shadow-soft: 0 4px 24px -4px hsl(0 0% 0% / 0.08);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.1);
+    --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.12);
   }
 }
 
@@ -78,7 +83,7 @@
 
 @layer utilities {
   .section-padding {
-    @apply px-6 py-24 md:px-12 lg:px-24 lg:py-32;
+    @apply px-6 py-28 md:px-12 lg:px-24 lg:py-36;
   }
 
   .section-alt {
@@ -96,10 +101,10 @@
   .hero-overlay {
     background: linear-gradient(
       to bottom,
-      hsla(0 0% 0% / 0.6) 0%,
-      hsla(0 0% 0% / 0.25) 40%,
-      hsla(0 0% 0% / 0.4) 70%,
-      hsla(0 0% 0% / 0.7) 100%
+      hsla(0 0% 0% / 0.5) 0%,
+      hsla(0 0% 0% / 0.2) 40%,
+      hsla(0 0% 0% / 0.35) 70%,
+      hsla(0 0% 0% / 0.65) 100%
     );
   }
 
@@ -107,55 +112,65 @@
     @apply opacity-0 translate-y-8;
   }
 
-  /* Brutalist button — offset shadow on hover */
-  .btn-brutal {
-    @apply relative transition-all duration-200 ease-out;
+  /* Soft-premium button - scale + shadow on hover */
+  .btn-soft {
+    @apply relative transition-all duration-300 ease-out rounded-2xl;
   }
-  .btn-brutal:hover {
-    box-shadow: 4px 4px 0 0 hsl(var(--foreground));
-    transform: translate(-2px, -2px);
+  .btn-soft:hover {
+    box-shadow: var(--shadow-card);
+    transform: scale(1.02);
   }
-  .btn-brutal:active {
-    box-shadow: 1px 1px 0 0 hsl(var(--foreground));
-    transform: translate(0, 0);
+  .btn-soft:active {
+    transform: scale(0.98);
   }
 
-  /* Ghost button — transparent, fills on hover */
+  /* Pill button for main CTAs */
+  .btn-pill {
+    @apply relative transition-all duration-300 ease-out;
+    border-radius: 9999px;
+  }
+  .btn-pill:hover {
+    box-shadow: var(--shadow-elevated);
+    transform: scale(1.02);
+  }
+  .btn-pill:active {
+    transform: scale(0.98);
+  }
+
+  /* Ghost button - transparent, fills on hover */
   .btn-ghost-fill {
-    @apply border border-foreground bg-transparent text-foreground transition-all duration-200 ease-out;
+    @apply border border-foreground bg-transparent text-foreground transition-all duration-300 ease-out rounded-2xl;
   }
   .btn-ghost-fill:hover {
     @apply bg-foreground text-background;
+    transform: scale(1.02);
   }
 
-  /* Invert button — solid, inverts on hover */
+  /* Invert button - solid, inverts on hover */
   .btn-invert {
-    @apply bg-foreground text-background border border-foreground transition-all duration-200 ease-out;
+    @apply bg-foreground text-background border border-foreground transition-all duration-300 ease-out rounded-2xl;
   }
   .btn-invert:hover {
     @apply bg-background text-foreground;
+    transform: scale(1.02);
   }
 
-  /* Keep legacy class for compatibility */
+  /* Keep legacy classes mapped */
+  .btn-brutal {
+    @apply btn-pill;
+  }
   .btn-premium {
-    @apply relative transition-all duration-200 ease-out;
-  }
-  .btn-premium:hover {
-    box-shadow: 4px 4px 0 0 hsl(var(--foreground));
-    transform: translate(-2px, -2px);
-  }
-  .btn-premium:active {
-    box-shadow: 1px 1px 0 0 hsl(var(--foreground));
-    transform: translate(0, 0);
+    @apply btn-soft;
   }
 
-  /* Card hover lift — brutalist offset */
+  /* Card hover lift - soft shadow */
   .card-lift {
     @apply transition-all duration-300 ease-out;
+    box-shadow: var(--shadow-soft);
   }
   .card-lift:hover {
-    box-shadow: 5px 5px 0 0 hsl(var(--foreground) / 0.08);
-    transform: translate(-2px, -2px);
+    box-shadow: var(--shadow-elevated);
+    transform: translateY(-4px);
   }
 
   /* Parallax container */
@@ -163,10 +178,10 @@
     will-change: transform;
   }
 
-  /* Force zero radius globally */
-  *,
-  *::before,
-  *::after {
-    border-radius: 0 !important;
+  /* Glassmorphism */
+  .glass {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: hsl(0 0% 100% / 0.8);
   }
 }

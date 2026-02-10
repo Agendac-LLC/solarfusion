@@ -1,4 +1,4 @@
-import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
+import AnimatedSection from "./AnimatedSection";
 
 const stats = [
   {
@@ -29,11 +29,10 @@ const Reassurance = () => (
           La confiance comme fondation.
         </h2>
       </AnimatedSection>
-      <div className="grid gap-16 md:grid-cols-3">
+      <div className="grid gap-6 md:grid-cols-3">
         {stats.map((stat, i) => (
           <AnimatedSection key={stat.label} delay={i * 0.15}>
-            <div className="group">
-              <AnimatedLine delay={i * 0.15 + 0.2} className="mb-8 w-full" />
+            <div className="bg-background rounded-2xl p-8" style={{ boxShadow: "var(--shadow-soft)" }}>
               <p className="text-4xl font-bold tracking-tight">{stat.value}</p>
               <p className="mt-1 text-base font-semibold">{stat.label}</p>
               <p className="mt-4 text-muted-foreground leading-relaxed text-sm">

@@ -1,4 +1,4 @@
-import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
+import AnimatedSection from "./AnimatedSection";
 import { Star, ArrowUpRight } from "lucide-react";
 
 const reviews = [
@@ -37,11 +37,10 @@ const Reviews = () => (
           Ils nous font confiance.
         </h2>
       </AnimatedSection>
-      <AnimatedLine className="mb-0" />
-      <div className="grid md:grid-cols-3 mb-20">
+      <div className="grid gap-6 md:grid-cols-3 mb-20">
         {reviews.map((review, i) => (
           <AnimatedSection key={review.name} delay={i * 0.1}>
-            <div className="bg-background p-10 h-full flex flex-col border-b border-r border-border">
+            <div className="bg-background p-8 h-full flex flex-col rounded-2xl" style={{ boxShadow: "var(--shadow-soft)" }}>
               <div className="mb-5 flex gap-0.5">
                 {Array.from({ length: review.rating }).map((_, j) => (
                   <Star key={j} className="h-3.5 w-3.5 fill-foreground text-foreground" />
@@ -64,6 +63,7 @@ const Reviews = () => (
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost-fill flex items-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em]"
+              style={{ borderRadius: "9999px" }}
             >
               {s.name}
               <ArrowUpRight className="h-3 w-3" />
