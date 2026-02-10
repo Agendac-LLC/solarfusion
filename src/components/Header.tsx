@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,7 +11,14 @@ const navLinks = [
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleNavClick = (to: string) => {
     setOpen(false);
@@ -24,21 +31,29 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 z-40 w-full border-b border-border/50 bg-background/80 backdrop-blur-md">
+    <header
+      className={`fixed top-0 z-40 w-full transition-all duration-500 ${
+        scrolled
+          ? "border-b border-border/50 bg-background/90 backdrop-blur-xl"
+          : "bg-transparent"
+      }`}
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <Link to="/" className="text-lg font-semibold tracking-tight">
+        <Link to="/" className="text-base font-bold tracking-[0.1em]">
           SOLAR FUSION
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.to}
                 onClick={() => handleNavClick(link.to)}
-                className="text-sm uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
+                className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-foreground ${
+                  scrolled ? "text-muted-foreground" : "text-foreground/60"
+                }`}
               >
                 {link.label}
               </a>
@@ -46,8 +61,12 @@ const Header = () => {
               <Link
                 key={link.label}
                 to={link.to}
-                className={`text-sm uppercase tracking-widest transition-colors hover:text-foreground ${
-                  location.pathname === link.to ? "text-foreground" : "text-muted-foreground"
+                className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:text-foreground ${
+                  location.pathname === link.to
+                    ? "text-foreground"
+                    : scrolled
+                    ? "text-muted-foreground"
+                    : "text-foreground/60"
                 }`}
               >
                 {link.label}
@@ -56,9 +75,9 @@ const Header = () => {
           )}
           <a
             href="tel:+33762111470"
-            className="flex items-center gap-2 text-sm font-medium"
+            className="flex items-center gap-2 text-xs font-semibold tracking-wide"
           >
-            <Phone className="h-4 w-4" />
+            <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
             07 62 11 14 70
           </a>
         </nav>
@@ -66,7 +85,7 @@ const Header = () => {
         {/* Mobile */}
         <div className="flex items-center gap-4 md:hidden">
           <a href="tel:+33762111470" aria-label="Appeler">
-            <Phone className="h-5 w-5" />
+            <Phone className="h-4 w-4" strokeWidth={1.5} />
           </a>
           <button onClick={() => setOpen(!open)} aria-label="Menu">
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
@@ -81,16 +100,17 @@ const Header = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden border-t border-border bg-background md:hidden"
           >
-            <div className="flex flex-col gap-4 px-6 py-6">
+            <div className="flex flex-col gap-5 px-6 py-8">
               {navLinks.map((link) =>
                 link.to.startsWith("/#") ? (
                   <a
                     key={link.label}
                     href={link.to}
                     onClick={() => handleNavClick(link.to)}
-                    className="text-sm uppercase tracking-widest text-muted-foreground"
+                    className="text-xs uppercase tracking-[0.15em] font-medium text-muted-foreground"
                   >
                     {link.label}
                   </a>
@@ -99,7 +119,7 @@ const Header = () => {
                     key={link.label}
                     to={link.to}
                     onClick={() => setOpen(false)}
-                    className="text-sm uppercase tracking-widest text-muted-foreground"
+                    className="text-xs uppercase tracking-[0.15em] font-medium text-muted-foreground"
                   >
                     {link.label}
                   </Link>

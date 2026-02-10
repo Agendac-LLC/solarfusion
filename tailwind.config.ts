@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Space Grotesk", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -79,11 +79,26 @@ export default {
           from: { opacity: "0", transform: "translateY(30px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "slide-up": {
+          from: { opacity: "0", transform: "translateY(60px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "count-up": {
+          from: { opacity: "0", transform: "translateY(10px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.8s ease-out forwards",
+        "fade-in": "fade-in 0.6s ease-out forwards",
+        "slide-up": "slide-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards",
+        "count-up": "count-up 0.5s ease-out forwards",
       },
     },
   },

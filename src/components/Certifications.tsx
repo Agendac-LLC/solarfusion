@@ -1,43 +1,49 @@
 import AnimatedSection from "./AnimatedSection";
-import { Award, Handshake, ShieldCheck } from "lucide-react";
+import { motion } from "framer-motion";
 
 const certs = [
   {
-    icon: Award,
     title: "QualiPV 36K",
-    description: "Certification RGE garantissant la qualité de nos installations photovoltaïques.",
+    subtitle: "Certification RGE",
+    description: "Garantissant la qualité de nos installations photovoltaïques conformément aux normes en vigueur.",
   },
   {
-    icon: Handshake,
     title: "Partenaire Hitachi",
-    description: "Partenariat officiel avec Hitachi pour des solutions de climatisation et pompes à chaleur.",
+    subtitle: "Partenariat officiel",
+    description: "Solutions de climatisation et pompes à chaleur de haute performance.",
   },
   {
-    icon: ShieldCheck,
     title: "Garantie Décennale",
-    description: "Couverture décennale française pour une tranquillité d'esprit totale.",
+    subtitle: "Couverture française",
+    description: "Tranquillité d'esprit totale avec une couverture décennale sur chaque installation.",
   },
 ];
 
 const Certifications = () => (
-  <section className="section-padding">
+  <section className="section-padding section-alt">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
-        <p className="mb-2 text-sm uppercase tracking-[0.3em] text-muted-foreground">
+        <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Certifications
         </p>
-        <h2 className="mb-16 text-3xl font-semibold md:text-5xl">
+        <h2 className="mb-16 text-3xl font-bold md:text-5xl">
           Certifié. Garanti. Fiable.
         </h2>
       </AnimatedSection>
-      <div className="grid gap-12 md:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-3">
         {certs.map((cert, i) => (
-          <AnimatedSection key={cert.title} delay={i * 0.15}>
-            <div className="border border-border p-10 transition-colors hover:bg-secondary/50">
-              <cert.icon className="mb-6 h-10 w-10" strokeWidth={1} />
-              <h3 className="mb-3 text-lg font-semibold">{cert.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">{cert.description}</p>
-            </div>
+          <AnimatedSection key={cert.title} delay={i * 0.12}>
+            <motion.div
+              className="border border-border bg-background p-10 card-lift h-full"
+              whileHover={{ scale: 1.01 }}
+              transition={{ duration: 0.2 }}
+            >
+              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
+                {cert.subtitle}
+              </p>
+              <h3 className="mb-4 text-xl font-bold">{cert.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">{cert.description}</p>
+            </motion.div>
           </AnimatedSection>
         ))}
       </div>
