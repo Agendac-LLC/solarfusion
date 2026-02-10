@@ -35,7 +35,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section className="section-padding">
+  <section className="section-padding section-alt-deep">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
