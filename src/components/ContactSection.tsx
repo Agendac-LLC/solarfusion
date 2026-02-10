@@ -45,6 +45,7 @@ const ContactSection = () => (
     alt="Installation solaire en Savoie"
     overlayOpacity={0.7}
     blur={2}
+    fadeIn
   >
     <div id="contact" className="section-padding">
       <div className="mx-auto max-w-4xl">
