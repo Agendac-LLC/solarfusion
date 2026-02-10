@@ -9,26 +9,26 @@ import { TrendingUp, Zap, BarChart3, Building2 } from "lucide-react";
 const benefits = [
   {
     icon: TrendingUp,
-    title: "Rentabilité rapide",
-    description: "Retour sur investissement en 4 à 7 ans selon la taille de votre installation.",
+    title: "Amorti en 4 à 7 ans",
+    description: "Le retour sur investissement dépend de votre surface de toiture et de votre consommation. On calcule ça avec vous.",
     metric: "4-7 ans",
   },
   {
     icon: Zap,
-    title: "Réduction des charges",
-    description: "Réduisez vos factures d'énergie jusqu'à 70% grâce à l'autoconsommation.",
+    title: "Jusqu'à -70% sur l'énergie",
+    description: "L'autoconsommation réduit votre facture dès le premier mois. Le surplus est revendu à EDF OA.",
     metric: "-70%",
   },
   {
     icon: BarChart3,
-    title: "Valorisation du patrimoine",
-    description: "Augmentez la valeur de vos bâtiments avec une installation photovoltaïque.",
+    title: "Patrimoine valorisé",
+    description: "Un bâtiment équipé en solaire vaut plus à la revente. C'est un actif, pas une dépense.",
     metric: "+15%",
   },
   {
     icon: Building2,
-    title: "Image RSE",
-    description: "Renforcez votre engagement environnemental auprès de vos clients et partenaires.",
+    title: "Engagement RSE concret",
+    description: "Vos panneaux produisent. Vos clients et partenaires le voient. C'est du concret, pas un logo.",
     metric: "RSE",
   },
 ];
@@ -47,7 +47,7 @@ const B2B = () => {
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
         <motion.img
           src={heroB2b}
-          alt="Installation solaire professionnelle"
+          alt="Installation solaire sur bâtiment professionnel"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ y: imageY }}
         />
@@ -59,7 +59,7 @@ const B2B = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
           >
-            Espace Professionnels
+            Professionnels
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
@@ -67,9 +67,9 @@ const B2B = () => {
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
           >
-            Optimisez votre
+            Réduisez vos charges
             <br />
-            performance énergétique.
+            énergétiques.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -78,7 +78,7 @@ const B2B = () => {
             className="mt-6 max-w-lg text-base text-primary-foreground font-normal"
             style={{ textShadow: "0 2px 12px hsla(0,0%,0%,0.7), 0 0 4px hsla(0,0%,0%,0.5)" }}
           >
-            Des solutions photovoltaïques dimensionnées pour les besoins des entreprises, collectivités et industriels.
+            Installations photovoltaïques pour entreprises, collectivités et industriels. Dimensionnement sur mesure, retour sur investissement calculé.
           </motion.p>
           <motion.a
             href="#simulateur"
@@ -87,7 +87,7 @@ const B2B = () => {
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
             className="btn-glass-hero mt-10 px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
           >
-            Simuler mon projet
+            Calculer ma rentabilité
           </motion.a>
         </div>
       </section>
@@ -97,10 +97,10 @@ const B2B = () => {
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-              ROI & Performance
+              Chiffres clés
             </p>
             <h2 className="mb-16 text-3xl font-bold md:text-5xl">
-              Le solaire, un investissement stratégique.
+              Le solaire, un investissement rentable.
             </h2>
           </AnimatedSection>
           <div className="grid gap-6 md:grid-cols-2">
@@ -129,13 +129,13 @@ const B2B = () => {
         <div className="mx-auto max-w-4xl text-center">
           <AnimatedSection>
             <p className="mb-4 text-muted-foreground text-sm">
-              Chaque projet est unique. Obtenez une analyse détaillée de votre potentiel solaire.
+              Chaque bâtiment est différent. On calcule votre potentiel solaire gratuitement.
             </p>
             <a
               href="#contact"
               className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
-              Demander une étude personnalisée
+              Demander une étude gratuite
             </a>
           </AnimatedSection>
         </div>

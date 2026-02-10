@@ -11,33 +11,33 @@ import chaletVillage from "@/assets/install-chalet-village.png";
 const benefits = [
   {
     icon: TrendingDown,
-    title: "Réduisez vos factures",
-    description: "Économisez jusqu'à 70% sur votre facture d'électricité grâce à l'autoconsommation solaire.",
+    title: "Jusqu'à -70% sur la facture",
+    description: "Vous consommez ce que vous produisez. Le surplus est revendu ou stocké. Résultat visible dès le premier mois.",
     metric: "-70%",
   },
   {
     icon: Sun,
-    title: "Énergie propre",
-    description: "Produisez votre propre électricité verte directement depuis votre toiture.",
+    title: "Votre propre électricité",
+    description: "Vos panneaux produisent en journée. Avec une batterie, vous consommez aussi le soir.",
     metric: "100%",
   },
   {
     icon: Battery,
-    title: "Stockage intelligent",
-    description: "Batterie virtuelle ou physique pour consommer votre énergie même la nuit.",
+    title: "Stockage jour et nuit",
+    description: "Batterie physique ou virtuelle selon votre usage. On dimensionne ce qui a du sens pour vous.",
     metric: "24/7",
   },
   {
     icon: Shield,
-    title: "Installation garantie",
-    description: "Couverture décennale française et certification QualiPV pour votre tranquillité.",
+    title: "Garantie décennale",
+    description: "Couverture 10 ans sur l'installation. Certification QualiPV 36K. 0 accident en 15 ans.",
     metric: "10 ans",
   },
 ];
 
 const testimonials = [
-  { name: "Marie L.", text: "Travail impeccable, équipe sérieuse et réactive. Installation réalisée en une journée.", rating: 5 },
-  { name: "Jean-Pierre D.", text: "Très satisfait de l'installation. Production conforme aux estimations. Je recommande.", rating: 5 },
+  { name: "Marie L.", text: "Posé en une journée. Propre, carré. On produit plus que prévu.", rating: 5 },
+  { name: "Jean-Pierre D.", text: "Production conforme aux estimations. Sébastien connaît son métier.", rating: 5 },
 ];
 
 const Particuliers = () => {
@@ -64,7 +64,7 @@ const Particuliers = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
           >
-            Solutions Particuliers
+            Particuliers
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
@@ -72,9 +72,9 @@ const Particuliers = () => {
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
           >
-            Votre maison produit
+            Votre toit produit,
             <br />
-            son énergie.
+            vous économisez.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -82,7 +82,7 @@ const Particuliers = () => {
             transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
             className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed"
           >
-            Passez à l'autoconsommation solaire en Savoie et Haute-Savoie. Réduisez vos factures et gagnez en indépendance énergétique.
+            Installation solaire en Savoie et Haute-Savoie. On dimensionne, on pose, on garantit. Père et fils depuis 15 ans.
           </motion.p>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -111,13 +111,13 @@ const Particuliers = () => {
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-              Vos avantages
+              Concrètement
             </p>
             <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-              L'autoconsommation, concrètement.
+              Ce que le solaire change chez vous.
             </h2>
             <p className="mb-16 text-muted-foreground text-base max-w-xl">
-              Des bénéfices immédiats et durables pour votre foyer.
+              Des résultats mesurables, pas des promesses.
             </p>
           </AnimatedSection>
           <div className="grid gap-6 md:grid-cols-2">
@@ -150,31 +150,31 @@ const Particuliers = () => {
           <div className="mx-auto max-w-4xl text-center">
             <AnimatedSection>
               <h2 className="text-3xl font-bold md:text-5xl text-primary-foreground mb-6">
-                Combien pourriez-vous économiser ?
+                Combien économiseriez-vous ?
               </h2>
               <p className="mb-10 text-primary-foreground/70 text-base max-w-lg mx-auto">
-                Notre simulateur calcule vos économies en fonction de votre consommation et de votre toiture.
+                Entrez votre adresse et votre facture. Résultat en 2 minutes.
               </p>
               <Link
                 to="/simulateur"
                 className="btn-pill bg-primary-foreground text-primary inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
               >
-                Simuler mes économies
+                Lancer le simulateur
               </Link>
             </AnimatedSection>
           </div>
         </div>
       </ParallaxBackground>
 
-      {/* Trust - Avis clients */}
+      {/* Trust */}
       <section className="section-padding">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-              Confiance
+              Retours clients
             </p>
             <h2 className="mb-16 text-3xl font-bold md:text-5xl">
-              Nos clients témoignent.
+              Ils l'ont fait.
             </h2>
           </AnimatedSection>
           <div className="grid gap-6 md:grid-cols-2 mb-12">
@@ -201,7 +201,7 @@ const Particuliers = () => {
                 <p className="text-xs font-semibold uppercase tracking-wider">Garantie Décennale</p>
               </div>
               <div className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
-                <p className="text-xs font-semibold uppercase tracking-wider">0 accident à ce jour</p>
+                <p className="text-xs font-semibold uppercase tracking-wider">0 accident en 15 ans</p>
               </div>
             </div>
           </AnimatedSection>

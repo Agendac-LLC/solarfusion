@@ -3,32 +3,32 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import ContactSection from "@/components/ContactSection";
-import { Thermometer, Wifi, Zap, BarChart3, Shield, Star } from "lucide-react";
+import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/install-maison-moderne.png";
 
 const services = [
   {
     icon: Thermometer,
-    title: "Pompes à Chaleur",
-    description: "Installation de pompes à chaleur air-air et air-eau pour le chauffage et la climatisation de votre habitat.",
-    detail: "Solutions haute efficacité avec nos partenaires Hitachi.",
+    title: "Pompes à chaleur Hitachi",
+    description: "Air-air et air-eau. On installe, on règle, on garantit. Chauffage et clim en un seul appareil.",
+    detail: "Installateur agréé Hitachi.",
   },
   {
     icon: Wifi,
     title: "Domotique énergétique",
-    description: "Pilotez votre consommation à distance. Programmation intelligente du chauffage, de la ventilation et des appareils.",
-    detail: "Compatible avec tous les systèmes de gestion énergétique.",
+    description: "Pilotez chauffage et appareils depuis votre téléphone. Vous voyez ce que vous consommez, en temps réel.",
+    detail: "Programmation sur mesure.",
   },
   {
     icon: Zap,
-    title: "Optimisation autoconsommation",
-    description: "Coupler vos panneaux solaires avec une PAC et la domotique pour maximiser votre indépendance énergétique.",
-    detail: "Jusqu'à 90% d'autoconsommation optimisée.",
+    title: "Couplage solaire + PAC",
+    description: "Vos panneaux alimentent votre pompe à chaleur. Résultat : chauffage quasi gratuit en mi-saison.",
+    detail: "Jusqu'à 90% d'autoconsommation.",
   },
   {
     icon: BarChart3,
     title: "Suivi en temps réel",
-    description: "Visualisez votre production et consommation depuis votre smartphone. Alertes et rapports automatiques.",
+    description: "Production, consommation, économies - tout sur votre smartphone. Alertes si quelque chose ne va pas.",
     detail: "Tableaux de bord personnalisés.",
   },
 ];
@@ -44,7 +44,7 @@ const DomotiquePAC = () => {
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
         <motion.img
           src={heroImage}
-          alt="Maison moderne avec installation solaire et domotique"
+          alt="Maison moderne avec domotique et solaire"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ y: imageY }}
           loading="eager"
@@ -57,7 +57,7 @@ const DomotiquePAC = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
           >
-            Domotique & Pompes à Chaleur
+            Domotique & PAC
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
@@ -65,9 +65,9 @@ const DomotiquePAC = () => {
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
           >
-            Le confort intelligent,
+            Chauffez malin,
             <br />
-            l'énergie optimisée.
+            consommez moins.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -75,7 +75,7 @@ const DomotiquePAC = () => {
             transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
             className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed"
           >
-            Pompes à chaleur et gestion intelligente pour maximiser votre autoconsommation solaire.
+            PAC Hitachi + domotique + solaire. Le trio qui réduit vos factures de chauffage sans compromis sur le confort.
           </motion.p>
           <motion.a
             href="tel:+33762111470"
@@ -97,10 +97,10 @@ const DomotiquePAC = () => {
               Nos solutions
             </p>
             <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-              Chauffage et gestion de l'énergie.
+              Chauffage, clim, pilotage.
             </h2>
             <p className="mb-16 text-muted-foreground text-base max-w-xl">
-              Des solutions complémentaires au solaire pour optimiser chaque kilowattheure produit.
+              Chaque solution se couple au solaire pour maximiser vos économies.
             </p>
           </AnimatedSection>
           <div className="grid gap-6 md:grid-cols-2">
@@ -134,10 +134,10 @@ const DomotiquePAC = () => {
               </div>
             </div>
             <h2 className="text-3xl font-bold md:text-5xl mb-6">
-              Prêt à optimiser votre confort ?
+              On étudie votre projet ?
             </h2>
             <p className="mb-10 text-muted-foreground text-sm max-w-lg mx-auto">
-              Chaque projet est unique. Contactez-nous pour une étude personnalisée de vos besoins en chauffage et domotique.
+              Chaque maison est différente. On vient chez vous, on mesure, on propose.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row justify-center">
               <Link

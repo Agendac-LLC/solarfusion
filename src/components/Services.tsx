@@ -6,31 +6,31 @@ import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
 const services = [
   {
     icon: Sun,
-    title: "Panneaux Solaires",
+    title: "Panneaux solaires",
     description:
-      "Installation sur-mesure de panneaux photovoltaïques pour l'autoconsommation résidentielle et professionnelle.",
-    detail: "Dimensionnement optimisé selon votre consommation réelle.",
+      "On dimensionne votre installation selon votre consommation réelle, pas selon un catalogue. Pose en toiture ou au sol.",
+    detail: "Autoconsommation avec revente du surplus.",
   },
   {
     icon: Battery,
-    title: "Batterie Virtuelle & Physique",
+    title: "Stockage d'énergie",
     description:
-      "Stockez votre surplus de production pour le consommer quand vous en avez besoin, de jour comme de nuit.",
-    detail: "Solution de stockage intelligente avec suivi en temps réel.",
+      "Batterie physique ou virtuelle pour utiliser votre production le soir et les jours gris. Vous consommez ce que vous produisez.",
+    detail: "Jusqu'à 70% d'économie sur la facture.",
   },
   {
     icon: Wifi,
     title: "Domotique",
     description:
-      "Solutions intelligentes pour piloter et optimiser votre consommation énergétique à distance.",
-    detail: "Compatible avec tous les systèmes de gestion énergétique.",
+      "Pilotage à distance de votre chauffage et de vos appareils. Vous voyez ce que vous consommez, en temps réel.",
+    detail: "Pilotage depuis votre smartphone.",
   },
   {
     icon: Thermometer,
-    title: "Pompes à Chaleur",
+    title: "Pompes à chaleur",
     description:
-      "Installation de pompes à chaleur performantes, réalisée par nos partenaires certifiés.",
-    detail: "Solutions de chauffage et climatisation haute efficacité.",
+      "PAC air-air et air-eau Hitachi. Chauffage et climatisation haute performance, couplés au solaire pour maximiser vos économies.",
+    detail: "Partenaire installateur Hitachi.",
   },
 ];
 
@@ -39,13 +39,13 @@ const Services = () => (
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-          Nos solutions
+          Ce qu'on fait
         </p>
         <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-          Des solutions de pointe.
+          Quatre métiers, une équipe.
         </h2>
         <p className="mb-20 text-muted-foreground text-base max-w-xl">
-          De l'installation photovoltaïque au stockage intelligent, nous couvrons l'ensemble de votre transition énergétique.
+          Du panneau solaire à la domotique, on couvre toute la chaîne pour que votre maison produise, stocke et consomme intelligemment.
         </p>
       </AnimatedSection>
       <div className="grid gap-6 md:grid-cols-2">
@@ -68,31 +68,31 @@ const Services = () => (
             </motion.div>
           </AnimatedSection>
         ))}
-        </div>
-        <AnimatedSection delay={0.3}>
-          <div className="mt-16 text-center">
-            <p className="mb-6 text-muted-foreground text-sm">
-              Simulez votre projet en moins de 2 minutes et obtenez une étude personnalisée.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row justify-center">
-              <Link
-                to="/simulateur"
-                className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-              >
-                Simuler mon projet
-              </Link>
-              <a
-                href="tel:+33762111470"
-                className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-                style={{ borderRadius: "9999px" }}
-              >
-                Être rappelé gratuitement
-              </a>
-            </div>
-          </div>
-        </AnimatedSection>
       </div>
-    </section>
+      <AnimatedSection delay={0.3}>
+        <div className="mt-16 text-center">
+          <p className="mb-6 text-muted-foreground text-sm">
+            Résultat en moins de 2 minutes. Gratuit, sans engagement.
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row justify-center">
+            <Link
+              to="/simulateur"
+              className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            >
+              Simuler mon projet
+            </Link>
+            <a
+              href="tel:+33762111470"
+              className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+              style={{ borderRadius: "9999px" }}
+            >
+              Être rappelé gratuitement
+            </a>
+          </div>
+        </div>
+      </AnimatedSection>
+    </div>
+  </section>
 );
 
 export default Services;

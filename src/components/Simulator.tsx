@@ -10,17 +10,17 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => (
     <div className="mx-auto max-w-4xl text-center">
       <AnimatedSection>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-          {variant === "b2c" ? "Simulateur" : "Simulateur B2B"}
+          {variant === "b2c" ? "Simulateur gratuit" : "Simulateur pro"}
         </p>
         <h2 className="mb-6 text-3xl font-bold md:text-5xl">
           {variant === "b2c"
-            ? "Estimez vos économies."
-            : "Calculez votre rentabilité."}
+            ? "Vos économies en 2 minutes."
+            : "Votre rentabilité en 2 minutes."}
         </h2>
         <p className="mb-12 text-muted-foreground text-base max-w-2xl mx-auto">
           {variant === "b2c"
-            ? "Découvrez en quelques clics combien vous pourriez économiser grâce à l'autoconsommation solaire."
-            : "Simulez le retour sur investissement d'une installation photovoltaïque pour votre entreprise."}
+            ? "Entrez votre adresse et votre facture actuelle. Le simulateur calcule vos économies annuelles et le retour sur investissement."
+            : "Surface de toiture, consommation actuelle, tarif d'achat - le simulateur calcule votre ROI et le temps d'amortissement."}
         </p>
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
@@ -33,7 +33,7 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => (
               Simulateur Reonic
             </p>
             <p className="text-muted-foreground text-sm max-w-md leading-relaxed">
-              L'intégration du simulateur Reonic sera disponible ici. Connectez votre compte Reonic pour activer le calculateur.
+              Le simulateur Reonic sera intégré ici. Il calcule vos économies selon votre toiture et votre consommation réelle.
             </p>
             <a
               href="https://www.reonic.de"

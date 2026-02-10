@@ -11,7 +11,7 @@ const Footer = () => (
             SOLAR FUSION
           </Link>
           <p className="mt-4 text-sm leading-relaxed text-background/50 font-light">
-            Expert en autoconsommation photovoltaïque depuis 15 ans. Entreprise familiale basée à Chambéry.
+            Installateurs solaires père et fils depuis 2009. Basés à Chambéry, on intervient en Savoie et Haute-Savoie.
           </p>
         </div>
 
@@ -40,7 +40,7 @@ const Footer = () => (
               Simulateur
             </Link>
             <Link to="/mentions-legales" className="text-sm text-background/60 hover:text-background transition-colors duration-200">
-              Mentions légales & RGPD
+              Mentions légales
             </Link>
           </nav>
         </div>
@@ -52,7 +52,7 @@ const Footer = () => (
           </h4>
           <div className="flex flex-col gap-3">
             <a href="tel:+33762111470" className="flex items-center gap-2 text-sm text-background/60 hover:text-background transition-colors duration-200">
-              <Phone className="h-3.5 w-3.5" strokeWidth={1.5} /> +33 7 62 11 14 70
+              <Phone className="h-3.5 w-3.5" strokeWidth={1.5} /> 07 62 11 14 70
             </a>
             <a href="mailto:sebastien@solarfusion.fr" className="flex items-center gap-2 text-sm text-background/60 hover:text-background transition-colors duration-200">
               <Mail className="h-3.5 w-3.5" strokeWidth={1.5} /> sebastien@solarfusion.fr
@@ -62,16 +62,16 @@ const Footer = () => (
               Chambéry, Savoie (73)
             </p>
             <p className="text-xs text-background/35 mt-1">
-              Zone d'intervention : départements 73 et 74, déplacements possibles dans toute la région.
+              Intervention en Savoie (73) et Haute-Savoie (74).
             </p>
           </div>
         </div>
       </div>
 
-      {/* Devis à distance CTA */}
+      {/* Devis à distance */}
       <div className="mt-12 border-t border-background/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
         <p className="text-sm text-background/50">
-          Vous êtes hors Savoie / Haute-Savoie ?
+          Hors Savoie / Haute-Savoie ?
         </p>
         <a
           href="mailto:sebastien@solarfusion.fr?subject=Demande%20de%20devis%20%C3%A0%20distance"

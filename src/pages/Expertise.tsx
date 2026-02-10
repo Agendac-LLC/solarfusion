@@ -4,15 +4,15 @@ import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
-import { Shield, Star } from "lucide-react";
+import { Shield } from "lucide-react";
 import fermeImage from "@/assets/install-ferme-alpine.png";
 import champImage from "@/assets/install-champ-solaire.png";
 
 const milestones = [
-  { year: "2009", title: "Création", description: "Sébastien Chaffardon fonde Solar Fusion avec une vision claire : rendre l'énergie solaire accessible en Savoie." },
-  { year: "2015", title: "Certification", description: "Obtention de la certification QualiPV 36K, gage de qualité et de conformité aux normes les plus exigeantes." },
-  { year: "2020", title: "Nouvelle génération", description: "Le fils de Sébastien rejoint l'entreprise, apportant un regard neuf et perpétuant le savoir-faire familial." },
-  { year: "2024", title: "15 ans d'excellence", description: "Plus de 15 ans d'expérience, zéro accident, et une réputation bâtie sur la confiance et la rigueur." },
+  { year: "2009", title: "Création", description: "Sébastien Chaffardon crée Solar Fusion à Chambéry. Premiers chantiers en Savoie." },
+  { year: "2015", title: "QualiPV 36K", description: "Certification RGE obtenue. Condition obligatoire pour que nos clients touchent les aides de l'État." },
+  { year: "2020", title: "Père et fils", description: "Le fils de Sébastien rejoint l'entreprise. Deux générations sur les toits." },
+  { year: "2024", title: "15 ans, 0 accident", description: "15 ans de chantiers, aucun accident. Garantie décennale sur chaque installation." },
 ];
 
 const Expertise = () => {
@@ -26,7 +26,7 @@ const Expertise = () => {
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
         <motion.img
           src={fermeImage}
-          alt="Ferme alpine avec installation solaire en Savoie"
+          alt="Ferme alpine avec panneaux solaires en Savoie"
           className="absolute inset-0 w-full h-full object-cover"
           style={{ y: imageY }}
           loading="eager"
@@ -39,7 +39,7 @@ const Expertise = () => {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
           >
-            Notre expertise
+            Notre histoire
           </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
@@ -47,9 +47,9 @@ const Expertise = () => {
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
             className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
           >
-            15 ans de passion,
+            15 ans sur les toits,
             <br />
-            deux générations.
+            père et fils.
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -57,7 +57,7 @@ const Expertise = () => {
             transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
             className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed"
           >
-            L'histoire d'une entreprise familiale qui place la rigueur, la sécurité et la confiance au coeur de chaque installation.
+            Installateurs solaires en Savoie depuis 2009. Zéro accident, zéro sous-traitance. On pose comme si c'était chez nous.
           </motion.p>
         </div>
       </section>
@@ -67,37 +67,37 @@ const Expertise = () => {
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-              L'esprit de famille
+              Qui sommes-nous
             </p>
             <h2 className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]">
-              Un savoir-faire transmis.
+              Pas de discours, des faits.
             </h2>
           </AnimatedSection>
           <div className="grid gap-8 md:grid-cols-2 mt-12">
             <AnimatedSection direction="left">
               <div className="space-y-5 text-muted-foreground leading-relaxed">
                 <p>
-                  Depuis <strong className="text-foreground font-semibold">2009</strong>, Sébastien Chaffardon bâtit Solar Fusion avec une conviction : chaque installation mérite le même soin que si elle était destinée à sa propre maison.
+                  Sébastien Chaffardon a fondé Solar Fusion en <strong className="text-foreground font-semibold">2009</strong> à Chambéry. Son fils l'a rejoint en 2020. À deux, ils gèrent chaque projet de A à Z : étude, dimensionnement, pose, mise en service.
                 </p>
                 <p>
-                  Cette philosophie, transmise aujourd'hui à son fils, fait de Solar Fusion bien plus qu'un installateur. C'est un partenaire de confiance qui accompagne les familles et les entreprises de Savoie et Haute-Savoie dans leur transition énergétique.
+                  Pas de commercial, pas de sous-traitant. Quand vous appelez, c'est Sébastien qui décroche. Quand on monte sur votre toit, c'est nous.
                 </p>
                 <p>
-                  Notre bilan parle de lui-même : <strong className="text-foreground font-semibold">zéro accident</strong> sur l'ensemble de nos chantiers, une certification QualiPV 36K et une garantie décennale française sur chaque installation.
+                  Résultat : <strong className="text-foreground font-semibold">0 accident</strong> en 15 ans. Une certification QualiPV 36K. Une garantie décennale française sur chaque installation.
                 </p>
               </div>
             </AnimatedSection>
             <AnimatedSection direction="right" delay={0.2}>
               <div className="space-y-6">
                 <div className="glass-card-light p-8 rounded-2xl transition-all duration-300">
-                  <p className="text-4xl font-bold tracking-tight md:text-5xl">15+</p>
-                  <p className="mt-2 text-base font-semibold">Années d'expertise</p>
-                  <p className="mt-1 text-sm text-muted-foreground">en autoconsommation solaire</p>
+                  <p className="text-4xl font-bold tracking-tight md:text-5xl">15</p>
+                  <p className="mt-2 text-base font-semibold">ans d'expérience</p>
+                  <p className="mt-1 text-sm text-muted-foreground">en Savoie et Haute-Savoie</p>
                 </div>
                 <div className="glass-card-light p-8 rounded-2xl transition-all duration-300">
                   <p className="text-4xl font-bold tracking-tight md:text-5xl">0</p>
-                  <p className="mt-2 text-base font-semibold">Accident à ce jour</p>
-                  <p className="mt-1 text-sm text-muted-foreground">la sécurité avant tout</p>
+                  <p className="mt-2 text-base font-semibold">accident</p>
+                  <p className="mt-1 text-sm text-muted-foreground">sur l'ensemble de nos chantiers</p>
                 </div>
               </div>
             </AnimatedSection>
@@ -116,10 +116,10 @@ const Expertise = () => {
           <div className="mx-auto max-w-4xl">
             <AnimatedSection>
               <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
-                Notre parcours
+                Chronologie
               </p>
               <h2 className="mb-16 text-3xl font-bold md:text-5xl text-primary-foreground">
-                Les étapes clés.
+                Les dates clés.
               </h2>
             </AnimatedSection>
             <div className="space-y-6">
@@ -139,7 +139,7 @@ const Expertise = () => {
         </div>
       </ParallaxBackground>
 
-      {/* Certifications & CTA */}
+      {/* CTA */}
       <section className="section-padding">
         <div className="mx-auto max-w-4xl text-center">
           <AnimatedSection>
@@ -157,10 +157,10 @@ const Expertise = () => {
               </div>
             </div>
             <h2 className="text-3xl font-bold md:text-5xl mb-6">
-              Prêt à nous faire confiance ?
+              Votre projet, notre métier.
             </h2>
             <p className="mb-10 text-muted-foreground text-sm max-w-lg mx-auto">
-              Découvrez combien vous pourriez économiser avec une installation dimensionnée pour vos besoins.
+              On vient chez vous, on regarde votre toit, on vous dit ce qui est faisable. Gratuit, sans engagement.
             </p>
             <Link
               to="/simulateur"
