@@ -1,5 +1,7 @@
 import AnimatedSection from "./AnimatedSection";
+import ParallaxBackground from "./ParallaxBackground";
 import { Star, ArrowUpRight } from "lucide-react";
+import maisonPierreImage from "@/assets/install-maison-pierre.png";
 
 const reviews = [
   {
@@ -27,52 +29,59 @@ const socials = [
 ];
 
 const Reviews = () => (
-  <section className="section-padding">
-    <div className="mx-auto max-w-6xl">
-      <AnimatedSection>
-        <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-          Avis clients
-        </p>
-        <h2 className="mb-20 text-3xl font-bold md:text-5xl">
-          Ils nous font confiance.
-        </h2>
-      </AnimatedSection>
-      <div className="grid gap-6 md:grid-cols-3 mb-20">
-        {reviews.map((review, i) => (
-          <AnimatedSection key={review.name} delay={i * 0.1}>
-            <div className="bg-background p-8 h-full flex flex-col rounded-2xl" style={{ boxShadow: "var(--shadow-soft)" }}>
-              <div className="mb-5 flex gap-0.5">
-                {Array.from({ length: review.rating }).map((_, j) => (
-                  <Star key={j} className="h-3.5 w-3.5 fill-foreground text-foreground" />
-                ))}
+  <ParallaxBackground
+    image={maisonPierreImage}
+    alt="Installation solaire sur maison en pierre avec jardin"
+    overlayOpacity={0.6}
+    blur={1}
+  >
+    <div className="section-padding">
+      <div className="mx-auto max-w-6xl">
+        <AnimatedSection>
+          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
+            Avis clients
+          </p>
+          <h2 className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground">
+            Ils nous font confiance.
+          </h2>
+        </AnimatedSection>
+        <div className="grid gap-6 md:grid-cols-3 mb-20">
+          {reviews.map((review, i) => (
+            <AnimatedSection key={review.name} delay={i * 0.1}>
+              <div className="backdrop-blur-md bg-white/10 border border-white/10 p-8 h-full flex flex-col rounded-2xl">
+                <div className="mb-5 flex gap-0.5">
+                  {Array.from({ length: review.rating }).map((_, j) => (
+                    <Star key={j} className="h-3.5 w-3.5 fill-primary-foreground text-primary-foreground" />
+                  ))}
+                </div>
+                <p className="mb-6 flex-1 text-primary-foreground/75 leading-relaxed text-sm">
+                  « {review.text} »
+                </p>
+                <p className="text-xs font-semibold uppercase tracking-wider text-primary-foreground">{review.name}</p>
               </div>
-              <p className="mb-6 flex-1 text-muted-foreground leading-relaxed text-sm">
-                « {review.text} »
-              </p>
-              <p className="text-xs font-semibold uppercase tracking-wider">{review.name}</p>
-            </div>
-          </AnimatedSection>
-        ))}
-      </div>
-      <AnimatedSection>
-        <div className="flex flex-wrap items-center justify-center gap-4">
-          {socials.map((s) => (
-            <a
-              key={s.name}
-              href={s.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost-fill flex items-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em]"
-              style={{ borderRadius: "9999px" }}
-            >
-              {s.name}
-              <ArrowUpRight className="h-3 w-3" />
-            </a>
+            </AnimatedSection>
           ))}
         </div>
-      </AnimatedSection>
+        <AnimatedSection>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            {socials.map((s) => (
+              <a
+                key={s.name}
+                href={s.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-6 py-3 text-xs font-semibold uppercase tracking-[0.15em] border border-primary-foreground/40 text-primary-foreground hover:bg-primary-foreground hover:text-primary transition-all duration-300"
+                style={{ borderRadius: "9999px" }}
+              >
+                {s.name}
+                <ArrowUpRight className="h-3 w-3" />
+              </a>
+            ))}
+          </div>
+        </AnimatedSection>
+      </div>
     </div>
-  </section>
+  </ParallaxBackground>
 );
 
 export default Reviews;
