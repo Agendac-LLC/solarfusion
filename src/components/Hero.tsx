@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import heroImage from "@/assets/hero-solar.jpg";
+import heroImage from "@/assets/hero-solar.png";
 import { Link } from "react-router-dom";
 
 const Hero = () => {
