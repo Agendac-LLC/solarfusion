@@ -32,7 +32,7 @@ const Certifications = () => (
       <div className="grid gap-6 md:grid-cols-3">
         {certs.map((cert, i) => (
           <AnimatedSection key={cert.title} delay={i * 0.12}>
-            <div className="bg-background p-10 rounded-2xl card-lift h-full">
+            <div className="glass-card-light p-10 rounded-2xl h-full transition-all duration-300">
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
                 {cert.subtitle}
               </p>

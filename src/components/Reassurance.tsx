@@ -40,7 +40,7 @@ const Reassurance = () => (
         <div className="grid gap-6 md:grid-cols-3">
           {stats.map((stat, i) => (
             <AnimatedSection key={stat.label} delay={i * 0.15}>
-              <div className="backdrop-blur-md bg-white/10 border border-white/10 rounded-2xl p-8">
+              <div className="glass-card rounded-2xl p-8 transition-all duration-300">
                 <p className="text-4xl font-bold tracking-tight text-primary-foreground">{stat.value}</p>
                 <p className="mt-1 text-base font-semibold text-primary-foreground">{stat.label}</p>
                 <p className="mt-4 text-primary-foreground/70 leading-relaxed text-sm">

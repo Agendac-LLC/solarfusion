@@ -48,7 +48,7 @@ const Reviews = () => (
         <div className="grid gap-6 md:grid-cols-3 mb-20">
           {reviews.map((review, i) => (
             <AnimatedSection key={review.name} delay={i * 0.1}>
-              <div className="backdrop-blur-md bg-white/10 border border-white/10 p-8 h-full flex flex-col rounded-2xl">
+              <div className="glass-card p-8 h-full flex flex-col rounded-2xl transition-all duration-300">
                 <div className="mb-5 flex gap-0.5">
                   {Array.from({ length: review.rating }).map((_, j) => (
                     <Star key={j} className="h-3.5 w-3.5 fill-primary-foreground text-primary-foreground" />
