@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import Simulator from "@/components/Simulator";
 import ContactForm from "@/components/ContactForm";
@@ -10,94 +11,115 @@ const benefits = [
     icon: TrendingUp,
     title: "Rentabilité rapide",
     description: "Retour sur investissement en 4 à 7 ans selon la taille de votre installation.",
+    metric: "4-7 ans",
   },
   {
     icon: Zap,
     title: "Réduction des charges",
     description: "Réduisez vos factures d'énergie jusqu'à 70% grâce à l'autoconsommation.",
+    metric: "–70%",
   },
   {
     icon: BarChart3,
     title: "Valorisation du patrimoine",
     description: "Augmentez la valeur de vos bâtiments avec une installation photovoltaïque.",
+    metric: "+15%",
   },
   {
     icon: Building2,
     title: "Image RSE",
     description: "Renforcez votre engagement environnemental auprès de vos clients et partenaires.",
+    metric: "RSE",
   },
 ];
 
-const B2B = () => (
-  <>
-    {/* Hero */}
-    <section className="relative h-[70vh] w-full overflow-hidden">
-      <img
-        src={heroB2b}
-        alt="Installation solaire professionnelle"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="hero-overlay absolute inset-0" />
-      <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-4 text-sm uppercase tracking-[0.3em] text-primary-foreground/70"
-        >
-          Espace Professionnels
-        </motion.p>
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-4xl text-4xl font-semibold leading-tight text-primary-foreground md:text-6xl"
-        >
-          Optimisez votre
-          <br />
-          performance énergétique.
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="mt-6 max-w-xl text-lg text-primary-foreground/80"
-        >
-          Des solutions photovoltaïques dimensionnées pour les besoins des entreprises, collectivités et industriels.
-        </motion.p>
-      </div>
-    </section>
+const B2B = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
 
-    {/* Benefits */}
-    <section className="section-padding">
-      <div className="mx-auto max-w-6xl">
-        <AnimatedSection>
-          <p className="mb-2 text-sm uppercase tracking-[0.3em] text-muted-foreground">
-            Avantages
-          </p>
-          <h2 className="mb-16 text-3xl font-semibold md:text-5xl">
-            Le solaire, un investissement stratégique.
-          </h2>
-        </AnimatedSection>
-        <div className="grid gap-8 md:grid-cols-2">
-          {benefits.map((b, i) => (
-            <AnimatedSection key={b.title} delay={i * 0.1}>
-              <div className="flex gap-6 border border-border p-8 transition-colors hover:bg-secondary/50">
-                <b.icon className="h-8 w-8 shrink-0" strokeWidth={1} />
-                <div>
-                  <h3 className="mb-2 text-lg font-semibold">{b.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{b.description}</p>
-                </div>
-              </div>
-            </AnimatedSection>
-          ))}
+  return (
+    <>
+      {/* Hero */}
+      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
+        <motion.img
+          src={heroB2b}
+          alt="Installation solaire professionnelle"
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ y: imageY }}
+        />
+        <div className="hero-overlay absolute inset-0" />
+        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
+            className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
+          >
+            Espace Professionnels
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
+          >
+            Optimisez votre
+            <br />
+            performance énergétique.
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light"
+          >
+            Des solutions photovoltaïques dimensionnées pour les besoins des entreprises, collectivités et industriels.
+          </motion.p>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <Simulator variant="b2b" />
-    <ContactForm />
-  </>
-);
+      {/* Benefits */}
+      <section className="section-padding">
+        <div className="mx-auto max-w-6xl">
+          <AnimatedSection>
+            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
+              ROI & Performance
+            </p>
+            <h2 className="mb-16 text-3xl font-bold md:text-5xl">
+              Le solaire, un investissement stratégique.
+            </h2>
+          </AnimatedSection>
+          <div className="grid gap-6 md:grid-cols-2">
+            {benefits.map((b, i) => (
+              <AnimatedSection key={b.title} delay={i * 0.1}>
+                <motion.div
+                  className="flex gap-6 border border-border p-8 card-lift"
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <div className="shrink-0">
+                    <p className="text-2xl font-bold tracking-tight">{b.metric}</p>
+                    <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+                  </div>
+                  <div>
+                    <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+                  </div>
+                </motion.div>
+              </AnimatedSection>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Simulator variant="b2b" />
+      <ContactForm />
+    </>
+  );
+};
 
 export default B2B;

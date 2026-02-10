@@ -2,16 +2,18 @@ import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
 import { z } from "zod";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Nom requis").max(100),
   email: z.string().trim().email("Email invalide").max(255),
   phone: z.string().trim().min(1, "Téléphone requis").max(20),
+  zone: z.string().min(1, "Zone requise"),
   message: z.string().trim().min(1, "Message requis").max(2000),
 });
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", zone: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
 
@@ -30,29 +32,31 @@ const ContactForm = () => {
     }
 
     setLoading(true);
-    // Placeholder for Google Sheet / CRM integration
     await new Promise((r) => setTimeout(r, 1000));
     toast.success("Message envoyé avec succès. Nous vous recontacterons rapidement.");
-    setForm({ name: "", email: "", phone: "", message: "" });
+    setForm({ name: "", email: "", phone: "", zone: "", message: "" });
     setLoading(false);
   };
 
   const inputClass =
-    "w-full border border-border bg-transparent px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-foreground transition-colors";
+    "w-full border border-border bg-transparent px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground transition-colors duration-300 rounded-sm";
 
   return (
-    <section id="contact" className="section-padding section-alt">
+    <section id="contact" className="section-padding">
       <div className="mx-auto max-w-2xl">
         <AnimatedSection>
-          <p className="mb-2 text-sm uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
             Contact
           </p>
-          <h2 className="mb-12 text-3xl font-semibold md:text-5xl">
+          <h2 className="mb-4 text-3xl font-bold md:text-5xl">
             Parlons de votre projet.
           </h2>
+          <p className="mb-12 text-muted-foreground text-sm">
+            Intervention sur les départements 73 et 74, avec déplacements possibles dans toute la région.
+          </p>
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <input
                 type="text"
@@ -61,9 +65,9 @@ const ContactForm = () => {
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 className={inputClass}
               />
-              {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+              {errors.name && <p className="mt-1.5 text-xs text-destructive">{errors.name}</p>}
             </div>
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-5 md:grid-cols-2">
               <div>
                 <input
                   type="email"
@@ -72,7 +76,7 @@ const ContactForm = () => {
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   className={inputClass}
                 />
-                {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+                {errors.email && <p className="mt-1.5 text-xs text-destructive">{errors.email}</p>}
               </div>
               <div>
                 <input
@@ -82,8 +86,21 @@ const ContactForm = () => {
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   className={inputClass}
                 />
-                {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
+                {errors.phone && <p className="mt-1.5 text-xs text-destructive">{errors.phone}</p>}
               </div>
+            </div>
+            <div>
+              <select
+                value={form.zone}
+                onChange={(e) => setForm({ ...form, zone: e.target.value })}
+                className={`${inputClass} ${!form.zone ? "text-muted-foreground/60" : ""}`}
+              >
+                <option value="">Votre zone</option>
+                <option value="73">Savoie (73)</option>
+                <option value="74">Haute-Savoie (74)</option>
+                <option value="autre">Autre département</option>
+              </select>
+              {errors.zone && <p className="mt-1.5 text-xs text-destructive">{errors.zone}</p>}
             </div>
             <div>
               <textarea
@@ -93,15 +110,17 @@ const ContactForm = () => {
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
                 className={inputClass + " resize-none"}
               />
-              {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
+              {errors.message && <p className="mt-1.5 text-xs text-destructive">{errors.message}</p>}
             </div>
-            <button
+            <motion.button
               type="submit"
               disabled={loading}
-              className="w-full bg-foreground py-4 text-sm font-medium uppercase tracking-widest text-background transition-opacity hover:opacity-80 disabled:opacity-50"
+              className="btn-premium w-full bg-foreground py-4 text-xs font-semibold uppercase tracking-[0.2em] text-background disabled:opacity-50 rounded-sm"
+              whileHover={{ scale: 1.01 }}
+              whileTap={{ scale: 0.99 }}
             >
               {loading ? "Envoi en cours..." : "Envoyer"}
-            </button>
+            </motion.button>
           </form>
         </AnimatedSection>
       </div>

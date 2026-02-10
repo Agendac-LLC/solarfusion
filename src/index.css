@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -18,11 +18,11 @@
     --primary: 0 0% 4%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
+    --secondary: 0 0% 97%;
     --secondary-foreground: 0 0% 4%;
 
     --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted-foreground: 0 0% 42%;
 
     --accent: 0 0% 96%;
     --accent-foreground: 0 0% 4%;
@@ -30,8 +30,8 @@
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 0 0% 91%;
+    --input: 0 0% 91%;
     --ring: 0 0% 4%;
 
     --radius: 0px;
@@ -46,9 +46,10 @@
     --sidebar-ring: 0 0% 50%;
 
     /* Custom tokens */
-    --hero-overlay: 0 0% 0% / 0.5;
-    --section-alt: 0 0% 97%;
-    --text-subtle: 0 0% 55%;
+    --hero-overlay: 0 0% 0% / 0.55;
+    --section-alt: 0 0% 98%;
+    --section-alt-deep: 0 0% 95%;
+    --text-subtle: 0 0% 50%;
   }
 }
 
@@ -59,11 +60,18 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply tracking-tight font-semibold;
+    letter-spacing: -0.025em;
+  }
+
+  h1 {
+    letter-spacing: -0.04em;
   }
 }
 
@@ -76,6 +84,10 @@
     background-color: hsl(var(--section-alt));
   }
 
+  .section-alt-deep {
+    background-color: hsl(var(--section-alt-deep));
+  }
+
   .text-subtle {
     color: hsl(var(--text-subtle));
   }
@@ -83,13 +95,48 @@
   .hero-overlay {
     background: linear-gradient(
       to bottom,
-      hsla(var(--hero-overlay)) 0%,
-      hsla(0 0% 0% / 0.3) 50%,
-      hsla(var(--hero-overlay)) 100%
+      hsla(0 0% 0% / 0.6) 0%,
+      hsla(0 0% 0% / 0.25) 40%,
+      hsla(0 0% 0% / 0.4) 70%,
+      hsla(0 0% 0% / 0.7) 100%
     );
   }
 
   .fade-up {
     @apply opacity-0 translate-y-8;
+  }
+
+  /* Premium button micro-interactions */
+  .btn-premium {
+    @apply relative overflow-hidden transition-all duration-300;
+  }
+  .btn-premium::after {
+    content: '';
+    @apply absolute inset-0 transition-transform duration-500 ease-out;
+    background: hsla(0 0% 100% / 0.08);
+    transform: translateX(-101%);
+  }
+  .btn-premium:hover::after {
+    transform: translateX(0);
+  }
+  .btn-premium:hover {
+    transform: scale(1.02);
+  }
+  .btn-premium:active {
+    transform: scale(0.98);
+  }
+
+  /* Card hover lift */
+  .card-lift {
+    @apply transition-all duration-300 ease-out;
+  }
+  .card-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px -12px hsla(0 0% 0% / 0.1);
+  }
+
+  /* Parallax container */
+  .parallax-container {
+    will-change: transform;
   }
 }

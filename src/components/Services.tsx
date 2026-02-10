@@ -1,48 +1,69 @@
 import AnimatedSection from "./AnimatedSection";
-import { Sun, Home, Thermometer } from "lucide-react";
+import { motion } from "framer-motion";
+import { Sun, Home, Thermometer, Battery, Wifi } from "lucide-react";
 
 const services = [
   {
     icon: Sun,
     title: "Panneaux Solaires",
     description:
-      "Installation sur-mesure de panneaux photovoltaïques pour l'autoconsommation résidentielle et professionnelle. Batterie virtuelle et physique disponibles.",
+      "Installation sur-mesure de panneaux photovoltaïques pour l'autoconsommation résidentielle et professionnelle.",
+    detail: "Dimensionnement optimisé selon votre consommation réelle.",
   },
   {
-    icon: Home,
+    icon: Battery,
+    title: "Batterie Virtuelle & Physique",
+    description:
+      "Stockez votre surplus de production pour le consommer quand vous en avez besoin, de jour comme de nuit.",
+    detail: "Solution de stockage intelligente avec suivi en temps réel.",
+  },
+  {
+    icon: Wifi,
     title: "Domotique",
     description:
-      "Solutions domotiques intelligentes pour optimiser votre consommation énergétique et piloter votre maison à distance.",
+      "Solutions intelligentes pour piloter et optimiser votre consommation énergétique à distance.",
+    detail: "Compatible avec tous les systèmes de gestion énergétique.",
   },
   {
     icon: Thermometer,
     title: "Pompes à Chaleur",
     description:
-      "Installation de pompes à chaleur performantes, réalisée en sous-traitance par nos partenaires certifiés.",
+      "Installation de pompes à chaleur performantes, réalisée par nos partenaires certifiés.",
+    detail: "Solutions de chauffage et climatisation haute efficacité.",
   },
 ];
 
 const Services = () => (
-  <section className="section-padding section-alt">
+  <section className="section-padding">
     <div className="mx-auto max-w-6xl">
       <AnimatedSection>
-        <p className="mb-2 text-sm uppercase tracking-[0.3em] text-muted-foreground">
-          Nos services
+        <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
+          Nos solutions
         </p>
-        <h2 className="mb-16 text-3xl font-semibold md:text-5xl">
-          Des solutions complètes.
+        <h2 className="mb-4 text-3xl font-bold md:text-5xl">
+          Des solutions de pointe.
         </h2>
+        <p className="mb-16 text-muted-foreground text-base max-w-xl">
+          De l'installation photovoltaïque au stockage intelligent, nous couvrons l'ensemble de votre transition énergétique.
+        </p>
       </AnimatedSection>
-      <div className="grid gap-px bg-border md:grid-cols-3">
+      <div className="grid gap-[1px] bg-border md:grid-cols-2">
         {services.map((service, i) => (
-          <AnimatedSection key={service.title} delay={i * 0.15}>
-            <div className="flex flex-col bg-background p-10 md:p-12 transition-colors hover:bg-secondary/50 h-full">
-              <service.icon className="mb-8 h-10 w-10" strokeWidth={1} />
-              <h3 className="mb-4 text-xl font-semibold">{service.title}</h3>
-              <p className="text-muted-foreground leading-relaxed">
+          <AnimatedSection key={service.title} delay={i * 0.1}>
+            <motion.div
+              className="flex flex-col bg-background p-10 md:p-12 h-full group cursor-default"
+              whileHover={{ backgroundColor: "hsl(0 0% 98%)" }}
+              transition={{ duration: 0.3 }}
+            >
+              <service.icon className="mb-8 h-8 w-8 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
+              <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">
                 {service.description}
               </p>
-            </div>
+              <p className="mt-3 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
+                {service.detail}
+              </p>
+            </motion.div>
           </AnimatedSection>
         ))}
       </div>
