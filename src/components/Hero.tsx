@@ -60,14 +60,29 @@ const Hero = () => {
         >
           <a
             href="#simulateur"
-            className="btn-pill bg-primary-foreground px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
+            className="px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:scale-[1.02]"
+            style={{
+              borderRadius: "9999px",
+              backdropFilter: "blur(20px) saturate(180%)",
+              WebkitBackdropFilter: "blur(20px) saturate(180%)",
+              background: "linear-gradient(135deg, hsla(0,0%,100%,0.2) 0%, hsla(0,0%,100%,0.12) 100%)",
+              border: "1px solid hsla(0,0%,100%,0.2)",
+              boxShadow: "0 8px 32px -8px hsla(0,0%,0%,0.3), inset 0 1px 0 hsla(0,0%,100%,0.15)",
+            }}
           >
             Simuler mes économies
           </a>
           <Link
             to="/b2b"
-            className="glass-card px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300"
-            style={{ borderRadius: "9999px" }}
+            className="px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground transition-all duration-300 hover:scale-[1.02]"
+            style={{
+              borderRadius: "9999px",
+              backdropFilter: "blur(20px) saturate(180%)",
+              WebkitBackdropFilter: "blur(20px) saturate(180%)",
+              background: "linear-gradient(135deg, hsla(0,0%,100%,0.2) 0%, hsla(0,0%,100%,0.12) 100%)",
+              border: "1px solid hsla(0,0%,100%,0.2)",
+              boxShadow: "0 8px 32px -8px hsla(0,0%,0%,0.3), inset 0 1px 0 hsla(0,0%,100%,0.15)",
+            }}
           >
             Espace Professionnels
           </Link>
