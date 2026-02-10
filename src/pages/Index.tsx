@@ -5,7 +5,7 @@ import Services from "@/components/Services";
 import Certifications from "@/components/Certifications";
 import Simulator from "@/components/Simulator";
 import Reviews from "@/components/Reviews";
-import ContactForm from "@/components/ContactForm";
+import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import fermeImage from "@/assets/install-ferme-alpine.png";
@@ -16,7 +16,6 @@ const Index = () => (
     <FamilyStory />
     <Reassurance />
     <Services />
-    {/* CTA after services */}
     <ParallaxBackground
       image={fermeImage}
       alt="Installation solaire sur ferme alpine en Savoie"
@@ -42,7 +41,7 @@ const Index = () => (
     <Certifications />
     <Simulator variant="b2c" />
     <Reviews />
-    <ContactForm />
+    <ContactSection />
   </>
 );
 
