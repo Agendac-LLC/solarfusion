@@ -79,6 +79,15 @@ const B2B = () => {
           >
             Des solutions photovoltaïques dimensionnées pour les besoins des entreprises, collectivités et industriels.
           </motion.p>
+          <motion.a
+            href="#simulateur"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="btn-brutal mt-10 bg-primary-foreground px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary border border-primary-foreground"
+          >
+            Simuler mon projet
+          </motion.a>
         </div>
       </section>
 
@@ -96,11 +105,7 @@ const B2B = () => {
           <div className="grid gap-6 md:grid-cols-2">
             {benefits.map((b, i) => (
               <AnimatedSection key={b.title} delay={i * 0.1}>
-                <motion.div
-                  className="flex gap-6 border border-border p-8 card-lift"
-                  whileHover={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                >
+                <div className="flex gap-6 border border-border p-8 card-lift">
                   <div className="shrink-0">
                     <p className="text-2xl font-bold tracking-tight">{b.metric}</p>
                     <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
@@ -109,7 +114,7 @@ const B2B = () => {
                     <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
                     <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
                   </div>
-                </motion.div>
+                </div>
               </AnimatedSection>
             ))}
           </div>
@@ -117,6 +122,24 @@ const B2B = () => {
       </section>
 
       <Simulator variant="b2b" />
+
+      {/* CTA before contact */}
+      <section className="section-padding">
+        <div className="mx-auto max-w-4xl text-center">
+          <AnimatedSection>
+            <p className="mb-4 text-muted-foreground text-sm">
+              Chaque projet est unique. Obtenez une analyse détaillée de votre potentiel solaire.
+            </p>
+            <a
+              href="#contact"
+              className="btn-invert inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+            >
+              Demander une étude personnalisée
+            </a>
+          </AnimatedSection>
+        </div>
+      </section>
+
       <ContactForm />
     </>
   );
