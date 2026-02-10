@@ -7,7 +7,6 @@ import { lazy, Suspense } from "react";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
-import FilmGrain from "@/components/FilmGrain";
 
 // Eager: homepage (first paint)
 import Index from "./pages/Index";
@@ -28,7 +27,6 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <FilmGrain />
       <BrowserRouter>
         <ScrollToTop />
         <Header />

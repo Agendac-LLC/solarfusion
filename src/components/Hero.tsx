@@ -2,9 +2,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroImage from "@/assets/hero-solar.png";
 import { Link } from "react-router-dom";
-import KineticText from "./KineticText";
-import LiquidHover from "./LiquidHover";
-import TextPath from "./TextPath";
 
 const Hero = () => {
   const ref = useRef<HTMLElement>(null);
@@ -39,24 +36,16 @@ const Hero = () => {
         >
           Savoie & Haute-Savoie
         </motion.p>
-
-        <motion.div
+        <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+          className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl lg:text-7xl"
         >
-          <LiquidHover>
-            <KineticText
-              as="h1"
-              className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl lg:text-7xl"
-            >
-              Produisez votre
-              <br />
-              propre électricité.
-            </KineticText>
-          </LiquidHover>
-        </motion.div>
-
+          Produisez votre
+          <br />
+          propre électricité.
+        </motion.h1>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -73,7 +62,7 @@ const Hero = () => {
         >
           <a
             href="#simulateur"
-            className="btn-glass-hero btn-pulse-organic px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Simuler mes économies
           </a>
@@ -86,25 +75,12 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Curved text path */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 1.5 }}
-        className="absolute bottom-16 left-0 right-0 z-10 text-primary-foreground/20"
-      >
-        <TextPath
-          text="15 ans d'expertise solaire en Savoie ✦ Père et fils ✦ 0 accident ✦ Garantie décennale"
-          duration={25}
-        />
-      </motion.div>
-
       {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

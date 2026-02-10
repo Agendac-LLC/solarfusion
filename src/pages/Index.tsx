@@ -8,7 +8,6 @@ import Reviews from "@/components/Reviews";
 import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
 import ParallaxBackground from "@/components/ParallaxBackground";
-import TextPath from "@/components/TextPath";
 import fermeImage from "@/assets/install-ferme-alpine.png";
 
 const Index = () => (
@@ -16,15 +15,6 @@ const Index = () => (
     <Hero />
     <FamilyStory />
     <Reassurance />
-
-    {/* Flowing text divider */}
-    <div className="py-8 bg-background text-muted-foreground/15 overflow-hidden">
-      <TextPath
-        text="Installation solaire ✦ Savoie & Haute-Savoie ✦ Père et fils depuis 2009 ✦ 0 accident ✦ Garantie décennale"
-        duration={30}
-      />
-    </div>
-
     <Services />
     <ParallaxBackground
       image={fermeImage}
@@ -40,7 +30,7 @@ const Index = () => (
             </p>
             <a
               href="#simulateur"
-              className="btn-pill btn-pulse-organic bg-primary-foreground text-primary inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+              className="btn-pill bg-primary-foreground text-primary inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Simuler mes économies
             </a>

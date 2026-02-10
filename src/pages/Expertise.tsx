@@ -2,18 +2,17 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
-import KineticText from "@/components/KineticText";
-import LiquidHover from "@/components/LiquidHover";
-import HorizontalScroll from "@/components/HorizontalScroll";
+import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
 import { Shield } from "lucide-react";
 import fermeImage from "@/assets/install-ferme-alpine.png";
+import champImage from "@/assets/install-champ-solaire.png";
 
 const milestones = [
-  { year: "2009", title: "Création", description: "Sébastien Chaffardon crée Solar Fusion à Chambéry. Premiers chantiers en Savoie.", color: "bg-foreground text-background" },
-  { year: "2015", title: "QualiPV 36K", description: "Certification RGE obtenue. Condition obligatoire pour que nos clients touchent les aides de l'État.", color: "bg-background text-foreground" },
-  { year: "2020", title: "Père et fils", description: "Le fils de Sébastien rejoint l'entreprise. Deux générations sur les toits.", color: "bg-foreground text-background" },
-  { year: "2024", title: "15 ans, 0 accident", description: "15 ans de chantiers, aucun accident. Garantie décennale sur chaque installation.", color: "bg-background text-foreground" },
+  { year: "2009", title: "Création", description: "Sébastien Chaffardon crée Solar Fusion à Chambéry. Premiers chantiers en Savoie." },
+  { year: "2015", title: "QualiPV 36K", description: "Certification RGE obtenue. Condition obligatoire pour que nos clients touchent les aides de l'État." },
+  { year: "2020", title: "Père et fils", description: "Le fils de Sébastien rejoint l'entreprise. Deux générations sur les toits." },
+  { year: "2024", title: "15 ans, 0 accident", description: "15 ans de chantiers, aucun accident. Garantie décennale sur chaque installation." },
 ];
 
 const Expertise = () => {
@@ -42,19 +41,16 @@ const Expertise = () => {
           >
             Notre histoire
           </motion.p>
-          <motion.div
+          <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+            className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
           >
-            <LiquidHover>
-              <KineticText as="h1" className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl">
-                15 ans sur les toits,
-                <br />
-                père et fils.
-              </KineticText>
-            </LiquidHover>
-          </motion.div>
+            15 ans sur les toits,
+            <br />
+            père et fils.
+          </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -73,11 +69,9 @@ const Expertise = () => {
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
               Qui sommes-nous
             </p>
-            <LiquidHover>
-              <KineticText as="h2" className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]">
-                Pas de discours, des faits.
-              </KineticText>
-            </LiquidHover>
+            <h2 className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]">
+              Pas de discours, des faits.
+            </h2>
           </AnimatedSection>
           <div className="grid gap-8 md:grid-cols-2 mt-12">
             <AnimatedSection direction="left">
@@ -111,53 +105,39 @@ const Expertise = () => {
         </div>
       </section>
 
-      {/* Horizontal Scroll Timeline */}
-      <HorizontalScroll panels={4} className="bg-foreground">
-        {milestones.map((m, i) => (
-          <div
-            key={m.year}
-            className="flex-1 h-full flex items-center justify-center px-8 md:px-16"
-            style={{ width: "25%" }}
-          >
-            <div className="max-w-md text-center">
-              <motion.p
-                initial={{ opacity: 0, scale: 0.5 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-[8rem] md:text-[12rem] font-black leading-none text-background/10"
-              >
-                {m.year}
-              </motion.p>
-              <motion.h3
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="text-2xl md:text-4xl font-bold text-background -mt-16 md:-mt-20 relative z-10"
-              >
-                {m.title}
-              </motion.h3>
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="mt-6 text-background/60 text-sm md:text-base leading-relaxed"
-              >
-                {m.description}
-              </motion.p>
-              <motion.div
-                initial={{ scaleX: 0 }}
-                whileInView={{ scaleX: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="mt-8 h-[1px] bg-background/20 origin-left"
-              />
+      {/* Timeline */}
+      <ParallaxBackground
+        image={champImage}
+        alt="Panneaux solaires en pleine nature"
+        overlayOpacity={0.65}
+        blur={2}
+      >
+        <div className="section-padding">
+          <div className="mx-auto max-w-4xl">
+            <AnimatedSection>
+              <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
+                Chronologie
+              </p>
+              <h2 className="mb-16 text-3xl font-bold md:text-5xl text-primary-foreground">
+                Les dates clés.
+              </h2>
+            </AnimatedSection>
+            <div className="space-y-6">
+              {milestones.map((m, i) => (
+                <AnimatedSection key={m.year} delay={i * 0.1}>
+                  <div className="glass-card p-8 rounded-2xl transition-all duration-300 flex gap-6 items-start">
+                    <p className="text-3xl font-bold text-primary-foreground/40 shrink-0">{m.year}</p>
+                    <div>
+                      <h3 className="text-lg font-semibold text-primary-foreground mb-2">{m.title}</h3>
+                      <p className="text-primary-foreground/70 text-sm leading-relaxed">{m.description}</p>
+                    </div>
+                  </div>
+                </AnimatedSection>
+              ))}
             </div>
           </div>
-        ))}
-      </HorizontalScroll>
+        </div>
+      </ParallaxBackground>
 
       {/* CTA */}
       <section className="section-padding">
@@ -184,7 +164,7 @@ const Expertise = () => {
             </p>
             <Link
               to="/simulateur"
-              className="btn-pill btn-pulse-organic bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+              className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Simuler mon projet
             </Link>
