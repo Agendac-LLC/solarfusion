@@ -29,8 +29,8 @@ const services = [
     icon: Thermometer,
     title: "Pompes à chaleur",
     description:
-      "PAC air-air et air-eau Hitachi. Chauffage et climatisation haute performance, couplés au solaire pour maximiser vos économies.",
-    detail: "Partenaire installateur Hitachi.",
+      "PAC air-air et air-eau Hitachi. Chauffage et climatisation haute performance, couplés au solaire. Installation réalisée par nos partenaires qualifiés.",
+    detail: "Coordination et suivi par Solar Fusion.",
   },
 ];
 
