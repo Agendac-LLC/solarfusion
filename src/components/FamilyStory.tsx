@@ -1,4 +1,9 @@
 import AnimatedSection from "./AnimatedSection";
+import KineticText from "./KineticText";
+import LiquidHover from "./LiquidHover";
+import OrganicMask from "./OrganicMask";
+import installChaletVillage from "@/assets/install-chalet-village.png";
+import installChampSolaire from "@/assets/install-champ-solaire.png";
 
 const FamilyStory = () => (
   <section className="section-padding">
@@ -8,11 +13,16 @@ const FamilyStory = () => (
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
             Qui sommes-nous
           </p>
-          <h2 className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]">
-            Père et fils,
-            <br />
-            installateurs solaires.
-          </h2>
+          <LiquidHover>
+            <KineticText
+              as="h2"
+              className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]"
+            >
+              Père et fils,
+              <br />
+              installateurs solaires.
+            </KineticText>
+          </LiquidHover>
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>
               Sébastien Chaffardon installe des panneaux solaires en Savoie depuis <strong className="text-foreground font-semibold">2009</strong>. Son fils l'a rejoint pour continuer le métier. À deux, ils gèrent chaque chantier du dimensionnement à la mise en service.
@@ -20,6 +30,20 @@ const FamilyStory = () => (
             <p>
               Pas de sous-traitance, pas d'intérimaires. Chaque toit est posé avec le même soin que si c'était le nôtre. Résultat : <strong className="text-foreground font-semibold">zéro accident</strong> en 15 ans de chantiers.
             </p>
+          </div>
+
+          {/* Organic masked images */}
+          <div className="mt-12 grid grid-cols-2 gap-6">
+            <OrganicMask
+              src={installChaletVillage}
+              alt="Installation solaire chalet village"
+              className="aspect-square"
+            />
+            <OrganicMask
+              src={installChampSolaire}
+              alt="Champ solaire en Savoie"
+              className="aspect-square"
+            />
           </div>
         </AnimatedSection>
         <AnimatedSection direction="right" delay={0.2}>
