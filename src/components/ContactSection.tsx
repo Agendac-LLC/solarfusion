@@ -14,7 +14,7 @@ const contactMethods = [
     label: "Téléphone",
     value: PHONE,
     href: PHONE_LINK,
-    description: "Lundi-vendredi, 8h-18h",
+    description: "Lun-Mer 9h-18h / Jeu-Ven sur demande",
   },
   {
     icon: MessageCircle,

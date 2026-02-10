@@ -17,7 +17,9 @@ const MentionsLegales = () => (
               <br />
               Siège social : Chambéry, Savoie (73), France.
               <br />
-              Téléphone : +33 7 62 11 14 70
+              Téléphone : <a href="tel:+33762111470" className="underline">+33 7 62 11 14 70</a>
+              <br />
+              N° TVA intracommunautaire : FR61929522175
             </p>
           </section>
 

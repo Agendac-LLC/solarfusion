@@ -22,10 +22,10 @@ const reviews = [
 ];
 
 const socials = [
-  { name: "Google", url: "https://google.com" },
-  { name: "Facebook", url: "https://facebook.com" },
-  { name: "Instagram", url: "https://instagram.com" },
-  { name: "LinkedIn", url: "https://linkedin.com" },
+  { name: "Google", url: "https://www.google.com/maps/place/Solar+Fusion" },
+  { name: "Facebook", url: "https://www.facebook.com/solarfusion73" },
+  { name: "Instagram", url: "https://www.instagram.com/solarfusion73" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/company/solar-fusion" },
 ];
 
 const Reviews = () => (
