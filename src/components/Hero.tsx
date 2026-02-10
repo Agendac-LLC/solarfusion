@@ -66,7 +66,7 @@ const Hero = () => {
           </a>
           <Link
             to="/b2b"
-            className="btn-ghost-fill border-primary-foreground/40 px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary-foreground hover:text-primary hover:border-primary-foreground"
+            className="glass-card px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary-foreground hover:bg-primary-foreground/20 transition-all duration-300"
             style={{ borderRadius: "9999px" }}
           >
             Espace Professionnels
