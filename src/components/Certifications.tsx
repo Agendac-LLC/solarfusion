@@ -1,5 +1,4 @@
-import AnimatedSection from "./AnimatedSection";
-import { motion } from "framer-motion";
+import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
 
 const certs = [
   {
@@ -26,24 +25,21 @@ const Certifications = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Certifications
         </p>
-        <h2 className="mb-16 text-3xl font-bold md:text-5xl">
+        <h2 className="mb-20 text-3xl font-bold md:text-5xl">
           Certifié. Garanti. Fiable.
         </h2>
       </AnimatedSection>
-      <div className="grid gap-8 md:grid-cols-3">
+      <AnimatedLine className="mb-0" />
+      <div className="grid md:grid-cols-3">
         {certs.map((cert, i) => (
           <AnimatedSection key={cert.title} delay={i * 0.12}>
-            <motion.div
-              className="border border-border bg-background p-10 card-lift h-full"
-              whileHover={{ scale: 1.01 }}
-              transition={{ duration: 0.2 }}
-            >
+            <div className="border-b border-r border-border bg-background p-10 card-lift h-full">
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
                 {cert.subtitle}
               </p>
               <h3 className="mb-4 text-xl font-bold">{cert.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{cert.description}</p>
-            </motion.div>
+            </div>
           </AnimatedSection>
         ))}
       </div>

@@ -35,6 +35,7 @@
     --ring: 0 0% 4%;
 
     --radius: 0px;
+    --border-fine: 0 0% 15%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 20%;
@@ -106,37 +107,66 @@
     @apply opacity-0 translate-y-8;
   }
 
-  /* Premium button micro-interactions */
-  .btn-premium {
-    @apply relative overflow-hidden transition-all duration-300;
+  /* Brutalist button — offset shadow on hover */
+  .btn-brutal {
+    @apply relative transition-all duration-200 ease-out;
   }
-  .btn-premium::after {
-    content: '';
-    @apply absolute inset-0 transition-transform duration-500 ease-out;
-    background: hsla(0 0% 100% / 0.08);
-    transform: translateX(-101%);
+  .btn-brutal:hover {
+    box-shadow: 4px 4px 0 0 hsl(var(--foreground));
+    transform: translate(-2px, -2px);
   }
-  .btn-premium:hover::after {
-    transform: translateX(0);
-  }
-  .btn-premium:hover {
-    transform: scale(1.02);
-  }
-  .btn-premium:active {
-    transform: scale(0.98);
+  .btn-brutal:active {
+    box-shadow: 1px 1px 0 0 hsl(var(--foreground));
+    transform: translate(0, 0);
   }
 
-  /* Card hover lift */
+  /* Ghost button — transparent, fills on hover */
+  .btn-ghost-fill {
+    @apply border border-foreground bg-transparent text-foreground transition-all duration-200 ease-out;
+  }
+  .btn-ghost-fill:hover {
+    @apply bg-foreground text-background;
+  }
+
+  /* Invert button — solid, inverts on hover */
+  .btn-invert {
+    @apply bg-foreground text-background border border-foreground transition-all duration-200 ease-out;
+  }
+  .btn-invert:hover {
+    @apply bg-background text-foreground;
+  }
+
+  /* Keep legacy class for compatibility */
+  .btn-premium {
+    @apply relative transition-all duration-200 ease-out;
+  }
+  .btn-premium:hover {
+    box-shadow: 4px 4px 0 0 hsl(var(--foreground));
+    transform: translate(-2px, -2px);
+  }
+  .btn-premium:active {
+    box-shadow: 1px 1px 0 0 hsl(var(--foreground));
+    transform: translate(0, 0);
+  }
+
+  /* Card hover lift — brutalist offset */
   .card-lift {
     @apply transition-all duration-300 ease-out;
   }
   .card-lift:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px -12px hsla(0 0% 0% / 0.1);
+    box-shadow: 5px 5px 0 0 hsl(var(--foreground) / 0.08);
+    transform: translate(-2px, -2px);
   }
 
   /* Parallax container */
   .parallax-container {
     will-change: transform;
+  }
+
+  /* Force zero radius globally */
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
   }
 }

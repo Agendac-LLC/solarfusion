@@ -24,9 +24,9 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => (
         </p>
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
-        <div className="border border-border/60 rounded-sm bg-background p-12 md:p-16">
+        <div className="border border-border bg-background p-12 md:p-16">
           <div className="flex flex-col items-center justify-center space-y-5">
-            <div className="h-14 w-14 rounded-sm border border-border/60 flex items-center justify-center">
+            <div className="h-14 w-14 border border-border flex items-center justify-center">
               <Sun className="h-6 w-6 text-muted-foreground" strokeWidth={1.2} />
             </div>
             <p className="text-muted-foreground text-xs uppercase tracking-[0.3em] font-medium">
@@ -39,7 +39,7 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => (
               href="https://www.reonic.de"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-premium mt-4 border border-foreground rounded-sm px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em] text-foreground hover:bg-foreground hover:text-background transition-colors"
+              className="btn-ghost-fill mt-4 px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               En savoir plus
             </a>

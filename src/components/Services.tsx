@@ -1,6 +1,6 @@
-import AnimatedSection from "./AnimatedSection";
+import AnimatedSection, { AnimatedLine } from "./AnimatedSection";
 import { motion } from "framer-motion";
-import { Sun, Home, Thermometer, Battery, Wifi } from "lucide-react";
+import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
 
 const services = [
   {
@@ -43,24 +43,25 @@ const Services = () => (
         <h2 className="mb-4 text-3xl font-bold md:text-5xl">
           Des solutions de pointe.
         </h2>
-        <p className="mb-16 text-muted-foreground text-base max-w-xl">
+        <p className="mb-20 text-muted-foreground text-base max-w-xl">
           De l'installation photovoltaïque au stockage intelligent, nous couvrons l'ensemble de votre transition énergétique.
         </p>
       </AnimatedSection>
-      <div className="grid gap-[1px] bg-border md:grid-cols-2">
+      <AnimatedLine className="mb-0" />
+      <div className="grid md:grid-cols-2">
         {services.map((service, i) => (
-          <AnimatedSection key={service.title} delay={i * 0.1}>
+          <AnimatedSection key={service.title} delay={i * 0.12}>
             <motion.div
-              className="flex flex-col bg-background p-10 md:p-12 h-full group cursor-default"
+              className="flex flex-col bg-background p-10 md:p-14 h-full group cursor-default border-b border-r border-border"
               whileHover={{ backgroundColor: "hsl(0 0% 98%)" }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             >
-              <service.icon className="mb-8 h-8 w-8 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
+              <service.icon className="mb-8 h-8 w-8 text-foreground/80 group-hover:text-foreground transition-colors duration-200" strokeWidth={1.2} />
               <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">
                 {service.description}
               </p>
-              <p className="mt-3 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
+              <p className="mt-4 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
                 {service.detail}
               </p>
             </motion.div>
