@@ -82,7 +82,7 @@ const DomotiquePAC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-            className="btn-pill mt-10 bg-primary-foreground px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-primary"
+            className="btn-glass-hero mt-10 px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Être rappelé gratuitement
           </motion.a>
