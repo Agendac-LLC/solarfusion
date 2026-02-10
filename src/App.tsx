@@ -8,7 +8,11 @@ import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import Index from "./pages/Index";
+import Particuliers from "./pages/Particuliers";
 import B2B from "./pages/B2B";
+import DomotiquePAC from "./pages/DomotiquePAC";
+import Expertise from "./pages/Expertise";
+import SimulateurPage from "./pages/SimulateurPage";
 import MentionsLegales from "./pages/MentionsLegales";
 import NotFound from "./pages/NotFound";
 
@@ -25,7 +29,11 @@ const App = () => (
         <main>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/particuliers" element={<Particuliers />} />
             <Route path="/b2b" element={<B2B />} />
+            <Route path="/domotique-pac" element={<DomotiquePAC />} />
+            <Route path="/notre-expertise" element={<Expertise />} />
+            <Route path="/simulateur" element={<SimulateurPage />} />
             <Route path="/mentions-legales" element={<MentionsLegales />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
