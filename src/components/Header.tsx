@@ -79,6 +79,11 @@ const Header = () => {
               <Link
                 key={link.label}
                 to={link.to}
+                onClick={() => {
+                  if (location.pathname === link.to) {
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                  }
+                }}
                 className={`text-xs uppercase tracking-[0.15em] font-medium transition-colors duration-300 hover:opacity-100 ${
                   location.pathname === link.to ? textColor : textMuted
                 }`}
