@@ -1,11 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, memo } from "react";
 
-/**
- * Animated line divider between sections.
- * Expands from center on scroll for an elegant transition.
- */
-const SectionDivider = ({ className = "" }: { className?: string }) => {
+const SectionDivider = memo(({ className = "" }: { className?: string }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -22,6 +18,8 @@ const SectionDivider = ({ className = "" }: { className?: string }) => {
       />
     </div>
   );
-};
+});
+
+SectionDivider.displayName = "SectionDivider";
 
 export default SectionDivider;

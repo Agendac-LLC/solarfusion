@@ -1,15 +1,14 @@
-import { useRef } from "react";
+import { useRef, memo } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 interface TextRevealProps {
   text: string;
   className?: string;
   as?: "h2" | "h3" | "p";
-  /** Use "light" on dark/parallax backgrounds for better starting contrast */
   variant?: "dark" | "light";
 }
 
-const TextReveal = ({ text, className = "", as: Tag = "h2", variant = "dark" }: TextRevealProps) => {
+const TextReveal = memo(({ text, className = "", as: Tag = "h2", variant = "dark" }: TextRevealProps) => {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -33,9 +32,11 @@ const TextReveal = ({ text, className = "", as: Tag = "h2", variant = "dark" }: 
       </Tag>
     </div>
   );
-};
+});
 
-const Word = ({
+TextReveal.displayName = "TextReveal";
+
+const Word = memo(({
   children,
   range,
   progress,
@@ -58,6 +59,8 @@ const Word = ({
       {children}
     </motion.span>
   );
-};
+});
+
+Word.displayName = "Word";
 
 export default TextReveal;

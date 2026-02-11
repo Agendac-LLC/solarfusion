@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { ReactNode, memo } from "react";
 
 interface AnimatedSectionProps {
   children: ReactNode;
@@ -14,7 +14,7 @@ const directionMap = {
   right: { x: 40, y: 0 },
 };
 
-const AnimatedSection = ({ children, className = "", delay = 0, direction = "up" }: AnimatedSectionProps) => {
+const AnimatedSection = memo(({ children, className = "", delay = 0, direction = "up" }: AnimatedSectionProps) => {
   const initial = directionMap[direction];
   return (
     <motion.div
@@ -27,10 +27,12 @@ const AnimatedSection = ({ children, className = "", delay = 0, direction = "up"
       {children}
     </motion.div>
   );
-};
+});
+
+AnimatedSection.displayName = "AnimatedSection";
 
 /** Animated horizontal line that stretches from left when scrolled into view */
-export const AnimatedLine = ({ className = "", delay = 0 }: { className?: string; delay?: number }) => (
+export const AnimatedLine = memo(({ className = "", delay = 0 }: { className?: string; delay?: number }) => (
   <motion.div
     initial={{ scaleX: 0 }}
     whileInView={{ scaleX: 1 }}
@@ -38,6 +40,8 @@ export const AnimatedLine = ({ className = "", delay = 0 }: { className?: string
     transition={{ duration: 0.6, delay: delay * 0.7, ease: "easeOut" }}
     className={`h-[1px] bg-border origin-left ${className}`}
   />
-);
+));
+
+AnimatedLine.displayName = "AnimatedLine";
 
 export default AnimatedSection;
