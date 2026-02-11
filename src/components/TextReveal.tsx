@@ -46,7 +46,7 @@ const Word = ({
   progress: any;
   variant: "dark" | "light";
 }) => {
-  const startOpacity = variant === "light" ? 0.3 : 0.15;
+  const startOpacity = variant === "light" ? 0.5 : 0.15;
   const opacity = useTransform(progress, range, [startOpacity, 1]);
   const y = useTransform(progress, range, [6, 0]);
 
