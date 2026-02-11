@@ -1,44 +1,24 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import AnimatedSection from "@/components/AnimatedSection";
+import BlurFade from "@/components/BlurFade";
 import TextReveal from "@/components/TextReveal";
 import CountUp from "@/components/CountUp";
 import TiltCard from "@/components/TiltCard";
 import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
+import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
+import ScrollScale from "@/components/ScrollScale";
+import FloatingShapes from "@/components/FloatingShapes";
 import Simulator from "@/components/Simulator";
 import ContactSection from "@/components/ContactSection";
 import heroB2b from "@/assets/hero-b2b.png";
 import { TrendingUp, Zap, BarChart3, Building2 } from "lucide-react";
 
 const benefits = [
-  {
-    icon: TrendingUp,
-    title: "Amorti en 4 à 7 ans",
-    description: "Le retour sur investissement dépend de votre surface de toiture et de votre consommation. On calcule ça avec vous.",
-    metric: "4-7 ans",
-  },
-  {
-    icon: Zap,
-    title: "Jusqu'à -70% sur l'énergie",
-    description: "L'autoconsommation réduit votre facture dès le premier mois. Le surplus est revendu à EDF OA.",
-    metricNum: 70,
-    metricSuffix: "%",
-  },
-  {
-    icon: BarChart3,
-    title: "Patrimoine valorisé",
-    description: "Un bâtiment équipé en solaire vaut plus à la revente. C'est un actif, pas une dépense.",
-    metricNum: 15,
-    metricSuffix: "%",
-    metricPrefix: "+",
-  },
-  {
-    icon: Building2,
-    title: "Engagement RSE concret",
-    description: "Vos panneaux produisent. Vos clients et partenaires le voient. C'est du concret, pas un logo.",
-    metric: "RSE",
-  },
+  { icon: TrendingUp, title: "Amorti en 4 à 7 ans", description: "Le retour sur investissement dépend de votre surface de toiture et de votre consommation. On calcule ça avec vous.", metric: "4-7 ans" },
+  { icon: Zap, title: "Jusqu'à -70% sur l'énergie", description: "L'autoconsommation réduit votre facture dès le premier mois. Le surplus est revendu à EDF OA.", metricNum: 70, metricSuffix: "%" },
+  { icon: BarChart3, title: "Patrimoine valorisé", description: "Un bâtiment équipé en solaire vaut plus à la revente. C'est un actif, pas une dépense.", metricNum: 15, metricSuffix: "%", metricPrefix: "+" },
+  { icon: Building2, title: "Engagement RSE concret", description: "Vos panneaux produisent. Vos clients et partenaires le voient. C'est du concret, pas un logo.", metric: "RSE" },
 ];
 
 const B2B = () => {
@@ -51,136 +31,72 @@ const B2B = () => {
 
   return (
     <>
-      {/* Hero */}
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img
-            src={heroB2b}
-            alt="Installation solaire sur bâtiment professionnel"
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
+          <img src={heroB2b} alt="Installation solaire sur bâtiment professionnel" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
-        <motion.div
-          style={{ opacity, y: contentY }}
-          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
-          >
-            Professionnels
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-            className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
-          >
-            Réduisez vos charges
-            <br />
-            énergétiques.
+        <FloatingShapes variant="dark" />
+        <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+          <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Professionnels</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl">
+            Réduisez vos charges<br />énergétiques.
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-            className="mt-6 max-w-lg text-base text-primary-foreground font-normal"
-            style={{ textShadow: "0 2px 12px hsla(0,0%,0%,0.7), 0 0 4px hsla(0,0%,0%,0.5)" }}
-          >
+          <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-6 max-w-lg text-base text-primary-foreground font-normal" style={{ textShadow: "0 2px 12px hsla(0,0%,0%,0.7), 0 0 4px hsla(0,0%,0%,0.5)" }}>
             Installations photovoltaïques pour entreprises, collectivités et industriels. Dimensionnement sur mesure, retour sur investissement calculé.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-            className="mt-10"
-          >
-            <MagneticButton
-              href="#simulateur"
-              className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-              strength={0.4}
-            >
-              Calculer ma rentabilité
-            </MagneticButton>
+          <motion.div initial={{ opacity: 0, y: 30, filter: "blur(6px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-10">
+            <MagneticButton href="#simulateur" className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]" strength={0.4}>Calculer ma rentabilité</MagneticButton>
           </motion.div>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-[1px] h-10 bg-primary-foreground/30"
-          />
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }} className="w-[1px] h-10 bg-primary-foreground/30" />
         </motion.div>
       </section>
 
       <SectionDivider />
 
-      {/* Benefits */}
       <section className="section-padding relative grain">
+        <FloatingShapes variant="light" />
         <div className="mx-auto max-w-6xl relative z-10">
-          <AnimatedSection>
-            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-              Chiffres clés
-            </p>
-            <TextReveal
-              text="Le solaire, un investissement rentable."
-              className="mb-16 text-3xl font-bold md:text-5xl"
-            />
-          </AnimatedSection>
-          <div className="grid gap-6 md:grid-cols-2">
-            {benefits.map((b, i) => (
-              <AnimatedSection key={b.title} delay={i * 0.1}>
-                <TiltCard className="rounded-2xl h-full" tiltMax={5} glare>
-                  <div className="flex gap-6 p-8 rounded-2xl glass-card-light h-full">
-                    <div className="shrink-0">
-                      <p className="text-2xl font-bold tracking-tight">
-                        {b.metricNum !== undefined ? (
-                          <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} />
-                        ) : b.metric}
-                      </p>
-                      <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+          <BlurFade>
+            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Chiffres clés</p>
+            <TextReveal text="Le solaire, un investissement rentable." className="mb-16 text-3xl font-bold md:text-5xl" />
+          </BlurFade>
+          <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
+            {benefits.map((b) => (
+              <StaggerItem key={b.title} direction="scale">
+                <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.5, 1]}>
+                  <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5} glare>
+                    <div className="flex gap-6 p-8 rounded-2xl glass-card-light embossed h-full">
+                      <div className="shrink-0">
+                        <p className="text-2xl font-bold tracking-tight">
+                          {b.metricNum !== undefined ? <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} /> : b.metric}
+                        </p>
+                        <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+                      </div>
+                      <div>
+                        <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
-                    </div>
-                  </div>
-                </TiltCard>
-              </AnimatedSection>
+                  </TiltCard>
+                </ScrollScale>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       <SectionDivider />
-
       <Simulator variant="b2b" />
 
-      {/* CTA before contact */}
       <section className="section-padding">
         <div className="mx-auto max-w-4xl text-center">
-          <AnimatedSection>
-            <p className="mb-4 text-muted-foreground text-sm">
-              Chaque bâtiment est différent. On calcule votre potentiel solaire gratuitement.
-            </p>
-            <MagneticButton
-              href="#contact"
-              className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
-            >
-              Demander une étude gratuite
-            </MagneticButton>
-          </AnimatedSection>
+          <BlurFade>
+            <p className="mb-4 text-muted-foreground text-sm">Chaque bâtiment est différent. On calcule votre potentiel solaire gratuitement.</p>
+            <MagneticButton href="#contact" className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]">Demander une étude gratuite</MagneticButton>
+          </BlurFade>
         </div>
       </section>
 

@@ -1,12 +1,14 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
-import AnimatedSection from "@/components/AnimatedSection";
+import BlurFade from "@/components/BlurFade";
 import TextReveal from "@/components/TextReveal";
 import CountUp from "@/components/CountUp";
 import TiltCard from "@/components/TiltCard";
 import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
+import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
+import ScrollScale from "@/components/ScrollScale";
+import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
 import { Sun, Battery, TrendingDown, Shield, Star } from "lucide-react";
@@ -61,79 +63,25 @@ const Particuliers = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img
-            src={heroImage}
-            alt="Installation solaire sur chalet en Savoie"
-            className="w-full h-full object-cover"
-            loading="eager"
-            fetchPriority="high"
-            decoding="async"
-          />
+          <img src={heroImage} alt="Installation solaire sur chalet en Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
-        <motion.div
-          style={{ opacity, y: contentY }}
-          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
-        >
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
-          >
-            Particuliers
-          </motion.p>
-          <motion.h1
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-            className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl"
-          >
-            Votre toit produit,
-            <br />
-            vous économisez.
+        <FloatingShapes variant="dark" />
+        <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+          <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Particuliers</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl">
+            Votre toit produit,<br />vous économisez.
           </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
-            className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed"
-          >
+          <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed">
             Installation solaire en Savoie et Haute-Savoie. On dimensionne, on pose, on garantit. Père et fils depuis 15 ans.
           </motion.p>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row"
-          >
-            <MagneticButton
-              href="/simulateur"
-              className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-              strength={0.4}
-            >
-              Simuler mon projet
-            </MagneticButton>
-            <MagneticButton
-              href="tel:+33762111470"
-              className="btn-glass-hero px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-              strength={0.4}
-            >
-              Être rappelé gratuitement
-            </MagneticButton>
+          <motion.div initial={{ opacity: 0, y: 30, filter: "blur(6px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]" strength={0.4}>Simuler mon projet</MagneticButton>
+            <MagneticButton href="tel:+33762111470" className="btn-glass-hero px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]" strength={0.4}>Être rappelé gratuitement</MagneticButton>
           </motion.div>
         </motion.div>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-        >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-            className="w-[1px] h-10 bg-primary-foreground/30"
-          />
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+          <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }} className="w-[1px] h-10 bg-primary-foreground/30" />
         </motion.div>
       </section>
 
@@ -141,71 +89,49 @@ const Particuliers = () => {
 
       {/* Benefits */}
       <section className="section-padding relative grain">
+        <FloatingShapes variant="light" />
         <div className="mx-auto max-w-6xl relative z-10">
-          <AnimatedSection>
-            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-              Concrètement
-            </p>
-            <TextReveal
-              text="Ce que le solaire change chez vous."
-              className="mb-4 text-3xl font-bold md:text-5xl"
-            />
-            <p className="mb-16 text-muted-foreground text-base max-w-xl">
-              Des résultats mesurables, pas des promesses.
-            </p>
-          </AnimatedSection>
-          <div className="grid gap-6 md:grid-cols-2">
-            {benefits.map((b, i) => (
-              <AnimatedSection key={b.title} delay={i * 0.1}>
-                <TiltCard className="rounded-2xl h-full" tiltMax={5} glare>
-                  <div className="flex gap-6 p-8 rounded-2xl glass-card-light h-full">
-                    <div className="shrink-0">
-                      <p className="text-2xl font-bold tracking-tight">
-                        {b.metricNum !== undefined ? (
-                          <CountUp end={b.metricNum} suffix={b.metric.replace(String(b.metricNum), "")} />
-                        ) : b.metric}
-                      </p>
-                      <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+          <BlurFade>
+            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Concrètement</p>
+            <TextReveal text="Ce que le solaire change chez vous." className="mb-4 text-3xl font-bold md:text-5xl" />
+            <p className="mb-16 text-muted-foreground text-base max-w-xl">Des résultats mesurables, pas des promesses.</p>
+          </BlurFade>
+          <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
+            {benefits.map((b) => (
+              <StaggerItem key={b.title} direction="scale">
+                <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.5, 1]}>
+                  <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5} glare>
+                    <div className="flex gap-6 p-8 rounded-2xl glass-card-light embossed h-full">
+                      <div className="shrink-0">
+                        <p className="text-2xl font-bold tracking-tight">
+                          {b.metricNum !== undefined ? <CountUp end={b.metricNum} suffix={b.metric.replace(String(b.metricNum), "")} /> : b.metric}
+                        </p>
+                        <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+                      </div>
+                      <div>
+                        <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
-                    </div>
-                  </div>
-                </TiltCard>
-              </AnimatedSection>
+                  </TiltCard>
+                </ScrollScale>
+              </StaggerItem>
             ))}
-          </div>
+          </StaggerChildren>
         </div>
       </section>
 
       <SectionDivider />
 
-      {/* CTA mid-page */}
-      <ParallaxBackground
-        image={chaletVillage}
-        alt="Chalet avec panneaux solaires en village alpin"
-        overlayOpacity={0.55}
-        blur={2}
-      >
+      <ParallaxBackground image={chaletVillage} alt="Chalet avec panneaux solaires en village alpin" overlayOpacity={0.55} blur={2}>
+        <FloatingShapes variant="dark" />
         <div className="section-padding">
           <div className="mx-auto max-w-4xl text-center">
-            <AnimatedSection>
-              <TextReveal
-                text="Combien économiseriez-vous ?"
-                className="text-3xl font-bold md:text-5xl text-primary-foreground mb-6"
-                variant="light"
-              />
-              <p className="mb-10 text-primary-foreground/70 text-base max-w-lg mx-auto">
-                Entrez votre adresse et votre facture. Résultat en 2 minutes.
-              </p>
-              <MagneticButton
-                href="/simulateur"
-                className="btn-pill bg-primary-foreground text-primary inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
-              >
-                Lancer le simulateur
-              </MagneticButton>
-            </AnimatedSection>
+            <BlurFade blur={12}>
+              <TextReveal text="Combien économiseriez-vous ?" className="text-3xl font-bold md:text-5xl text-primary-foreground mb-6" variant="light" />
+              <p className="mb-10 text-primary-foreground/70 text-base max-w-lg mx-auto">Entrez votre adresse et votre facture. Résultat en 2 minutes.</p>
+              <MagneticButton href="/simulateur" className="btn-pill bg-primary-foreground text-primary glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
+            </BlurFade>
           </div>
         </div>
       </ParallaxBackground>
@@ -214,47 +140,40 @@ const Particuliers = () => {
 
       {/* Trust */}
       <section className="section-padding relative grain">
+        <FloatingShapes variant="light" />
         <div className="mx-auto max-w-4xl relative z-10">
-          <AnimatedSection>
-            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-              Retours clients
-            </p>
-            <TextReveal
-              text="Ils l'ont fait."
-              className="mb-16 text-3xl font-bold md:text-5xl"
-            />
-          </AnimatedSection>
-          <div className="grid gap-6 md:grid-cols-2 mb-12">
-            {testimonials.map((review, i) => (
-              <AnimatedSection key={review.name} delay={i * 0.1}>
-                <TiltCard className="rounded-2xl h-full" tiltMax={5} glare>
-                  <div className="glass-card-light p-8 rounded-2xl h-full">
+          <BlurFade>
+            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Retours clients</p>
+            <TextReveal text="Ils l'ont fait." className="mb-16 text-3xl font-bold md:text-5xl" />
+          </BlurFade>
+          <StaggerChildren className="grid gap-6 md:grid-cols-2 mb-12" stagger={0.12}>
+            {testimonials.map((review) => (
+              <StaggerItem key={review.name} direction="scale">
+                <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5} glare>
+                  <div className="glass-card-light embossed p-8 rounded-2xl h-full">
                     <div className="mb-4 flex gap-0.5">
                       {Array.from({ length: review.rating }).map((_, j) => (
-                        <Star key={j} className="h-3.5 w-3.5 fill-foreground text-foreground" />
+                        <motion.div key={j} initial={{ opacity: 0, scale: 0, rotate: -180 }} whileInView={{ opacity: 1, scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.4 + j * 0.08 }}>
+                          <Star className="h-3.5 w-3.5 fill-foreground text-foreground" />
+                        </motion.div>
                       ))}
                     </div>
                     <p className="mb-4 text-muted-foreground leading-relaxed text-sm">« {review.text} »</p>
                     <p className="text-xs font-semibold uppercase tracking-wider">{review.name}</p>
                   </div>
                 </TiltCard>
-              </AnimatedSection>
+              </StaggerItem>
             ))}
-          </div>
-          <AnimatedSection delay={0.2}>
+          </StaggerChildren>
+          <BlurFade delay={0.2}>
             <div className="flex flex-wrap items-center justify-center gap-4">
-              {["QualiPV 36K", "Garantie Décennale", "0 accident en 15 ans"].map((badge) => (
-                <motion.div
-                  key={badge}
-                  className="glass-card-light px-6 py-3 rounded-full"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                >
+              {["QualiPV 36K", "Garantie Décennale", "0 accident en 15 ans"].map((badge, i) => (
+                <motion.div key={badge} className="glass-card-light embossed px-6 py-3 rounded-full" whileHover={{ scale: 1.05, y: -3 }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}>
                   <p className="text-xs font-semibold uppercase tracking-wider">{badge}</p>
                 </motion.div>
               ))}
             </div>
-          </AnimatedSection>
+          </BlurFade>
         </div>
       </section>
 

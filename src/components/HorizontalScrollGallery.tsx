@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import AnimatedSection from "./AnimatedSection";
+import BlurFade from "./BlurFade";
 
 import img1 from "@/assets/install-chalet-village.png";
 import img2 from "@/assets/install-maison-moderne.png";
@@ -16,10 +16,6 @@ const images = [
   { src: img5, alt: "Ferme alpine - installation photovoltaïque", label: "Ferme alpine" },
 ];
 
-/**
- * Horizontal scroll gallery: as the user scrolls vertically, images slide horizontally.
- * Creates a dramatic "cinematic reel" effect.
- */
 const HorizontalScrollGallery = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -32,38 +28,49 @@ const HorizontalScrollGallery = () => {
   return (
     <section ref={containerRef} className="overflow-hidden py-20 md:py-32">
       <div className="mx-auto max-w-6xl px-6 mb-12">
-        <AnimatedSection>
+        <BlurFade>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
             Nos réalisations
           </p>
           <h2 className="text-3xl font-bold md:text-5xl">
             Installés en Savoie.
           </h2>
-        </AnimatedSection>
+        </BlurFade>
       </div>
       <motion.div style={{ x }} className="flex gap-6 pl-6 md:pl-24">
-        {images.map((img, i) => (
-          <motion.div
-            key={img.label}
-            className="relative shrink-0 w-[75vw] md:w-[40vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden group"
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.6, delay: i * 0.05, ease: "easeOut" }}
-          >
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
-              decoding="async"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-            <p className="absolute bottom-4 left-5 text-xs font-semibold uppercase tracking-[0.15em] text-primary-foreground">
-              {img.label}
-            </p>
-          </motion.div>
-        ))}
+        {images.map((img, i) => {
+          const rotate = useTransform(scrollYProgress, [0, 1], [i % 2 === 0 ? 2 : -2, i % 2 === 0 ? -1 : 1]);
+          return (
+            <motion.div
+              key={img.label}
+              className="relative shrink-0 w-[75vw] md:w-[40vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden group"
+              initial={{ opacity: 0, scale: 0.85, y: 40 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-20px" }}
+              transition={{ duration: 0.7, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
+              style={{ rotate }}
+              whileHover={{ scale: 1.03, rotate: 0, transition: { duration: 0.4 } }}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+              <motion.p
+                className="absolute bottom-4 left-5 text-xs font-semibold uppercase tracking-[0.15em] text-primary-foreground"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 + i * 0.06 }}
+              >
+                {img.label}
+              </motion.p>
+            </motion.div>
+          );
+        })}
       </motion.div>
     </section>
   );

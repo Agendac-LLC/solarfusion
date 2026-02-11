@@ -1,15 +1,16 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, FileText } from "lucide-react";
 import MagneticButton from "./MagneticButton";
-import AnimatedSection from "./AnimatedSection";
+import StaggerChildren, { StaggerItem } from "./StaggerChildren";
+import BlurFade from "./BlurFade";
 import { AnimatedLine } from "./AnimatedSection";
 
 const Footer = () => (
   <footer className="bg-foreground text-background">
     <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
-      <AnimatedSection>
-        <div className="grid gap-12 md:grid-cols-3">
-          {/* Company */}
+      <StaggerChildren className="grid gap-12 md:grid-cols-3" stagger={0.12}>
+        {/* Company */}
+        <StaggerItem direction="up">
           <div>
             <Link to="/" className="text-base font-bold tracking-[0.1em] hover:text-background/80 transition-colors duration-200">
               SOLAR FUSION
@@ -18,8 +19,10 @@ const Footer = () => (
               Installateurs solaires père et fils depuis 2009. Basés à Chambéry, on intervient en Savoie et Haute-Savoie.
             </p>
           </div>
+        </StaggerItem>
 
-          {/* Links */}
+        {/* Links */}
+        <StaggerItem direction="up">
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-background/40">
               Navigation
@@ -40,8 +43,10 @@ const Footer = () => (
               ))}
             </nav>
           </div>
+        </StaggerItem>
 
-          {/* Contact */}
+        {/* Contact */}
+        <StaggerItem direction="up">
           <div>
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-background/40">
               Contact
@@ -62,12 +67,12 @@ const Footer = () => (
               </p>
             </div>
           </div>
-        </div>
-      </AnimatedSection>
+        </StaggerItem>
+      </StaggerChildren>
 
       {/* Devis à distance */}
       <AnimatedLine className="mt-12 bg-background/10" delay={0.2} />
-      <AnimatedSection delay={0.3}>
+      <BlurFade delay={0.3}>
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-sm text-background/50">
             Hors Savoie / Haute-Savoie ?
@@ -80,7 +85,7 @@ const Footer = () => (
             Devis à distance
           </MagneticButton>
         </div>
-      </AnimatedSection>
+      </BlurFade>
 
       <AnimatedLine className="mt-8 bg-background/10" delay={0.4} />
       <div className="pt-8 text-center text-xs text-background/30">

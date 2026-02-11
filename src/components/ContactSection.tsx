@@ -1,7 +1,9 @@
-import AnimatedSection from "./AnimatedSection";
+import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import TiltCard from "./TiltCard";
+import StaggerChildren, { StaggerItem } from "./StaggerChildren";
 import ParallaxBackground from "./ParallaxBackground";
+import FloatingShapes from "./FloatingShapes";
 import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
 import installImage from "@/assets/install-chalet-savoie.png";
 
@@ -48,9 +50,10 @@ const ContactSection = () => (
     overlayOpacity={0.7}
     blur={2}
   >
+    <FloatingShapes variant="dark" />
     <div id="contact" className="section-padding">
       <div className="mx-auto max-w-4xl">
-        <AnimatedSection>
+        <BlurFade blur={12}>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
             Contact
           </p>
@@ -62,10 +65,10 @@ const ContactSection = () => (
           <p className="mb-16 text-primary-foreground/75 text-sm max-w-xl">
             Appelez, écrivez ou passez par WhatsApp. Sébastien ou son fils vous répond directement.
           </p>
-        </AnimatedSection>
-        <div className="grid gap-5 sm:grid-cols-2">
-          {contactMethods.map((method, i) => (
-            <AnimatedSection key={method.label} delay={i * 0.1}>
+        </BlurFade>
+        <StaggerChildren className="grid gap-5 sm:grid-cols-2" stagger={0.1}>
+          {contactMethods.map((method) => (
+            <StaggerItem key={method.label} direction="scale">
               <TiltCard className="rounded-2xl h-full" tiltMax={4}>
                 {method.href ? (
                   <a
@@ -100,9 +103,9 @@ const ContactSection = () => (
                   </div>
                 )}
               </TiltCard>
-            </AnimatedSection>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </div>
   </ParallaxBackground>

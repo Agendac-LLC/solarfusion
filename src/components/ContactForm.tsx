@@ -1,7 +1,8 @@
 import { useState } from "react";
-import AnimatedSection from "./AnimatedSection";
+import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import MagneticButton from "./MagneticButton";
+import FloatingShapes from "./FloatingShapes";
 import { z } from "zod";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -44,8 +45,9 @@ const ContactForm = () => {
 
   return (
     <section id="contact-form" className="section-padding relative grain">
+      <FloatingShapes variant="light" />
       <div className="mx-auto max-w-lg relative z-10">
-        <AnimatedSection>
+        <BlurFade>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium text-center">
             Rappel gratuit
           </p>
@@ -56,8 +58,8 @@ const ContactForm = () => {
           <p className="mb-10 text-muted-foreground text-sm text-center">
             Remplissez ce formulaire rapide, nous vous rappelons pour discuter de votre projet.
           </p>
-        </AnimatedSection>
-        <AnimatedSection delay={0.2}>
+        </BlurFade>
+        <BlurFade delay={0.2}>
           <form onSubmit={handleSubmit} className="space-y-4">
             {[
               { type: "text", placeholder: "Nom complet", key: "name" },
@@ -79,7 +81,7 @@ const ContactForm = () => {
             ))}
             <MagneticButton
               as="button"
-              className="btn-pill bg-foreground text-background w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2"
+              className="btn-pill bg-foreground text-background glow-pulse w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {loading ? (
                 <>
@@ -99,7 +101,7 @@ const ContactForm = () => {
               Intervention en Savoie (73) et Haute-Savoie (74)
             </p>
           </form>
-        </AnimatedSection>
+        </BlurFade>
       </div>
     </section>
   );

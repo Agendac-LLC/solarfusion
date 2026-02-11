@@ -56,6 +56,8 @@
     --shadow-soft: 0 4px 24px -4px hsl(0 0% 0% / 0.08);
     --shadow-card: 0 8px 32px -8px hsl(0 0% 0% / 0.1);
     --shadow-elevated: 0 16px 48px -12px hsl(0 0% 0% / 0.12);
+    --shadow-dramatic: 0 25px 60px -15px hsl(0 0% 0% / 0.18), 0 8px 20px -8px hsl(0 0% 0% / 0.1);
+    --shadow-inner-glow: inset 0 1px 0 hsl(0 0% 100% / 0.06), inset 0 -1px 0 hsl(0 0% 0% / 0.05);
   }
 }
 
@@ -207,6 +209,16 @@
     transform: translateY(-4px);
   }
 
+  /* Card dramatic lift - stronger shadow */
+  .card-dramatic {
+    @apply transition-all duration-500 ease-out;
+    box-shadow: var(--shadow-card);
+  }
+  .card-dramatic:hover {
+    box-shadow: var(--shadow-dramatic);
+    transform: translateY(-8px);
+  }
+
   /* Parallax container */
   .parallax-container {
     will-change: transform;
@@ -280,5 +292,56 @@
       0 8px 32px -8px hsl(0 0% 0% / 0.12),
       inset 0 1px 0 hsl(0 0% 100% / 0.6);
     transform: translateY(-2px);
+  }
+
+  /* Glow pulse for CTAs */
+  .glow-pulse {
+    position: relative;
+  }
+  .glow-pulse::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, hsl(0 0% 0% / 0.15), hsl(0 0% 0% / 0.05));
+    filter: blur(12px);
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+    z-index: -1;
+    pointer-events: none;
+  }
+  .glow-pulse:hover::after {
+    opacity: 1;
+  }
+
+  /* Embossed surface - adds relief to flat cards */
+  .embossed {
+    box-shadow:
+      var(--shadow-soft),
+      var(--shadow-inner-glow);
+  }
+  .embossed:hover {
+    box-shadow:
+      var(--shadow-elevated),
+      var(--shadow-inner-glow);
+  }
+
+  /* Layered depth - stacked card effect */
+  .depth-layer {
+    position: relative;
+  }
+  .depth-layer::before {
+    content: "";
+    position: absolute;
+    inset: 8px 4px -6px 4px;
+    border-radius: inherit;
+    background: hsl(var(--muted));
+    z-index: -1;
+    opacity: 0.5;
+    transition: all 0.4s ease-out;
+  }
+  .depth-layer:hover::before {
+    inset: 12px 6px -10px 6px;
+    opacity: 0.4;
   }
 }

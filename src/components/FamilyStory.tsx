@@ -1,8 +1,9 @@
-import AnimatedSection from "./AnimatedSection";
+import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import CountUp from "./CountUp";
 import TiltCard from "./TiltCard";
-import { motion } from "framer-motion";
+import StaggerChildren, { StaggerItem } from "./StaggerChildren";
+import FloatingShapes from "./FloatingShapes";
 
 const stats = [
   { value: 15, suffix: "", label: "ans sur les toits", sub: "Savoie & Haute-Savoie" },
@@ -12,9 +13,9 @@ const stats = [
 
 const FamilyStory = () => (
   <section className="section-padding relative">
+    <FloatingShapes variant="light" />
     <div className="mx-auto max-w-6xl relative z-10">
-      {/* Title */}
-      <AnimatedSection>
+      <BlurFade>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Qui sommes-nous
         </p>
@@ -22,10 +23,9 @@ const FamilyStory = () => (
           text="Père et fils, installateurs solaires."
           className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]"
         />
-      </AnimatedSection>
+      </BlurFade>
 
-      {/* Text */}
-      <AnimatedSection>
+      <BlurFade delay={0.2}>
         <div className="max-w-2xl mb-16 space-y-5 text-muted-foreground leading-relaxed">
           <p>
             Sébastien Chaffardon installe des panneaux solaires en Savoie depuis <strong className="text-foreground font-semibold">2009</strong>. Son fils l'a rejoint pour continuer le métier. À deux, ils gèrent chaque chantier du dimensionnement à la mise en service.
@@ -34,15 +34,14 @@ const FamilyStory = () => (
             Pas de sous-traitance, pas d'intérimaires. Chaque toit est posé avec le même soin que si c'était le nôtre. Résultat : <strong className="text-foreground font-semibold">zéro accident</strong> en 15 ans de chantiers.
           </p>
         </div>
-      </AnimatedSection>
+      </BlurFade>
 
-      {/* Stats row */}
-      <div className="grid gap-6 md:grid-cols-3">
-        {stats.map((stat, i) => (
-          <AnimatedSection key={stat.label} delay={i * 0.12}>
-            <TiltCard className="rounded-2xl h-full" tiltMax={5}>
+      <StaggerChildren className="grid gap-6 md:grid-cols-3" stagger={0.12}>
+        {stats.map((stat) => (
+          <StaggerItem key={stat.label} direction="scale">
+            <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5}>
               <div
-                className={`p-8 rounded-2xl h-full ${
+                className={`p-8 rounded-2xl h-full embossed ${
                   stat.isBlack
                     ? "bg-foreground text-background"
                     : "glass-card-light"
@@ -67,9 +66,9 @@ const FamilyStory = () => (
                 )}
               </div>
             </TiltCard>
-          </AnimatedSection>
+          </StaggerItem>
         ))}
-      </div>
+      </StaggerChildren>
     </div>
   </section>
 );

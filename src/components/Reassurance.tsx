@@ -1,8 +1,10 @@
-import AnimatedSection from "./AnimatedSection";
+import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import CountUp from "./CountUp";
 import TiltCard from "./TiltCard";
+import StaggerChildren, { StaggerItem } from "./StaggerChildren";
 import ParallaxBackground from "./ParallaxBackground";
+import FloatingShapes from "./FloatingShapes";
 import chaletBoisImage from "@/assets/install-chalet-bois.png";
 
 const stats = [
@@ -38,9 +40,10 @@ const Reassurance = () => (
     overlayOpacity={0.65}
     blur={2}
   >
+    <FloatingShapes variant="dark" />
     <div className="section-padding">
       <div className="mx-auto max-w-6xl">
-        <AnimatedSection>
+        <BlurFade blur={12}>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
             Pourquoi nous
           </p>
@@ -49,10 +52,10 @@ const Reassurance = () => (
             className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
             variant="light"
           />
-        </AnimatedSection>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {stats.map((stat, i) => (
-            <AnimatedSection key={stat.label} delay={i * 0.15}>
+        </BlurFade>
+        <StaggerChildren className="grid gap-6 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+          {stats.map((stat) => (
+            <StaggerItem key={stat.label} direction="scale">
               <TiltCard className="rounded-2xl h-full" tiltMax={5}>
                 <div className="glass-card rounded-2xl p-8 h-full">
                   <p className="text-4xl font-bold tracking-tight text-primary-foreground">
@@ -64,9 +67,9 @@ const Reassurance = () => (
                   </p>
                 </div>
               </TiltCard>
-            </AnimatedSection>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerChildren>
       </div>
     </div>
   </ParallaxBackground>

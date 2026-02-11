@@ -7,10 +7,11 @@ import Certifications from "@/components/Certifications";
 import Simulator from "@/components/Simulator";
 import Reviews from "@/components/Reviews";
 import ContactSection from "@/components/ContactSection";
-import AnimatedSection from "@/components/AnimatedSection";
+import BlurFade from "@/components/BlurFade";
 import SectionDivider from "@/components/SectionDivider";
 import MagneticButton from "@/components/MagneticButton";
 import ParallaxBackground from "@/components/ParallaxBackground";
+import FloatingShapes from "@/components/FloatingShapes";
 import TextReveal from "@/components/TextReveal";
 import fermeImage from "@/assets/install-ferme-alpine.png";
 
@@ -29,9 +30,10 @@ const Index = () => (
       overlayOpacity={0.55}
       blur={2}
     >
+      <FloatingShapes variant="dark" />
       <div className="section-padding">
         <div className="mx-auto max-w-4xl text-center">
-          <AnimatedSection>
+          <BlurFade blur={12}>
             <TextReveal
               text="Et si votre toit travaillait pour vous ?"
               className="text-2xl font-bold md:text-4xl text-primary-foreground mb-6"
@@ -42,11 +44,11 @@ const Index = () => (
             </p>
             <MagneticButton
               href="#simulateur"
-              className="btn-pill bg-primary-foreground text-primary inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+              className="btn-pill bg-primary-foreground text-primary glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Simuler mes économies
             </MagneticButton>
-          </AnimatedSection>
+          </BlurFade>
         </div>
       </div>
     </ParallaxBackground>
@@ -54,9 +56,10 @@ const Index = () => (
     <SectionDivider />
     <Simulator variant="b2c" />
     <Reviews />
-    <section className="section-padding bg-background">
-      <div className="mx-auto max-w-4xl text-center">
-        <AnimatedSection>
+    <section className="section-padding bg-background relative">
+      <FloatingShapes variant="light" />
+      <div className="mx-auto max-w-4xl text-center relative z-10">
+        <BlurFade>
           <TextReveal
             text="On en parle ?"
             className="mb-4 text-3xl font-bold md:text-5xl"
@@ -66,11 +69,11 @@ const Index = () => (
           </p>
           <MagneticButton
             href="#contact"
-            className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+            className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Nous contacter
           </MagneticButton>
-        </AnimatedSection>
+        </BlurFade>
       </div>
     </section>
     <ContactSection />
