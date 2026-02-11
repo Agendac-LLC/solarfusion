@@ -34,7 +34,7 @@ const Header = () => {
   };
 
   const textColor = scrolled ? "text-foreground" : "text-primary-foreground";
-  const textMuted = scrolled ? "text-muted-foreground" : "text-primary-foreground/70";
+  const textMuted = scrolled ? "text-foreground/60" : "text-primary-foreground/70";
   const textShadow = scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)";
 
   return (
