@@ -6,7 +6,7 @@ const FamilyStory = () => (
   <section className="section-padding">
     <div className="mx-auto max-w-6xl">
       <div className="grid gap-20 md:grid-cols-2 items-start">
-        <AnimatedSection direction="left">
+        <AnimatedSection direction="left" className="overflow-hidden min-w-0">
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
             Qui sommes-nous
           </p>
