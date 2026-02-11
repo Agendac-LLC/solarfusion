@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import TextReveal from "@/components/TextReveal";
 import ContactSection from "@/components/ContactSection";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/install-maison-moderne.png";
@@ -37,20 +38,27 @@ const DomotiquePAC = () => {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.12, 1]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <>
       {/* Hero */}
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
-        <motion.img
-          src={heroImage}
-          alt="Maison moderne avec domotique et solaire"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ y: imageY }}
-          loading="eager"
-        />
+        <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
+          <img
+            src={heroImage}
+            alt="Maison moderne avec domotique et solaire"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        </motion.div>
         <div className="hero-overlay absolute inset-0" />
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        <motion.div
+          style={{ opacity, y: contentY }}
+          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        >
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +94,7 @@ const DomotiquePAC = () => {
           >
             Être rappelé gratuitement
           </motion.a>
-        </div>
+        </motion.div>
       </section>
 
       {/* Solutions */}
@@ -96,9 +104,10 @@ const DomotiquePAC = () => {
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
               Nos solutions
             </p>
-            <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-              Chauffage, clim, pilotage.
-            </h2>
+            <TextReveal
+              text="Chauffage, clim, pilotage."
+              className="mb-4 text-3xl font-bold md:text-5xl"
+            />
             <p className="mb-16 text-muted-foreground text-base max-w-xl">
               Chaque solution se couple au solaire pour maximiser vos économies.
             </p>
@@ -106,12 +115,22 @@ const DomotiquePAC = () => {
           <div className="grid gap-6 md:grid-cols-2">
             {services.map((service, i) => (
               <AnimatedSection key={service.title} delay={i * 0.12}>
-                <div className="glass-card-light p-10 md:p-12 h-full rounded-2xl transition-all duration-300">
-                  <service.icon className="mb-8 h-8 w-8 text-foreground/80" strokeWidth={1.2} />
+                <motion.div
+                  className="glass-card-light p-10 md:p-12 h-full rounded-2xl transition-all duration-300"
+                  whileHover={{ y: -6, rotateX: 2, rotateY: -2, boxShadow: "var(--shadow-elevated)" }}
+                  style={{ transformPerspective: 800 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  <motion.div
+                    className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center"
+                    whileHover={{ scale: 1.1, rotate: -5 }}
+                  >
+                    <service.icon className="h-7 w-7 text-foreground/80" strokeWidth={1.2} />
+                  </motion.div>
                   <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
                   <p className="mt-4 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">{service.detail}</p>
-                </div>
+                </motion.div>
               </AnimatedSection>
             ))}
           </div>
@@ -123,19 +142,16 @@ const DomotiquePAC = () => {
         <div className="mx-auto max-w-4xl text-center">
           <AnimatedSection>
             <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-              <div className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
-                <p className="text-xs font-semibold uppercase tracking-wider">Partenaire Hitachi</p>
-              </div>
-              <div className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
-                <p className="text-xs font-semibold uppercase tracking-wider">Garantie Décennale</p>
-              </div>
-              <div className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
-                <p className="text-xs font-semibold uppercase tracking-wider">QualiPV 36K</p>
-              </div>
+              {["Partenaire Hitachi", "Garantie Décennale", "QualiPV 36K"].map((badge) => (
+                <div key={badge} className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
+                  <p className="text-xs font-semibold uppercase tracking-wider">{badge}</p>
+                </div>
+              ))}
             </div>
-            <h2 className="text-3xl font-bold md:text-5xl mb-6">
-              On étudie votre projet ?
-            </h2>
+            <TextReveal
+              text="On étudie votre projet ?"
+              className="text-3xl font-bold md:text-5xl mb-6"
+            />
             <p className="mb-10 text-muted-foreground text-sm max-w-lg mx-auto">
               Chaque maison est différente. On vient chez vous, on mesure, on propose.
             </p>

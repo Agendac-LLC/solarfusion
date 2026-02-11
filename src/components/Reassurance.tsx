@@ -12,8 +12,6 @@ const stats = [
     description: "Installations en Savoie et Haute-Savoie depuis 2009.",
   },
   {
-    value: 0,
-    suffix: "",
     displayValue: "Père & fils",
     label: "Chaffardon",
     description: "On pose nous-mêmes. Pas de sous-traitance.",
@@ -48,6 +46,7 @@ const Reassurance = () => (
           <TextReveal
             text="Les faits, pas les promesses."
             className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
+            variant="light"
           />
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -55,7 +54,7 @@ const Reassurance = () => (
             <AnimatedSection key={stat.label} delay={i * 0.15}>
               <div className="glass-card rounded-2xl p-8 transition-all duration-300">
                 <p className="text-4xl font-bold tracking-tight text-primary-foreground">
-                  {stat.displayValue ? stat.displayValue : <CountUp end={stat.value} suffix={stat.suffix} />}
+                  {stat.displayValue ? stat.displayValue : <CountUp end={stat.value!} suffix={stat.suffix} />}
                 </p>
                 <p className="mt-1 text-base font-semibold text-primary-foreground">{stat.label}</p>
                 <p className="mt-4 text-primary-foreground/70 leading-relaxed text-sm">

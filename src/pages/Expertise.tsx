@@ -2,6 +2,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
+import TextReveal from "@/components/TextReveal";
+import CountUp from "@/components/CountUp";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
 import { Shield } from "lucide-react";
@@ -19,20 +21,27 @@ const Expertise = () => {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.12, 1]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <>
       {/* Hero */}
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
-        <motion.img
-          src={fermeImage}
-          alt="Ferme alpine avec panneaux solaires en Savoie"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ y: imageY }}
-          loading="eager"
-        />
+        <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
+          <img
+            src={fermeImage}
+            alt="Ferme alpine avec panneaux solaires en Savoie"
+            className="w-full h-full object-cover"
+            loading="eager"
+          />
+        </motion.div>
         <div className="hero-overlay absolute inset-0" />
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        <motion.div
+          style={{ opacity, y: contentY }}
+          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        >
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -59,7 +68,7 @@ const Expertise = () => {
           >
             Installateurs solaires en Savoie depuis 2009. Zéro accident, zéro sous-traitance. On pose comme si c'était chez nous.
           </motion.p>
-        </div>
+        </motion.div>
       </section>
 
       {/* Story */}
@@ -69,9 +78,10 @@ const Expertise = () => {
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
               Qui sommes-nous
             </p>
-            <h2 className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]">
-              Pas de discours, des faits.
-            </h2>
+            <TextReveal
+              text="Pas de discours, des faits."
+              className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]"
+            />
           </AnimatedSection>
           <div className="grid gap-8 md:grid-cols-2 mt-12">
             <AnimatedSection direction="left">
@@ -90,12 +100,16 @@ const Expertise = () => {
             <AnimatedSection direction="right" delay={0.2}>
               <div className="space-y-6">
                 <div className="glass-card-light p-8 rounded-2xl transition-all duration-300">
-                  <p className="text-4xl font-bold tracking-tight md:text-5xl">15</p>
+                  <p className="text-4xl font-bold tracking-tight md:text-5xl">
+                    <CountUp end={15} />
+                  </p>
                   <p className="mt-2 text-base font-semibold">ans d'expérience</p>
                   <p className="mt-1 text-sm text-muted-foreground">en Savoie et Haute-Savoie</p>
                 </div>
                 <div className="glass-card-light p-8 rounded-2xl transition-all duration-300">
-                  <p className="text-4xl font-bold tracking-tight md:text-5xl">0</p>
+                  <p className="text-4xl font-bold tracking-tight md:text-5xl">
+                    <CountUp end={0} />
+                  </p>
                   <p className="mt-2 text-base font-semibold">accident</p>
                   <p className="mt-1 text-sm text-muted-foreground">sur l'ensemble de nos chantiers</p>
                 </div>
@@ -118,20 +132,26 @@ const Expertise = () => {
               <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
                 Chronologie
               </p>
-              <h2 className="mb-16 text-3xl font-bold md:text-5xl text-primary-foreground">
-                Les dates clés.
-              </h2>
+              <TextReveal
+                text="Les dates clés."
+                className="mb-16 text-3xl font-bold md:text-5xl text-primary-foreground"
+                variant="light"
+              />
             </AnimatedSection>
             <div className="space-y-6">
               {milestones.map((m, i) => (
                 <AnimatedSection key={m.year} delay={i * 0.1}>
-                  <div className="glass-card p-8 rounded-2xl transition-all duration-300 flex gap-6 items-start">
+                  <motion.div
+                    className="glass-card p-8 rounded-2xl transition-all duration-300 flex gap-6 items-start"
+                    whileHover={{ y: -3, boxShadow: "0 16px 48px -12px hsl(0 0% 0% / 0.4)" }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                  >
                     <p className="text-3xl font-bold text-primary-foreground/40 shrink-0">{m.year}</p>
                     <div>
                       <h3 className="text-lg font-semibold text-primary-foreground mb-2">{m.title}</h3>
                       <p className="text-primary-foreground/70 text-sm leading-relaxed">{m.description}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 </AnimatedSection>
               ))}
             </div>
@@ -149,16 +169,16 @@ const Expertise = () => {
                   <Shield className="h-3.5 w-3.5" strokeWidth={1.5} /> QualiPV 36K
                 </p>
               </div>
-              <div className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
-                <p className="text-xs font-semibold uppercase tracking-wider">Partenaire Hitachi</p>
-              </div>
-              <div className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
-                <p className="text-xs font-semibold uppercase tracking-wider">Garantie Décennale</p>
-              </div>
+              {["Partenaire Hitachi", "Garantie Décennale"].map((badge) => (
+                <div key={badge} className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
+                  <p className="text-xs font-semibold uppercase tracking-wider">{badge}</p>
+                </div>
+              ))}
             </div>
-            <h2 className="text-3xl font-bold md:text-5xl mb-6">
-              Votre projet, notre métier.
-            </h2>
+            <TextReveal
+              text="Votre projet, notre métier."
+              className="text-3xl font-bold md:text-5xl mb-6"
+            />
             <p className="mb-10 text-muted-foreground text-sm max-w-lg mx-auto">
               On vient chez vous, on regarde votre toit, on vous dit ce qui est faisable. Gratuit, sans engagement.
             </p>
