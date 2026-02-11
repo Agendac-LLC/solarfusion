@@ -5,15 +5,17 @@ import CountUp from "./CountUp";
 const FamilyStory = () => (
   <section className="section-padding">
     <div className="mx-auto max-w-6xl">
+      <AnimatedSection>
+        <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
+          Qui sommes-nous
+        </p>
+        <TextReveal
+          text="Père et fils, installateurs solaires."
+          className="mb-16 text-3xl font-bold md:text-5xl leading-[1.1]"
+        />
+      </AnimatedSection>
       <div className="grid gap-20 md:grid-cols-2 items-start">
-        <AnimatedSection direction="left" className="overflow-hidden min-w-0">
-          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-            Qui sommes-nous
-          </p>
-          <TextReveal
-            text="Père et fils, installateurs solaires."
-            className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]"
-          />
+        <AnimatedSection direction="left">
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>
               Sébastien Chaffardon installe des panneaux solaires en Savoie depuis <strong className="text-foreground font-semibold">2009</strong>. Son fils l'a rejoint pour continuer le métier. À deux, ils gèrent chaque chantier du dimensionnement à la mise en service.
