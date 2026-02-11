@@ -1,6 +1,7 @@
 import AnimatedSection from "./AnimatedSection";
 import TextReveal from "./TextReveal";
 import CountUp from "./CountUp";
+import TiltCard from "./TiltCard";
 import ParallaxBackground from "./ParallaxBackground";
 import chaletBoisImage from "@/assets/install-chalet-bois.png";
 
@@ -52,15 +53,17 @@ const Reassurance = () => (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <AnimatedSection key={stat.label} delay={i * 0.15}>
-              <div className="glass-card rounded-2xl p-8 transition-all duration-300">
-                <p className="text-4xl font-bold tracking-tight text-primary-foreground">
-                  {stat.displayValue ? stat.displayValue : <CountUp end={stat.value!} suffix={stat.suffix} />}
-                </p>
-                <p className="mt-1 text-base font-semibold text-primary-foreground">{stat.label}</p>
-                <p className="mt-4 text-primary-foreground/70 leading-relaxed text-sm">
-                  {stat.description}
-                </p>
-              </div>
+              <TiltCard className="rounded-2xl h-full" tiltMax={5}>
+                <div className="glass-card rounded-2xl p-8 h-full">
+                  <p className="text-4xl font-bold tracking-tight text-primary-foreground">
+                    {stat.displayValue ? stat.displayValue : <CountUp end={stat.value!} suffix={stat.suffix} />}
+                  </p>
+                  <p className="mt-1 text-base font-semibold text-primary-foreground">{stat.label}</p>
+                  <p className="mt-4 text-primary-foreground/70 leading-relaxed text-sm">
+                    {stat.description}
+                  </p>
+                </div>
+              </TiltCard>
             </AnimatedSection>
           ))}
         </div>
