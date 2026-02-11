@@ -46,14 +46,14 @@ const Word = ({
   progress: any;
   variant: "dark" | "light";
 }) => {
-  const startOpacity = variant === "light" ? 0.75 : 0.35;
+  const startOpacity = variant === "light" ? 0.85 : 0.5;
   const opacity = useTransform(progress, range, [startOpacity, 1]);
-  const y = useTransform(progress, range, [6, 0]);
+  const y = useTransform(progress, range, [4, 0]);
 
   return (
     <motion.span
       style={{ opacity, y }}
-      className="inline-block mr-[0.3em] transition-none"
+      className="inline mr-[0.25em] transition-none"
     >
       {children}
     </motion.span>
