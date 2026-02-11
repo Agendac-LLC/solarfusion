@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, ReactNode } from "react";
+import { useRef, ReactNode, memo } from "react";
 
 interface ParallaxBackgroundProps {
   image: string;
@@ -8,18 +8,16 @@ interface ParallaxBackgroundProps {
   className?: string;
   overlayOpacity?: number;
   blur?: number;
-  /** Fade edges into page background for seamless transitions */
   fadeEdges?: boolean;
 }
 
-const ParallaxBackground = ({
+const ParallaxBackground = memo(({
   image,
   alt,
   children,
   className = "",
   overlayOpacity = 0.55,
   blur = 0,
-  fadeEdges = true,
 }: ParallaxBackgroundProps) => {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -29,8 +27,7 @@ const ParallaxBackground = ({
   const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
 
   return (
-    <section ref={ref} className={`relative overflow-hidden ${className}`}>
-      {/* Parallax image layer */}
+    <section ref={ref} className={`relative overflow-hidden ${className}`} style={{ contain: "layout style" }}>
       <motion.img
         src={image}
         alt={alt}
@@ -38,21 +35,22 @@ const ParallaxBackground = ({
         style={{
           y,
           filter: blur ? `blur(${blur}px)` : undefined,
+          willChange: "transform",
         }}
         loading="lazy"
         decoding="async"
       />
-      {/* Dark overlay for text contrast */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background: `linear-gradient(to bottom, hsl(0 0% 0% / ${overlayOpacity}) 0%, hsl(0 0% 0% / ${overlayOpacity * 0.6}) 40%, hsl(0 0% 0% / ${overlayOpacity * 0.8}) 70%, hsl(0 0% 0% / ${overlayOpacity}) 100%)`,
         }}
       />
-      {/* Content layer */}
       <div className="relative z-10">{children}</div>
     </section>
   );
-};
+});
+
+ParallaxBackground.displayName = "ParallaxBackground";
 
 export default ParallaxBackground;

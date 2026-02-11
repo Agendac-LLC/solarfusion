@@ -1,31 +1,27 @@
-import { useRef, ReactNode } from "react";
+import { useRef, useCallback, ReactNode, memo } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface TiltCardProps {
   children: ReactNode;
   className?: string;
-  /** Max tilt angle in degrees (default 8) */
   tiltMax?: number;
-  /** Scale on hover (default 1.02) */
   scaleHover?: number;
-  /** Glare effect (default true) */
   glare?: boolean;
 }
 
-/**
- * Mouse-following 3D tilt card with optional glare.
- * Creates a physical, tactile depth effect.
- */
-const TiltCard = ({
+const TiltCard = memo(({
   children,
   className = "",
   tiltMax = 8,
   scaleHover = 1.02,
   glare = true,
 }: TiltCardProps) => {
+  const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0.5);
   const mouseY = useMotionValue(0.5);
+  const rafRef = useRef<number>(0);
 
   const rotateX = useSpring(useTransform(mouseY, [0, 1], [tiltMax, -tiltMax]), {
     stiffness: 200,
@@ -38,32 +34,41 @@ const TiltCard = ({
   const scale = useMotionValue(1);
   const springScale = useSpring(scale, { stiffness: 200, damping: 20 });
 
-  // Glare position
   const glareX = useTransform(mouseX, [0, 1], [0, 100]);
   const glareY = useTransform(mouseY, [0, 1], [0, 100]);
   const glareOpacity = useMotionValue(0);
   const springGlareOpacity = useSpring(glareOpacity, { stiffness: 200, damping: 20 });
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const x = (e.clientX - rect.left) / rect.width;
-    const y = (e.clientY - rect.top) / rect.height;
-    mouseX.set(x);
-    mouseY.set(y);
-  };
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    if (!ref.current || isMobile) return;
+    // Throttle with rAF
+    if (rafRef.current) return;
+    rafRef.current = requestAnimationFrame(() => {
+      rafRef.current = 0;
+      if (!ref.current) return;
+      const rect = ref.current.getBoundingClientRect();
+      mouseX.set((e.clientX - rect.left) / rect.width);
+      mouseY.set((e.clientY - rect.top) / rect.height);
+    });
+  }, [isMobile, mouseX, mouseY]);
 
-  const handleMouseEnter = () => {
+  const handleMouseEnter = useCallback(() => {
+    if (isMobile) return;
     scale.set(scaleHover);
     glareOpacity.set(0.15);
-  };
+  }, [isMobile, scale, scaleHover, glareOpacity]);
 
-  const handleMouseLeave = () => {
+  const handleMouseLeave = useCallback(() => {
     mouseX.set(0.5);
     mouseY.set(0.5);
     scale.set(1);
     glareOpacity.set(0);
-  };
+  }, [mouseX, mouseY, scale, glareOpacity]);
+
+  // On mobile, render without tilt (no mouse events, no transforms)
+  if (isMobile) {
+    return <div className={`relative ${className}`}>{children}</div>;
+  }
 
   return (
     <motion.div
@@ -78,6 +83,7 @@ const TiltCard = ({
         scale: springScale,
         transformPerspective: 1000,
         transformStyle: "preserve-3d",
+        willChange: "transform",
       }}
     >
       {children}
@@ -96,6 +102,8 @@ const TiltCard = ({
       )}
     </motion.div>
   );
-};
+});
+
+TiltCard.displayName = "TiltCard";
 
 export default TiltCard;

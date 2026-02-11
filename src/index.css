@@ -69,6 +69,7 @@
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -209,6 +210,15 @@
   /* Parallax container */
   .parallax-container {
     will-change: transform;
+  }
+
+  /* Content containment for below-fold sections - reduces paint cost */
+  .section-padding,
+  .section-alt,
+  .section-alt-deep {
+    contain: layout style;
+    content-visibility: auto;
+    contain-intrinsic-size: auto 600px;
   }
 
   /* Glassmorphism */
