@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import FamilyStory from "@/components/FamilyStory";
 import Reassurance from "@/components/Reassurance";
 import Services from "@/components/Services";
+import HorizontalScrollGallery from "@/components/HorizontalScrollGallery";
 import Certifications from "@/components/Certifications";
 import Simulator from "@/components/Simulator";
 import Reviews from "@/components/Reviews";
@@ -16,6 +17,7 @@ const Index = () => (
     <FamilyStory />
     <Reassurance />
     <Services />
+    <HorizontalScrollGallery />
     <ParallaxBackground
       image={fermeImage}
       alt="Installation solaire sur ferme alpine en Savoie"

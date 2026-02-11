@@ -1,4 +1,6 @@
 import AnimatedSection from "./AnimatedSection";
+import TextReveal from "./TextReveal";
+import CountUp from "./CountUp";
 
 const FamilyStory = () => (
   <section className="section-padding">
@@ -8,11 +10,10 @@ const FamilyStory = () => (
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
             Qui sommes-nous
           </p>
-          <h2 className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]">
-            Père et fils,
-            <br />
-            installateurs solaires.
-          </h2>
+          <TextReveal
+            text="Père et fils, installateurs solaires."
+            className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]"
+          />
           <div className="space-y-5 text-muted-foreground leading-relaxed">
             <p>
               Sébastien Chaffardon installe des panneaux solaires en Savoie depuis <strong className="text-foreground font-semibold">2009</strong>. Son fils l'a rejoint pour continuer le métier. À deux, ils gèrent chaque chantier du dimensionnement à la mise en service.
@@ -25,14 +26,16 @@ const FamilyStory = () => (
         <AnimatedSection direction="right" delay={0.2}>
           <div className="space-y-6">
             {[
-              { value: "15", label: "ans sur les toits", sub: "de la Savoie et Haute-Savoie" },
-              { value: "0", label: "accident", sub: "sur l'ensemble de nos chantiers" },
+              { value: 15, suffix: "", label: "ans sur les toits", sub: "de la Savoie et Haute-Savoie" },
+              { value: 0, suffix: "", label: "accident", sub: "sur l'ensemble de nos chantiers" },
             ].map((stat) => (
               <div
                 key={stat.label}
                 className="p-8 rounded-2xl glass-card-light transition-all duration-300"
               >
-                <p className="text-4xl font-bold tracking-tight md:text-5xl">{stat.value}</p>
+                <p className="text-4xl font-bold tracking-tight md:text-5xl">
+                  <CountUp end={stat.value} suffix={stat.suffix} />
+                </p>
                 <p className="mt-2 text-base font-semibold">{stat.label}</p>
                 <p className="mt-1 text-sm text-muted-foreground">{stat.sub}</p>
               </div>

@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
+import TextReveal from "./TextReveal";
 import { motion } from "framer-motion";
 import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
 
@@ -41,9 +42,10 @@ const Services = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Ce qu'on fait
         </p>
-        <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-          Quatre métiers, une équipe.
-        </h2>
+        <TextReveal
+          text="Quatre métiers, une équipe."
+          className="mb-4 text-3xl font-bold md:text-5xl"
+        />
         <p className="mb-20 text-muted-foreground text-base max-w-xl">
           Du panneau solaire à la domotique, on couvre toute la chaîne pour que votre maison produise, stocke et consomme intelligemment.
         </p>
@@ -53,11 +55,21 @@ const Services = () => (
           <AnimatedSection key={service.title} delay={i * 0.12}>
             <motion.div
               className="flex flex-col glass-card-light p-10 md:p-12 h-full group cursor-default rounded-2xl transition-all duration-300"
-              style={{}}
-              whileHover={{ y: -4, boxShadow: "var(--shadow-elevated)" }}
+              whileHover={{
+                y: -6,
+                rotateX: 2,
+                rotateY: -2,
+                boxShadow: "var(--shadow-elevated)",
+              }}
               transition={{ duration: 0.3, ease: "easeOut" }}
+              style={{ transformPerspective: 800 }}
             >
-              <service.icon className="mb-8 h-8 w-8 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
+              <motion.div
+                className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300"
+                whileHover={{ scale: 1.1, rotate: -5 }}
+              >
+                <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
+              </motion.div>
               <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">
                 {service.description}

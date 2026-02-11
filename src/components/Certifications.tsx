@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
+import TextReveal from "./TextReveal";
+import { motion } from "framer-motion";
 
 const certs = [
   {
@@ -26,20 +28,31 @@ const Certifications = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Certifications
         </p>
-        <h2 className="mb-20 text-3xl font-bold md:text-5xl">
-          Certifié, assuré, vérifié.
-        </h2>
+        <TextReveal
+          text="Certifié, assuré, vérifié."
+          className="mb-20 text-3xl font-bold md:text-5xl"
+        />
       </AnimatedSection>
       <div className="grid gap-6 md:grid-cols-3">
         {certs.map((cert, i) => (
           <AnimatedSection key={cert.title} delay={i * 0.12}>
-            <div className="glass-card-light p-10 rounded-2xl h-full transition-all duration-300">
+            <motion.div
+              className="glass-card-light p-10 rounded-2xl h-full transition-all duration-300"
+              whileHover={{
+                y: -4,
+                rotateX: 1.5,
+                rotateY: -1.5,
+                boxShadow: "var(--shadow-elevated)",
+              }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              style={{ transformPerspective: 800 }}
+            >
               <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
                 {cert.subtitle}
               </p>
               <h3 className="mb-4 text-xl font-bold">{cert.title}</h3>
               <p className="text-muted-foreground leading-relaxed text-sm">{cert.description}</p>
-            </div>
+            </motion.div>
           </AnimatedSection>
         ))}
       </div>
