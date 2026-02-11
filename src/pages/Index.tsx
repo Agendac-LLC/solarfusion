@@ -8,14 +8,19 @@ import Simulator from "@/components/Simulator";
 import Reviews from "@/components/Reviews";
 import ContactSection from "@/components/ContactSection";
 import AnimatedSection from "@/components/AnimatedSection";
+import SectionDivider from "@/components/SectionDivider";
+import MagneticButton from "@/components/MagneticButton";
 import ParallaxBackground from "@/components/ParallaxBackground";
+import TextReveal from "@/components/TextReveal";
 import fermeImage from "@/assets/install-ferme-alpine.png";
 
 const Index = () => (
   <>
     <Hero />
+    <SectionDivider />
     <FamilyStory />
     <Reassurance />
+    <SectionDivider />
     <Services />
     <HorizontalScrollGallery />
     <ParallaxBackground
@@ -27,37 +32,44 @@ const Index = () => (
       <div className="section-padding">
         <div className="mx-auto max-w-4xl text-center">
           <AnimatedSection>
-            <p className="mb-4 text-primary-foreground/70 text-sm">
+            <TextReveal
+              text="Et si votre toit travaillait pour vous ?"
+              className="text-2xl font-bold md:text-4xl text-primary-foreground mb-6"
+              variant="light"
+            />
+            <p className="mb-10 text-primary-foreground/70 text-sm">
               Gratuit, sans engagement, résultat en 2 minutes.
             </p>
-            <a
+            <MagneticButton
               href="#simulateur"
               className="btn-pill bg-primary-foreground text-primary inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Simuler mes économies
-            </a>
+            </MagneticButton>
           </AnimatedSection>
         </div>
       </div>
     </ParallaxBackground>
     <Certifications />
+    <SectionDivider />
     <Simulator variant="b2c" />
     <Reviews />
     <section className="section-padding bg-background">
       <div className="mx-auto max-w-4xl text-center">
         <AnimatedSection>
-          <h2 className="mb-4 text-3xl font-bold md:text-5xl">
-            On en parle ?
-          </h2>
+          <TextReveal
+            text="On en parle ?"
+            className="mb-4 text-3xl font-bold md:text-5xl"
+          />
           <p className="mb-8 text-muted-foreground text-sm max-w-xl mx-auto">
             Appelez-nous ou remplissez le formulaire. On vous rappelle pour discuter de votre toiture.
           </p>
-          <a
+          <MagneticButton
             href="#contact"
             className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Nous contacter
-          </a>
+          </MagneticButton>
         </AnimatedSection>
       </div>
     </section>

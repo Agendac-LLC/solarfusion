@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 import TextReveal from "./TextReveal";
-import { motion } from "framer-motion";
+import TiltCard from "./TiltCard";
+import MagneticButton from "./MagneticButton";
 import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
+import { motion } from "framer-motion";
 
 const services = [
   {
@@ -36,8 +38,8 @@ const services = [
 ];
 
 const Services = () => (
-  <section className="section-padding section-alt-deep">
-    <div className="mx-auto max-w-6xl">
+  <section className="section-padding section-alt-deep relative grain">
+    <div className="mx-auto max-w-6xl relative z-10">
       <AnimatedSection>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Ce qu'on fait
@@ -53,54 +55,41 @@ const Services = () => (
       <div className="grid gap-6 md:grid-cols-2">
         {services.map((service, i) => (
           <AnimatedSection key={service.title} delay={i * 0.12}>
-            <motion.div
-              className="flex flex-col glass-card-light p-10 md:p-12 h-full group cursor-default rounded-2xl transition-all duration-300"
-              whileHover={{
-                y: -6,
-                rotateX: 2,
-                rotateY: -2,
-                boxShadow: "var(--shadow-elevated)",
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              style={{ transformPerspective: 800 }}
-            >
-              <motion.div
-                className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300"
-                whileHover={{ scale: 1.1, rotate: -5 }}
-              >
-                <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
-              </motion.div>
-              <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">
-                {service.description}
-              </p>
-              <p className="mt-4 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
-                {service.detail}
-              </p>
-            </motion.div>
+            <TiltCard className="rounded-2xl h-full" tiltMax={6} glare>
+              <div className="flex flex-col glass-card-light p-10 md:p-12 h-full group cursor-default rounded-2xl">
+                <motion.div
+                  className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300"
+                  whileHover={{ scale: 1.15, rotate: -8 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                >
+                  <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
+                </motion.div>
+                <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">
+                  {service.description}
+                </p>
+                <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
+                  {service.detail}
+                </p>
+              </div>
+            </TiltCard>
           </AnimatedSection>
         ))}
       </div>
       <AnimatedSection delay={0.3}>
-        <div className="mt-16 text-center">
-          <p className="mb-6 text-muted-foreground text-sm">
-            Résultat en moins de 2 minutes. Gratuit, sans engagement.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row justify-center">
-            <Link
-              to="/simulateur"
-              className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-            >
-              Simuler mon projet
-            </Link>
-            <a
-              href="tel:+33762111470"
-              className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-              style={{ borderRadius: "9999px" }}
-            >
-              Être rappelé gratuitement
-            </a>
-          </div>
+        <div className="mt-16 flex flex-col gap-4 sm:flex-row justify-center items-center">
+          <MagneticButton
+            href="/simulateur"
+            className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+          >
+            Simuler mon projet
+          </MagneticButton>
+          <MagneticButton
+            href="tel:+33762111470"
+            className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] rounded-full"
+          >
+            Être rappelé gratuitement
+          </MagneticButton>
         </div>
       </AnimatedSection>
     </div>
