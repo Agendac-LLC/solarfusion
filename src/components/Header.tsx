@@ -11,10 +11,15 @@ const navLinks = [
   { label: "Contact", to: "/#contact" },
 ];
 
+const pagesWithDarkHero = ["/", "/particuliers", "/b2b", "/domotique-pac"];
+
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+
+  const hasDarkHero = pagesWithDarkHero.includes(location.pathname);
+  const useLight = hasDarkHero && !scrolled;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -33,10 +38,10 @@ const Header = () => {
     }
   };
 
-  const textColor = scrolled ? "text-foreground" : "text-primary-foreground";
-  const textMuted = scrolled ? "text-foreground" : "text-primary-foreground";
-  const textActive = scrolled ? "text-foreground font-semibold" : "text-primary-foreground font-semibold";
-  const textShadow = scrolled ? "none" : "0 1px 3px rgba(0,0,0,0.4)";
+  const textColor = useLight ? "text-primary-foreground" : "text-foreground";
+  const textMuted = useLight ? "text-primary-foreground" : "text-foreground";
+  const textActive = useLight ? "text-primary-foreground font-semibold" : "text-foreground font-semibold";
+  const textShadow = useLight ? "0 1px 3px rgba(0,0,0,0.4)" : "none";
 
   return (
     <header
