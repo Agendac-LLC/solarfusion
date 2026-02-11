@@ -3,6 +3,9 @@ import { useRef } from "react";
 import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/AnimatedSection";
 import TextReveal from "@/components/TextReveal";
+import TiltCard from "@/components/TiltCard";
+import MagneticButton from "@/components/MagneticButton";
+import SectionDivider from "@/components/SectionDivider";
 import ContactSection from "@/components/ContactSection";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/install-maison-moderne.png";
@@ -45,13 +48,15 @@ const DomotiquePAC = () => {
   return (
     <>
       {/* Hero */}
-      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
+      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
           <img
             src={heroImage}
             alt="Maison moderne avec domotique et solaire"
             className="w-full h-full object-cover"
             loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
@@ -85,21 +90,40 @@ const DomotiquePAC = () => {
           >
             PAC Hitachi + domotique + solaire. Le trio qui réduit vos factures de chauffage sans compromis sur le confort.
           </motion.p>
-          <motion.a
-            href="tel:+33762111470"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-            className="btn-glass-hero mt-10 px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            className="mt-10"
           >
-            Être rappelé gratuitement
-          </motion.a>
+            <MagneticButton
+              href="tel:+33762111470"
+              className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+              strength={0.4}
+            >
+              Être rappelé gratuitement
+            </MagneticButton>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="w-[1px] h-10 bg-primary-foreground/30"
+          />
         </motion.div>
       </section>
 
+      <SectionDivider />
+
       {/* Solutions */}
-      <section className="section-padding">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding section-alt-deep relative grain">
+        <div className="mx-auto max-w-6xl relative z-10">
           <AnimatedSection>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
               Nos solutions
@@ -115,37 +139,42 @@ const DomotiquePAC = () => {
           <div className="grid gap-6 md:grid-cols-2">
             {services.map((service, i) => (
               <AnimatedSection key={service.title} delay={i * 0.12}>
-                <motion.div
-                  className="glass-card-light p-10 md:p-12 h-full rounded-2xl transition-all duration-300"
-                  whileHover={{ y: -6, rotateX: 2, rotateY: -2, boxShadow: "var(--shadow-elevated)" }}
-                  style={{ transformPerspective: 800 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                >
-                  <motion.div
-                    className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center"
-                    whileHover={{ scale: 1.1, rotate: -5 }}
-                  >
-                    <service.icon className="h-7 w-7 text-foreground/80" strokeWidth={1.2} />
-                  </motion.div>
-                  <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
-                  <p className="mt-4 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">{service.detail}</p>
-                </motion.div>
+                <TiltCard className="rounded-2xl h-full" tiltMax={6} glare>
+                  <div className="glass-card-light p-10 md:p-12 h-full rounded-2xl group cursor-default">
+                    <motion.div
+                      className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300"
+                      whileHover={{ scale: 1.15, rotate: -8 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    >
+                      <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
+                    </motion.div>
+                    <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
+                    <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">{service.detail}</p>
+                  </div>
+                </TiltCard>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
 
+      <SectionDivider />
+
       {/* CTA */}
-      <section className="section-padding section-alt">
+      <section className="section-padding">
         <div className="mx-auto max-w-4xl text-center">
           <AnimatedSection>
             <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
               {["Partenaire Hitachi", "Garantie Décennale", "QualiPV 36K"].map((badge) => (
-                <div key={badge} className="glass-card-light px-6 py-3 rounded-full transition-all duration-300">
+                <motion.div
+                  key={badge}
+                  className="glass-card-light px-6 py-3 rounded-full"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
                   <p className="text-xs font-semibold uppercase tracking-wider">{badge}</p>
-                </div>
+                </motion.div>
               ))}
             </div>
             <TextReveal
@@ -156,19 +185,18 @@ const DomotiquePAC = () => {
               Chaque maison est différente. On vient chez vous, on mesure, on propose.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row justify-center">
-              <Link
-                to="/simulateur"
+              <MagneticButton
+                href="/simulateur"
                 className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
               >
                 Simuler mon projet
-              </Link>
-              <a
+              </MagneticButton>
+              <MagneticButton
                 href="tel:+33762111470"
-                className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-                style={{ borderRadius: "9999px" }}
+                className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] rounded-full"
               >
                 Être rappelé gratuitement
-              </a>
+              </MagneticButton>
             </div>
           </AnimatedSection>
         </div>

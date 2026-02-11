@@ -1,5 +1,7 @@
 import { useState } from "react";
 import AnimatedSection from "./AnimatedSection";
+import TextReveal from "./TextReveal";
+import MagneticButton from "./MagneticButton";
 import { z } from "zod";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
@@ -41,54 +43,42 @@ const ContactForm = () => {
     "w-full rounded-xl border border-border bg-transparent px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground focus:ring-2 focus:ring-foreground/5 transition-all duration-300";
 
   return (
-    <section id="contact-form" className="section-padding">
-      <div className="mx-auto max-w-lg">
+    <section id="contact-form" className="section-padding relative grain">
+      <div className="mx-auto max-w-lg relative z-10">
         <AnimatedSection>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium text-center">
             Rappel gratuit
           </p>
-          <h2 className="mb-4 text-3xl font-bold md:text-4xl text-center">
-            Être rappelé en 24h.
-          </h2>
+          <TextReveal
+            text="Être rappelé en 24h."
+            className="mb-4 text-3xl font-bold md:text-4xl text-center"
+          />
           <p className="mb-10 text-muted-foreground text-sm text-center">
             Remplissez ce formulaire rapide, nous vous rappelons pour discuter de votre projet.
           </p>
         </AnimatedSection>
         <AnimatedSection delay={0.2}>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <input
-                type="text"
-                placeholder="Nom complet"
-                value={form.name}
-                onChange={(e) => setForm({ ...form, name: e.target.value })}
-                className={inputClass}
-              />
-              {errors.name && <p className="mt-1.5 text-xs text-destructive">{errors.name}</p>}
-            </div>
-            <div>
-              <input
-                type="tel"
-                placeholder="Téléphone"
-                value={form.phone}
-                onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                className={inputClass}
-              />
-              {errors.phone && <p className="mt-1.5 text-xs text-destructive">{errors.phone}</p>}
-            </div>
-            <div>
-              <input
-                type="text"
-                placeholder="Code postal (ex: 73000)"
-                value={form.postalCode}
-                onChange={(e) => setForm({ ...form, postalCode: e.target.value })}
-                className={inputClass}
-              />
-              {errors.postalCode && <p className="mt-1.5 text-xs text-destructive">{errors.postalCode}</p>}
-            </div>
-            <button
-              type="submit"
-              disabled={loading}
+            {[
+              { type: "text", placeholder: "Nom complet", key: "name" },
+              { type: "tel", placeholder: "Téléphone", key: "phone" },
+              { type: "text", placeholder: "Code postal (ex: 73000)", key: "postalCode" },
+            ].map((field) => (
+              <div key={field.key}>
+                <motion.input
+                  type={field.type}
+                  placeholder={field.placeholder}
+                  value={(form as any)[field.key]}
+                  onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
+                  className={inputClass}
+                  whileFocus={{ scale: 1.01 }}
+                  transition={{ duration: 0.2 }}
+                />
+                {errors[field.key] && <p className="mt-1.5 text-xs text-destructive">{errors[field.key]}</p>}
+              </div>
+            ))}
+            <MagneticButton
+              as="button"
               className="btn-pill bg-foreground text-background w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2"
             >
               {loading ? (
@@ -104,7 +94,7 @@ const ContactForm = () => {
               ) : (
                 "Demander un rappel gratuit"
               )}
-            </button>
+            </MagneticButton>
             <p className="text-center text-xs text-muted-foreground/50 mt-2">
               Intervention en Savoie (73) et Haute-Savoie (74)
             </p>

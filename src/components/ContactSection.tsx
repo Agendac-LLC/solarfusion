@@ -1,8 +1,8 @@
 import AnimatedSection from "./AnimatedSection";
 import TextReveal from "./TextReveal";
+import TiltCard from "./TiltCard";
 import ParallaxBackground from "./ParallaxBackground";
 import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
-import { motion } from "framer-motion";
 import installImage from "@/assets/install-chalet-savoie.png";
 
 const PHONE = "+33 7 62 11 14 70";
@@ -66,40 +66,40 @@ const ContactSection = () => (
         <div className="grid gap-5 sm:grid-cols-2">
           {contactMethods.map((method, i) => (
             <AnimatedSection key={method.label} delay={i * 0.1}>
-              {method.href ? (
-                <motion.a
-                  href={method.href}
-                  target={method.external ? "_blank" : undefined}
-                  rel={method.external ? "noopener noreferrer" : undefined}
-                  className="flex items-start gap-5 p-8 rounded-2xl glass-card group h-full transition-all duration-300 block"
-                  whileHover={{ y: -3, boxShadow: "0 16px 48px -12px hsl(0 0% 0% / 0.4)" }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                >
-                  <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center group-hover:bg-primary-foreground/20 transition-colors duration-300">
-                    <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
+              <TiltCard className="rounded-2xl h-full" tiltMax={4}>
+                {method.href ? (
+                  <a
+                    href={method.href}
+                    target={method.external ? "_blank" : undefined}
+                    rel={method.external ? "noopener noreferrer" : undefined}
+                    className="flex items-start gap-5 p-8 rounded-2xl glass-card group h-full block"
+                  >
+                    <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center group-hover:bg-primary-foreground/20 transition-colors duration-300">
+                      <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/60 font-medium mb-1">
+                        {method.label}
+                      </p>
+                      <p className="text-base font-semibold mb-1 text-primary-foreground">{method.value}</p>
+                      <p className="text-sm text-primary-foreground/60">{method.description}</p>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="flex items-start gap-5 p-8 rounded-2xl glass-card h-full">
+                    <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
+                      <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/60 font-medium mb-1">
+                        {method.label}
+                      </p>
+                      <p className="text-base font-semibold mb-1 text-primary-foreground">{method.value}</p>
+                      <p className="text-sm text-primary-foreground/60">{method.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/60 font-medium mb-1">
-                      {method.label}
-                    </p>
-                    <p className="text-base font-semibold mb-1 text-primary-foreground">{method.value}</p>
-                    <p className="text-sm text-primary-foreground/60">{method.description}</p>
-                  </div>
-                </motion.a>
-              ) : (
-                <div className="flex items-start gap-5 p-8 rounded-2xl glass-card h-full">
-                  <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
-                    <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
-                  </div>
-                  <div>
-                    <p className="text-xs uppercase tracking-[0.2em] text-primary-foreground/60 font-medium mb-1">
-                      {method.label}
-                    </p>
-                    <p className="text-base font-semibold mb-1 text-primary-foreground">{method.value}</p>
-                    <p className="text-sm text-primary-foreground/60">{method.description}</p>
-                  </div>
-                </div>
-              )}
+                )}
+              </TiltCard>
             </AnimatedSection>
           ))}
         </div>

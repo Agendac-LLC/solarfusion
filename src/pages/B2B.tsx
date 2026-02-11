@@ -3,6 +3,9 @@ import { useRef } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
 import TextReveal from "@/components/TextReveal";
 import CountUp from "@/components/CountUp";
+import TiltCard from "@/components/TiltCard";
+import MagneticButton from "@/components/MagneticButton";
+import SectionDivider from "@/components/SectionDivider";
 import Simulator from "@/components/Simulator";
 import ContactSection from "@/components/ContactSection";
 import heroB2b from "@/assets/hero-b2b.png";
@@ -49,12 +52,15 @@ const B2B = () => {
   return (
     <>
       {/* Hero */}
-      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
+      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
           <img
             src={heroB2b}
             alt="Installation solaire sur bâtiment professionnel"
             className="w-full h-full object-cover"
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
           />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
@@ -89,21 +95,40 @@ const B2B = () => {
           >
             Installations photovoltaïques pour entreprises, collectivités et industriels. Dimensionnement sur mesure, retour sur investissement calculé.
           </motion.p>
-          <motion.a
-            href="#simulateur"
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
-            className="btn-glass-hero mt-10 px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            className="mt-10"
           >
-            Calculer ma rentabilité
-          </motion.a>
+            <MagneticButton
+              href="#simulateur"
+              className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+              strength={0.4}
+            >
+              Calculer ma rentabilité
+            </MagneticButton>
+          </motion.div>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        >
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+            className="w-[1px] h-10 bg-primary-foreground/30"
+          />
         </motion.div>
       </section>
 
+      <SectionDivider />
+
       {/* Benefits */}
-      <section className="section-padding">
-        <div className="mx-auto max-w-6xl">
+      <section className="section-padding relative grain">
+        <div className="mx-auto max-w-6xl relative z-10">
           <AnimatedSection>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
               Chiffres clés
@@ -116,30 +141,29 @@ const B2B = () => {
           <div className="grid gap-6 md:grid-cols-2">
             {benefits.map((b, i) => (
               <AnimatedSection key={b.title} delay={i * 0.1}>
-                <motion.div
-                  className="flex gap-6 p-8 rounded-2xl glass-card-light transition-all duration-300"
-                  whileHover={{ y: -4, rotateX: 1.5, rotateY: -1.5, boxShadow: "var(--shadow-elevated)" }}
-                  style={{ transformPerspective: 800 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
-                >
-                  <div className="shrink-0">
-                    <p className="text-2xl font-bold tracking-tight">
-                      {b.metricNum !== undefined ? (
-                        <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} />
-                      ) : b.metric}
-                    </p>
-                    <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+                <TiltCard className="rounded-2xl h-full" tiltMax={5} glare>
+                  <div className="flex gap-6 p-8 rounded-2xl glass-card-light h-full">
+                    <div className="shrink-0">
+                      <p className="text-2xl font-bold tracking-tight">
+                        {b.metricNum !== undefined ? (
+                          <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} />
+                        ) : b.metric}
+                      </p>
+                      <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+                    </div>
+                    <div>
+                      <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
-                  </div>
-                </motion.div>
+                </TiltCard>
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
+
+      <SectionDivider />
 
       <Simulator variant="b2b" />
 
@@ -150,12 +174,12 @@ const B2B = () => {
             <p className="mb-4 text-muted-foreground text-sm">
               Chaque bâtiment est différent. On calcule votre potentiel solaire gratuitement.
             </p>
-            <a
+            <MagneticButton
               href="#contact"
               className="btn-pill bg-foreground text-background inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Demander une étude gratuite
-            </a>
+            </MagneticButton>
           </AnimatedSection>
         </div>
       </section>

@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import AnimatedSection from "@/components/AnimatedSection";
+import SectionDivider from "@/components/SectionDivider";
 
 const useReonicLoader = () => {
   useEffect(() => {
@@ -52,8 +53,10 @@ const SimulateurPage = () => {
         </div>
       </section>
 
-      <section className="px-6 pb-28 pt-8">
-        <div className="mx-auto max-w-3xl">
+      <SectionDivider />
+
+      <section className="px-6 pb-28 pt-8 relative grain">
+        <div className="mx-auto max-w-3xl relative z-10">
           <AnimatedSection delay={0.3}>
             <div className="section-alt rounded-3xl p-12 md:p-20" style={{ boxShadow: "var(--shadow-soft)" }}>
               <div
