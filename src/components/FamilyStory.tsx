@@ -1,6 +1,7 @@
 import AnimatedSection from "./AnimatedSection";
 import TextReveal from "./TextReveal";
 import CountUp from "./CountUp";
+import TiltCard from "./TiltCard";
 import { motion } from "framer-motion";
 
 const stats = [
@@ -10,8 +11,8 @@ const stats = [
 ];
 
 const FamilyStory = () => (
-  <section className="section-padding">
-    <div className="mx-auto max-w-6xl">
+  <section className="section-padding relative">
+    <div className="mx-auto max-w-6xl relative z-10">
       {/* Title */}
       <AnimatedSection>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
@@ -39,34 +40,33 @@ const FamilyStory = () => (
       <div className="grid gap-6 md:grid-cols-3">
         {stats.map((stat, i) => (
           <AnimatedSection key={stat.label} delay={i * 0.12}>
-            <motion.div
-              className={`p-8 rounded-2xl h-full transition-all duration-300 ${
-                stat.isBlack
-                  ? "bg-foreground text-background"
-                  : "glass-card-light"
-              }`}
-              whileHover={{ y: -4, boxShadow: "var(--shadow-elevated)" }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              style={{ transformPerspective: 800 }}
-            >
-              {stat.isBlack ? (
-                <>
-                  <p className="text-xs uppercase tracking-[0.3em] text-background/60 font-medium mb-2">
-                    Chaque installation
-                  </p>
-                  <p className="text-xl font-bold">{stat.label}</p>
-                  <p className="mt-1 text-sm text-background/60">{stat.sub}</p>
-                </>
-              ) : (
-                <>
-                  <p className="text-4xl font-bold tracking-tight md:text-5xl">
-                    <CountUp end={stat.value!} suffix={stat.suffix} />
-                  </p>
-                  <p className="mt-2 text-base font-semibold">{stat.label}</p>
-                  <p className="mt-1 text-sm text-muted-foreground">{stat.sub}</p>
-                </>
-              )}
-            </motion.div>
+            <TiltCard className="rounded-2xl h-full" tiltMax={5}>
+              <div
+                className={`p-8 rounded-2xl h-full ${
+                  stat.isBlack
+                    ? "bg-foreground text-background"
+                    : "glass-card-light"
+                }`}
+              >
+                {stat.isBlack ? (
+                  <>
+                    <p className="text-xs uppercase tracking-[0.3em] text-background/60 font-medium mb-2">
+                      Chaque installation
+                    </p>
+                    <p className="text-xl font-bold">{stat.label}</p>
+                    <p className="mt-1 text-sm text-background/60">{stat.sub}</p>
+                  </>
+                ) : (
+                  <>
+                    <p className="text-4xl font-bold tracking-tight md:text-5xl">
+                      <CountUp end={stat.value!} suffix={stat.suffix} />
+                    </p>
+                    <p className="mt-2 text-base font-semibold">{stat.label}</p>
+                    <p className="mt-1 text-sm text-muted-foreground">{stat.sub}</p>
+                  </>
+                )}
+              </div>
+            </TiltCard>
           </AnimatedSection>
         ))}
       </div>

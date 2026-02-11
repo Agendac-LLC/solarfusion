@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroImage from "@/assets/hero-solar.png";
 import { Link } from "react-router-dom";
+import MagneticButton from "./MagneticButton";
 
 const Hero = () => {
   const ref = useRef<HTMLElement>(null);
@@ -10,15 +11,13 @@ const Hero = () => {
     offset: ["start start", "end start"],
   });
 
-  // Zoom-out: image starts slightly zoomed in and scales down as user scrolls
   const scale = useTransform(scrollYProgress, [0, 1], [1.15, 1]);
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  // Content lifts up slightly as user scrolls
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
 
   return (
-    <section ref={ref} className="relative h-screen w-full overflow-hidden">
+    <section ref={ref} className="relative h-screen w-full overflow-hidden grain">
       <motion.div
         className="absolute inset-0 w-full h-full"
         style={{ scale, y: imageY }}
@@ -69,18 +68,20 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.9, ease: "easeOut" }}
           className="mt-10 flex flex-col gap-4 sm:flex-row"
         >
-          <a
+          <MagneticButton
             href="#simulateur"
             className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            strength={0.4}
           >
             Simuler mes économies
-          </a>
-          <Link
-            to="/b2b"
+          </MagneticButton>
+          <MagneticButton
+            href="/b2b"
             className="btn-glass-hero px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            strength={0.4}
           >
             Espace Professionnels
-          </Link>
+          </MagneticButton>
         </motion.div>
       </motion.div>
 

@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import AnimatedSection from "./AnimatedSection";
 import TextReveal from "./TextReveal";
-import { motion } from "framer-motion";
+import TiltCard from "./TiltCard";
+import MagneticButton from "./MagneticButton";
 
 const certs = [
   {
@@ -22,8 +23,8 @@ const certs = [
 ];
 
 const Certifications = () => (
-  <section className="section-padding section-alt">
-    <div className="mx-auto max-w-6xl">
+  <section className="section-padding section-alt relative grain">
+    <div className="mx-auto max-w-6xl relative z-10">
       <AnimatedSection>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Certifications
@@ -36,34 +37,26 @@ const Certifications = () => (
       <div className="grid gap-6 md:grid-cols-3">
         {certs.map((cert, i) => (
           <AnimatedSection key={cert.title} delay={i * 0.12}>
-            <motion.div
-              className="glass-card-light p-10 rounded-2xl h-full transition-all duration-300"
-              whileHover={{
-                y: -4,
-                rotateX: 1.5,
-                rotateY: -1.5,
-                boxShadow: "var(--shadow-elevated)",
-              }}
-              transition={{ duration: 0.3, ease: "easeOut" }}
-              style={{ transformPerspective: 800 }}
-            >
-              <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
-                {cert.subtitle}
-              </p>
-              <h3 className="mb-4 text-xl font-bold">{cert.title}</h3>
-              <p className="text-muted-foreground leading-relaxed text-sm">{cert.description}</p>
-            </motion.div>
+            <TiltCard className="rounded-2xl h-full" tiltMax={6} glare>
+              <div className="glass-card-light p-10 rounded-2xl h-full">
+                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
+                  {cert.subtitle}
+                </p>
+                <h3 className="mb-4 text-xl font-bold">{cert.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm">{cert.description}</p>
+              </div>
+            </TiltCard>
           </AnimatedSection>
         ))}
       </div>
       <AnimatedSection delay={0.3}>
         <div className="mt-16 text-center">
-          <Link
-            to="/simulateur"
+          <MagneticButton
+            href="/simulateur"
             className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Simuler mes économies
-          </Link>
+          </MagneticButton>
         </div>
       </AnimatedSection>
     </div>
