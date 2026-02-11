@@ -1,12 +1,10 @@
 import { useEffect } from "react";
-import AnimatedSection from "./AnimatedSection";
+import BlurFade from "./BlurFade";
+import ScrollScale from "./ScrollScale";
 
 const useReonicLoader = () => {
   useEffect(() => {
-    // Reset the flag so the loader re-scans the DOM
     (window as any).elementsloaded = false;
-
-    // Remove any previously injected iframes to avoid duplicates
     document.querySelectorAll('.ifrGuest').forEach((el) => el.remove());
 
     const script = document.createElement("script");
@@ -30,7 +28,7 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => {
   return (
     <section id="simulateur" className="section-padding">
       <div className="mx-auto max-w-4xl text-center">
-        <AnimatedSection>
+        <BlurFade>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
             {variant === "b2c" ? "Simulateur gratuit" : "Simulateur pro"}
           </p>
@@ -44,9 +42,9 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => {
               ? "Entrez votre adresse et votre facture actuelle. Le simulateur calcule vos économies annuelles et le retour sur investissement."
               : "Surface de toiture, consommation actuelle, tarif d'achat - le simulateur calcule votre ROI et le temps d'amortissement."}
           </p>
-        </AnimatedSection>
-        <AnimatedSection delay={0.2}>
-          <div className="section-alt rounded-3xl p-12 md:p-16" style={{ boxShadow: "var(--shadow-soft)" }}>
+        </BlurFade>
+        <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.4, 1]}>
+          <div className="section-alt rounded-3xl p-12 md:p-16 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
             {variant === "b2c" ? (
               <div
                 data-reonic-type="element"
@@ -61,7 +59,7 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => {
               />
             )}
           </div>
-        </AnimatedSection>
+        </ScrollScale>
       </div>
     </section>
   );

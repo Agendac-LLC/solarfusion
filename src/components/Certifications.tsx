@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
-import AnimatedSection from "./AnimatedSection";
+import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import TiltCard from "./TiltCard";
 import MagneticButton from "./MagneticButton";
+import StaggerChildren, { StaggerItem } from "./StaggerChildren";
+import ScrollScale from "./ScrollScale";
+import FloatingShapes from "./FloatingShapes";
 
 const certs = [
   {
@@ -24,8 +26,9 @@ const certs = [
 
 const Certifications = () => (
   <section className="section-padding section-alt relative grain">
+    <FloatingShapes variant="light" />
     <div className="mx-auto max-w-6xl relative z-10">
-      <AnimatedSection>
+      <BlurFade>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Certifications
         </p>
@@ -33,32 +36,34 @@ const Certifications = () => (
           text="Certifié, assuré, vérifié."
           className="mb-20 text-3xl font-bold md:text-5xl"
         />
-      </AnimatedSection>
-      <div className="grid gap-6 md:grid-cols-3">
-        {certs.map((cert, i) => (
-          <AnimatedSection key={cert.title} delay={i * 0.12}>
-            <TiltCard className="rounded-2xl h-full" tiltMax={6} glare>
-              <div className="glass-card-light p-10 rounded-2xl h-full">
-                <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
-                  {cert.subtitle}
-                </p>
-                <h3 className="mb-4 text-xl font-bold">{cert.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">{cert.description}</p>
-              </div>
-            </TiltCard>
-          </AnimatedSection>
+      </BlurFade>
+      <StaggerChildren className="grid gap-6 md:grid-cols-3" stagger={0.1}>
+        {certs.map((cert) => (
+          <StaggerItem key={cert.title} direction="scale">
+            <ScrollScale scaleRange={[0.9, 1]} opacityRange={[0.4, 1]}>
+              <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={6} glare>
+                <div className="glass-card-light embossed p-10 rounded-2xl h-full">
+                  <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
+                    {cert.subtitle}
+                  </p>
+                  <h3 className="mb-4 text-xl font-bold">{cert.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">{cert.description}</p>
+                </div>
+              </TiltCard>
+            </ScrollScale>
+          </StaggerItem>
         ))}
-      </div>
-      <AnimatedSection delay={0.3}>
+      </StaggerChildren>
+      <BlurFade delay={0.3}>
         <div className="mt-16 text-center">
           <MagneticButton
             href="/simulateur"
-            className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            className="btn-pill bg-foreground text-background glow-pulse inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Simuler mes économies
           </MagneticButton>
         </div>
-      </AnimatedSection>
+      </BlurFade>
     </div>
   </section>
 );

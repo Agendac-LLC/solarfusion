@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
-import AnimatedSection from "./AnimatedSection";
+import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import TiltCard from "./TiltCard";
 import MagneticButton from "./MagneticButton";
+import StaggerChildren, { StaggerItem } from "./StaggerChildren";
+import ScrollScale from "./ScrollScale";
+import FloatingShapes from "./FloatingShapes";
 import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -39,8 +41,9 @@ const services = [
 
 const Services = () => (
   <section className="section-padding section-alt-deep relative grain">
+    <FloatingShapes variant="light" />
     <div className="mx-auto max-w-6xl relative z-10">
-      <AnimatedSection>
+      <BlurFade>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Ce qu'on fait
         </p>
@@ -51,36 +54,38 @@ const Services = () => (
         <p className="mb-20 text-muted-foreground text-base max-w-xl">
           Du panneau solaire à la domotique, on couvre toute la chaîne pour que votre maison produise, stocke et consomme intelligemment.
         </p>
-      </AnimatedSection>
-      <div className="grid gap-6 md:grid-cols-2">
-        {services.map((service, i) => (
-          <AnimatedSection key={service.title} delay={i * 0.12}>
-            <TiltCard className="rounded-2xl h-full" tiltMax={6} glare>
-              <div className="flex flex-col glass-card-light p-10 md:p-12 h-full group cursor-default rounded-2xl">
-                <motion.div
-                  className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300"
-                  whileHover={{ scale: 1.15, rotate: -8 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                >
-                  <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
-                </motion.div>
-                <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  {service.description}
-                </p>
-                <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
-                  {service.detail}
-                </p>
-              </div>
-            </TiltCard>
-          </AnimatedSection>
+      </BlurFade>
+      <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
+        {services.map((service) => (
+          <StaggerItem key={service.title} direction="scale">
+            <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.5, 1]}>
+              <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={6} glare>
+                <div className="flex flex-col glass-card-light embossed p-10 md:p-12 h-full group cursor-default rounded-2xl">
+                  <motion.div
+                    className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300"
+                    whileHover={{ scale: 1.15, rotate: -8 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                  >
+                    <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
+                  </motion.div>
+                  <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm">
+                    {service.description}
+                  </p>
+                  <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
+                    {service.detail}
+                  </p>
+                </div>
+              </TiltCard>
+            </ScrollScale>
+          </StaggerItem>
         ))}
-      </div>
-      <AnimatedSection delay={0.3}>
+      </StaggerChildren>
+      <BlurFade delay={0.3}>
         <div className="mt-16 flex flex-col gap-4 sm:flex-row justify-center items-center">
           <MagneticButton
             href="/simulateur"
-            className="btn-pill bg-foreground text-background inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            className="btn-pill bg-foreground text-background glow-pulse inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
           >
             Simuler mon projet
           </MagneticButton>
@@ -91,7 +96,7 @@ const Services = () => (
             Être rappelé gratuitement
           </MagneticButton>
         </div>
-      </AnimatedSection>
+      </BlurFade>
     </div>
   </section>
 );
