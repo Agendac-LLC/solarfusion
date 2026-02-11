@@ -9,23 +9,32 @@ const Hero = () => {
     target: ref,
     offset: ["start start", "end start"],
   });
-  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
+
+  // Zoom-out: image starts slightly zoomed in and scales down as user scrolls
+  const scale = useTransform(scrollYProgress, [0, 1], [1.15, 1]);
+  const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  // Content lifts up slightly as user scrolls
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
 
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden">
-      <motion.img
-        src={heroImage}
-        alt="Panneaux solaires installés sur toiture en Savoie"
-        className="absolute inset-0 w-full h-full object-cover"
-        style={{ y: imageY }}
-        loading="eager"
-        fetchPriority="high"
-        decoding="async"
-      />
+      <motion.div
+        className="absolute inset-0 w-full h-full"
+        style={{ scale, y: imageY }}
+      >
+        <img
+          src={heroImage}
+          alt="Panneaux solaires installés sur toiture en Savoie"
+          className="w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
+      </motion.div>
       <div className="hero-overlay absolute inset-0" />
       <motion.div
-        style={{ opacity }}
+        style={{ opacity, y: contentY }}
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
       >
         <motion.p

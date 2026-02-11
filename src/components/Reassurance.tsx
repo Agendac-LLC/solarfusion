@@ -1,25 +1,32 @@
 import AnimatedSection from "./AnimatedSection";
+import TextReveal from "./TextReveal";
+import CountUp from "./CountUp";
 import ParallaxBackground from "./ParallaxBackground";
 import chaletBoisImage from "@/assets/install-chalet-bois.png";
 
 const stats = [
   {
-    value: "15 ans",
+    value: 15,
+    suffix: " ans",
     label: "d'expérience terrain",
     description: "Installations en Savoie et Haute-Savoie depuis 2009.",
   },
   {
-    value: "Père & fils",
+    value: 0,
+    suffix: "",
+    displayValue: "Père & fils",
     label: "Chaffardon",
     description: "On pose nous-mêmes. Pas de sous-traitance.",
   },
   {
-    value: "0",
+    value: 0,
+    suffix: "",
     label: "accident",
     description: "Bilan sécurité parfait sur l'ensemble de nos chantiers.",
   },
   {
-    value: "10 ans",
+    value: 10,
+    suffix: " ans",
     label: "garantie décennale",
     description: "Couverture décennale française sur chaque installation.",
   },
@@ -38,15 +45,18 @@ const Reassurance = () => (
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
             Pourquoi nous
           </p>
-          <h2 className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground">
-            Les faits, pas les promesses.
-          </h2>
+          <TextReveal
+            text="Les faits, pas les promesses."
+            className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
+          />
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {stats.map((stat, i) => (
             <AnimatedSection key={stat.label} delay={i * 0.15}>
               <div className="glass-card rounded-2xl p-8 transition-all duration-300">
-                <p className="text-4xl font-bold tracking-tight text-primary-foreground">{stat.value}</p>
+                <p className="text-4xl font-bold tracking-tight text-primary-foreground">
+                  {stat.displayValue ? stat.displayValue : <CountUp end={stat.value} suffix={stat.suffix} />}
+                </p>
                 <p className="mt-1 text-base font-semibold text-primary-foreground">{stat.label}</p>
                 <p className="mt-4 text-primary-foreground/70 leading-relaxed text-sm">
                   {stat.description}
