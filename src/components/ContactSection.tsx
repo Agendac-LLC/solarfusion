@@ -1,6 +1,8 @@
 import AnimatedSection from "./AnimatedSection";
+import TextReveal from "./TextReveal";
 import ParallaxBackground from "./ParallaxBackground";
 import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
+import { motion } from "framer-motion";
 import installImage from "@/assets/install-chalet-savoie.png";
 
 const PHONE = "+33 7 62 11 14 70";
@@ -52,9 +54,11 @@ const ContactSection = () => (
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
             Contact
           </p>
-          <h2 className="mb-4 text-3xl font-bold md:text-5xl text-primary-foreground">
-            On en discute ?
-          </h2>
+          <TextReveal
+            text="On en discute ?"
+            className="mb-4 text-3xl font-bold md:text-5xl text-primary-foreground"
+            variant="light"
+          />
           <p className="mb-16 text-primary-foreground/75 text-sm max-w-xl">
             Appelez, écrivez ou passez par WhatsApp. Sébastien ou son fils vous répond directement.
           </p>
@@ -63,11 +67,13 @@ const ContactSection = () => (
           {contactMethods.map((method, i) => (
             <AnimatedSection key={method.label} delay={i * 0.1}>
               {method.href ? (
-                <a
+                <motion.a
                   href={method.href}
                   target={method.external ? "_blank" : undefined}
                   rel={method.external ? "noopener noreferrer" : undefined}
-                  className="flex items-start gap-5 p-8 rounded-2xl glass-card group h-full transition-all duration-300"
+                  className="flex items-start gap-5 p-8 rounded-2xl glass-card group h-full transition-all duration-300 block"
+                  whileHover={{ y: -3, boxShadow: "0 16px 48px -12px hsl(0 0% 0% / 0.4)" }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
                 >
                   <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center group-hover:bg-primary-foreground/20 transition-colors duration-300">
                     <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
@@ -79,7 +85,7 @@ const ContactSection = () => (
                     <p className="text-base font-semibold mb-1 text-primary-foreground">{method.value}</p>
                     <p className="text-sm text-primary-foreground/60">{method.description}</p>
                   </div>
-                </a>
+                </motion.a>
               ) : (
                 <div className="flex items-start gap-5 p-8 rounded-2xl glass-card h-full">
                   <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center">

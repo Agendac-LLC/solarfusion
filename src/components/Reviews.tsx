@@ -1,6 +1,8 @@
 import AnimatedSection from "./AnimatedSection";
+import TextReveal from "./TextReveal";
 import ParallaxBackground from "./ParallaxBackground";
 import { Star, ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 import maisonPierreImage from "@/assets/install-maison-pierre.png";
 
 const reviews = [
@@ -41,14 +43,21 @@ const Reviews = () => (
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
             Avis clients
           </p>
-          <h2 className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground">
-            Ce qu'ils en disent.
-          </h2>
+          <TextReveal
+            text="Ce qu'ils en disent."
+            className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
+            variant="light"
+          />
         </AnimatedSection>
         <div className="grid gap-6 md:grid-cols-3 mb-20">
           {reviews.map((review, i) => (
             <AnimatedSection key={review.name} delay={i * 0.1}>
-              <div className="glass-card p-8 h-full flex flex-col rounded-2xl transition-all duration-300">
+              <motion.div
+                className="glass-card p-8 h-full flex flex-col rounded-2xl transition-all duration-300"
+                whileHover={{ y: -4, rotateX: 1.5, rotateY: -1, boxShadow: "0 16px 48px -12px hsl(0 0% 0% / 0.4)" }}
+                style={{ transformPerspective: 800 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+              >
                 <div className="mb-5 flex gap-0.5">
                   {Array.from({ length: review.rating }).map((_, j) => (
                     <Star key={j} className="h-3.5 w-3.5 fill-primary-foreground text-primary-foreground" />
@@ -58,7 +67,7 @@ const Reviews = () => (
                   « {review.text} »
                 </p>
                 <p className="text-xs font-semibold uppercase tracking-wider text-primary-foreground">{review.name}</p>
-              </div>
+              </motion.div>
             </AnimatedSection>
           ))}
         </div>

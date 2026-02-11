@@ -1,6 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import AnimatedSection from "@/components/AnimatedSection";
+import TextReveal from "@/components/TextReveal";
+import CountUp from "@/components/CountUp";
 import Simulator from "@/components/Simulator";
 import ContactSection from "@/components/ContactSection";
 import heroB2b from "@/assets/hero-b2b.png";
@@ -17,13 +19,16 @@ const benefits = [
     icon: Zap,
     title: "Jusqu'à -70% sur l'énergie",
     description: "L'autoconsommation réduit votre facture dès le premier mois. Le surplus est revendu à EDF OA.",
-    metric: "-70%",
+    metricNum: 70,
+    metricSuffix: "%",
   },
   {
     icon: BarChart3,
     title: "Patrimoine valorisé",
     description: "Un bâtiment équipé en solaire vaut plus à la revente. C'est un actif, pas une dépense.",
-    metric: "+15%",
+    metricNum: 15,
+    metricSuffix: "%",
+    metricPrefix: "+",
   },
   {
     icon: Building2,
@@ -35,24 +40,28 @@ const benefits = [
 
 const B2B = () => {
   const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ["start start", "end start"],
-  });
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "35%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1.12, 1]);
+  const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
     <>
       {/* Hero */}
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden">
-        <motion.img
-          src={heroB2b}
-          alt="Installation solaire sur bâtiment professionnel"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ y: imageY }}
-        />
+        <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
+          <img
+            src={heroB2b}
+            alt="Installation solaire sur bâtiment professionnel"
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
         <div className="hero-overlay absolute inset-0" />
-        <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        <motion.div
+          style={{ opacity, y: contentY }}
+          className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        >
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,7 +98,7 @@ const B2B = () => {
           >
             Calculer ma rentabilité
           </motion.a>
-        </div>
+        </motion.div>
       </section>
 
       {/* Benefits */}
@@ -99,23 +108,33 @@ const B2B = () => {
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
               Chiffres clés
             </p>
-            <h2 className="mb-16 text-3xl font-bold md:text-5xl">
-              Le solaire, un investissement rentable.
-            </h2>
+            <TextReveal
+              text="Le solaire, un investissement rentable."
+              className="mb-16 text-3xl font-bold md:text-5xl"
+            />
           </AnimatedSection>
           <div className="grid gap-6 md:grid-cols-2">
             {benefits.map((b, i) => (
               <AnimatedSection key={b.title} delay={i * 0.1}>
-                <div className="flex gap-6 p-8 rounded-2xl card-lift">
+                <motion.div
+                  className="flex gap-6 p-8 rounded-2xl glass-card-light transition-all duration-300"
+                  whileHover={{ y: -4, rotateX: 1.5, rotateY: -1.5, boxShadow: "var(--shadow-elevated)" }}
+                  style={{ transformPerspective: 800 }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
                   <div className="shrink-0">
-                    <p className="text-2xl font-bold tracking-tight">{b.metric}</p>
+                    <p className="text-2xl font-bold tracking-tight">
+                      {b.metricNum !== undefined ? (
+                        <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} />
+                      ) : b.metric}
+                    </p>
                     <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
                   </div>
                   <div>
                     <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
                     <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
                   </div>
-                </div>
+                </motion.div>
               </AnimatedSection>
             ))}
           </div>
