@@ -11,7 +11,7 @@ const WhatsAppButton = memo(() => (
     rel="noopener noreferrer"
     aria-label="Contacter via WhatsApp"
     className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-lg overflow-hidden"
-    style={{ willChange: "transform" }}
+    style={{ willChange: "transform", marginBottom: "env(safe-area-inset-bottom, 0px)" }}
     whileHover={{ scale: 1.1 }}
     whileTap={{ scale: 0.95 }}
     initial={{ opacity: 0, y: 20 }}

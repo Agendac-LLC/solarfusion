@@ -7,7 +7,6 @@ interface TiltCardProps {
   className?: string;
   tiltMax?: number;
   scaleHover?: number;
-  /** Glare disabled by default for perf - enable only on hero/key cards */
   glare?: boolean;
 }
 
@@ -35,12 +34,17 @@ const TiltCard = memo(({
   const scale = useMotionValue(1);
   const springScale = useSpring(scale, { stiffness: 200, damping: 20 });
 
-  // Glare values only created when glare=true won't help because hooks can't be conditional.
-  // So we keep them but only render the glare div when glare=true.
   const glareX = useTransform(mouseX, [0, 1], [0, 100]);
   const glareY = useTransform(mouseY, [0, 1], [0, 100]);
   const glareOpacity = useMotionValue(0);
   const springGlareOpacity = useSpring(glareOpacity, { stiffness: 200, damping: 20 });
+
+  // Pre-compute glare background as a motion value (avoids useTransform in JSX)
+  const glareBackground = useTransform(
+    [glareX, glareY],
+    ([x, y]: number[]) =>
+      `radial-gradient(circle at ${x}% ${y}%, hsl(0 0% 100% / 0.6), transparent 60%)`
+  );
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!ref.current || isMobile) return;
@@ -93,11 +97,7 @@ const TiltCard = memo(({
           className="pointer-events-none absolute inset-0 rounded-[inherit]"
           style={{
             opacity: springGlareOpacity,
-            background: useTransform(
-              [glareX, glareY],
-              ([x, y]) =>
-                `radial-gradient(circle at ${x}% ${y}%, hsl(0 0% 100% / 0.6), transparent 60%)`
-            ),
+            background: glareBackground,
           }}
         />
       )}

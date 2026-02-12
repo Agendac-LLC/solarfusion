@@ -66,7 +66,7 @@ const ContactSection = () => (
             Appelez, écrivez ou passez par WhatsApp. Sébastien ou son fils vous répond directement.
           </p>
         </BlurFade>
-        <StaggerChildren className="grid gap-5 sm:grid-cols-2" stagger={0.1}>
+        <StaggerChildren className="grid gap-4 sm:gap-5 sm:grid-cols-2" stagger={0.1}>
           {contactMethods.map((method) => (
             <StaggerItem key={method.label} direction="scale">
               <TiltCard className="rounded-2xl h-full" tiltMax={4}>
@@ -75,7 +75,7 @@ const ContactSection = () => (
                     href={method.href}
                     target={method.external ? "_blank" : undefined}
                     rel={method.external ? "noopener noreferrer" : undefined}
-                    className="flex items-start gap-5 p-8 rounded-2xl glass-card group h-full block"
+                    className="flex items-start gap-4 p-6 sm:p-8 rounded-2xl glass-card group h-full block"
                   >
                     <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center group-hover:bg-primary-foreground/20 transition-colors duration-300">
                       <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
@@ -89,7 +89,7 @@ const ContactSection = () => (
                     </div>
                   </a>
                 ) : (
-                  <div className="flex items-start gap-5 p-8 rounded-2xl glass-card h-full">
+                  <div className="flex items-start gap-4 p-6 sm:p-8 rounded-2xl glass-card h-full">
                     <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
                       <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
                     </div>

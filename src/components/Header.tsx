@@ -54,7 +54,7 @@ const Header = () => {
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
       }}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-14 sm:h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link
           to="/"
           className={`flex items-center gap-0 text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
@@ -63,9 +63,9 @@ const Header = () => {
           <img
             src={logoIcon}
             alt="Solar Fusion logo"
-            className={`h-16 w-16 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+            className={`h-12 w-12 sm:h-16 sm:w-16 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
           />
-          SOLAR FUSION
+          <span className="text-sm sm:text-base">SOLAR FUSION</span>
         </Link>
 
         {/* Desktop nav */}

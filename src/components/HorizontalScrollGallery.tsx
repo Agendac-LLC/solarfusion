@@ -31,7 +31,7 @@ const GalleryImage = memo(({
 
   return (
     <motion.div
-      className="relative shrink-0 w-[75vw] md:w-[40vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden group"
+      className="relative shrink-0 w-[80vw] sm:w-[75vw] md:w-[40vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden group"
       initial={{ opacity: 0, scale: 0.85, y: 40 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       viewport={{ once: true, margin: "-20px" }}
@@ -68,13 +68,13 @@ const HorizontalScrollGallery = () => {
   const x = useTransform(scrollYProgress, [0, 1], ["10%", "-45%"]);
 
   return (
-    <section ref={containerRef} className="overflow-hidden py-20 md:py-32">
-      <div className="mx-auto max-w-6xl px-6 mb-12">
+    <section ref={containerRef} className="overflow-hidden py-12 sm:py-20 md:py-32">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 mb-8 sm:mb-12">
         <BlurFade>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
             Nos réalisations
           </p>
-          <h2 className="text-3xl font-bold md:text-5xl">
+          <h2 className="text-2xl font-bold sm:text-3xl md:text-5xl">
             Installés en Savoie.
           </h2>
         </BlurFade>
