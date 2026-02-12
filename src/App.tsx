@@ -4,9 +4,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
+import { LazyMotion, domAnimation } from "framer-motion";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
-import ScrollProgress from "@/components/ScrollProgress";
 import Footer from "@/components/Footer";
 
 // Eager: homepage (first paint)
@@ -21,34 +21,41 @@ const SimulateurPage = lazy(() => import("./pages/SimulateurPage"));
 const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
+// Lazy: non-critical UI
+const ScrollProgress = lazy(() => import("@/components/ScrollProgress"));
+
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <ScrollProgress />
-        <Header />
-        <main>
-          <Suspense fallback={<div className="min-h-screen" />}>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/particuliers" element={<Particuliers />} />
-              <Route path="/b2b" element={<B2B />} />
-              <Route path="/domotique-pac" element={<DomotiquePAC />} />
-              <Route path="/notre-expertise" element={<Expertise />} />
-              <Route path="/simulateur" element={<SimulateurPage />} />
-              <Route path="/mentions-legales" element={<MentionsLegales />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+    <LazyMotion features={domAnimation} strict>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Suspense fallback={null}>
+            <ScrollProgress />
           </Suspense>
-        </main>
-        <Footer />
-      </BrowserRouter>
-    </TooltipProvider>
+          <Header />
+          <main>
+            <Suspense fallback={<div className="min-h-screen" />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/particuliers" element={<Particuliers />} />
+                <Route path="/b2b" element={<B2B />} />
+                <Route path="/domotique-pac" element={<DomotiquePAC />} />
+                <Route path="/notre-expertise" element={<Expertise />} />
+                <Route path="/simulateur" element={<SimulateurPage />} />
+                <Route path="/mentions-legales" element={<MentionsLegales />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </main>
+          <Footer />
+        </BrowserRouter>
+      </TooltipProvider>
+    </LazyMotion>
   </QueryClientProvider>
 );
 
