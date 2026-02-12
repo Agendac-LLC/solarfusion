@@ -11,8 +11,8 @@ import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
 import { Sun, Battery, TrendingDown, Shield, Star } from "lucide-react";
-import heroImage from "@/assets/install-chalet-savoie.png";
-import chaletVillage from "@/assets/install-chalet-village.png";
+import heroImage from "@/assets/install-chalet-savoie.webp";
+import chaletVillage from "@/assets/install-chalet-village.webp";
 
 const benefits = [
   {

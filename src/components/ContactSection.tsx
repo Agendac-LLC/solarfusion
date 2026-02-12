@@ -5,7 +5,7 @@ import StaggerChildren, { StaggerItem } from "./StaggerChildren";
 import ParallaxBackground from "./ParallaxBackground";
 import FloatingShapes from "./FloatingShapes";
 import { Phone, Mail, MessageCircle, MapPin } from "lucide-react";
-import installImage from "@/assets/install-chalet-savoie.png";
+import installImage from "@/assets/install-chalet-savoie.webp";
 
 const PHONE = "+33 7 62 11 14 70";
 const PHONE_LINK = "tel:+33762111470";

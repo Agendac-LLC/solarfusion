@@ -11,8 +11,8 @@ import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
 import { Shield } from "lucide-react";
-import fermeImage from "@/assets/install-ferme-alpine.png";
-import champImage from "@/assets/install-champ-solaire.png";
+import fermeImage from "@/assets/install-ferme-alpine.webp";
+import champImage from "@/assets/install-champ-solaire.webp";
 
 const milestones = [
   { year: "2009", title: "Création", description: "Sébastien Chaffardon crée Solar Fusion à Chambéry. Premiers chantiers en Savoie." },

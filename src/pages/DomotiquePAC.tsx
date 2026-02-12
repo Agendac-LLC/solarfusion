@@ -9,7 +9,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
-import heroImage from "@/assets/install-maison-moderne.png";
+import heroImage from "@/assets/install-maison-moderne.webp";
 
 const services = [
   { icon: Thermometer, title: "Pompes à chaleur Hitachi", description: "Air-air et air-eau. Installation réalisée par nos partenaires qualifiés, coordination et suivi assurés par Solar Fusion.", detail: "Partenaire Hitachi." },

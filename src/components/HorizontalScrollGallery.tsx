@@ -2,11 +2,11 @@ import { useRef, memo } from "react";
 import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import BlurFade from "./BlurFade";
 
-import img1 from "@/assets/install-chalet-village.png";
-import img2 from "@/assets/install-maison-moderne.png";
-import img3 from "@/assets/install-champ-solaire.png";
-import img4 from "@/assets/install-toiture-industrielle.png";
-import img5 from "@/assets/install-ferme-alpine.png";
+import img1 from "@/assets/install-chalet-village.webp";
+import img2 from "@/assets/install-maison-moderne.webp";
+import img3 from "@/assets/install-champ-solaire.webp";
+import img4 from "@/assets/install-toiture-industrielle.webp";
+import img5 from "@/assets/install-ferme-alpine.webp";
 
 const images = [
   { src: img1, alt: "Chalet en village - installation solaire", label: "Chalet alpin" },
