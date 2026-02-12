@@ -94,11 +94,11 @@ const Hero = () => {
           className="mt-10 flex flex-col gap-4 sm:flex-row"
         >
           <MagneticButton
-            href="#simulateur"
+            href="/particuliers"
             className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
             strength={0.4}
           >
-            Simuler mes économies
+            Espace Particuliers
           </MagneticButton>
           <MagneticButton
             href="/b2b"
