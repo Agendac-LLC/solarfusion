@@ -41,7 +41,7 @@ const ContactForm = () => {
   };
 
   const inputClass =
-    "w-full rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 focus:bg-white/10 transition-all duration-300";
+    "w-full rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3.5 text-sm text-foreground font-medium placeholder:text-foreground/40 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 focus:bg-white/10 transition-all duration-300";
 
   return (
     <section id="contact-form" className="section-padding relative grain">
