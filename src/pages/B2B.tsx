@@ -42,14 +42,14 @@ const B2B = () => {
   return (
     <>
       <SEOHead
-        title="Panneaux Solaires Professionnels Chambéry — Installation Photovoltaïque Entreprise | Solar Fusion"
+        title="Panneaux Solaires Professionnels Chambéry - Installation Photovoltaïque Entreprise | Solar Fusion"
         description="Installation photovoltaïque pour entreprises, collectivités et industriels en Savoie et Haute-Savoie. ROI en 4-7 ans, -70% sur l'énergie, valorisation du patrimoine. Étude gratuite à Chambéry."
         canonical="https://solarfusion.lovable.app/b2b"
         jsonLd={breadcrumbLd}
       />
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain" aria-label="Installation solaire pour professionnels">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img src={heroB2b} alt="Installation de panneaux solaires sur bâtiment professionnel — toiture industrielle photovoltaïque Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
+          <img src={heroB2b} alt="Installation de panneaux solaires sur bâtiment professionnel, toiture industrielle photovoltaïque Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />

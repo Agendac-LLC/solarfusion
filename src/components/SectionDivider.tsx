@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 /**
- * Lightweight divider — pure CSS intersection-based animation.
+ * Lightweight divider - pure CSS intersection-based animation.
  * Replaces per-instance useScroll + useTransform with a simple CSS animation.
  */
 const SectionDivider = memo(({ className = "" }: { className?: string }) => (

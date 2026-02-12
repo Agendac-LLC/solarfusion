@@ -27,7 +27,7 @@ const Index = () => {
   return (
     <>
       <SEOHead
-        title="Solar Fusion — Panneaux Solaires Chambéry | Savoie & Haute-Savoie"
+        title="Solar Fusion - Panneaux Solaires Chambéry | Savoie & Haute-Savoie"
         description="Expert photovoltaïque à Chambéry. Installation panneaux solaires, batterie, domotique en Savoie (73) et Haute-Savoie (74). 15 ans d'expérience, garantie décennale."
         canonical="https://solarfusion.lovable.app/"
         jsonLd={breadcrumbLd}

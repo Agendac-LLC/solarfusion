@@ -40,7 +40,7 @@ const DomotiquePAC = () => {
   return (
     <>
       <SEOHead
-        title="Domotique & Pompe à Chaleur Chambéry — PAC Hitachi Savoie | Solar Fusion"
+        title="Domotique & Pompe à Chaleur Chambéry - PAC Hitachi Savoie | Solar Fusion"
         description="Installation pompe à chaleur Hitachi et domotique énergétique à Chambéry, Savoie et Haute-Savoie. Couplage solaire + PAC pour jusqu'à 90% d'autoconsommation. Partenaire agréé Hitachi."
         canonical="https://solarfusion.lovable.app/domotique-pac"
         jsonLd={breadcrumbLd}

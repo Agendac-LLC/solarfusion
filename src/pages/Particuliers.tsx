@@ -71,7 +71,7 @@ const Particuliers = () => {
   return (
     <>
       <SEOHead
-        title="Panneaux Solaires Particuliers Chambéry — Autoconsommation Savoie | Solar Fusion"
+        title="Panneaux Solaires Particuliers Chambéry - Autoconsommation Savoie | Solar Fusion"
         description="Installation de panneaux solaires pour particuliers à Chambéry, Savoie et Haute-Savoie. Jusqu'à -70% sur votre facture d'électricité. Batterie, autoconsommation, garantie décennale. Devis gratuit."
         canonical="https://solarfusion.lovable.app/particuliers"
         jsonLd={breadcrumbLd}
@@ -79,7 +79,7 @@ const Particuliers = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain" aria-label="Panneaux solaires pour particuliers en Savoie">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img src={heroImage} alt="Installation de panneaux solaires sur chalet en Savoie — Solar Fusion installateur photovoltaïque" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
+          <img src={heroImage} alt="Installation de panneaux solaires sur chalet en Savoie, Solar Fusion installateur photovoltaïque" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />

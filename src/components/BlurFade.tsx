@@ -13,7 +13,7 @@ interface BlurFadeProps {
 
 /**
  * Premium entrance: opacity + transform slide. 
- * filter:blur() animation removed — it forces rasterization every frame.
+ * filter:blur() animation removed - it forces rasterization every frame.
  */
 const BlurFade = memo(({
   children,

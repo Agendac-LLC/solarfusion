@@ -9,7 +9,7 @@ interface TextRevealProps {
 }
 
 /**
- * Simplified TextReveal — single whileInView animation instead of 
+ * Simplified TextReveal - single whileInView animation instead of 
  * per-word useScroll+useTransform (which created N scroll listeners per title).
  * Visual result is nearly identical but uses 1 listener instead of N.
  */
