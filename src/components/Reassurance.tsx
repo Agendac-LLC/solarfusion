@@ -47,10 +47,12 @@ const Reassurance = () => (
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
             Pourquoi nous
           </p>
+          <h2 className="sr-only">Pourquoi choisir Solar Fusion — chiffres clés et garanties</h2>
           <TextReveal
             text="Les faits, pas les promesses."
             className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
             variant="light"
+            as="p"
           />
         </BlurFade>
         <StaggerChildren className="grid gap-6 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>

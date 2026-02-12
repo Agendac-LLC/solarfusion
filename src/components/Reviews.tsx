@@ -48,10 +48,12 @@ const Reviews = () => (
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">
             Avis clients
           </p>
+          <h2 className="sr-only">Avis clients Solar Fusion — installations solaires en Savoie</h2>
           <TextReveal
             text="Ce qu'ils en disent."
             className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
             variant="light"
+            as="p"
           />
         </BlurFade>
         <StaggerChildren className="grid gap-6 md:grid-cols-3 mb-20" stagger={0.12}>

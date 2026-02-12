@@ -43,7 +43,7 @@ const Expertise = () => {
     <>
       <SEOHead
         title="Notre Expertise — 15 Ans d'Installation Solaire en Savoie | Solar Fusion Chambéry"
-        description="Découvrez l'histoire de Solar Fusion : 15 ans d'installations photovoltaïques en Savoie et Haute-Savoie. Père et fils, certification QualiPV 36K, 0 accident, garantie décennale. Installateur solaire de confiance à Chambéry."
+        description="Solar Fusion : 15 ans d'installations solaires en Savoie. Père et fils, QualiPV 36K, 0 accident, garantie décennale. Installateur de confiance à Chambéry."
         canonical="https://solarfusion.lovable.app/notre-expertise"
         jsonLd={breadcrumbLd}
       />

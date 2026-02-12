@@ -55,6 +55,7 @@ const Index = () => {
                 text="Et si votre toit travaillait pour vous ?"
                 className="text-2xl font-bold md:text-4xl text-primary-foreground mb-6"
                 variant="light"
+                as="p"
               />
               <p className="mb-10 text-primary-foreground/70 text-sm">
                 Gratuit, sans engagement, résultat en 2 minutes.
@@ -80,6 +81,7 @@ const Index = () => {
             <TextReveal
               text="On en parle ?"
               className="mb-4 text-3xl font-bold md:text-5xl"
+              as="p"
             />
             <p className="mb-8 text-muted-foreground text-sm max-w-xl mx-auto">
               Appelez-nous ou remplissez le formulaire. On vous rappelle pour discuter de votre toiture.
