@@ -60,26 +60,26 @@ const Header = () => {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link
           to="/"
-          className={`flex items-center gap-1 font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 ${textColor}`}
+          className={`flex items-center gap-1.5 font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 ${textColor}`}
           style={{ textShadow }}
         >
           <img
             src={logoIcon}
             alt="Solar Fusion logo"
-            className={`h-11 w-11 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+            className={`h-10 w-10 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
           />
-          <span className="text-sm leading-none">SOLAR FUSION</span>
+          <span className="text-sm">SOLAR FUSION</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
+        <nav className="hidden items-center gap-7 md:flex" aria-label="Navigation principale">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.to}
                 onClick={() => handleNavClick(link.to)}
-                className={`text-[13px] uppercase tracking-[0.08em] font-medium transition-colors duration-300 hover:opacity-80 leading-none ${textMuted}`}
+                className={`text-sm font-medium uppercase tracking-wide transition-colors duration-300 hover:opacity-80 ${textMuted}`}
                 style={{ textShadow }}
               >
                 {link.label}
@@ -93,7 +93,7 @@ const Header = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`text-[13px] uppercase tracking-[0.08em] transition-colors duration-300 hover:opacity-80 leading-none ${
+                className={`text-sm uppercase tracking-wide transition-colors duration-300 hover:opacity-80 ${
                   location.pathname === link.to ? textActive : `${textMuted} font-medium`
                 }`}
                 style={{ textShadow }}
@@ -104,7 +104,7 @@ const Header = () => {
           )}
           <Link
             to="/simulateur"
-            className={`text-[13px] uppercase tracking-[0.08em] font-semibold transition-all duration-300 px-7 py-3 inline-flex items-center justify-center leading-none rounded-full ${
+            className={`h-11 inline-flex items-center justify-center rounded-full px-6 text-[13px] uppercase tracking-wide font-semibold transition-all duration-300 ${
               scrolled
                 ? "bg-foreground text-background hover:bg-foreground/90"
                 : "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
@@ -114,7 +114,7 @@ const Header = () => {
           </Link>
           <a
             href="tel:+33762111470"
-            className={`inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide transition-colors duration-300 leading-none ${textColor}`}
+            className={`inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
             style={{ textShadow }}
           >
             <Phone className="h-4 w-4 shrink-0" strokeWidth={1.5} />
