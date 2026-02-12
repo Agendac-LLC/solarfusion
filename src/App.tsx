@@ -8,6 +8,7 @@ import { LazyMotion, domAnimation } from "framer-motion";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 // Eager: homepage (first paint)
 import Index from "./pages/Index";
@@ -53,6 +54,7 @@ const App = () => (
             </Suspense>
           </main>
           <Footer />
+          <WhatsAppButton />
         </BrowserRouter>
       </TooltipProvider>
     </LazyMotion>
