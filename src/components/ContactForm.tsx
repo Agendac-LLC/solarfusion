@@ -41,7 +41,7 @@ const ContactForm = () => {
   };
 
   const inputClass =
-    "w-full rounded-xl border border-border bg-transparent px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:border-foreground focus:ring-2 focus:ring-foreground/5 transition-all duration-300";
+    "w-full rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3.5 text-sm text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 focus:bg-white/10 transition-all duration-300";
 
   return (
     <section id="contact-form" className="section-padding relative grain">
@@ -60,47 +60,49 @@ const ContactForm = () => {
           </p>
         </BlurFade>
         <BlurFade delay={0.2}>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {[
-              { type: "text", placeholder: "Nom complet", key: "name" },
-              { type: "tel", placeholder: "Téléphone", key: "phone" },
-              { type: "text", placeholder: "Code postal (ex: 73000)", key: "postalCode" },
-            ].map((field) => (
-              <div key={field.key}>
-                <motion.input
-                  type={field.type}
-                  placeholder={field.placeholder}
-                  value={(form as any)[field.key]}
-                  onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
-                  className={inputClass}
-                  whileFocus={{ scale: 1.01 }}
-                  transition={{ duration: 0.2 }}
-                />
-                {errors[field.key] && <p className="mt-1.5 text-xs text-destructive">{errors[field.key]}</p>}
-              </div>
-            ))}
-            <MagneticButton
-              as="button"
-              className="btn-pill bg-foreground text-background glow-pulse w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2"
-            >
-              {loading ? (
-                <>
-                  <motion.div
-                    animate={{ rotate: 360 }}
-                    transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
-                  >
-                    <Loader2 className="h-4 w-4" />
-                  </motion.div>
-                  Envoi en cours...
-                </>
-              ) : (
-                "Demander un rappel gratuit"
-              )}
-            </MagneticButton>
-            <p className="text-center text-xs text-muted-foreground/50 mt-2">
-              Intervention en Savoie (73) et Haute-Savoie (74)
-            </p>
-          </form>
+          <div className="glass-card-light embossed rounded-3xl p-8 md:p-10" style={{ boxShadow: "var(--shadow-dramatic, 0 10px 40px -10px rgba(0,0,0,0.15))" }}>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {[
+                { type: "text", placeholder: "Nom complet", key: "name" },
+                { type: "tel", placeholder: "Téléphone", key: "phone" },
+                { type: "text", placeholder: "Code postal (ex: 73000)", key: "postalCode" },
+              ].map((field) => (
+                <div key={field.key}>
+                  <motion.input
+                    type={field.type}
+                    placeholder={field.placeholder}
+                    value={(form as any)[field.key]}
+                    onChange={(e) => setForm({ ...form, [field.key]: e.target.value })}
+                    className={inputClass}
+                    whileFocus={{ scale: 1.01 }}
+                    transition={{ duration: 0.2 }}
+                  />
+                  {errors[field.key] && <p className="mt-1.5 text-xs text-destructive">{errors[field.key]}</p>}
+                </div>
+              ))}
+              <MagneticButton
+                as="button"
+                className="btn-pill bg-foreground text-background glow-pulse w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2"
+              >
+                {loading ? (
+                  <>
+                    <motion.div
+                      animate={{ rotate: 360 }}
+                      transition={{ repeat: Infinity, duration: 0.8, ease: "linear" }}
+                    >
+                      <Loader2 className="h-4 w-4" />
+                    </motion.div>
+                    Envoi en cours...
+                  </>
+                ) : (
+                  "Nous contacter"
+                )}
+              </MagneticButton>
+              <p className="text-center text-xs text-muted-foreground/50 mt-2">
+                Intervention en Savoie (73) et Haute-Savoie (74)
+              </p>
+            </form>
+          </div>
         </BlurFade>
       </div>
     </section>
