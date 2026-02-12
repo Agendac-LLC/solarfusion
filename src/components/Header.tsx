@@ -60,15 +60,15 @@ const Header = () => {
       <div className="mx-auto flex h-14 sm:h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link
           to="/"
-          className={`flex items-center gap-0 text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
+          className={`flex items-center gap-0 text-base font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 ${textColor}`}
           style={{ textShadow }}
         >
           <img
             src={logoIcon}
             alt="Solar Fusion logo"
-            className={`h-12 w-12 sm:h-16 sm:w-16 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+            className={`h-12 w-12 sm:h-14 sm:w-14 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
           />
-          <span className="text-sm sm:text-base">SOLAR FUSION</span>
+          <span className="text-sm sm:text-base leading-none">SOLAR FUSION</span>
         </Link>
 
         {/* Desktop nav */}
@@ -79,7 +79,7 @@ const Header = () => {
                 key={link.label}
                 href={link.to}
                 onClick={() => handleNavClick(link.to)}
-                className={`text-[10px] uppercase tracking-[0.12em] font-medium transition-colors duration-300 hover:opacity-100 ${textMuted}`}
+                className={`text-[10px] uppercase tracking-[0.12em] font-medium transition-colors duration-300 hover:opacity-100 leading-none ${textMuted}`}
                 style={{ textShadow }}
               >
                 {link.label}
@@ -93,7 +93,7 @@ const Header = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`text-[10px] uppercase tracking-[0.12em] transition-colors duration-300 hover:opacity-100 ${
+                className={`text-[10px] uppercase tracking-[0.12em] transition-colors duration-300 hover:opacity-100 leading-none ${
                   location.pathname === link.to ? textActive : `${textMuted} font-medium`
                 }`}
                 style={{ textShadow }}
@@ -104,7 +104,7 @@ const Header = () => {
           )}
           <Link
             to="/simulateur"
-            className={`text-[10px] uppercase tracking-[0.12em] font-semibold transition-all duration-300 px-5 py-2 ${
+            className={`text-[10px] uppercase tracking-[0.12em] font-semibold transition-all duration-300 px-5 py-2 inline-flex items-center justify-center leading-none ${
               scrolled
                 ? "bg-foreground text-background hover:bg-foreground/90"
                 : "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
@@ -115,10 +115,10 @@ const Header = () => {
           </Link>
           <a
             href="tel:+33762111470"
-            className={`flex items-center gap-2 text-[10px] font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
+            className={`flex items-center gap-2 text-[10px] font-semibold tracking-wide transition-colors duration-300 leading-none ${textColor}`}
             style={{ textShadow }}
           >
-            <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
+            <Phone className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
             07 62 11 14 70
           </a>
         </nav>
