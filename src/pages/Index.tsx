@@ -12,6 +12,7 @@ const Certifications = lazy(() => import("@/components/Certifications"));
 const Simulator = lazy(() => import("@/components/Simulator"));
 const Reviews = lazy(() => import("@/components/Reviews"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
+const ContactForm = lazy(() => import("@/components/ContactForm"));
 const BelowFoldCTA = lazy(() => import("@/components/BelowFoldCTA"));
 
 const Index = () => {
@@ -46,6 +47,7 @@ const Index = () => {
         <Reviews />
         <BelowFoldCTA variant="contact" />
         <ContactSection />
+        <ContactForm />
       </Suspense>
     </>
   );

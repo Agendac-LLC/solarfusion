@@ -8,6 +8,7 @@ import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
+import ContactForm from "@/components/ContactForm";
 import SEOHead from "@/components/SEOHead";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/install-maison-moderne.webp";
@@ -120,6 +121,7 @@ const DomotiquePAC = () => {
       </section>
 
       <ContactSection />
+      <ContactForm />
     </>
   );
 };

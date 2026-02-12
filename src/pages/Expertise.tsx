@@ -10,6 +10,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
+import ContactForm from "@/components/ContactForm";
 import SEOHead from "@/components/SEOHead";
 import { Shield } from "lucide-react";
 import fermeImage from "@/assets/install-ferme-alpine.webp";
@@ -161,6 +162,7 @@ const Expertise = () => {
       </section>
 
       <ContactSection />
+      <ContactForm />
     </>
   );
 };
