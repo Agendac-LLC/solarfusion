@@ -7,7 +7,6 @@ import TiltCard from "@/components/TiltCard";
 import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
-import ScrollScale from "@/components/ScrollScale";
 import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
@@ -71,7 +70,7 @@ const Expertise = () => {
             </BlurFade>
             <StaggerChildren className="space-y-6" stagger={0.15} delay={0.2}>
               <StaggerItem direction="scale">
-                <TiltCard className="rounded-2xl depth-layer" tiltMax={5} glare>
+                <TiltCard className="rounded-2xl depth-layer" tiltMax={5}>
                   <div className="glass-card-light embossed p-8 rounded-2xl">
                     <p className="text-4xl font-bold tracking-tight md:text-5xl"><CountUp end={15} /></p>
                     <p className="mt-2 text-base font-semibold">ans d'expérience</p>
@@ -80,7 +79,7 @@ const Expertise = () => {
                 </TiltCard>
               </StaggerItem>
               <StaggerItem direction="scale">
-                <TiltCard className="rounded-2xl depth-layer" tiltMax={5} glare>
+                <TiltCard className="rounded-2xl depth-layer" tiltMax={5}>
                   <div className="glass-card-light embossed p-8 rounded-2xl">
                     <p className="text-4xl font-bold tracking-tight md:text-5xl"><CountUp end={0} /></p>
                     <p className="mt-2 text-base font-semibold">accident</p>
@@ -99,24 +98,22 @@ const Expertise = () => {
         <FloatingShapes variant="dark" />
         <div className="section-padding">
           <div className="mx-auto max-w-4xl">
-            <BlurFade blur={12}>
+            <BlurFade>
               <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Chronologie</p>
               <TextReveal text="Les dates clés." className="mb-16 text-3xl font-bold md:text-5xl text-primary-foreground" variant="light" />
             </BlurFade>
             <StaggerChildren className="space-y-6" stagger={0.12}>
               {milestones.map((m) => (
                 <StaggerItem key={m.year} direction="left">
-                  <ScrollScale scaleRange={[0.93, 1]} opacityRange={[0.4, 1]}>
-                    <TiltCard className="rounded-2xl" tiltMax={4}>
-                      <div className="glass-card p-8 rounded-2xl flex gap-6 items-start">
-                        <motion.p className="text-3xl font-bold text-primary-foreground/40 shrink-0" whileInView={{ opacity: [0, 1], x: [-20, 0] }} viewport={{ once: true }} transition={{ duration: 0.6 }}>{m.year}</motion.p>
-                        <div>
-                          <h3 className="text-lg font-semibold text-primary-foreground mb-2">{m.title}</h3>
-                          <p className="text-primary-foreground/70 text-sm leading-relaxed">{m.description}</p>
-                        </div>
+                  <TiltCard className="rounded-2xl" tiltMax={4}>
+                    <div className="glass-card p-8 rounded-2xl flex gap-6 items-start">
+                      <p className="text-3xl font-bold text-primary-foreground/40 shrink-0">{m.year}</p>
+                      <div>
+                        <h3 className="text-lg font-semibold text-primary-foreground mb-2">{m.title}</h3>
+                        <p className="text-primary-foreground/70 text-sm leading-relaxed">{m.description}</p>
                       </div>
-                    </TiltCard>
-                  </ScrollScale>
+                    </div>
+                  </TiltCard>
                 </StaggerItem>
               ))}
             </StaggerChildren>

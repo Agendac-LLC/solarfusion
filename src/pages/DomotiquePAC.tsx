@@ -6,7 +6,6 @@ import TiltCard from "@/components/TiltCard";
 import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
-import ScrollScale from "@/components/ScrollScale";
 import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
@@ -65,18 +64,16 @@ const DomotiquePAC = () => {
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
             {services.map((service) => (
               <StaggerItem key={service.title} direction="scale">
-                <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.5, 1]}>
-                  <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={6} glare>
-                    <div className="glass-card-light embossed p-10 md:p-12 h-full rounded-2xl group cursor-default">
-                      <motion.div className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300" whileHover={{ scale: 1.15, rotate: -8 }} transition={{ type: "spring", stiffness: 300, damping: 15 }}>
-                        <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
-                      </motion.div>
-                      <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
-                      <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">{service.detail}</p>
+                <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={6}>
+                  <div className="glass-card-light embossed p-10 md:p-12 h-full rounded-2xl group cursor-default">
+                    <div className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300">
+                      <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
                     </div>
-                  </TiltCard>
-                </ScrollScale>
+                    <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
+                    <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">{service.detail}</p>
+                  </div>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerChildren>

@@ -7,7 +7,6 @@ import TiltCard from "@/components/TiltCard";
 import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
-import ScrollScale from "@/components/ScrollScale";
 import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
@@ -99,22 +98,20 @@ const Particuliers = () => {
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
             {benefits.map((b) => (
               <StaggerItem key={b.title} direction="scale">
-                <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.5, 1]}>
-                  <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5} glare>
-                    <div className="flex gap-6 p-8 rounded-2xl glass-card-light embossed h-full">
-                      <div className="shrink-0">
-                        <p className="text-2xl font-bold tracking-tight">
-                          {b.metricNum !== undefined ? <CountUp end={b.metricNum} suffix={b.metric.replace(String(b.metricNum), "")} /> : b.metric}
-                        </p>
-                        <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
-                      </div>
-                      <div>
-                        <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
-                      </div>
+                <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5}>
+                  <div className="flex gap-6 p-8 rounded-2xl glass-card-light embossed h-full">
+                    <div className="shrink-0">
+                      <p className="text-2xl font-bold tracking-tight">
+                        {b.metricNum !== undefined ? <CountUp end={b.metricNum} suffix={b.metric.replace(String(b.metricNum), "")} /> : b.metric}
+                      </p>
+                      <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
                     </div>
-                  </TiltCard>
-                </ScrollScale>
+                    <div>
+                      <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+                    </div>
+                  </div>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerChildren>
@@ -127,7 +124,7 @@ const Particuliers = () => {
         <FloatingShapes variant="dark" />
         <div className="section-padding">
           <div className="mx-auto max-w-4xl text-center">
-            <BlurFade blur={12}>
+            <BlurFade>
               <TextReveal text="Combien économiseriez-vous ?" className="text-3xl font-bold md:text-5xl text-primary-foreground mb-6" variant="light" />
               <p className="mb-10 text-primary-foreground/70 text-base max-w-lg mx-auto">Entrez votre adresse et votre facture. Résultat en 2 minutes.</p>
               <MagneticButton href="/simulateur" className="btn-pill bg-primary-foreground text-primary glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
@@ -149,13 +146,11 @@ const Particuliers = () => {
           <StaggerChildren className="grid gap-6 md:grid-cols-2 mb-12" stagger={0.12}>
             {testimonials.map((review) => (
               <StaggerItem key={review.name} direction="scale">
-                <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5} glare>
+                <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5}>
                   <div className="glass-card-light embossed p-8 rounded-2xl h-full">
                     <div className="mb-4 flex gap-0.5">
                       {Array.from({ length: review.rating }).map((_, j) => (
-                        <motion.div key={j} initial={{ opacity: 0, scale: 0, rotate: -180 }} whileInView={{ opacity: 1, scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: 0.4 + j * 0.08 }}>
-                          <Star className="h-3.5 w-3.5 fill-foreground text-foreground" />
-                        </motion.div>
+                        <Star key={j} className="h-3.5 w-3.5 fill-foreground text-foreground" />
                       ))}
                     </div>
                     <p className="mb-4 text-muted-foreground leading-relaxed text-sm">« {review.text} »</p>

@@ -1,5 +1,5 @@
-import { useRef, memo } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { memo } from "react";
+import { motion } from "framer-motion";
 
 interface TextRevealProps {
   text: string;
@@ -8,59 +8,36 @@ interface TextRevealProps {
   variant?: "dark" | "light";
 }
 
+/**
+ * Simplified TextReveal — single whileInView animation instead of 
+ * per-word useScroll+useTransform (which created N scroll listeners per title).
+ * Visual result is nearly identical but uses 1 listener instead of N.
+ */
 const TextReveal = memo(({ text, className = "", as: Tag = "h2", variant = "dark" }: TextRevealProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 0.95", "start 0.4"],
-  });
-
   const words = text.split(" ");
 
   return (
-    <div ref={ref}>
-      <Tag className={className}>
-        {words.map((word, i) => {
-          const start = i / words.length;
-          const end = start + 1 / words.length;
-          return (
-            <Word key={i} range={[start, end]} progress={scrollYProgress} variant={variant}>
-              {word}
-            </Word>
-          );
-        })}
-      </Tag>
-    </div>
+    <Tag className={className}>
+      {words.map((word, i) => (
+        <motion.span
+          key={i}
+          initial={{ opacity: variant === "light" ? 0.5 : 0.3, y: 6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{
+            duration: 0.5,
+            delay: i * 0.06,
+            ease: [0.16, 1, 0.3, 1],
+          }}
+          className="inline-block mr-[0.25em]"
+        >
+          {word}
+        </motion.span>
+      ))}
+    </Tag>
   );
 });
 
 TextReveal.displayName = "TextReveal";
-
-const Word = memo(({
-  children,
-  range,
-  progress,
-  variant,
-}: {
-  children: string;
-  range: [number, number];
-  progress: any;
-  variant: "dark" | "light";
-}) => {
-  const startOpacity = variant === "light" ? 0.92 : 0.7;
-  const opacity = useTransform(progress, range, [startOpacity, 1]);
-  const y = useTransform(progress, range, [4, 0]);
-
-  return (
-    <motion.span
-      style={{ opacity, y }}
-      className="inline mr-[0.25em] transition-none"
-    >
-      {children}
-    </motion.span>
-  );
-});
-
-Word.displayName = "Word";
 
 export default TextReveal;
