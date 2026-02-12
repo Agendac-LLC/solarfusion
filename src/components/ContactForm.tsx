@@ -49,13 +49,13 @@ const ContactForm = () => {
       <div className="mx-auto max-w-lg relative z-10">
         <BlurFade>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium text-center">
-            Rappel gratuit
+            Contact
           </p>
           <TextReveal
-            text="Être rappelé en 24h."
-            className="mb-4 text-3xl font-bold md:text-4xl text-center"
+            text="Contactez-nous."
+            className="mb-4 text-3xl font-bold md:text-4xl text-center text-foreground"
           />
-          <p className="mb-10 text-muted-foreground text-sm text-center">
+          <p className="mb-10 text-muted-foreground/80 text-sm text-center font-medium">
             Remplissez ce formulaire rapide, nous vous rappelons pour discuter de votre projet.
           </p>
         </BlurFade>
