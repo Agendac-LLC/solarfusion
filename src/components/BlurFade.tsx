@@ -6,15 +6,14 @@ interface BlurFadeProps {
   className?: string;
   delay?: number;
   duration?: number;
-  /** Direction of slide */
   direction?: "up" | "down" | "left" | "right" | "none";
-  /** Initial blur amount in px */
+  /** blur prop kept for API compat but no longer animates filter (too expensive) */
   blur?: number;
 }
 
 /**
- * Premium entrance animation: content fades in while de-blurring.
- * Creates an "emerging from haze" cinematic effect.
+ * Premium entrance: opacity + transform slide. 
+ * filter:blur() animation removed — it forces rasterization every frame.
  */
 const BlurFade = memo(({
   children,
@@ -22,35 +21,23 @@ const BlurFade = memo(({
   delay = 0,
   duration = 0.7,
   direction = "up",
-  blur = 10,
 }: BlurFadeProps) => {
-  const directionOffset = {
-    up: { y: 30 },
-    down: { y: -30 },
-    left: { x: -30 },
-    right: { x: 30 },
+  const offsets = {
+    up: { y: 24 },
+    down: { y: -24 },
+    left: { x: -24 },
+    right: { x: 24 },
     none: {},
   };
 
+  const resetAxis = direction === "up" || direction === "down" ? { y: 0 } : direction === "left" || direction === "right" ? { x: 0 } : {};
+
   return (
     <motion.div
-      initial={{
-        opacity: 0,
-        filter: `blur(${blur}px)`,
-        ...directionOffset[direction],
-      }}
-      whileInView={{
-        opacity: 1,
-        filter: "blur(0px)",
-        ...(direction === "up" || direction === "down" ? { y: 0 } : {}),
-        ...(direction === "left" || direction === "right" ? { x: 0 } : {}),
-      }}
+      initial={{ opacity: 0, ...offsets[direction] }}
+      whileInView={{ opacity: 1, ...resetAxis }}
       viewport={{ once: true, margin: "-50px" }}
-      transition={{
-        duration,
-        delay,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      transition={{ duration, delay, ease: [0.16, 1, 0.3, 1] }}
       className={className}
     >
       {children}
