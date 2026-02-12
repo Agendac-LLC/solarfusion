@@ -75,7 +75,7 @@ const ContactSection = () => (
                     href={method.href}
                     target={method.external ? "_blank" : undefined}
                     rel={method.external ? "noopener noreferrer" : undefined}
-                    className="flex items-start gap-4 p-6 sm:p-8 rounded-2xl glass-card group h-full block"
+                    className="flex items-start gap-4 p-6 sm:p-8 rounded-2xl glass-card group h-full"
                   >
                     <div className="shrink-0 h-11 w-11 rounded-xl bg-primary-foreground/10 flex items-center justify-center group-hover:bg-primary-foreground/20 transition-colors duration-300">
                       <method.icon className="h-5 w-5 text-primary-foreground" strokeWidth={1.5} />
