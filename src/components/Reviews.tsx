@@ -29,7 +29,7 @@ const reviews = [
 
 const socials = [
   { name: "Google", url: "https://www.google.com/maps/place/Solar+Fusion" },
-  { name: "Facebook", url: "https://www.facebook.com/solarfusion73" },
+  { name: "Facebook", url: "https://www.facebook.com/sebastien.chaffardon/?locale=fr_FR" },
   { name: "Instagram", url: "https://www.instagram.com/solarfusion73" },
   { name: "LinkedIn", url: "https://www.linkedin.com/in/s%C3%A9bastien-chaffardon-b50831345/?originalSubdomain=fr" },
 ];
