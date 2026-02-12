@@ -1,21 +1,18 @@
-import { useMemo } from "react";
+import { useMemo, lazy, Suspense } from "react";
 import Hero from "@/components/Hero";
-import FamilyStory from "@/components/FamilyStory";
-import Reassurance from "@/components/Reassurance";
-import Services from "@/components/Services";
-import HorizontalScrollGallery from "@/components/HorizontalScrollGallery";
-import Certifications from "@/components/Certifications";
-import Simulator from "@/components/Simulator";
-import Reviews from "@/components/Reviews";
-import ContactSection from "@/components/ContactSection";
-import BlurFade from "@/components/BlurFade";
 import SectionDivider from "@/components/SectionDivider";
-import MagneticButton from "@/components/MagneticButton";
-import ParallaxBackground from "@/components/ParallaxBackground";
-import FloatingShapes from "@/components/FloatingShapes";
-import TextReveal from "@/components/TextReveal";
 import SEOHead from "@/components/SEOHead";
-import fermeImage from "@/assets/install-ferme-alpine.webp";
+
+// Lazy load all below-fold sections
+const FamilyStory = lazy(() => import("@/components/FamilyStory"));
+const Reassurance = lazy(() => import("@/components/Reassurance"));
+const Services = lazy(() => import("@/components/Services"));
+const HorizontalScrollGallery = lazy(() => import("@/components/HorizontalScrollGallery"));
+const Certifications = lazy(() => import("@/components/Certifications"));
+const Simulator = lazy(() => import("@/components/Simulator"));
+const Reviews = lazy(() => import("@/components/Reviews"));
+const ContactSection = lazy(() => import("@/components/ContactSection"));
+const BelowFoldCTA = lazy(() => import("@/components/BelowFoldCTA"));
 
 const Index = () => {
   const breadcrumbLd = useMemo(() => ({
@@ -36,66 +33,20 @@ const Index = () => {
       />
       <Hero />
       <SectionDivider />
-      <FamilyStory />
-      <Reassurance />
-      <SectionDivider />
-      <Services />
-      <HorizontalScrollGallery />
-      <ParallaxBackground
-        image={fermeImage}
-        alt="Installation solaire sur ferme alpine en Savoie"
-        overlayOpacity={0.55}
-        blur={2}
-      >
-        <FloatingShapes variant="dark" />
-        <div className="section-padding">
-          <div className="mx-auto max-w-4xl text-center">
-            <BlurFade>
-              <TextReveal
-                text="Et si votre toit travaillait pour vous ?"
-                className="text-2xl font-bold md:text-4xl text-primary-foreground mb-6"
-                variant="light"
-                as="p"
-              />
-              <p className="mb-10 text-primary-foreground/70 text-sm">
-                Gratuit, sans engagement, résultat en 2 minutes.
-              </p>
-              <MagneticButton
-                href="#simulateur"
-                className="btn-pill bg-primary-foreground text-primary glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
-              >
-                Simuler mes économies
-              </MagneticButton>
-            </BlurFade>
-          </div>
-        </div>
-      </ParallaxBackground>
-      <Certifications />
-      <SectionDivider />
-      <Simulator variant="b2c" />
-      <Reviews />
-      <section className="section-padding bg-background relative" aria-label="Appel à l'action contact">
-        <FloatingShapes variant="light" />
-        <div className="mx-auto max-w-4xl text-center relative z-10">
-          <BlurFade>
-            <TextReveal
-              text="On en parle ?"
-              className="mb-4 text-3xl font-bold md:text-5xl"
-              as="p"
-            />
-            <p className="mb-8 text-muted-foreground text-sm max-w-xl mx-auto">
-              Appelez-nous ou remplissez le formulaire. On vous rappelle pour discuter de votre toiture.
-            </p>
-            <MagneticButton
-              href="#contact"
-              className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
-            >
-              Nous contacter
-            </MagneticButton>
-          </BlurFade>
-        </div>
-      </section>
-      <ContactSection />
+      <Suspense fallback={<div className="min-h-[200px]" />}>
+        <FamilyStory />
+        <Reassurance />
+        <SectionDivider />
+        <Services />
+        <HorizontalScrollGallery />
+        <BelowFoldCTA />
+        <Certifications />
+        <SectionDivider />
+        <Simulator variant="b2c" />
+        <Reviews />
+        <BelowFoldCTA variant="contact" />
+        <ContactSection />
+      </Suspense>
     </>
   );
 };
