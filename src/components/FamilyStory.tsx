@@ -19,9 +19,11 @@ const FamilyStory = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Qui sommes-nous
         </p>
+        <h2 className="sr-only">Qui sommes-nous — Installateurs solaires père et fils à Chambéry</h2>
         <TextReveal
           text="Père et fils, installateurs solaires."
           className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]"
+          as="p"
         />
       </BlurFade>
 

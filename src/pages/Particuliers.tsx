@@ -108,7 +108,8 @@ const Particuliers = () => {
         <div className="mx-auto max-w-6xl relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Concrètement</p>
-            <TextReveal text="Ce que le solaire change chez vous." className="mb-4 text-3xl font-bold md:text-5xl" />
+            <h2 className="sr-only">Avantages du solaire pour les particuliers en Savoie</h2>
+            <TextReveal text="Ce que le solaire change chez vous." className="mb-4 text-3xl font-bold md:text-5xl" as="p" />
             <p className="mb-16 text-muted-foreground text-base max-w-xl">Des résultats mesurables, pas des promesses.</p>
           </BlurFade>
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
@@ -157,7 +158,8 @@ const Particuliers = () => {
         <div className="mx-auto max-w-4xl relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Retours clients</p>
-            <TextReveal text="Ils l'ont fait." className="mb-16 text-3xl font-bold md:text-5xl" />
+            <h2 className="sr-only">Avis clients et certifications Solar Fusion</h2>
+            <TextReveal text="Ils l'ont fait." className="mb-16 text-3xl font-bold md:text-5xl" as="p" />
           </BlurFade>
           <StaggerChildren className="grid gap-6 md:grid-cols-2 mb-12" stagger={0.12}>
             {testimonials.map((review) => (
