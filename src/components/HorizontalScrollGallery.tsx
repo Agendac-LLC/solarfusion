@@ -1,5 +1,5 @@
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef, memo } from "react";
+import { motion, useScroll, useTransform, MotionValue } from "framer-motion";
 import BlurFade from "./BlurFade";
 
 import img1 from "@/assets/install-chalet-village.png";
@@ -15,6 +15,48 @@ const images = [
   { src: img4, alt: "Toiture industrielle - énergie solaire", label: "Toiture pro" },
   { src: img5, alt: "Ferme alpine - installation photovoltaïque", label: "Ferme alpine" },
 ];
+
+/** Extracted to avoid useTransform inside .map() — hooks rule violation */
+const GalleryImage = memo(({
+  img,
+  index,
+  scrollYProgress,
+}: {
+  img: (typeof images)[number];
+  index: number;
+  scrollYProgress: MotionValue<number>;
+}) => {
+  const even = index % 2 === 0;
+  const rotate = useTransform(scrollYProgress, [0, 1], [even ? 2 : -2, even ? -1 : 1]);
+
+  return (
+    <motion.div
+      className="relative shrink-0 w-[75vw] md:w-[40vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden group"
+      initial={{ opacity: 0, scale: 0.85, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true, margin: "-20px" }}
+      transition={{ duration: 0.7, delay: index * 0.06, ease: [0.16, 1, 0.3, 1] }}
+      style={{ rotate }}
+      whileHover={{ scale: 1.03, rotate: 0, transition: { duration: 0.4 } }}
+    >
+      <img
+        src={img.src}
+        alt={img.alt}
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+        loading="lazy"
+        decoding="async"
+        width={800}
+        height={600}
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+      <p className="absolute bottom-4 left-5 text-xs font-semibold uppercase tracking-[0.15em] text-primary-foreground">
+        {img.label}
+      </p>
+    </motion.div>
+  );
+});
+
+GalleryImage.displayName = "GalleryImage";
 
 const HorizontalScrollGallery = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -38,39 +80,9 @@ const HorizontalScrollGallery = () => {
         </BlurFade>
       </div>
       <motion.div style={{ x }} className="flex gap-6 pl-6 md:pl-24">
-        {images.map((img, i) => {
-          const rotate = useTransform(scrollYProgress, [0, 1], [i % 2 === 0 ? 2 : -2, i % 2 === 0 ? -1 : 1]);
-          return (
-            <motion.div
-              key={img.label}
-              className="relative shrink-0 w-[75vw] md:w-[40vw] lg:w-[30vw] aspect-[4/3] rounded-2xl overflow-hidden group"
-              initial={{ opacity: 0, scale: 0.85, y: 40 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-20px" }}
-              transition={{ duration: 0.7, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-              style={{ rotate }}
-              whileHover={{ scale: 1.03, rotate: 0, transition: { duration: 0.4 } }}
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                loading="lazy"
-                decoding="async"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-              <motion.p
-                className="absolute bottom-4 left-5 text-xs font-semibold uppercase tracking-[0.15em] text-primary-foreground"
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 + i * 0.06 }}
-              >
-                {img.label}
-              </motion.p>
-            </motion.div>
-          );
-        })}
+        {images.map((img, i) => (
+          <GalleryImage key={img.label} img={img} index={i} scrollYProgress={scrollYProgress} />
+        ))}
       </motion.div>
     </section>
   );

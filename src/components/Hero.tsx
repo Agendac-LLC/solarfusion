@@ -46,6 +46,8 @@ const Hero = () => {
           loading="eager"
           fetchPriority="high"
           decoding="async"
+          width={1920}
+          height={1080}
         />
       </motion.div>
       <div className="hero-overlay absolute inset-0" />
@@ -55,8 +57,8 @@ const Hero = () => {
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
       >
         <motion.p
-          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
         >
@@ -98,16 +100,16 @@ const Hero = () => {
         </h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20, filter: "blur(8px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
           className="mt-6 max-w-lg text-base text-primary-foreground/75 md:text-lg leading-relaxed font-light"
         >
           15 ans d'installations solaires. 0 accident. Garantie décennale. Père et fils, on pose vos panneaux comme si c'était chez nous.
         </motion.p>
         <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.8, ease: "easeOut" }}
           className="mt-10 flex flex-col gap-4 sm:flex-row"
         >
@@ -135,11 +137,7 @@ const Hero = () => {
         transition={{ delay: 2.5, duration: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
-          className="w-[1px] h-10 bg-primary-foreground/30"
-        />
+        <div className="w-[1px] h-10 bg-primary-foreground/30 scroll-indicator" />
       </motion.div>
     </section>
   );

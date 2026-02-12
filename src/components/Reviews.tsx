@@ -6,6 +6,7 @@ import ParallaxBackground from "./ParallaxBackground";
 import FloatingShapes from "./FloatingShapes";
 import { Star, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { memo } from "react";
 import maisonPierreImage from "@/assets/install-maison-pierre.png";
 
 const reviews = [
@@ -60,15 +61,7 @@ const Reviews = () => (
                 <div className="glass-card p-8 h-full flex flex-col rounded-2xl">
                   <div className="mb-5 flex gap-0.5">
                     {Array.from({ length: review.rating }).map((_, j) => (
-                      <motion.div
-                        key={j}
-                        initial={{ opacity: 0, scale: 0, rotate: -180 }}
-                        whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: 0.5 + j * 0.08, ease: [0.16, 1, 0.3, 1] }}
-                      >
-                        <Star className="h-3.5 w-3.5 fill-primary-foreground text-primary-foreground" />
-                      </motion.div>
+                      <Star key={j} className="h-3.5 w-3.5 fill-primary-foreground text-primary-foreground" />
                     ))}
                   </div>
                   <p className="mb-6 flex-1 text-primary-foreground/75 leading-relaxed text-sm">

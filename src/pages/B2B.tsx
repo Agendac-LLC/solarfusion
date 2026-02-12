@@ -38,19 +38,19 @@ const B2B = () => {
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Professionnels</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40, filter: "blur(6px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Professionnels</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl">
             Réduisez vos charges<br />énergétiques.
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-6 max-w-lg text-base text-primary-foreground font-normal" style={{ textShadow: "0 2px 12px hsla(0,0%,0%,0.7), 0 0 4px hsla(0,0%,0%,0.5)" }}>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-6 max-w-lg text-base text-primary-foreground font-normal" style={{ textShadow: "0 2px 12px hsla(0,0%,0%,0.7), 0 0 4px hsla(0,0%,0%,0.5)" }}>
             Installations photovoltaïques pour entreprises, collectivités et industriels. Dimensionnement sur mesure, retour sur investissement calculé.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 30, filter: "blur(6px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-10">
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-10">
             <MagneticButton href="#simulateur" className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]" strength={0.4}>Calculer ma rentabilité</MagneticButton>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
-          <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }} className="w-[1px] h-10 bg-primary-foreground/30" />
+          <div className="w-[1px] h-10 bg-primary-foreground/30 scroll-indicator" />
         </motion.div>
       </section>
 
