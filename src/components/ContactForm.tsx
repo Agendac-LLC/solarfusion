@@ -1,36 +1,55 @@
-import { useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import FloatingShapes from "./FloatingShapes";
 
+const TYPEFORM_ID = "01KH9FQCC8R8ACRSMMZFD8N2HV";
+
 const ContactForm = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-
-  const loadTypeform = useCallback(() => {
-    if (!containerRef.current) return;
-
-    // Clean previous instances
-    containerRef.current.innerHTML = '';
-
-    // Create the widget div
-    const tfDiv = document.createElement('div');
-    tfDiv.setAttribute('data-tf-live', '01KH9FQCC8R8ACRSMMZFD8N2HV');
-    containerRef.current.appendChild(tfDiv);
-
-    // Remove old script to force re-execution
-    const oldScript = document.querySelector('script[src*="embed.typeform.com"]');
-    if (oldScript) oldScript.remove();
-
-    // Load fresh script
-    const script = document.createElement('script');
-    script.src = '//embed.typeform.com/next/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
+  const [key, setKey] = useState(0);
 
   useEffect(() => {
-    loadTypeform();
-  }, [loadTypeform]);
+    if (!containerRef.current) return;
+
+    // Clear container
+    containerRef.current.innerHTML = "";
+
+    // Create widget div
+    const tfDiv = document.createElement("div");
+    tfDiv.setAttribute("data-tf-live", TYPEFORM_ID);
+    containerRef.current.appendChild(tfDiv);
+
+    // Remove any existing Typeform script to force fresh load
+    document.querySelectorAll('script[src*="embed.typeform.com"]').forEach((s) => s.remove());
+
+    // Also clean up Typeform's global state if it exists
+    if ((window as any).tf) {
+      try {
+        (window as any).tf = undefined;
+      } catch {
+        // ignore
+      }
+    }
+
+    // Load script
+    const script = document.createElement("script");
+    script.src = "https://embed.typeform.com/next/embed.js";
+    script.async = true;
+    script.onload = () => {
+      // Typeform auto-initializes on script load
+    };
+    script.onerror = () => {
+      // Retry once after a short delay
+      setTimeout(() => setKey((k) => k + 1), 2000);
+    };
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup on unmount
+      document.querySelectorAll('script[src*="embed.typeform.com"]').forEach((s) => s.remove());
+    };
+  }, [key]);
 
   return (
     <section id="contact-form" className="section-padding relative grain">
