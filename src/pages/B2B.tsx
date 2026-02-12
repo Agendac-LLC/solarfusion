@@ -10,7 +10,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import Simulator from "@/components/Simulator";
 import ContactSection from "@/components/ContactSection";
-import heroB2b from "@/assets/hero-b2b.png";
+import heroB2b from "@/assets/hero-b2b.webp";
 import { TrendingUp, Zap, BarChart3, Building2 } from "lucide-react";
 
 const benefits = [

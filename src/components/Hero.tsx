@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import heroImage from "@/assets/hero-solar.png";
+import heroImage from "@/assets/hero-solar.webp";
 import MagneticButton from "./MagneticButton";
 import FloatingShapes from "./FloatingShapes";
 
