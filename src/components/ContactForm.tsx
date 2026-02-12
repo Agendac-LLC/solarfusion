@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import FloatingShapes from "./FloatingShapes";
@@ -6,22 +6,31 @@ import FloatingShapes from "./FloatingShapes";
 const ContactForm = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Insert Typeform div
-    if (containerRef.current && !containerRef.current.querySelector('[data-tf-live]')) {
-      const tfDiv = document.createElement('div');
-      tfDiv.setAttribute('data-tf-live', '01KH9FQCC8R8ACRSMMZFD8N2HV');
-      containerRef.current.appendChild(tfDiv);
-    }
+  const loadTypeform = useCallback(() => {
+    if (!containerRef.current) return;
 
-    // Load Typeform script if not already loaded
-    if (!document.querySelector('script[src*="embed.typeform.com"]')) {
-      const script = document.createElement('script');
-      script.src = '//embed.typeform.com/next/embed.js';
-      script.async = true;
-      document.body.appendChild(script);
-    }
+    // Clean previous instances
+    containerRef.current.innerHTML = '';
+
+    // Create the widget div
+    const tfDiv = document.createElement('div');
+    tfDiv.setAttribute('data-tf-live', '01KH9FQCC8R8ACRSMMZFD8N2HV');
+    containerRef.current.appendChild(tfDiv);
+
+    // Remove old script to force re-execution
+    const oldScript = document.querySelector('script[src*="embed.typeform.com"]');
+    if (oldScript) oldScript.remove();
+
+    // Load fresh script
+    const script = document.createElement('script');
+    script.src = '//embed.typeform.com/next/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
   }, []);
+
+  useEffect(() => {
+    loadTypeform();
+  }, [loadTypeform]);
 
   return (
     <section id="contact-form" className="section-padding relative grain">
