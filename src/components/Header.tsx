@@ -57,7 +57,7 @@ const Header = () => {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link
           to="/"
-          className={`flex items-center gap-1 text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
+          className={`flex items-center gap-0 text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
           style={{ textShadow }}
         >
           <img
