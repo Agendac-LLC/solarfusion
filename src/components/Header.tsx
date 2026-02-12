@@ -63,7 +63,7 @@ const Header = () => {
           <img
             src={logoIcon}
             alt="Solar Fusion logo"
-            className={`h-11 w-11 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+            className={`h-14 w-14 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
           />
           SOLAR FUSION
         </Link>
