@@ -55,16 +55,16 @@ const Reassurance = () => (
             as="p"
           />
         </BlurFade>
-        <StaggerChildren className="grid gap-6 md:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+        <StaggerChildren className="grid gap-4 sm:gap-6 grid-cols-2 lg:grid-cols-4" stagger={0.1}>
           {stats.map((stat) => (
             <StaggerItem key={stat.label} direction="scale">
               <TiltCard className="rounded-2xl h-full" tiltMax={5}>
-                <div className="glass-card rounded-2xl p-8 h-full">
-                  <p className="text-4xl font-bold tracking-tight text-primary-foreground">
+                <div className="glass-card rounded-2xl p-5 sm:p-8 h-full">
+                  <p className="text-2xl sm:text-4xl font-bold tracking-tight text-primary-foreground">
                     {stat.displayValue ? stat.displayValue : <CountUp end={stat.value!} suffix={stat.suffix} />}
                   </p>
-                  <p className="mt-1 text-base font-semibold text-primary-foreground">{stat.label}</p>
-                  <p className="mt-4 text-primary-foreground/70 leading-relaxed text-sm">
+                  <p className="mt-1 text-sm sm:text-base font-semibold text-primary-foreground">{stat.label}</p>
+                  <p className="mt-2 sm:mt-4 text-primary-foreground/70 leading-relaxed text-xs sm:text-sm hidden sm:block">
                     {stat.description}
                   </p>
                 </div>

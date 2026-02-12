@@ -8,8 +8,8 @@ import logoIcon from "@/assets/logo-icon.png";
 
 const Footer = () => (
   <footer className="bg-foreground text-background" role="contentinfo" itemScope itemType="https://schema.org/LocalBusiness">
-    <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
-      <StaggerChildren className="grid gap-12 md:grid-cols-3" stagger={0.12}>
+    <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 md:px-12">
+      <StaggerChildren className="grid gap-10 sm:gap-12 md:grid-cols-3" stagger={0.12}>
         {/* Company */}
         <StaggerItem direction="up">
           <div>

@@ -66,12 +66,27 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+
   body {
     @apply bg-background text-foreground font-sans antialiased;
     font-family: 'Inter', system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeSpeed;
+    overscroll-behavior-y: none;
+  }
+
+  /* Ensure minimum touch target size on mobile */
+  @media (max-width: 767px) {
+    a, button {
+      min-height: 44px;
+      min-width: 44px;
+    }
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -81,6 +96,11 @@
 
   h1 {
     letter-spacing: -0.04em;
+  }
+
+  /* Safe area padding for notch devices */
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
 
@@ -167,7 +187,7 @@
   }
 
   .section-padding {
-    @apply px-6 py-28 md:px-12 lg:px-24 lg:py-36;
+    @apply px-5 py-16 sm:px-6 sm:py-28 md:px-12 lg:px-24 lg:py-36;
   }
 
   .section-alt {
@@ -325,6 +345,12 @@
     }
     .btn-glass-hero {
       background: linear-gradient(135deg, hsla(0,0%,100%,0.25) 0%, hsla(0,0%,100%,0.15) 100%);
+    }
+    /* Disable floating shapes on mobile for performance */
+    .floating-shape-1,
+    .floating-shape-2,
+    .floating-shape-3 {
+      display: none;
     }
   }
 

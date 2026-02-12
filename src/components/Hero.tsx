@@ -64,7 +64,7 @@ const Hero = () => {
         </motion.p>
 
         {/* Word-split title - 4 motion.span instead of 34 */}
-        <h1 className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl lg:text-7xl">
+        <h1 className="max-w-4xl text-3xl font-bold leading-[1.08] text-primary-foreground sm:text-4xl md:text-6xl lg:text-7xl">
           {words.map((word, i) => (
             <motion.span
               key={i}
@@ -83,7 +83,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-          className="mt-6 max-w-lg text-base text-primary-foreground/75 md:text-lg leading-relaxed font-light"
+          className="mt-5 max-w-lg text-sm text-primary-foreground/75 sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0"
         >
           15 ans d'installations solaires. 0 accident. Garantie décennale. Père et fils, on pose vos panneaux comme si c'était chez nous.
         </motion.p>
@@ -91,19 +91,17 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
-          className="mt-10 flex flex-col gap-4 sm:flex-row"
+          className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 w-full px-4 sm:w-auto sm:px-0"
         >
           <MagneticButton
             href="/particuliers"
-            className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-            strength={0.4}
+            className="btn-glass-hero glow-pulse px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-10"
           >
             Espace Particuliers
           </MagneticButton>
           <MagneticButton
             href="/b2b"
-            className="btn-glass-hero px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
-            strength={0.4}
+            className="btn-glass-hero px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-8"
           >
             Espace Professionnels
           </MagneticButton>

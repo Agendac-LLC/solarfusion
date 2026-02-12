@@ -45,7 +45,7 @@ const DomotiquePAC = () => {
         canonical="https://solarfusion.lovable.app/domotique-pac"
         jsonLd={breadcrumbLd}
       />
-      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain" aria-label="Domotique et pompes à chaleur en Savoie">
+      <section ref={heroRef} className="relative h-[85vh] sm:h-[70vh] w-full overflow-hidden grain" aria-label="Domotique et pompes à chaleur en Savoie">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
           <img src={heroImage} alt="Maison moderne avec domotique énergétique et panneaux solaires en Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
@@ -53,7 +53,7 @@ const DomotiquePAC = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Domotique & PAC</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl font-bold leading-[1.08] text-primary-foreground sm:text-4xl md:text-6xl">
             Chauffez malin,<br />consommez moins.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed">
