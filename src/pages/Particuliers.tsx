@@ -10,6 +10,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
+import ContactForm from "@/components/ContactForm";
 import SEOHead from "@/components/SEOHead";
 import { Sun, Battery, TrendingDown, Shield, Star } from "lucide-react";
 import heroImage from "@/assets/install-chalet-savoie.webp";
@@ -191,6 +192,7 @@ const Particuliers = () => {
       </section>
 
       <ContactSection />
+      <ContactForm />
     </>
   );
 };
