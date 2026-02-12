@@ -57,29 +57,29 @@ const Header = () => {
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
       }}
     >
-      <div className="mx-auto flex h-14 sm:h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
         <Link
           to="/"
-          className={`flex items-center gap-0 text-base font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 ${textColor}`}
+          className={`flex items-center gap-1 font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 ${textColor}`}
           style={{ textShadow }}
         >
           <img
             src={logoIcon}
             alt="Solar Fusion logo"
-            className={`h-12 w-12 sm:h-14 sm:w-14 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+            className={`h-11 w-11 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
           />
-          <span className="text-sm sm:text-base leading-none">SOLAR FUSION</span>
+          <span className="text-sm leading-none">SOLAR FUSION</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex" aria-label="Navigation principale">
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Navigation principale">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.to}
                 onClick={() => handleNavClick(link.to)}
-                className={`text-[11px] uppercase tracking-[0.12em] font-medium transition-colors duration-300 hover:opacity-100 leading-none ${textMuted}`}
+                className={`text-[13px] uppercase tracking-[0.08em] font-medium transition-colors duration-300 hover:opacity-80 leading-none ${textMuted}`}
                 style={{ textShadow }}
               >
                 {link.label}
@@ -93,7 +93,7 @@ const Header = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`text-[11px] uppercase tracking-[0.12em] transition-colors duration-300 hover:opacity-100 leading-none ${
+                className={`text-[13px] uppercase tracking-[0.08em] transition-colors duration-300 hover:opacity-80 leading-none ${
                   location.pathname === link.to ? textActive : `${textMuted} font-medium`
                 }`}
                 style={{ textShadow }}
@@ -104,21 +104,20 @@ const Header = () => {
           )}
           <Link
             to="/simulateur"
-            className={`text-[11px] uppercase tracking-[0.12em] font-semibold transition-all duration-300 px-5 py-2 inline-flex items-center justify-center leading-none ${
+            className={`text-[13px] uppercase tracking-[0.08em] font-semibold transition-all duration-300 px-7 py-3 inline-flex items-center justify-center leading-none rounded-full ${
               scrolled
                 ? "bg-foreground text-background hover:bg-foreground/90"
                 : "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
             }`}
-            style={{ borderRadius: "9999px" }}
           >
             Simuler mon projet
           </Link>
           <a
             href="tel:+33762111470"
-            className={`flex items-center gap-2 text-[11px] font-semibold tracking-wide transition-colors duration-300 leading-none ${textColor}`}
+            className={`inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide transition-colors duration-300 leading-none ${textColor}`}
             style={{ textShadow }}
           >
-            <Phone className="h-3.5 w-3.5 shrink-0" strokeWidth={1.5} />
+            <Phone className="h-4 w-4 shrink-0" strokeWidth={1.5} />
             07 62 11 14 70
           </a>
         </nav>
