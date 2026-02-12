@@ -123,18 +123,18 @@ const Header = () => {
         </nav>
 
         {/* Mobile */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-5 md:hidden">
           <a
             href="tel:+33762111470"
             aria-label="Appeler"
-            className={`transition-colors duration-300 ${textColor}`}
+            className={`inline-flex items-center justify-center h-10 w-10 transition-colors duration-300 ${textColor}`}
           >
-            <Phone className="h-4 w-4" strokeWidth={1.5} />
+            <Phone className="h-5 w-5" strokeWidth={1.5} />
           </a>
           <button
             onClick={() => setOpen(!open)}
             aria-label="Menu"
-            className={`transition-colors duration-300 ${textColor}`}
+            className={`inline-flex items-center justify-center h-10 w-10 transition-colors duration-300 ${textColor}`}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
