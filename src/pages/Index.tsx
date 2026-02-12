@@ -9,7 +9,7 @@ const Reassurance = lazy(() => import("@/components/Reassurance"));
 const Services = lazy(() => import("@/components/Services"));
 const HorizontalScrollGallery = lazy(() => import("@/components/HorizontalScrollGallery"));
 const Certifications = lazy(() => import("@/components/Certifications"));
-const Simulator = lazy(() => import("@/components/Simulator"));
+
 const Reviews = lazy(() => import("@/components/Reviews"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
 const ContactForm = lazy(() => import("@/components/ContactForm"));
@@ -43,7 +43,7 @@ const Index = () => {
         <BelowFoldCTA />
         <Certifications />
         <SectionDivider />
-        <Simulator variant="b2c" />
+        
         <Reviews />
         <BelowFoldCTA variant="contact" />
         <ContactSection />
