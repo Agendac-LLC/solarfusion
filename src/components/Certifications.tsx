@@ -31,9 +31,11 @@ const Certifications = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Certifications
         </p>
+        <h2 className="sr-only">Certifications et qualifications — QualiPV, Hitachi, garantie décennale</h2>
         <TextReveal
           text="Certifié, assuré, vérifié."
           className="mb-20 text-3xl font-bold md:text-5xl"
+          as="p"
         />
       </BlurFade>
       <StaggerChildren className="grid gap-6 md:grid-cols-3" stagger={0.1}>
