@@ -66,7 +66,7 @@ const Header = () => {
           <img
             src={logoIcon}
             alt="Solar Fusion logo"
-            className={`h-14 w-14 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+            className={`h-16 w-16 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
           />
           <span className="text-lg font-bold">SOLAR FUSION</span>
         </Link>
