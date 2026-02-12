@@ -13,7 +13,7 @@ import MagneticButton from "@/components/MagneticButton";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import FloatingShapes from "@/components/FloatingShapes";
 import TextReveal from "@/components/TextReveal";
-import fermeImage from "@/assets/install-ferme-alpine.png";
+import fermeImage from "@/assets/install-ferme-alpine.webp";
 
 const Index = () => (
   <>

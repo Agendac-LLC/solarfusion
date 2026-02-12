@@ -7,7 +7,7 @@ import FloatingShapes from "./FloatingShapes";
 import { Star, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { memo } from "react";
-import maisonPierreImage from "@/assets/install-maison-pierre.png";
+import maisonPierreImage from "@/assets/install-maison-pierre.webp";
 
 const reviews = [
   {

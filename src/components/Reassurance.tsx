@@ -5,7 +5,7 @@ import TiltCard from "./TiltCard";
 import StaggerChildren, { StaggerItem } from "./StaggerChildren";
 import ParallaxBackground from "./ParallaxBackground";
 import FloatingShapes from "./FloatingShapes";
-import chaletBoisImage from "@/assets/install-chalet-bois.png";
+import chaletBoisImage from "@/assets/install-chalet-bois.webp";
 
 const stats = [
   {
