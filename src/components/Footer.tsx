@@ -93,8 +93,9 @@ const Footer = () => (
       </BlurFade>
 
       <AnimatedLine className="mt-8 bg-background/10" delay={0.4} />
-      <div className="pt-8 text-center text-xs text-background/30">
-        © {new Date().getFullYear()} Solar Fusion. Tous droits réservés.
+      <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-2 text-xs text-background/30">
+        <p>© {new Date().getFullYear()} Solar Fusion. Tous droits réservés.</p>
+        <p>TVA : FR61929522175</p>
       </div>
     </div>
   </footer>
