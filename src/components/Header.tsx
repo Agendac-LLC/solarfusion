@@ -72,14 +72,14 @@ const Header = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 md:flex" aria-label="Navigation principale">
+        <nav className="hidden items-center gap-7 md:flex h-full" aria-label="Navigation principale">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.to}
                 onClick={() => handleNavClick(link.to)}
-                className={`text-sm font-medium uppercase tracking-wide transition-colors duration-300 hover:opacity-80 ${textMuted}`}
+                className={`text-[13px] uppercase tracking-wide font-medium transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${textMuted}`}
                 style={{ textShadow }}
               >
                 {link.label}
@@ -93,7 +93,7 @@ const Header = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`text-sm uppercase tracking-wide transition-colors duration-300 hover:opacity-80 ${
+                className={`text-[13px] uppercase tracking-wide transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${
                   location.pathname === link.to ? textActive : `${textMuted} font-medium`
                 }`}
                 style={{ textShadow }}
@@ -104,7 +104,7 @@ const Header = () => {
           )}
           <Link
             to="/simulateur"
-            className={`h-11 inline-flex items-center justify-center rounded-full px-6 text-[13px] uppercase tracking-wide font-semibold transition-all duration-300 ${
+            className={`h-10 inline-flex items-center justify-center rounded-full px-6 text-[13px] uppercase tracking-wide font-semibold transition-all duration-300 ${
               scrolled
                 ? "bg-foreground text-background hover:bg-foreground/90"
                 : "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
@@ -114,7 +114,7 @@ const Header = () => {
           </Link>
           <a
             href="tel:+33762111470"
-            className={`inline-flex items-center gap-2 text-sm font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
+            className={`inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
             style={{ textShadow }}
           >
             <Phone className="h-4 w-4 shrink-0" strokeWidth={1.5} />
