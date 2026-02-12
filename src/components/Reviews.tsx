@@ -31,7 +31,7 @@ const socials = [
   { name: "Google", url: "https://www.google.com/maps/place/Solar+Fusion" },
   { name: "Facebook", url: "https://www.facebook.com/solarfusion73" },
   { name: "Instagram", url: "https://www.instagram.com/solarfusion73" },
-  { name: "LinkedIn", url: "https://www.linkedin.com/company/solar-fusion" },
+  { name: "LinkedIn", url: "https://www.linkedin.com/in/s%C3%A9bastien-chaffardon-b50831345/?originalSubdomain=fr" },
 ];
 
 const Reviews = () => (
