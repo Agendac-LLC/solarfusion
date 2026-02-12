@@ -67,7 +67,7 @@ const MagneticButton = memo(({
   }
 
   return (
-    <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="inline-block">
+    <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="inline-flex">
       <Tag
         href={as === "a" ? href : undefined}
         target={target}
