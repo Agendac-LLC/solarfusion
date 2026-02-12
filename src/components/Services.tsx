@@ -38,7 +38,7 @@ const services = [
 ];
 
 const Services = () => (
-  <section className="section-padding section-alt-deep relative grain">
+  <section className="section-padding section-alt-deep relative grain" aria-label="Services d'installation solaire en Savoie">
     <FloatingShapes variant="light" />
     <div className="mx-auto max-w-6xl relative z-10">
       <BlurFade>

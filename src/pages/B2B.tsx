@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import BlurFade from "@/components/BlurFade";
 import TextReveal from "@/components/TextReveal";
 import CountUp from "@/components/CountUp";
@@ -10,6 +10,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import Simulator from "@/components/Simulator";
 import ContactSection from "@/components/ContactSection";
+import SEOHead from "@/components/SEOHead";
 import heroB2b from "@/assets/hero-b2b.webp";
 import { TrendingUp, Zap, BarChart3, Building2 } from "lucide-react";
 
@@ -28,11 +29,26 @@ const B2B = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  const breadcrumbLd = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Professionnels", "item": "https://solarfusion.lovable.app/b2b" }
+    ]
+  }), []);
+
   return (
     <>
-      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain">
+      <SEOHead
+        title="Panneaux Solaires Professionnels Chambéry — Installation Photovoltaïque Entreprise | Solar Fusion"
+        description="Installation photovoltaïque pour entreprises, collectivités et industriels en Savoie et Haute-Savoie. ROI en 4-7 ans, -70% sur l'énergie, valorisation du patrimoine. Étude gratuite à Chambéry."
+        canonical="https://solarfusion.lovable.app/b2b"
+        jsonLd={breadcrumbLd}
+      />
+      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain" aria-label="Installation solaire pour professionnels">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img src={heroB2b} alt="Installation solaire sur bâtiment professionnel" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
+          <img src={heroB2b} alt="Installation de panneaux solaires sur bâtiment professionnel — toiture industrielle photovoltaïque Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
@@ -55,11 +71,12 @@ const B2B = () => {
 
       <SectionDivider />
 
-      <section className="section-padding relative grain">
+      <section className="section-padding relative grain" aria-label="Avantages solaire pour les entreprises">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-6xl relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Chiffres clés</p>
+            <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en Savoie</h2>
             <TextReveal text="Le solaire, un investissement rentable." className="mb-16 text-3xl font-bold md:text-5xl" />
           </BlurFade>
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
@@ -88,7 +105,7 @@ const B2B = () => {
       <SectionDivider />
       <Simulator variant="b2b" />
 
-      <section className="section-padding">
+      <section className="section-padding" aria-label="Demander une étude gratuite">
         <div className="mx-auto max-w-4xl text-center">
           <BlurFade>
             <p className="mb-4 text-muted-foreground text-sm">Chaque bâtiment est différent. On calcule votre potentiel solaire gratuitement.</p>

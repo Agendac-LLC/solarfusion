@@ -12,7 +12,7 @@ const stats = [
 ];
 
 const FamilyStory = () => (
-  <section className="section-padding relative">
+  <section className="section-padding relative" aria-label="Qui sommes-nous — entreprise familiale solaire Chambéry">
     <FloatingShapes variant="light" />
     <div className="mx-auto max-w-6xl relative z-10">
       <BlurFade>

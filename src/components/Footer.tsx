@@ -6,7 +6,7 @@ import BlurFade from "./BlurFade";
 import { AnimatedLine } from "./AnimatedSection";
 
 const Footer = () => (
-  <footer className="bg-foreground text-background">
+  <footer className="bg-foreground text-background" role="contentinfo" itemScope itemType="https://schema.org/LocalBusiness">
     <div className="mx-auto max-w-7xl px-6 py-16 md:px-12">
       <StaggerChildren className="grid gap-12 md:grid-cols-3" stagger={0.12}>
         {/* Company */}
@@ -15,7 +15,7 @@ const Footer = () => (
             <Link to="/" className="text-base font-bold tracking-[0.1em] hover:text-background/80 transition-colors duration-200">
               SOLAR FUSION
             </Link>
-            <p className="mt-4 text-sm leading-relaxed text-background/50 font-light">
+            <p className="mt-4 text-sm leading-relaxed text-background/50 font-light" itemProp="description">
               Installateurs solaires père et fils depuis 2009. Basés à Chambéry, on intervient en Savoie et Haute-Savoie.
             </p>
           </div>
@@ -27,7 +27,7 @@ const Footer = () => (
             <h4 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-background/40">
               Navigation
             </h4>
-            <nav className="flex flex-col gap-3">
+            <nav className="flex flex-col gap-3" aria-label="Plan du site">
               {[
                 { to: "/", label: "Accueil" },
                 { to: "/particuliers", label: "Particuliers" },
@@ -58,9 +58,9 @@ const Footer = () => (
               <a href="mailto:sebastien@solarfusion.fr" className="flex items-center gap-2 text-sm text-background/60 hover:text-background transition-colors duration-200">
                 <Mail className="h-3.5 w-3.5" strokeWidth={1.5} /> sebastien@solarfusion.fr
               </a>
-              <p className="flex items-start gap-2 text-sm text-background/60">
+              <p className="flex items-start gap-2 text-sm text-background/60" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                 <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0" strokeWidth={1.5} />
-                Chambéry, Savoie (73)
+                <span><span itemProp="addressLocality">Chambéry</span>, <span itemProp="addressRegion">Savoie</span> (<span itemProp="postalCode">73</span>)</span>
               </p>
               <p className="text-xs text-background/35 mt-1">
                 Intervention en Savoie (73) et Haute-Savoie (74).

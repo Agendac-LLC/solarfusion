@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import BlurFade from "@/components/BlurFade";
 import FloatingShapes from "@/components/FloatingShapes";
 import SectionDivider from "@/components/SectionDivider";
+import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 
 const useReonicLoader = () => {
@@ -23,9 +24,24 @@ const useReonicLoader = () => {
 const SimulateurPage = () => {
   useReonicLoader();
 
+  const breadcrumbLd = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Simulateur", "item": "https://solarfusion.lovable.app/simulateur" }
+    ]
+  }), []);
+
   return (
     <>
-      <section className="pt-28 pb-8 px-6 relative">
+      <SEOHead
+        title="Simulateur Solaire Gratuit — Calculez Vos Économies | Solar Fusion Chambéry"
+        description="Simulez gratuitement vos économies avec le photovoltaïque en Savoie et Haute-Savoie. Résultat en 2 minutes : retour sur investissement, production annuelle, économies sur facture. Sans engagement."
+        canonical="https://solarfusion.lovable.app/simulateur"
+        jsonLd={breadcrumbLd}
+      />
+      <section className="pt-28 pb-8 px-6 relative" aria-label="Simulateur d'économies solaires">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-3xl text-center relative z-10">
           <motion.p
@@ -57,7 +73,7 @@ const SimulateurPage = () => {
 
       <SectionDivider />
 
-      <section className="px-6 pb-28 pt-8 relative grain">
+      <section className="px-6 pb-28 pt-8 relative grain" aria-label="Outil de simulation photovoltaïque">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-3xl relative z-10">
           <BlurFade delay={0.3}>
