@@ -4,7 +4,7 @@ import MagneticButton from "./MagneticButton";
 import StaggerChildren, { StaggerItem } from "./StaggerChildren";
 import BlurFade from "./BlurFade";
 import { AnimatedLine } from "./AnimatedSection";
-import logoIcon from "@/assets/logo-icon.webp";
+import logoIcon from "@/assets/logo-icon.png";
 
 const Footer = () => (
   <footer className="bg-foreground text-background" role="contentinfo" itemScope itemType="https://schema.org/LocalBusiness">

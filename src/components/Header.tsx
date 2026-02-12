@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logoIcon from "@/assets/logo-icon.webp";
+import logoIcon from "@/assets/logo-icon.png";
 
 const navLinks = [
   { label: "Accueil", to: "/" },
