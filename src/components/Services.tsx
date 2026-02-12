@@ -58,20 +58,18 @@ const Services = () => (
       <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
         {services.map((service) => (
           <StaggerItem key={service.title} direction="scale">
-            <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={6}>
-              <div className="flex flex-col glass-card-light embossed p-10 md:p-12 h-full group cursor-default rounded-2xl">
-                <div className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300">
-                  <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
-                </div>
-                <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed text-sm">
-                  {service.description}
-                </p>
-                <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
-                  {service.detail}
-                </p>
+            <div className="flex flex-col bg-background border border-border/60 shadow-md p-10 md:p-12 h-full rounded-2xl hover:shadow-lg transition-shadow duration-300">
+              <div className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center">
+                <service.icon className="h-7 w-7 text-foreground/80" strokeWidth={1.2} />
               </div>
-            </TiltCard>
+              <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
+              <p className="text-muted-foreground leading-relaxed text-sm">
+                {service.description}
+              </p>
+              <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">
+                {service.detail}
+              </p>
+            </div>
           </StaggerItem>
         ))}
       </StaggerChildren>
