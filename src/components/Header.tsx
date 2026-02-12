@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import logoIcon from "@/assets/logo-icon.webp";
 
 const navLinks = [
   { label: "Accueil", to: "/" },
@@ -56,9 +57,14 @@ const Header = () => {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link
           to="/"
-          className={`text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
+          className={`flex items-center gap-2 text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
           style={{ textShadow }}
         >
+          <img
+            src={logoIcon}
+            alt="Solar Fusion logo"
+            className={`h-7 w-7 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+          />
           SOLAR FUSION
         </Link>
 
