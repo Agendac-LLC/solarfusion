@@ -57,13 +57,13 @@ const Header = () => {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <Link
           to="/"
-          className={`flex items-center gap-2 text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
+          className={`flex items-center gap-1 text-base font-bold tracking-[0.1em] transition-colors duration-300 ${textColor}`}
           style={{ textShadow }}
         >
           <img
             src={logoIcon}
             alt="Solar Fusion logo"
-            className={`h-14 w-14 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+            className={`h-16 w-16 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
           />
           SOLAR FUSION
         </Link>
