@@ -57,7 +57,7 @@ const Header = () => {
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
       }}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-8">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link
           to="/"
           className={`flex items-center gap-1.5 font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 ${textColor}`}
