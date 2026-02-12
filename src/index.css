@@ -210,7 +210,7 @@
 
   /* Pill button for main CTAs */
   .btn-pill {
-    @apply relative transition-all duration-300 ease-out;
+    @apply relative transition-all duration-300 ease-out text-center flex items-center justify-center;
     border-radius: 9999px;
   }
   .btn-pill:hover {
