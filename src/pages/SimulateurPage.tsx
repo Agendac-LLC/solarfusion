@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import BlurFade from "@/components/BlurFade";
 import FloatingShapes from "@/components/FloatingShapes";
 import SectionDivider from "@/components/SectionDivider";
@@ -21,8 +21,14 @@ const useReonicLoader = () => {
   }, []);
 };
 
+const tabs = [
+  { id: "b2c" as const, label: "Particuliers", product: "energyhouse" },
+  { id: "b2b" as const, label: "Professionnels", product: "energycompany" },
+];
+
 const SimulateurPage = () => {
   useReonicLoader();
+  const [activeTab, setActiveTab] = useState<"b2c" | "b2b">("b2c");
 
   const breadcrumbLd = useMemo(() => ({
     "@context": "https://schema.org",
@@ -66,7 +72,7 @@ const SimulateurPage = () => {
             transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
             className="text-muted-foreground text-base max-w-lg mx-auto"
           >
-            Entrez votre adresse et votre facture actuelle. Le simulateur calcule vos économies annuelles et votre retour sur investissement.
+            Entrez votre adresse et votre consommation. Le simulateur calcule vos économies annuelles et votre retour sur investissement.
           </motion.p>
         </div>
       </section>
@@ -76,13 +82,43 @@ const SimulateurPage = () => {
       <section className="px-6 pb-28 pt-8 relative grain" aria-label="Outil de simulation photovoltaïque">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-3xl relative z-10">
+          {/* Tabs */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="flex justify-center gap-2 mb-10"
+          >
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                onClick={() => setActiveTab(tab.id)}
+                className={`px-6 py-2.5 rounded-full text-xs font-semibold uppercase tracking-[0.15em] transition-all duration-300 ${
+                  activeTab === tab.id
+                    ? "bg-foreground text-background"
+                    : "glass-card-light embossed text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </motion.div>
+
           <BlurFade delay={0.3}>
             <div className="section-alt rounded-3xl p-12 md:p-20 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
-              <div
-                data-reonic-type="element"
-                data-product="energyhouse"
-                data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
-              />
+              {activeTab === "b2c" ? (
+                <div
+                  data-reonic-type="element"
+                  data-product="energyhouse"
+                  data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
+                />
+              ) : (
+                <div
+                  data-reonic-type="element"
+                  data-product="energycompany"
+                  data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
+                />
+              )}
             </div>
           </BlurFade>
         </div>

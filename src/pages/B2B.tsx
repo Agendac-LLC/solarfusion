@@ -8,7 +8,7 @@ import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
-import Simulator from "@/components/Simulator";
+
 import ContactSection from "@/components/ContactSection";
 import ContactForm from "@/components/ContactForm";
 import SEOHead from "@/components/SEOHead";
@@ -62,7 +62,7 @@ const B2B = () => {
             Installations photovoltaïques pour entreprises, collectivités et industriels. Dimensionnement sur mesure, retour sur investissement calculé.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-10">
-            <MagneticButton href="#simulateur" className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]" strength={0.4}>Calculer ma rentabilité</MagneticButton>
+            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]" strength={0.4}>Calculer ma rentabilité</MagneticButton>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
@@ -104,13 +104,14 @@ const B2B = () => {
       </section>
 
       <SectionDivider />
-      <Simulator variant="b2b" />
 
-      <section className="section-padding" aria-label="Demander une étude gratuite">
+      <section className="section-padding" aria-label="Simuler votre rentabilité">
         <div className="mx-auto max-w-4xl text-center">
           <BlurFade>
-            <p className="mb-4 text-muted-foreground text-sm">Chaque bâtiment est différent. On calcule votre potentiel solaire gratuitement.</p>
-            <MagneticButton href="#contact" className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]">Demander une étude gratuite</MagneticButton>
+            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Simulateur pro</p>
+            <TextReveal text="Calculez votre rentabilité." className="mb-6 text-3xl font-bold md:text-5xl" />
+            <p className="mb-10 text-muted-foreground text-base max-w-2xl mx-auto">Chaque bâtiment est différent. Simulez votre potentiel solaire en 2 minutes.</p>
+            <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
           </BlurFade>
         </div>
       </section>
