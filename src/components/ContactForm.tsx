@@ -12,10 +12,11 @@ const contactSchema = z.object({
   name: z.string().trim().min(1, "Nom requis").max(100),
   phone: z.string().trim().min(1, "Téléphone requis").max(20),
   postalCode: z.string().trim().min(1, "Code postal requis").max(10),
+  subject: z.string().trim().max(500).optional(),
 });
 
 const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", phone: "", postalCode: "" });
+  const [form, setForm] = useState({ name: "", phone: "", postalCode: "", subject: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
 
@@ -36,7 +37,7 @@ const ContactForm = () => {
     setLoading(true);
     await new Promise((r) => setTimeout(r, 1200));
     toast.success("Demande envoyée. Nous vous rappelons dans les plus brefs délais.");
-    setForm({ name: "", phone: "", postalCode: "" });
+    setForm({ name: "", phone: "", postalCode: "", subject: "" });
     setLoading(false);
   };
 
@@ -80,6 +81,16 @@ const ContactForm = () => {
                   {errors[field.key] && <p className="mt-1.5 text-xs text-destructive">{errors[field.key]}</p>}
                 </div>
               ))}
+              <div>
+                <motion.textarea
+                  placeholder="Sujet / Question (optionnel)"
+                  value={form.subject}
+                  onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                  className={`${inputClass} resize-none min-h-[100px]`}
+                  whileFocus={{ scale: 1.01 }}
+                  transition={{ duration: 0.2 }}
+                />
+              </div>
               <MagneticButton
                 as="button"
                 className="btn-pill bg-foreground text-background glow-pulse w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2 text-center"
