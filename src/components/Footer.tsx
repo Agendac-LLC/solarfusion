@@ -18,7 +18,7 @@ const Footer = () => (
               SOLAR FUSION
             </Link>
             <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-background/40 font-medium">
-              Là où le soleil devient solution.
+              Installateurs solaires depuis 2009.
             </p>
             <p className="mt-4 text-sm leading-relaxed text-background/50 font-light" itemProp="description">
               Installateurs solaires père et fils depuis 2009. Basés à Chambéry, on intervient en Savoie et Haute-Savoie.

@@ -85,7 +85,7 @@ const Services = () => (
             href="tel:+33762111470"
             className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] rounded-full"
           >
-            Être rappelé gratuitement
+            Appeler directement
           </MagneticButton>
         </div>
       </BlurFade>

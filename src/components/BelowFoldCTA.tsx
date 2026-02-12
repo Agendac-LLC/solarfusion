@@ -58,7 +58,7 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
               Gratuit, sans engagement, résultat en 2 minutes.
             </p>
             <MagneticButton
-              href="#simulateur"
+              href="/simulateur"
               className="btn-pill bg-primary-foreground text-primary glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
             >
               Simuler mes économies

@@ -82,10 +82,11 @@
   }
 
   /* Ensure minimum touch target size on mobile */
-  @media (max-width: 767px) {
-    a, button {
+  /* Minimum touch target for interactive standalone elements on mobile */
+  @media (pointer: coarse) {
+    a:not(.inline-link),
+    button {
       min-height: 44px;
-      min-width: 44px;
     }
   }
 
