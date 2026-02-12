@@ -45,7 +45,7 @@ const Services = () => (
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
           Ce qu'on fait
         </p>
-        <h2 className="sr-only">Services d'installation solaire en Savoie — Panneaux, batterie, domotique, PAC</h2>
+        <h2 className="sr-only">Services d'installation solaire en Savoie - Panneaux, batterie, domotique, PAC</h2>
         <TextReveal
           text="Quatre métiers, une équipe."
           className="mb-4 text-3xl font-bold md:text-5xl"

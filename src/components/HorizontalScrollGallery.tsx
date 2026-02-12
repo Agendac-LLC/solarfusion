@@ -16,7 +16,7 @@ const images = [
   { src: img5, alt: "Ferme alpine - installation photovoltaïque", label: "Ferme alpine" },
 ];
 
-/** Extracted to avoid useTransform inside .map() — hooks rule violation */
+/** Extracted to avoid useTransform inside .map() - hooks rule violation */
 const GalleryImage = memo(({
   img,
   index,

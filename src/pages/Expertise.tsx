@@ -43,7 +43,7 @@ const Expertise = () => {
   return (
     <>
       <SEOHead
-        title="Notre Expertise — 15 Ans d'Installation Solaire en Savoie | Solar Fusion Chambéry"
+        title="Notre Expertise - 15 Ans d'Installation Solaire en Savoie | Solar Fusion Chambéry"
         description="Solar Fusion : 15 ans d'installations solaires en Savoie. Père et fils, QualiPV 36K, 0 accident, garantie décennale. Installateur de confiance à Chambéry."
         canonical="https://solarfusion.lovable.app/notre-expertise"
         jsonLd={breadcrumbLd}
@@ -70,12 +70,12 @@ const Expertise = () => {
 
       <SectionDivider />
 
-      <section className="section-padding relative grain" aria-label="Qui sommes-nous — Sébastien Chaffardon">
+      <section className="section-padding relative grain" aria-label="Qui sommes-nous, Sébastien Chaffardon">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-4xl relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Qui sommes-nous</p>
-            <h2 className="sr-only">Solar Fusion — Installateur solaire familial à Chambéry depuis 2009</h2>
+            <h2 className="sr-only">Solar Fusion - Installateur solaire familial à Chambéry depuis 2009</h2>
             <TextReveal text="Pas de discours, des faits." className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]" />
           </BlurFade>
           <div className="grid gap-8 md:grid-cols-2 mt-12">

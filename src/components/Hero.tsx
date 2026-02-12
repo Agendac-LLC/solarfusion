@@ -63,7 +63,7 @@ const Hero = () => {
           Savoie & Haute-Savoie
         </motion.p>
 
-        {/* Word-split title — 4 motion.span instead of 34 */}
+        {/* Word-split title - 4 motion.span instead of 34 */}
         <h1 className="max-w-4xl text-4xl font-bold leading-[1.05] text-primary-foreground md:text-6xl lg:text-7xl">
           {words.map((word, i) => (
             <motion.span
@@ -110,7 +110,7 @@ const Hero = () => {
         </motion.div>
       </motion.div>
 
-      {/* Scroll indicator — pure CSS animation */}
+      {/* Scroll indicator - pure CSS animation */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

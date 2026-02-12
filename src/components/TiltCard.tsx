@@ -7,7 +7,7 @@ interface TiltCardProps {
   className?: string;
   tiltMax?: number;
   scaleHover?: number;
-  /** Glare disabled by default for perf — enable only on hero/key cards */
+  /** Glare disabled by default for perf - enable only on hero/key cards */
   glare?: boolean;
 }
 

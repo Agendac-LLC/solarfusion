@@ -4,7 +4,7 @@ import SEOHead from "@/components/SEOHead";
 const MentionsLegales = () => (
   <div className="pt-24 section-padding">
     <SEOHead
-      title="Mentions Légales — Solar Fusion | Installateur Solaire Chambéry"
+      title="Mentions Légales - Solar Fusion | Installateur Solaire Chambéry"
       description="Mentions légales de Solar Fusion. Entreprise familiale d'installation photovoltaïque à Chambéry, Savoie. RGPD, certifications QualiPV 36K, garantie décennale."
       canonical="https://solarfusion.lovable.app/mentions-legales"
     />
@@ -50,7 +50,7 @@ const MentionsLegales = () => (
 
           <section>
             <h2 className="mb-3 text-lg font-semibold text-foreground">Certifications</h2>
-            <p>QualiPV 36K (certification RGE) — Partenaire agréé Hitachi — Garantie décennale française.</p>
+            <p>QualiPV 36K (certification RGE) - Partenaire agréé Hitachi - Garantie décennale française.</p>
           </section>
 
           <section>

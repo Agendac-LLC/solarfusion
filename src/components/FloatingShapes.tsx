@@ -1,7 +1,7 @@
 import { memo } from "react";
 
 /**
- * Ambient floating shapes — pure CSS keyframes for zero JS overhead.
+ * Ambient floating shapes - pure CSS keyframes for zero JS overhead.
  * Replaces Framer Motion infinite animations with GPU-composited CSS.
  */
 const FloatingShapes = memo(({ variant = "light" }: { variant?: "light" | "dark" }) => {
