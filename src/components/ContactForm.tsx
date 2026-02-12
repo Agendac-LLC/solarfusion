@@ -93,7 +93,7 @@ const ContactForm = () => {
               </div>
               <MagneticButton
                 as="button"
-                className="btn-pill bg-foreground text-background glow-pulse w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 flex items-center justify-center gap-2 text-center"
+                className="btn-pill bg-foreground text-background glow-pulse w-full py-4 text-xs font-semibold uppercase tracking-[0.2em] disabled:opacity-50 !flex items-center justify-center gap-2 text-center"
               >
                 {loading ? (
                   <>
