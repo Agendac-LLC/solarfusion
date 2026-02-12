@@ -33,7 +33,7 @@ const Index = () => (
       <FloatingShapes variant="dark" />
       <div className="section-padding">
         <div className="mx-auto max-w-4xl text-center">
-          <BlurFade blur={12}>
+          <BlurFade>
             <TextReveal
               text="Et si votre toit travaillait pour vous ?"
               className="text-2xl font-bold md:text-4xl text-primary-foreground mb-6"

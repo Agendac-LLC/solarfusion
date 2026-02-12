@@ -35,7 +35,6 @@ const ParallaxBackground = memo(({
         style={{
           y,
           filter: blur ? `blur(${blur}px)` : undefined,
-          willChange: "transform",
         }}
         loading="lazy"
         decoding="async"

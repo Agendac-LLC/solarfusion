@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import BlurFade from "./BlurFade";
-import ScrollScale from "./ScrollScale";
 
 const useReonicLoader = () => {
   useEffect(() => {
@@ -43,23 +42,21 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => {
               : "Surface de toiture, consommation actuelle, tarif d'achat - le simulateur calcule votre ROI et le temps d'amortissement."}
           </p>
         </BlurFade>
-        <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.4, 1]}>
-          <div className="section-alt rounded-3xl p-12 md:p-16 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
-            {variant === "b2c" ? (
-              <div
-                data-reonic-type="element"
-                data-product="energyhouse"
-                data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
-              />
-            ) : (
-              <div
-                data-reonic-type="element"
-                data-product="energycompany"
-                data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
-              />
-            )}
-          </div>
-        </ScrollScale>
+        <div className="section-alt rounded-3xl p-12 md:p-16 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
+          {variant === "b2c" ? (
+            <div
+              data-reonic-type="element"
+              data-product="energyhouse"
+              data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
+            />
+          ) : (
+            <div
+              data-reonic-type="element"
+              data-product="energycompany"
+              data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
+            />
+          )}
+        </div>
       </div>
     </section>
   );

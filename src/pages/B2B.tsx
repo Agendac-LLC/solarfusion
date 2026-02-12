@@ -7,7 +7,6 @@ import TiltCard from "@/components/TiltCard";
 import MagneticButton from "@/components/MagneticButton";
 import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
-import ScrollScale from "@/components/ScrollScale";
 import FloatingShapes from "@/components/FloatingShapes";
 import Simulator from "@/components/Simulator";
 import ContactSection from "@/components/ContactSection";
@@ -66,22 +65,20 @@ const B2B = () => {
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
             {benefits.map((b) => (
               <StaggerItem key={b.title} direction="scale">
-                <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.5, 1]}>
-                  <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5} glare>
-                    <div className="flex gap-6 p-8 rounded-2xl glass-card-light embossed h-full">
-                      <div className="shrink-0">
-                        <p className="text-2xl font-bold tracking-tight">
-                          {b.metricNum !== undefined ? <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} /> : b.metric}
-                        </p>
-                        <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
-                      </div>
-                      <div>
-                        <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
-                        <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
-                      </div>
+                <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5}>
+                  <div className="flex gap-6 p-8 rounded-2xl glass-card-light embossed h-full">
+                    <div className="shrink-0">
+                      <p className="text-2xl font-bold tracking-tight">
+                        {b.metricNum !== undefined ? <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} /> : b.metric}
+                      </p>
+                      <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
                     </div>
-                  </TiltCard>
-                </ScrollScale>
+                    <div>
+                      <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+                    </div>
+                  </div>
+                </TiltCard>
               </StaggerItem>
             ))}
           </StaggerChildren>

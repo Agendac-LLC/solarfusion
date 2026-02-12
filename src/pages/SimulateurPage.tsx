@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { motion } from "framer-motion";
 import BlurFade from "@/components/BlurFade";
-import ScrollScale from "@/components/ScrollScale";
 import FloatingShapes from "@/components/FloatingShapes";
 import SectionDivider from "@/components/SectionDivider";
+import { motion } from "framer-motion";
 
 const useReonicLoader = () => {
   useEffect(() => {
@@ -61,17 +60,15 @@ const SimulateurPage = () => {
       <section className="px-6 pb-28 pt-8 relative grain">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-3xl relative z-10">
-          <ScrollScale scaleRange={[0.92, 1]} opacityRange={[0.4, 1]}>
-            <BlurFade delay={0.3}>
-              <div className="section-alt rounded-3xl p-12 md:p-20 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
-                <div
-                  data-reonic-type="element"
-                  data-product="energyhouse"
-                  data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
-                />
-              </div>
-            </BlurFade>
-          </ScrollScale>
+          <BlurFade delay={0.3}>
+            <div className="section-alt rounded-3xl p-12 md:p-20 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
+              <div
+                data-reonic-type="element"
+                data-product="energyhouse"
+                data-client-id="609b49a2-adbb-4259-bcb2-24bc28be9c4b"
+              />
+            </div>
+          </BlurFade>
         </div>
       </section>
     </>

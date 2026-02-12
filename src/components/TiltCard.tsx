@@ -7,6 +7,7 @@ interface TiltCardProps {
   className?: string;
   tiltMax?: number;
   scaleHover?: number;
+  /** Glare disabled by default for perf — enable only on hero/key cards */
   glare?: boolean;
 }
 
@@ -15,7 +16,7 @@ const TiltCard = memo(({
   className = "",
   tiltMax = 8,
   scaleHover = 1.02,
-  glare = true,
+  glare = false,
 }: TiltCardProps) => {
   const isMobile = useIsMobile();
   const ref = useRef<HTMLDivElement>(null);
@@ -34,6 +35,8 @@ const TiltCard = memo(({
   const scale = useMotionValue(1);
   const springScale = useSpring(scale, { stiffness: 200, damping: 20 });
 
+  // Glare values only created when glare=true won't help because hooks can't be conditional.
+  // So we keep them but only render the glare div when glare=true.
   const glareX = useTransform(mouseX, [0, 1], [0, 100]);
   const glareY = useTransform(mouseY, [0, 1], [0, 100]);
   const glareOpacity = useMotionValue(0);
@@ -41,7 +44,6 @@ const TiltCard = memo(({
 
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (!ref.current || isMobile) return;
-    // Throttle with rAF
     if (rafRef.current) return;
     rafRef.current = requestAnimationFrame(() => {
       rafRef.current = 0;
@@ -55,8 +57,8 @@ const TiltCard = memo(({
   const handleMouseEnter = useCallback(() => {
     if (isMobile) return;
     scale.set(scaleHover);
-    glareOpacity.set(0.15);
-  }, [isMobile, scale, scaleHover, glareOpacity]);
+    if (glare) glareOpacity.set(0.15);
+  }, [isMobile, scale, scaleHover, glare, glareOpacity]);
 
   const handleMouseLeave = useCallback(() => {
     mouseX.set(0.5);
@@ -65,7 +67,7 @@ const TiltCard = memo(({
     glareOpacity.set(0);
   }, [mouseX, mouseY, scale, glareOpacity]);
 
-  // On mobile, render without tilt (no mouse events, no transforms)
+  // On mobile, render without tilt
   if (isMobile) {
     return <div className={`relative ${className}`}>{children}</div>;
   }
@@ -83,7 +85,6 @@ const TiltCard = memo(({
         scale: springScale,
         transformPerspective: 1000,
         transformStyle: "preserve-3d",
-        willChange: "transform",
       }}
     >
       {children}
