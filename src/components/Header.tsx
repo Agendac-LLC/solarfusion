@@ -35,6 +35,9 @@ const Header = () => {
       const id = to.replace("/#", "");
       if (location.pathname === "/") {
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Navigate to homepage then scroll - handled by browser with hash
+        window.location.href = to;
       }
     }
   };

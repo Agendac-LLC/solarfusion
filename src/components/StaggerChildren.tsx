@@ -1,51 +1,43 @@
 import { motion } from "framer-motion";
-import { ReactNode, memo } from "react";
+import { ReactNode, forwardRef } from "react";
 
 interface StaggerChildrenProps {
   children: ReactNode;
   className?: string;
-  /** Delay between each child in seconds */
   stagger?: number;
-  /** Initial delay before first child */
   delay?: number;
 }
 
-/**
- * Wraps children and staggers their entrance animation.
- * Each direct child animates in sequence with configurable delay.
- */
-const StaggerChildren = memo(({ children, className = "", stagger = 0.08, delay = 0 }: StaggerChildrenProps) => (
-  <motion.div
-    initial="hidden"
-    whileInView="visible"
-    viewport={{ once: true, margin: "-60px" }}
-    variants={{
-      hidden: {},
-      visible: {
-        transition: {
-          staggerChildren: stagger,
-          delayChildren: delay,
+const StaggerChildren = forwardRef<HTMLDivElement, StaggerChildrenProps>(
+  ({ children, className = "", stagger = 0.08, delay = 0 }, ref) => (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      variants={{
+        hidden: {},
+        visible: {
+          transition: {
+            staggerChildren: stagger,
+            delayChildren: delay,
+          },
         },
-      },
-    }}
-    className={className}
-  >
-    {children}
-  </motion.div>
-));
+      }}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  )
+);
 
 StaggerChildren.displayName = "StaggerChildren";
 
-/** Wrap each child item inside StaggerChildren with this */
-export const StaggerItem = memo(({
-  children,
-  className = "",
-  direction = "up",
-}: {
+export const StaggerItem = forwardRef<HTMLDivElement, {
   children: ReactNode;
   className?: string;
   direction?: "up" | "down" | "left" | "right" | "scale";
-}) => {
+}>(({ children, className = "", direction = "up" }, ref) => {
   const variants = {
     up: { hidden: { opacity: 0, y: 50 }, visible: { opacity: 1, y: 0 } },
     down: { hidden: { opacity: 0, y: -50 }, visible: { opacity: 1, y: 0 } },
@@ -56,6 +48,7 @@ export const StaggerItem = memo(({
 
   return (
     <motion.div
+      ref={ref}
       variants={variants[direction]}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={className}
