@@ -42,7 +42,7 @@ const ContactForm = () => {
   };
 
   const inputClass =
-    "w-full rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-4 py-3.5 text-sm text-foreground font-medium placeholder:text-foreground/40 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 focus:bg-white/10 transition-all duration-300";
+    "w-full rounded-xl border border-border/60 bg-background px-4 py-3.5 text-sm text-foreground font-medium placeholder:text-foreground/40 focus:outline-none focus:border-foreground/40 focus:ring-2 focus:ring-foreground/10 transition-all duration-300";
 
   return (
     <section id="contact-form" className="section-padding relative grain">
@@ -61,7 +61,7 @@ const ContactForm = () => {
           </p>
         </BlurFade>
         <BlurFade delay={0.2}>
-          <div className="glass-card-light embossed rounded-3xl p-8 md:p-10" style={{ boxShadow: "var(--shadow-dramatic, 0 10px 40px -10px rgba(0,0,0,0.15))" }}>
+          <div className="bg-background border border-border/60 shadow-md rounded-3xl p-8 md:p-10">
             <form onSubmit={handleSubmit} className="space-y-4">
               {[
                 { type: "text", placeholder: "Nom complet", key: "name" },
