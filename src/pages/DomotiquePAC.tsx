@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import BlurFade from "@/components/BlurFade";
 import TextReveal from "@/components/TextReveal";
 import TiltCard from "@/components/TiltCard";
@@ -8,6 +8,7 @@ import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
+import SEOHead from "@/components/SEOHead";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/install-maison-moderne.webp";
 
@@ -26,11 +27,26 @@ const DomotiquePAC = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  const breadcrumbLd = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Domotique & PAC", "item": "https://solarfusion.lovable.app/domotique-pac" }
+    ]
+  }), []);
+
   return (
     <>
-      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain">
+      <SEOHead
+        title="Domotique & Pompe à Chaleur Chambéry — PAC Hitachi Savoie | Solar Fusion"
+        description="Installation pompe à chaleur Hitachi et domotique énergétique à Chambéry, Savoie et Haute-Savoie. Couplage solaire + PAC pour jusqu'à 90% d'autoconsommation. Partenaire agréé Hitachi."
+        canonical="https://solarfusion.lovable.app/domotique-pac"
+        jsonLd={breadcrumbLd}
+      />
+      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain" aria-label="Domotique et pompes à chaleur en Savoie">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img src={heroImage} alt="Maison moderne avec domotique et solaire" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
+          <img src={heroImage} alt="Maison moderne avec domotique énergétique et panneaux solaires en Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
@@ -53,11 +69,12 @@ const DomotiquePAC = () => {
 
       <SectionDivider />
 
-      <section className="section-padding section-alt-deep relative grain">
+      <section className="section-padding section-alt-deep relative grain" aria-label="Solutions domotique et pompes à chaleur">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-6xl relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Nos solutions</p>
+            <h2 className="sr-only">Pompes à chaleur Hitachi et domotique énergétique en Savoie</h2>
             <TextReveal text="Chauffage, clim, pilotage." className="mb-4 text-3xl font-bold md:text-5xl" />
             <p className="mb-16 text-muted-foreground text-base max-w-xl">Chaque solution se couple au solaire pour maximiser vos économies.</p>
           </BlurFade>
@@ -82,7 +99,7 @@ const DomotiquePAC = () => {
 
       <SectionDivider />
 
-      <section className="section-padding">
+      <section className="section-padding" aria-label="Certifications et appel à l'action">
         <div className="mx-auto max-w-4xl text-center">
           <BlurFade>
             <div className="flex flex-wrap items-center justify-center gap-4 mb-10">

@@ -24,7 +24,7 @@ const certs = [
 ];
 
 const Certifications = () => (
-  <section className="section-padding section-alt relative grain">
+  <section className="section-padding section-alt relative grain" aria-label="Certifications et qualifications solaires">
     <FloatingShapes variant="light" />
     <div className="mx-auto max-w-6xl relative z-10">
       <BlurFade>

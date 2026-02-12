@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import BlurFade from "@/components/BlurFade";
 import TextReveal from "@/components/TextReveal";
 import CountUp from "@/components/CountUp";
@@ -10,6 +10,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
+import SEOHead from "@/components/SEOHead";
 import { Sun, Battery, TrendingDown, Shield, Star } from "lucide-react";
 import heroImage from "@/assets/install-chalet-savoie.webp";
 import chaletVillage from "@/assets/install-chalet-village.webp";
@@ -57,12 +58,27 @@ const Particuliers = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  const breadcrumbLd = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Particuliers", "item": "https://solarfusion.lovable.app/particuliers" }
+    ]
+  }), []);
+
   return (
     <>
+      <SEOHead
+        title="Panneaux Solaires Particuliers Chambéry — Autoconsommation Savoie | Solar Fusion"
+        description="Installation de panneaux solaires pour particuliers à Chambéry, Savoie et Haute-Savoie. Jusqu'à -70% sur votre facture d'électricité. Batterie, autoconsommation, garantie décennale. Devis gratuit."
+        canonical="https://solarfusion.lovable.app/particuliers"
+        jsonLd={breadcrumbLd}
+      />
       {/* Hero */}
-      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain">
+      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain" aria-label="Panneaux solaires pour particuliers en Savoie">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img src={heroImage} alt="Installation solaire sur chalet en Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
+          <img src={heroImage} alt="Installation de panneaux solaires sur chalet en Savoie — Solar Fusion installateur photovoltaïque" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
@@ -87,7 +103,7 @@ const Particuliers = () => {
       <SectionDivider />
 
       {/* Benefits */}
-      <section className="section-padding relative grain">
+      <section className="section-padding relative grain" aria-label="Avantages du solaire pour les particuliers">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-6xl relative z-10">
           <BlurFade>
@@ -120,7 +136,7 @@ const Particuliers = () => {
 
       <SectionDivider />
 
-      <ParallaxBackground image={chaletVillage} alt="Chalet avec panneaux solaires en village alpin" overlayOpacity={0.55} blur={2}>
+      <ParallaxBackground image={chaletVillage} alt="Chalet avec panneaux solaires en village alpin de Savoie" overlayOpacity={0.55} blur={2}>
         <FloatingShapes variant="dark" />
         <div className="section-padding">
           <div className="mx-auto max-w-4xl text-center">
@@ -136,7 +152,7 @@ const Particuliers = () => {
       <SectionDivider />
 
       {/* Trust */}
-      <section className="section-padding relative grain">
+      <section className="section-padding relative grain" aria-label="Avis clients et certifications">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-4xl relative z-10">
           <BlurFade>

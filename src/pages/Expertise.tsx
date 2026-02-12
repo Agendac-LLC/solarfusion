@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useRef, useMemo } from "react";
 import BlurFade from "@/components/BlurFade";
 import TextReveal from "@/components/TextReveal";
 import CountUp from "@/components/CountUp";
@@ -10,6 +10,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
+import SEOHead from "@/components/SEOHead";
 import { Shield } from "lucide-react";
 import fermeImage from "@/assets/install-ferme-alpine.webp";
 import champImage from "@/assets/install-champ-solaire.webp";
@@ -29,11 +30,26 @@ const Expertise = () => {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-10%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
+  const breadcrumbLd = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
+      { "@type": "ListItem", "position": 2, "name": "Notre expertise", "item": "https://solarfusion.lovable.app/notre-expertise" }
+    ]
+  }), []);
+
   return (
     <>
-      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain">
+      <SEOHead
+        title="Notre Expertise — 15 Ans d'Installation Solaire en Savoie | Solar Fusion Chambéry"
+        description="Découvrez l'histoire de Solar Fusion : 15 ans d'installations photovoltaïques en Savoie et Haute-Savoie. Père et fils, certification QualiPV 36K, 0 accident, garantie décennale. Installateur solaire de confiance à Chambéry."
+        canonical="https://solarfusion.lovable.app/notre-expertise"
+        jsonLd={breadcrumbLd}
+      />
+      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain" aria-label="Notre expertise en installation solaire">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img src={fermeImage} alt="Ferme alpine avec panneaux solaires en Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" />
+          <img src={fermeImage} alt="Ferme alpine avec panneaux solaires installés par Solar Fusion en Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
@@ -53,11 +69,12 @@ const Expertise = () => {
 
       <SectionDivider />
 
-      <section className="section-padding relative grain">
+      <section className="section-padding relative grain" aria-label="Qui sommes-nous — Sébastien Chaffardon">
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-4xl relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Qui sommes-nous</p>
+            <h2 className="sr-only">Solar Fusion — Installateur solaire familial à Chambéry depuis 2009</h2>
             <TextReveal text="Pas de discours, des faits." className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]" />
           </BlurFade>
           <div className="grid gap-8 md:grid-cols-2 mt-12">
@@ -94,7 +111,7 @@ const Expertise = () => {
 
       <SectionDivider />
 
-      <ParallaxBackground image={champImage} alt="Panneaux solaires en pleine nature" overlayOpacity={0.65} blur={2}>
+      <ParallaxBackground image={champImage} alt="Champ de panneaux solaires en pleine nature en Savoie" overlayOpacity={0.65} blur={2}>
         <FloatingShapes variant="dark" />
         <div className="section-padding">
           <div className="mx-auto max-w-4xl">
@@ -123,7 +140,7 @@ const Expertise = () => {
 
       <SectionDivider />
 
-      <section className="section-padding">
+      <section className="section-padding" aria-label="Certifications et contact">
         <div className="mx-auto max-w-4xl text-center">
           <BlurFade>
             <div className="flex flex-wrap items-center justify-center gap-4 mb-12">

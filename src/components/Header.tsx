@@ -63,7 +63,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-5 md:flex">
+        <nav className="hidden items-center gap-5 md:flex" aria-label="Navigation principale">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
