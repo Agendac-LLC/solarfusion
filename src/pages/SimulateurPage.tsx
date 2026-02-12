@@ -5,10 +5,11 @@ import SectionDivider from "@/components/SectionDivider";
 import SEOHead from "@/components/SEOHead";
 import { motion } from "framer-motion";
 
-const useReonicLoader = () => {
+const useReonicLoader = (activeTab: string) => {
   useEffect(() => {
     (window as any).elementsloaded = false;
     document.querySelectorAll('.ifrGuest').forEach((el) => el.remove());
+    document.querySelectorAll('script[src*="reonic-loader"]').forEach((el) => el.remove());
 
     const script = document.createElement("script");
     script.src = "https://apps.reonic.de/elements/reonic-loader.js";
@@ -18,7 +19,7 @@ const useReonicLoader = () => {
     return () => {
       script.remove();
     };
-  }, []);
+  }, [activeTab]);
 };
 
 const tabs = [
@@ -27,8 +28,8 @@ const tabs = [
 ];
 
 const SimulateurPage = () => {
-  useReonicLoader();
   const [activeTab, setActiveTab] = useState<"b2c" | "b2b">("b2c");
+  useReonicLoader(activeTab);
 
   const breadcrumbLd = useMemo(() => ({
     "@context": "https://schema.org",
