@@ -246,6 +246,8 @@
   .btn-glass-hero {
     @apply relative transition-all duration-300 ease-out text-primary-foreground;
     border-radius: 9999px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
     background: linear-gradient(135deg, hsla(0,0%,100%,0.2) 0%, hsla(0,0%,100%,0.12) 100%);

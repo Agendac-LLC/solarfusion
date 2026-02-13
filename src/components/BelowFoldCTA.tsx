@@ -18,7 +18,7 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
         <div className="mx-auto max-w-4xl text-center relative z-10">
           <BlurFade>
             <TextReveal
-              text="On en parle ?"
+              text="Prêt à passer au solaire ?"
               className="mb-4 text-3xl font-bold md:text-5xl"
               as="p"
             />

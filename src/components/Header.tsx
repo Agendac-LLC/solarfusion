@@ -29,16 +29,15 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const handleNavClick = (to: string) => {
+  const handleNavClick = (to: string, e: React.MouseEvent) => {
     setOpen(false);
     if (to.startsWith("/#")) {
       const id = to.replace("/#", "");
       if (location.pathname === "/") {
+        e.preventDefault();
         document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-      } else {
-        // Navigate to homepage then scroll - handled by browser with hash
-        window.location.href = to;
       }
+      // else: let the native <a> handle cross-page hash navigation
     }
   };
 
@@ -78,7 +77,7 @@ const Header = () => {
               <a
                 key={link.label}
                 href={link.to}
-                onClick={() => handleNavClick(link.to)}
+                onClick={(e) => handleNavClick(link.to, e)}
                 className={`text-[13px] uppercase tracking-wide font-medium transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${textMuted}`}
                 style={{ textShadow }}
               >
@@ -157,7 +156,7 @@ const Header = () => {
                   <a
                     key={link.label}
                     href={link.to}
-                    onClick={() => handleNavClick(link.to)}
+                    onClick={(e) => handleNavClick(link.to, e)}
                     className="text-xs uppercase tracking-[0.15em] font-medium text-muted-foreground"
                   >
                     {link.label}
