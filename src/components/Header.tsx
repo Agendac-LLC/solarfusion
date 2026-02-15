@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Particuliers", to: "/particuliers" },
   { label: "Professionnels", to: "/b2b" },
   { label: "Domotique & PAC", to: "/domotique-pac" },
-  { label: "Contact", to: "/#contact" },
+  { label: "Contact", to: "#contact" },
 ];
 
 const pagesWithDarkHero = ["/", "/particuliers", "/b2b", "/domotique-pac"];
