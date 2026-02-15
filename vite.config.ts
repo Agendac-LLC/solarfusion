@@ -4,20 +4,23 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
-  base: "/",
-  
-  server: {
-    host: "::",
-    port: 8080,
-  },
-  plugins: [
-    react(),
-    mode === "development" && componentTagger(),
-  ].filter(Boolean),
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "./src"),
+export default defineConfig(({ mode }) => {
+  // Flexible base: use '/solarfusion/' for production (GitHub Pages), '/' for development
+  const base = mode === "production" ? "/solarfusion/" : "/";
+  return {
+    base,
+    server: {
+      host: "::",
+      port: 8080,
     },
-  },
-}));
+    plugins: [
+      react(),
+      mode === "development" && componentTagger(),
+    ].filter(Boolean),
+    resolve: {
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+      },
+    },
+  };
+});
