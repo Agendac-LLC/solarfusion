@@ -9,7 +9,7 @@ const navLinks = [
   { label: "Particuliers", to: "/particuliers" },
   { label: "Professionnels", to: "/b2b" },
   { label: "Domotique & PAC", to: "/domotique-pac" },
-  { label: "Contact", to: "/#contact" },
+  { label: "Contact", to: "#contact" },
 ];
 
 const pagesWithDarkHero = ["/", "/particuliers", "/b2b", "/domotique-pac"];
@@ -31,13 +31,18 @@ const Header = () => {
 
   const handleNavClick = (to: string, e: React.MouseEvent) => {
     setOpen(false);
-    if (to.startsWith("/#")) {
-      const id = to.replace("/#", "");
-      if (location.pathname === "/") {
+    if (to.startsWith("#")) {
+      const id = to.replace("#", "");
+      if (location.pathname === "/" || location.pathname === "/index.html" || location.pathname === "/solarfusion/" || location.pathname === "/solarfusion/index.html") {
         e.preventDefault();
-        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+        }, 50);
+      } else {
+        // Redirige vers la home avec l'ancre, compatible GitHub Pages, Vercel, etc.
+        e.preventDefault();
+        window.location.href = `${window.location.origin}${window.location.pathname.includes('solarfusion') ? '/solarfusion/' : '/'}#${id}`;
       }
-      // else: let the native <a> handle cross-page hash navigation
     }
   };
 
