@@ -52,10 +52,10 @@ const Hero = () => {
       <FloatingShapes variant="dark" />
       <motion.div
         style={{ opacity, y: contentY }}
-        className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
+        className="relative z-10 flex h-full items-center justify-center px-6 text-center"
       >
-        <div className="absolute inset-0 z-0 bg-black/60 backdrop-blur-sm rounded-xl" />
-        <div className="relative z-10 w-full max-w-2xl mx-auto p-6 rounded-xl">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full max-w-2xl bg-black/60 backdrop-blur-sm rounded-xl" />
+        <div className="relative z-10 w-full max-w-2xl mx-auto p-6 rounded-xl flex flex-col items-center justify-center">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
