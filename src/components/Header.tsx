@@ -56,29 +56,29 @@ const Header = () => {
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
       }}
     >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
-          className={`flex items-center gap-1.5 font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 ${textColor}`}
+          className={`flex items-center gap-2 font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 min-w-[120px] ${textColor}`}
           style={{ textShadow }}
         >
           <img
             src={logoIcon}
             alt="Solar Fusion logo"
-            className={`h-16 w-16 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
+            className={`h-12 w-12 sm:h-16 sm:w-16 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
           />
           <span className="text-lg font-bold">SOLAR FUSION</span>
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-7 md:flex h-full" aria-label="Navigation principale">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-7 h-full flex-wrap" aria-label="Navigation principale">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.to}
                 onClick={(e) => handleNavClick(link.to, e)}
-                className={`text-[13px] uppercase tracking-wide font-medium transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${textMuted}`}
+                className={`text-xs sm:text-[13px] uppercase tracking-wide font-medium transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${textMuted}`}
                 style={{ textShadow }}
               >
                 {link.label}
@@ -92,7 +92,7 @@ const Header = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`text-[13px] uppercase tracking-wide transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${
+                className={`text-xs sm:text-[13px] uppercase tracking-wide transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${
                   location.pathname === link.to ? textActive : `${textMuted} font-medium`
                 }`}
                 style={{ textShadow }}
@@ -103,7 +103,7 @@ const Header = () => {
           )}
           <Link
             to="/simulateur"
-            className={`h-10 inline-flex items-center justify-center rounded-full px-6 text-[13px] uppercase tracking-wide font-semibold transition-all duration-300 ${
+            className={`h-10 inline-flex items-center justify-center rounded-full px-4 sm:px-6 text-xs sm:text-[13px] uppercase tracking-wide font-semibold transition-all duration-300 ${
               scrolled
                 ? "bg-foreground text-background hover:bg-foreground/90"
                 : "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
@@ -113,7 +113,7 @@ const Header = () => {
           </Link>
           <a
             href="tel:+33762111470"
-            className={`inline-flex items-center gap-2 text-[13px] font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
+            className={`inline-flex items-center gap-2 text-xs sm:text-[13px] font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
             style={{ textShadow }}
           >
             <Phone className="h-4 w-4 shrink-0" strokeWidth={1.5} />
@@ -122,18 +122,18 @@ const Header = () => {
         </nav>
 
         {/* Mobile */}
-        <div className="flex items-center md:hidden">
+        <div className="flex items-center md:hidden gap-2">
           <a
             href="tel:+33762111470"
             aria-label="Appeler"
-            className={`inline-flex items-center justify-center h-10 w-10 mx-2 transition-colors duration-300 ${textColor}`}
+            className={`inline-flex items-center justify-center h-10 w-10 transition-colors duration-300 ${textColor}`}
           >
             <Phone className="h-5 w-5" strokeWidth={1.5} />
           </a>
           <button
             onClick={() => setOpen(!open)}
             aria-label="Menu"
-            className={`inline-flex items-center justify-center h-10 w-10 transition-colors duration-300 ${textColor}`}
+            className={`inline-flex items-center justify-center h-10 w-10 transition-colors duration-300 border border-border rounded-md bg-background/60 backdrop-blur-sm ${textColor}`}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -150,14 +150,14 @@ const Header = () => {
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden glass border-t border-border/50 md:hidden"
           >
-            <div className="flex flex-col gap-5 px-6 py-8">
+            <div className="flex flex-col gap-4 px-4 py-6 sm:px-6 sm:py-8">
               {navLinks.map((link) =>
                 link.to.startsWith("/#") ? (
                   <a
                     key={link.label}
                     href={link.to}
                     onClick={(e) => handleNavClick(link.to, e)}
-                    className="text-xs uppercase tracking-[0.15em] font-medium text-muted-foreground"
+                    className="text-xs sm:text-sm uppercase tracking-[0.15em] font-medium text-muted-foreground"
                   >
                     {link.label}
                   </a>
@@ -166,7 +166,7 @@ const Header = () => {
                     key={link.label}
                     to={link.to}
                     onClick={() => setOpen(false)}
-                    className={`text-xs uppercase tracking-[0.15em] font-medium ${
+                    className={`text-xs sm:text-sm uppercase tracking-[0.15em] font-medium ${
                       location.pathname === link.to ? "text-foreground" : "text-muted-foreground"
                     }`}
                   >
@@ -177,15 +177,15 @@ const Header = () => {
               <Link
                 to="/simulateur"
                 onClick={() => setOpen(false)}
-                className="btn-pill bg-foreground text-background text-center py-3.5 text-xs font-semibold uppercase tracking-[0.15em] mt-2"
+                className="btn-pill bg-foreground text-background text-center py-3.5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] mt-2"
               >
                 Simuler mon projet
               </Link>
               <a
                 href="tel:+33762111470"
-                className="flex items-center justify-center gap-2 text-xs font-semibold text-foreground"
+                className="flex items-center justify-center gap-2 text-xs sm:text-sm font-semibold text-foreground"
               >
-                <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
+                <Phone className="h-4 w-4" strokeWidth={1.5} />
                 07 62 11 14 70
               </a>
             </div>
