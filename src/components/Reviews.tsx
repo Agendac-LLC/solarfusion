@@ -48,7 +48,7 @@ const Reviews = () => (
           </p>
           <h2 className="sr-only">Avis clients Solar Fusion - installations solaires en Savoie</h2>
           <TextReveal
-            text="Ce qu'ils en disent."
+            text="Ils ont sauté le pas."
             className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
             variant="light"
             as="p"

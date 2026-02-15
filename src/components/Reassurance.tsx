@@ -49,7 +49,7 @@ const Reassurance = () => (
           </p>
           <h2 className="sr-only">Pourquoi choisir Solar Fusion - chiffres clés et garanties</h2>
           <TextReveal
-            text="Les faits, pas les promesses."
+            text="Des résultats, pas des discours."
             className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
             variant="light"
             as="p"

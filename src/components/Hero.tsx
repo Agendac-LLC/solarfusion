@@ -61,14 +61,14 @@ const Hero = () => {
           className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
         >
           Savoie & Haute-Savoie
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+          className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
+        >
+          Marre des factures qui explosent ? Votre toit peut vous faire économiser, pas juste produire. Installation locale, garantie, suivi personnalisé.
         </motion.p>
-
-        {/* Word-split title - 4 motion.span instead of 34 */}
-        <h1 className="max-w-4xl text-3xl font-bold leading-[1.08] text-primary-foreground sm:text-4xl md:text-6xl lg:text-7xl">
-          {words.map((word, i) => (
-            <motion.span
-              key={i}
-              custom={i}
               initial="hidden"
               animate="visible"
               variants={wordVariants}
@@ -85,7 +85,7 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
           className="mt-5 max-w-lg text-sm text-primary-foreground/75 sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0"
         >
-          15 ans d'installations solaires. 0 accident. Garantie décennale. Père et fils, on pose vos panneaux comme si c'était chez nous.
+          Vous voulez arrêter de subir les hausses d'énergie ? On dimensionne votre installation pour vos besoins, pas pour le catalogue. Père et fils, on s'engage sur la sécurité, la qualité et le suivi. Zéro accident, zéro surprise.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 30 }}

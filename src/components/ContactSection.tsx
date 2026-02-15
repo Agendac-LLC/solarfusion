@@ -58,12 +58,12 @@ const ContactSection = () => (
             Contact
           </p>
           <TextReveal
-            text="On en discute ?"
+            text="Un vrai échange, pas un robot."
             className="mb-4 text-3xl font-bold md:text-5xl text-primary-foreground"
             variant="light"
           />
           <p className="mb-16 text-primary-foreground/75 text-sm max-w-xl">
-            Appelez, écrivez ou passez par WhatsApp. Sébastien ou son fils vous répond directement.
+            Contactez-nous : vous parlez directement à l'installateur, pas à un call center. Réponse rapide, conseils personnalisés, sans engagement.
           </p>
         </BlurFade>
         <StaggerChildren className="grid gap-4 sm:gap-5 sm:grid-cols-2" stagger={0.1}>

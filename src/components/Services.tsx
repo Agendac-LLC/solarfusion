@@ -47,12 +47,12 @@ const Services = () => (
         </p>
         <h2 className="sr-only">Services d'installation solaire en Savoie - Panneaux, batterie, domotique, PAC</h2>
         <TextReveal
-          text="Quatre métiers, une équipe."
+          text="Votre maison, votre économie."
           className="mb-4 text-3xl font-bold md:text-5xl"
           as="p"
         />
         <p className="mb-20 text-muted-foreground text-base max-w-xl">
-          Du panneau solaire à la domotique, on couvre toute la chaîne pour que votre maison produise, stocke et consomme intelligemment.
+          On ne vend pas un kit, on construit une solution pour vous : production, stockage, pilotage, confort. Vous gardez le contrôle, vous maximisez vos économies.
         </p>
       </BlurFade>
       <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>

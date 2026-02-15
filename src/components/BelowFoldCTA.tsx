@@ -18,12 +18,12 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
         <div className="mx-auto max-w-4xl text-center relative z-10">
           <BlurFade>
             <TextReveal
-              text="Prêt à passer au solaire ?"
+              text="Votre toiture peut faire mieux."
               className="mb-4 text-3xl font-bold md:text-5xl"
               as="p"
             />
             <p className="mb-8 text-muted-foreground text-sm max-w-xl mx-auto">
-              Appelez-nous ou remplissez le formulaire. On vous rappelle pour discuter de votre toiture.
+              Parlez-nous de vos factures, de vos besoins, de vos doutes. On vous conseille sans engagement, et on vous donne une estimation claire.
             </p>
             <MagneticButton
               href="#contact"
@@ -49,13 +49,13 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
         <div className="mx-auto max-w-4xl text-center">
           <BlurFade>
             <TextReveal
-              text="Et si votre toit travaillait pour vous ?"
+              text="Votre toit peut générer des économies."
               className="text-2xl font-bold md:text-4xl text-primary-foreground mb-6"
               variant="light"
               as="p"
             />
             <p className="mb-10 text-primary-foreground/70 text-sm">
-              Gratuit, sans engagement, résultat en 2 minutes.
+              Testez le simulateur : découvrez combien vous pourriez économiser, sans engagement, en moins de 2 minutes.
             </p>
             <MagneticButton
               href="/simulateur"

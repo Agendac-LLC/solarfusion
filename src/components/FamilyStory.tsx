@@ -12,7 +12,7 @@ const FamilyStory = () => (
         </p>
         <h2 className="sr-only">Qui sommes-nous - Installateurs solaires père et fils à Chambéry</h2>
         <TextReveal
-          text="Père et fils, installateurs solaires."
+          text="Votre projet, notre famille."
           className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]"
           as="p"
         />
@@ -21,10 +21,10 @@ const FamilyStory = () => (
       <BlurFade delay={0.2}>
         <div className="max-w-2xl space-y-5 text-muted-foreground leading-relaxed">
           <p>
-            Sébastien Chaffardon installe des panneaux solaires en Savoie depuis <strong className="text-foreground font-semibold">2009</strong>. Son fils l'a rejoint pour continuer le métier. À deux, ils gèrent chaque chantier du dimensionnement à la mise en service.
+            Vous cherchez un installateur qui ne disparaît pas après la pose ? Ici, c'est Sébastien et son fils qui vous accompagnent, du premier appel à la mise en service. Pas de commerciaux, pas de sous-traitance.
           </p>
           <p>
-            Pas de sous-traitance, pas d'intérimaires. Chaque toit est posé avec le même soin que si c'était le nôtre. Résultat : <strong className="text-foreground font-semibold">zéro accident</strong> en 15 ans de chantiers.
+            On connaît les toits de Savoie, on sait ce qui marche et ce qui ne marche pas. Notre priorité : votre sécurité, votre rentabilité, votre tranquillité. Zéro accident, zéro chantier bâclé.
           </p>
         </div>
       </BlurFade>

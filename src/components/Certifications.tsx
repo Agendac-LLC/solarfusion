@@ -33,7 +33,7 @@ const Certifications = () => (
         </p>
         <h2 className="sr-only">Certifications et qualifications - QualiPV, Hitachi, garantie décennale</h2>
         <TextReveal
-          text="Certifié, assuré, vérifié."
+          text="Votre sécurité, notre priorité."
           className="mb-20 text-3xl font-bold md:text-5xl"
           as="p"
         />
