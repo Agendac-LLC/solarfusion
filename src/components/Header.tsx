@@ -33,15 +33,25 @@ const Header = () => {
     setOpen(false);
     if (to.startsWith("#")) {
       const id = to.replace("#", "");
-      if (location.pathname === "/" || location.pathname === "/index.html" || location.pathname === "/solarfusion/" || location.pathname === "/solarfusion/index.html") {
+      if (
+        location.pathname === "/" ||
+        location.pathname === "/index.html" ||
+        location.pathname.endsWith("/solarfusion/") ||
+        location.pathname.endsWith("/solarfusion/index.html") ||
+        window.location.hash.startsWith("#/")) {
+        // On est déjà sur la landing (hash routing ou non)
         e.preventDefault();
         setTimeout(() => {
           document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
         }, 50);
       } else {
-        // Redirige vers la home avec l'ancre, compatible GitHub Pages, Vercel, etc.
+        // Si hash routing (GitHub Pages), modifie window.location.hash
         e.preventDefault();
-        window.location.href = `${window.location.origin}${window.location.pathname.includes('solarfusion') ? '/solarfusion/' : '/'}#${id}`;
+        if (window.location.hash.startsWith("#/")) {
+          window.location.hash = `#/` + (id ? `#${id}` : "");
+        } else {
+          window.location.href = `${window.location.origin}${window.location.pathname.includes('solarfusion') ? '/solarfusion/' : '/'}#${id}`;
+        }
       }
     }
   };
