@@ -54,15 +54,17 @@ const Hero = () => {
         style={{ opacity, y: contentY }}
         className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center"
       >
+        <div className="absolute inset-0 z-0 bg-black/60 backdrop-blur-sm rounded-xl" />
+        <div className="relative z-10 w-full max-w-2xl mx-auto p-6 rounded-xl">
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
+          className="mb-4 text-xs uppercase tracking-[0.4em] text-white font-medium drop-shadow-lg"
         >
           Marre des factures qui explosent ? Votre toit peut vous faire économiser, pas juste produire. Installation locale, garantie, suivi personnalisé.
         </motion.p>
-        <h1 className="mb-6 text-4xl font-bold md:text-6xl">
+        <h1 className="mb-6 text-4xl font-bold md:text-6xl text-white drop-shadow-xl">
           {words.map((word, i) => (
             <motion.span
               key={i}
@@ -70,7 +72,7 @@ const Hero = () => {
               animate="visible"
               variants={wordVariants}
               custom={i}
-              className="inline-block mr-[0.25em]"
+              className="inline-block mr-[0.25em] text-white drop-shadow-lg"
             >
               {word}
             </motion.span>
@@ -80,7 +82,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-          className="mt-5 max-w-lg text-sm text-primary-foreground/75 sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0"
+          className="mt-5 max-w-lg text-sm sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0 text-white drop-shadow-lg"
         >
           Vous voulez arrêter de subir les hausses d'énergie ? On dimensionne votre installation pour vos besoins, pas pour le catalogue. Père et fils, on s'engage sur la sécurité, la qualité et le suivi. Zéro accident, zéro surprise.
         </motion.p>
@@ -92,17 +94,18 @@ const Hero = () => {
         >
           <MagneticButton
             href="/particuliers"
-            className="btn-glass-hero glow-pulse px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-10"
+            className="btn-glass-hero glow-pulse px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-10 bg-white/90 text-primary"
           >
             Espace Particuliers
           </MagneticButton>
           <MagneticButton
             href="/b2b"
-            className="btn-glass-hero px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-8"
+            className="btn-glass-hero px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-8 bg-white/90 text-primary"
           >
             Espace Professionnels
           </MagneticButton>
         </motion.div>
+        </div>
       </motion.div>
 
       {/* Scroll indicator - pure CSS animation */}
