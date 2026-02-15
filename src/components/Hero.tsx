@@ -60,25 +60,22 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
           className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
         >
-          Savoie & Haute-Savoie
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium"
-        >
           Marre des factures qui explosent ? Votre toit peut vous faire économiser, pas juste produire. Installation locale, garantie, suivi personnalisé.
         </motion.p>
+        <h1 className="mb-6 text-4xl font-bold md:text-6xl">
+          {words.map((word, i) => (
+            <motion.span
+              key={i}
               initial="hidden"
               animate="visible"
               variants={wordVariants}
+              custom={i}
               className="inline-block mr-[0.25em]"
             >
               {word}
             </motion.span>
           ))}
         </h1>
-
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
