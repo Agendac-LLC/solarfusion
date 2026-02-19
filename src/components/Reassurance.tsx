@@ -9,27 +9,20 @@ import chaletBoisImage from "@/assets/install-chalet-bois.webp";
 
 const stats = [
   {
-    value: 15,
-    suffix: " ans",
-    label: "d'expérience terrain",
-    description: "Installations en Savoie et Haute-Savoie depuis 2009.",
+    title: "Depuis 2009",
+    description: "Une expertise construite sur le terrain, projet après projet.",
   },
   {
-    displayValue: "Père & fils",
-    label: "Chaffardon",
-    description: "On pose nous-mêmes. Pas de sous-traitance.",
+    title: "Entreprise familiale",
+    description: "Les mêmes visages du premier échange à la mise en service.",
   },
   {
-    value: 0,
-    suffix: "",
-    label: "accident",
-    description: "Bilan sécurité parfait sur l'ensemble de nos chantiers.",
+    title: "Certification RGE",
+    description: "Respect strict des normes et des exigences réglementaires.",
   },
   {
-    value: 10,
-    suffix: " ans",
-    label: "garantie décennale",
-    description: "Couverture décennale française sur chaque installation.",
+    title: "Garantie décennale",
+    description: "Couverture 10 ans sur chaque installation.",
   },
 ];
 
@@ -49,7 +42,7 @@ const Reassurance = () => (
           </p>
           <h2 className="sr-only">Pourquoi choisir Solar Fusion - chiffres clés et garanties</h2>
           <TextReveal
-            text="Des résultats, pas des discours."
+            text="L'énergie nouvelle, le savoir-faire d'artisan."
             className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
             variant="light"
             as="p"
@@ -57,14 +50,13 @@ const Reassurance = () => (
         </BlurFade>
         <StaggerChildren className="grid gap-4 sm:gap-6 grid-cols-2 lg:grid-cols-4" stagger={0.1}>
           {stats.map((stat) => (
-            <StaggerItem key={stat.label} direction="scale">
+            <StaggerItem key={stat.title} direction="scale">
               <TiltCard className="rounded-2xl h-full" tiltMax={5}>
                 <div className="glass-card rounded-2xl p-5 sm:p-8 h-full">
-                  <p className="text-2xl sm:text-4xl font-bold tracking-tight text-primary-foreground">
-                    {stat.displayValue ? stat.displayValue : <CountUp end={stat.value!} suffix={stat.suffix} />}
+                  <p className="text-3xl sm:text-4xl font-bold tracking-tight text-primary-foreground">
+                    {stat.title}
                   </p>
-                  <p className="mt-1 text-sm sm:text-base font-semibold text-primary-foreground">{stat.label}</p>
-                  <p className="mt-2 sm:mt-4 text-primary-foreground/70 leading-relaxed text-xs sm:text-sm hidden sm:block">
+                  <p className="mt-3 sm:mt-5 text-primary-foreground/70 leading-relaxed text-sm sm:text-base">
                     {stat.description}
                   </p>
                 </div>

@@ -1,15 +1,17 @@
+
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoIcon from "@/assets/logo-icon.png";
+import logoWhite from "@/assets/logo-solar-fusion-white.png";
+import logoBlack from "@/assets/logo-solarfusion-black.png";
 
 const navLinks = [
   { label: "Accueil", to: "/" },
   { label: "Particuliers", to: "/particuliers" },
   { label: "Professionnels", to: "/b2b" },
   { label: "Domotique & PAC", to: "/domotique-pac" },
-  { label: "Contact", to: "#contact" },
 ];
 
 const pagesWithDarkHero = ["/", "/particuliers", "/b2b", "/domotique-pac"];
@@ -77,23 +79,22 @@ const Header = () => {
           className={`flex items-center gap-2 font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 min-w-[120px] ${textColor}`}
           style={{ textShadow }}
         >
-          <img
-            src={logoIcon}
-            alt="Solar Fusion logo"
-            className={`h-12 w-12 sm:h-16 sm:w-16 transition-all duration-300 ${useLight ? "invert brightness-200" : ""}`}
-          />
-          <span className="text-lg font-bold">SOLAR FUSION</span>
+             <img
+               src={scrolled ? logoBlack : logoWhite}
+               alt="Logo Solar Fusion"
+               className="h-16 w-auto sm:h-20 sm:w-auto transition-all duration-300"
+             />
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-4 lg:gap-7 h-full flex-wrap" aria-label="Navigation principale">
+        <nav className="hidden md:flex items-center gap-4 lg:gap-7 h-full flex-nowrap whitespace-nowrap" aria-label="Navigation principale">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
                 key={link.label}
                 href={link.to}
                 onClick={(e) => handleNavClick(link.to, e)}
-                className={`text-xs sm:text-[13px] uppercase tracking-wide font-medium transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${textMuted}`}
+                className={`text-xs sm:text-[13px] uppercase tracking-wide font-medium transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full shrink-0 ${textMuted}`}
                 style={{ textShadow }}
               >
                 {link.label}
@@ -107,7 +108,7 @@ const Header = () => {
                     window.scrollTo({ top: 0, behavior: "smooth" });
                   }
                 }}
-                className={`text-xs sm:text-[13px] uppercase tracking-wide transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full ${
+                className={`text-xs sm:text-[13px] uppercase tracking-wide transition-colors duration-300 hover:opacity-80 inline-flex items-center h-full shrink-0 ${
                   location.pathname === link.to ? textActive : `${textMuted} font-medium`
                 }`}
                 style={{ textShadow }}
@@ -118,7 +119,7 @@ const Header = () => {
           )}
           <Link
             to="/simulateur"
-            className={`h-10 inline-flex items-center justify-center rounded-full px-4 sm:px-6 text-xs sm:text-[13px] uppercase tracking-wide font-semibold transition-all duration-300 ${
+            className={`h-10 inline-flex items-center justify-center rounded-full px-4 sm:px-6 text-xs sm:text-[13px] uppercase tracking-wide font-semibold transition-all duration-300 shrink-0 ${
               scrolled
                 ? "bg-foreground text-background hover:bg-foreground/90"
                 : "bg-primary-foreground text-primary hover:bg-primary-foreground/90"
@@ -128,7 +129,7 @@ const Header = () => {
           </Link>
           <a
             href="tel:+33762111470"
-            className={`inline-flex items-center gap-2 text-xs sm:text-[13px] font-semibold tracking-wide transition-colors duration-300 ${textColor}`}
+            className={`inline-flex items-center gap-2 text-xs sm:text-[13px] font-semibold tracking-wide transition-colors duration-300 shrink-0 ${textColor}`}
             style={{ textShadow }}
           >
             <Phone className="h-4 w-4 shrink-0" strokeWidth={1.5} />

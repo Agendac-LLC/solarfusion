@@ -43,16 +43,21 @@ const Services = () => (
     <div className="mx-auto max-w-6xl relative z-10">
       <BlurFade>
         <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">
-          Ce qu'on fait
+          Ce que nous faisons
         </p>
         <h2 className="sr-only">Services d'installation solaire en Savoie - Panneaux, batterie, domotique, PAC</h2>
         <TextReveal
-          text="Votre maison, votre économie."
+          text="Produire moins de dépendance. Plus de maîtrise."
           className="mb-4 text-3xl font-bold md:text-5xl"
           as="p"
         />
         <p className="mb-20 text-muted-foreground text-base max-w-xl">
-          On ne vend pas un kit, on construit une solution pour vous : production, stockage, pilotage, confort. Vous gardez le contrôle, vous maximisez vos économies.
+          L'énergie n'est pas un produit.<br/>
+          C'est un système.
+        </p>
+        <p className="mb-20 -mt-16 text-muted-foreground text-base max-w-xl">
+          Nous concevons des installations cohérentes, dimensionnées selon votre mode de vie, votre toiture et vos objectifs.<br/>
+          Chaque choix technique a un seul but : performance, stabilité et rentabilité sur le long terme.
         </p>
       </BlurFade>
       <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>

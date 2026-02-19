@@ -1,6 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroImage from "@/assets/hero-solar.webp";
+import logoSite from "@/assets/logo-solar-fusion-white.png";
 import MagneticButton from "./MagneticButton";
 import FloatingShapes from "./FloatingShapes";
 
@@ -28,8 +29,10 @@ const Hero = () => {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
+  // Logo parallax: compensate contentY (-15%) and match imageY (30%) => net offset 0% to 45%
+  const logoY = useTransform(scrollYProgress, [0, 1], ["0%", "45%"]);
 
-  const words = ["Produisez", "votre", "propre", "électricité."];
+  const words = ["Là", "où", "le", "soleil", "devient", "solution"];
 
   return (
     <section ref={ref} className="relative h-screen w-full overflow-hidden grain">
@@ -56,14 +59,21 @@ const Hero = () => {
       >
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full max-w-2xl bg-black/60 backdrop-blur-sm rounded-xl" />
         <div className="relative z-10 w-full max-w-2xl mx-auto p-6 rounded-xl flex flex-col items-center justify-center">
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="mb-4 text-xs uppercase tracking-[0.4em] text-white font-medium drop-shadow-lg"
+          className="mb-4 flex justify-center items-center"
+          style={{ y: logoY, scale }}
         >
-          Marre des factures qui explosent ? Votre toit peut vous faire économiser, pas juste produire. Installation locale, garantie, suivi personnalisé.
-        </motion.p>
+          <img
+            src={logoSite}
+            alt="Logo SolarFusion"
+            className="max-h-14 md:max-h-20 w-auto drop-shadow-lg object-contain"
+            loading="eager"
+            decoding="async"
+          />
+        </motion.div>
         <h1 className="mb-6 text-4xl font-bold md:text-6xl text-white drop-shadow-xl">
           {words.map((word, i) => (
             <motion.span
