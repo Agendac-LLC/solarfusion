@@ -10,7 +10,6 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
-import ContactForm from "@/components/ContactForm";
 import SEOHead from "@/components/SEOHead";
 import { Shield } from "lucide-react";
 import fermeImage from "@/assets/install-ferme-alpine.webp";
@@ -48,7 +47,7 @@ const Expertise = () => {
         canonical="https://solarfusion.lovable.app/notre-expertise"
         jsonLd={breadcrumbLd}
       />
-      <section ref={heroRef} className="relative h-[70vh] w-full overflow-hidden grain" aria-label="Notre expertise en installation solaire">
+      <section ref={heroRef} className="relative h-[85vh] sm:h-[70vh] w-full overflow-hidden grain" aria-label="Notre expertise en installation solaire">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
           <img src={fermeImage} alt="Ferme alpine avec panneaux solaires installés par Solar Fusion en Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
@@ -162,7 +161,6 @@ const Expertise = () => {
       </section>
 
       <ContactSection />
-      <ContactForm />
     </>
   );
 };

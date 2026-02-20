@@ -43,17 +43,17 @@ const Reassurance = () => (
           <h2 className="sr-only">Pourquoi choisir Solar Fusion - chiffres clés et garanties</h2>
           <TextReveal
             text="L'énergie nouvelle, le savoir-faire d'artisan."
-            className="mb-20 text-3xl font-bold md:text-5xl text-primary-foreground"
+            className="mb-10 sm:mb-16 md:mb-20 text-2xl sm:text-3xl font-bold md:text-5xl text-primary-foreground"
             variant="light"
             as="p"
           />
         </BlurFade>
-        <StaggerChildren className="grid gap-4 sm:gap-6 grid-cols-2 lg:grid-cols-4" stagger={0.1}>
+        <StaggerChildren className="grid gap-4 sm:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" stagger={0.1}>
           {stats.map((stat) => (
             <StaggerItem key={stat.title} direction="scale">
               <TiltCard className="rounded-2xl h-full" tiltMax={5}>
                 <div className="glass-card rounded-2xl p-5 sm:p-8 h-full">
-                  <p className="text-3xl sm:text-4xl font-bold tracking-tight text-primary-foreground">
+                  <p className="text-xl sm:text-3xl md:text-4xl font-bold tracking-tight text-primary-foreground">
                     {stat.title}
                   </p>
                   <p className="mt-3 sm:mt-5 text-primary-foreground/70 leading-relaxed text-sm sm:text-base">

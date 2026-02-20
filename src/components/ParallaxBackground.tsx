@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, ReactNode, memo } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ParallaxBackgroundProps {
   image: string;
@@ -19,25 +20,31 @@ const ParallaxBackground = memo(({
   overlayOpacity = 0.55,
   blur = 0,
 }: ParallaxBackgroundProps) => {
+  const isMobile = useIsMobile();
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
   });
-  const y = useTransform(scrollYProgress, [0, 1], ["-25%", "25%"]);
+  const y = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["-25%", "25%"]);
 
   return (
     <section ref={ref} className={`relative overflow-hidden ${className}`} style={{ contain: "layout style" }}>
       <motion.img
         src={image}
         alt={alt}
-        className="absolute inset-0 w-full h-[150%] object-cover -top-[25%] pointer-events-none"
+        className={
+          isMobile
+            ? "absolute inset-0 w-full h-full object-cover pointer-events-none"
+            : "absolute inset-0 w-full h-[150%] object-cover -top-[25%] pointer-events-none"
+        }
         style={{
-          y,
+          y: isMobile ? undefined : y,
           filter: blur ? `blur(${blur}px)` : undefined,
         }}
         loading="lazy"
         decoding="async"
+        sizes="100vw"
       />
       <div
         className="absolute inset-0 pointer-events-none"

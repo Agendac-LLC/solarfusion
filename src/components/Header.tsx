@@ -5,7 +5,6 @@ import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoIcon from "@/assets/logo-icon.png";
 import logoWhite from "@/assets/logo-solar-fusion-white.png";
-import logoBlack from "@/assets/logo-solarfusion-black.png";
 
 const navLinks = [
   { label: "Accueil", to: "/" },
@@ -80,9 +79,10 @@ const Header = () => {
           style={{ textShadow }}
         >
              <img
-               src={scrolled ? logoBlack : logoWhite}
+               src={logoWhite}
                alt="Logo Solar Fusion"
                className="h-16 w-auto sm:h-20 sm:w-auto transition-all duration-300"
+               style={{ filter: scrolled ? "invert(1)" : "none" }}
              />
         </Link>
 
@@ -142,14 +142,14 @@ const Header = () => {
           <a
             href="tel:+33762111470"
             aria-label="Appeler"
-            className={`inline-flex items-center justify-center h-10 w-10 transition-colors duration-300 ${textColor}`}
+            className={`inline-flex items-center justify-center h-11 w-11 transition-colors duration-300 ${textColor}`}
           >
             <Phone className="h-5 w-5" strokeWidth={1.5} />
           </a>
           <button
             onClick={() => setOpen(!open)}
             aria-label="Menu"
-            className={`inline-flex items-center justify-center h-10 w-10 transition-colors duration-300 border border-border rounded-md bg-background/60 backdrop-blur-sm ${textColor}`}
+            className={`inline-flex items-center justify-center h-11 w-11 transition-colors duration-300 border border-border rounded-md bg-background/60 backdrop-blur-sm ${textColor}`}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -173,7 +173,7 @@ const Header = () => {
                     key={link.label}
                     href={link.to}
                     onClick={(e) => handleNavClick(link.to, e)}
-                    className="text-xs sm:text-sm uppercase tracking-[0.15em] font-medium text-muted-foreground"
+                    className="text-sm uppercase tracking-[0.15em] font-medium text-muted-foreground py-2"
                   >
                     {link.label}
                   </a>
@@ -182,7 +182,7 @@ const Header = () => {
                     key={link.label}
                     to={link.to}
                     onClick={() => setOpen(false)}
-                    className={`text-xs sm:text-sm uppercase tracking-[0.15em] font-medium ${
+                    className={`text-sm uppercase tracking-[0.15em] font-medium py-2 ${
                       location.pathname === link.to ? "text-foreground" : "text-muted-foreground"
                     }`}
                   >

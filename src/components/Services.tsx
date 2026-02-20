@@ -9,31 +9,31 @@ import { Sun, Battery, Wifi, Thermometer } from "lucide-react";
 const services = [
   {
     icon: Sun,
-    title: "Panneaux solaires",
+    title: "Production solaire",
     description:
       "On dimensionne votre installation selon votre consommation réelle, pas selon un catalogue. Pose en toiture ou au sol.",
-    detail: "Autoconsommation avec revente du surplus.",
+    detail: "Production maîtrisée. Rentabilité mesurée.",
   },
   {
     icon: Battery,
-    title: "Stockage d'énergie",
+    title: "Stockage & optimisation",
     description:
       "Batterie physique ou virtuelle pour utiliser votre production le soir et les jours gris. Vous consommez ce que vous produisez.",
-    detail: "Jusqu'à 70% d'économie sur la facture.",
+    detail: "Moins de réseau. Plus d’autonomie.",
   },
   {
     icon: Wifi,
-    title: "Domotique",
+    title: "Pilotage intelligent",
     description:
       "Pilotage à distance de votre chauffage et de vos appareils. Vous voyez ce que vous consommez, en temps réel.",
-    detail: "Pilotage depuis votre smartphone.",
+    detail: "Chaque KWh compte.",
   },
   {
     icon: Thermometer,
-    title: "Pompes à chaleur",
+    title: "Pompes à Chaleur/Climatisation",
     description:
-      "PAC air-air et air-eau Hitachi. Chauffage et climatisation haute performance, couplés au solaire. Installation réalisée par nos partenaires qualifiés.",
-    detail: "Coordination et suivi par Solar Fusion.",
+      "Le solaire prend tout son sens lorsqu’il alimente un système thermique performant.",
+    detail: "Un ensemble logique. Pas un assemblage",
   },
 ];
 
@@ -51,11 +51,11 @@ const Services = () => (
           className="mb-4 text-3xl font-bold md:text-5xl"
           as="p"
         />
-        <p className="mb-20 text-muted-foreground text-base max-w-xl">
+        <p className="mb-6 text-muted-foreground text-base max-w-xl">
           L'énergie n'est pas un produit.<br/>
           C'est un système.
         </p>
-        <p className="mb-20 -mt-16 text-muted-foreground text-base max-w-xl">
+        <p className="mb-16 text-muted-foreground text-base max-w-xl">
           Nous concevons des installations cohérentes, dimensionnées selon votre mode de vie, votre toiture et vos objectifs.<br/>
           Chaque choix technique a un seul but : performance, stabilité et rentabilité sur le long terme.
         </p>

@@ -106,7 +106,7 @@ const SimulateurPage = () => {
           </motion.div>
 
           <BlurFade delay={0.3}>
-            <div className="section-alt rounded-3xl p-12 md:p-20 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
+            <div className="section-alt rounded-3xl p-4 sm:p-8 md:p-20 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
               {activeTab === "b2c" ? (
                 <div
                   data-reonic-type="element"

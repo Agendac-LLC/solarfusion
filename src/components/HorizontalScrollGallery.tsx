@@ -75,11 +75,12 @@ const HorizontalScrollGallery = () => {
             Nos réalisations
           </p>
           <h2 className="text-2xl font-bold sm:text-3xl md:text-5xl">
-            Installés en Savoie.
+            Installation dans toute la France.
+
           </h2>
         </BlurFade>
       </div>
-      <motion.div style={{ x }} className="flex gap-6 pl-6 md:pl-24">
+      <motion.div style={{ x }} className="flex gap-6 pl-6 md:pl-24 pr-6 md:pr-24">
         {images.map((img, i) => (
           <GalleryImage key={img.label} img={img} index={i} scrollYProgress={scrollYProgress} />
         ))}

@@ -13,7 +13,7 @@ const FamilyStory = () => (
         <h2 className="sr-only">Qui sommes-nous - Installateurs solaires père et fils à Chambéry</h2>
         <TextReveal
           text="Une entreprise. Une famille. Une exigence"
-          className="mb-8 text-3xl font-bold md:text-5xl leading-[1.1]"
+            className="mb-8 text-2xl sm:text-3xl font-bold md:text-5xl leading-snug sm:leading-[1.1]"
           as="p"
         />
       </BlurFade>
@@ -27,15 +27,13 @@ const FamilyStory = () => (
             Nous privilégions des projets maîtrisés, étudiés avec précision et réalisés avec rigueur.
           </p>
           <p>
-            Depuis 2009, l’un des dirigeants évolue dans le secteur du photovoltaïque avec une conviction claire :<br/>
-            une installation solaire doit être fiable, cohérente et rentable dans le temps.
+            Depuis 2009, l'un des dirigeants évolue dans le secteur du photovoltaïque avec une conviction claire : une installation solaire doit être fiable, cohérente et rentable dans le temps.
           </p>
           <p>
             C’est sur cette exigence qu’est née Solar Fusion.
           </p>
           <p>
-            Pas de sous-traitance en cascade.<br/>
-            Nous engageons notre nom sur chaque projet.
+            Pas de sous-traitance en cascade. Nous engageons notre nom sur chaque projet.
           </p>
         </div>
       </BlurFade>

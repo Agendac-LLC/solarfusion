@@ -9,6 +9,7 @@ import { LazyMotion, domAnimation } from "framer-motion";
 import Header from "@/components/Header";
 import ScrollToTop from "@/components/ScrollToTop";
 import Footer from "@/components/Footer";
+import ReviewsBanner from "@/components/ReviewsBanner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
 // Eager: homepage (first paint)
@@ -58,6 +59,7 @@ const App = () => (
               </Routes>
             </Suspense>
           </main>
+          <ReviewsBanner />
           <Footer />
           <WhatsAppButton />
         </Router>

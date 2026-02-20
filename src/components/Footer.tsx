@@ -4,25 +4,18 @@ import MagneticButton from "./MagneticButton";
 import StaggerChildren, { StaggerItem } from "./StaggerChildren";
 import BlurFade from "./BlurFade";
 import { AnimatedLine } from "./AnimatedSection";
-import logoIcon from "@/assets/logo-icon.png";
+import logoWhite from "@/assets/logo-solar-fusion-white.png";
 
 const Footer = () => (
   <footer className="bg-foreground text-background" role="contentinfo" itemScope itemType="https://schema.org/LocalBusiness">
     <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 md:px-12">
-      <StaggerChildren className="grid gap-10 sm:gap-12 md:grid-cols-3" stagger={0.12}>
-        {/* Company */}
+      <StaggerChildren className="grid gap-10 sm:gap-12 md:grid-cols-3 items-start" stagger={0.12}>
+        {/* Logo */}
         <StaggerItem direction="up">
-          <div>
-            <Link to="/" className="flex items-center gap-2 text-base font-bold tracking-[0.1em] hover:text-background/80 transition-colors duration-200">
-              <img src={logoIcon} alt="Solar Fusion logo" className="h-7 w-7 invert brightness-200" />
-              SOLAR FUSION
+          <div className="flex items-center h-full">
+            <Link to="/" className="block hover:opacity-80 transition-opacity duration-200">
+              <img src={logoWhite} alt="Solar Fusion" className="h-20 sm:h-24 w-auto" />
             </Link>
-            <p className="mt-1 text-[10px] uppercase tracking-[0.15em] text-background/40 font-medium">
-              Installateurs solaires depuis 2009.
-            </p>
-            <p className="mt-4 text-sm leading-relaxed text-background/50 font-light" itemProp="description">
-              Installateurs solaires père et fils depuis 2009. Basés à Chambéry, on intervient en Savoie et Haute-Savoie.
-            </p>
           </div>
         </StaggerItem>
 

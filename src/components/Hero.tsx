@@ -29,13 +29,11 @@ const Hero = () => {
   const imageY = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-15%"]);
-  // Logo parallax: compensate contentY (-15%) and match imageY (30%) => net offset 0% to 45%
-  const logoY = useTransform(scrollYProgress, [0, 1], ["0%", "45%"]);
 
   const words = ["Là", "où", "le", "soleil", "devient", "solution"];
 
   return (
-    <section ref={ref} className="relative h-screen w-full overflow-hidden grain">
+    <section ref={ref} className="relative h-[100svh] w-full overflow-hidden grain">
       <motion.div
         className="absolute inset-0 w-full h-full"
         style={{ scale, y: imageY }}
@@ -49,6 +47,20 @@ const Hero = () => {
           decoding="async"
           width={1920}
           height={1080}
+          sizes="100vw"
+        />
+      </motion.div>
+      {/* Logo pinned to background */}
+      <motion.div
+        className="absolute inset-0 w-full h-full flex items-center justify-center pb-[44vh] sm:pb-[42vh] pointer-events-none z-[1]"
+        style={{ scale, y: imageY }}
+      >
+        <img
+          src={logoSite}
+          alt="Logo SolarFusion"
+          className="max-h-10 md:max-h-14 w-auto drop-shadow-2xl object-contain"
+          loading="eager"
+          decoding="async"
         />
       </motion.div>
       <div className="hero-overlay absolute inset-0" />
@@ -59,21 +71,6 @@ const Hero = () => {
       >
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full max-w-2xl bg-black/60 backdrop-blur-sm rounded-xl" />
         <div className="relative z-10 w-full max-w-2xl mx-auto p-6 rounded-xl flex flex-col items-center justify-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-          className="mb-4 flex justify-center items-center"
-          style={{ y: logoY, scale }}
-        >
-          <img
-            src={logoSite}
-            alt="Logo SolarFusion"
-            className="max-h-14 md:max-h-20 w-auto drop-shadow-lg object-contain"
-            loading="eager"
-            decoding="async"
-          />
-        </motion.div>
         <h1 className="mb-6 text-4xl font-bold md:text-6xl text-white drop-shadow-xl">
           {words.map((word, i) => (
             <motion.span
@@ -94,7 +91,11 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
           className="mt-5 max-w-lg text-sm sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0 text-white drop-shadow-lg"
         >
-          Vous voulez arrêter de subir les hausses d'énergie ? On dimensionne votre installation pour vos besoins, pas pour le catalogue. Père et fils, on s'engage sur la sécurité, la qualité et le suivi. Zéro accident, zéro surprise.
+          Une solution maîtrisée.<br />
+          Conçue selon vos besoins réels.<br />
+          Dimensionnée avec précision, jamais standardisée.<br />
+          Réalisée par notre équipe, sans intermédiaire.<br />
+          Pensée pour rester fiable et rentable dans le temps.
         </motion.p>
         <motion.div
           initial={{ opacity: 0, y: 30 }}

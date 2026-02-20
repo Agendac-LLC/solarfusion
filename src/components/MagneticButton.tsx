@@ -1,6 +1,10 @@
 import { useRef, useCallback, ReactNode, memo } from "react";
 import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
+import { Link } from "react-router-dom";
+
+// Check if href is an internal route (starts with / but not //)
+const isInternal = (href?: string) => href && href.startsWith("/") && !href.startsWith("//");
 
 interface MagneticButtonProps {
   children: ReactNode;
@@ -48,23 +52,45 @@ const MagneticButton = memo(({
     y.set(0);
   }, [x, y]);
 
-  const Tag = as === "button" ? motion.button : motion.a;
+  const internal = as === "a" && isInternal(href);
 
   // On mobile, skip magnetic effect entirely
   if (isMobile) {
-    const SimpleTag = as === "button" ? "button" : "a";
+    if (internal) {
+      return (
+        <Link to={href!} onClick={onClick} className={className}>
+          {children}
+        </Link>
+      );
+    }
+    if (as === "button") {
+      return (
+        <button onClick={onClick} className={className}>
+          {children}
+        </button>
+      );
+    }
     return (
-      <SimpleTag
-        href={as === "a" ? href : undefined}
-        target={target}
-        rel={rel}
-        onClick={onClick}
-        className={className}
-      >
+      <a href={href} target={target} rel={rel} onClick={onClick} className={className}>
         {children}
-      </SimpleTag>
+      </a>
     );
   }
+
+  // Desktop with magnetic effect
+  if (internal) {
+    return (
+      <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="inline-flex">
+        <motion.div style={{ x: springX, y: springY }}>
+          <Link to={href!} onClick={onClick} className={className}>
+            {children}
+          </Link>
+        </motion.div>
+      </div>
+    );
+  }
+
+  const Tag = as === "button" ? motion.button : motion.a;
 
   return (
     <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="inline-flex">

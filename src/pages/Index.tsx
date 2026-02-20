@@ -8,12 +8,7 @@ const FamilyStory = lazy(() => import("@/components/FamilyStory"));
 const Reassurance = lazy(() => import("@/components/Reassurance"));
 const Services = lazy(() => import("@/components/Services"));
 const HorizontalScrollGallery = lazy(() => import("@/components/HorizontalScrollGallery"));
-const Certifications = lazy(() => import("@/components/Certifications"));
-
-const Reviews = lazy(() => import("@/components/Reviews"));
 const ContactSection = lazy(() => import("@/components/ContactSection"));
-const ContactForm = lazy(() => import("@/components/ContactForm"));
-const BelowFoldCTA = lazy(() => import("@/components/BelowFoldCTA"));
 
 const Index = () => {
   const breadcrumbLd = useMemo(() => ({
@@ -40,14 +35,9 @@ const Index = () => {
         <SectionDivider />
         <Services />
         <HorizontalScrollGallery />
-        <BelowFoldCTA />
-        <Certifications />
         <SectionDivider />
         
-        <Reviews />
-        <BelowFoldCTA variant="contact" />
         <ContactSection />
-        <ContactForm />
       </Suspense>
     </>
   );
