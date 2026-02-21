@@ -52,7 +52,7 @@ const Hero = () => {
       </motion.div>
       {/* Logo pinned to background */}
       <motion.div
-        className="absolute inset-0 w-full h-full flex items-center justify-center pb-[44vh] sm:pb-[42vh] pointer-events-none z-[1]"
+        className="absolute inset-0 w-full h-full flex items-center justify-center pb-[calc(44vh+10px)] sm:pb-[calc(42vh+10px)] pointer-events-none z-[1]"
         style={{ scale, y: imageY }}
       >
         <img

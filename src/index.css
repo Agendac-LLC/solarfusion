@@ -266,7 +266,7 @@
 
   /* Ghost button - transparent, fills on hover */
   .btn-ghost-fill {
-    @apply border border-foreground bg-transparent text-foreground transition-all duration-300 ease-out rounded-2xl;
+    @apply border border-foreground bg-transparent text-foreground transition-all duration-300 ease-out rounded-full;
   }
   .btn-ghost-fill:hover {
     @apply bg-foreground text-background;
@@ -275,7 +275,7 @@
 
   /* Invert button - solid, inverts on hover */
   .btn-invert {
-    @apply bg-foreground text-background border border-foreground transition-all duration-300 ease-out rounded-2xl;
+    @apply bg-foreground text-background border border-foreground transition-all duration-300 ease-out rounded-full;
   }
   .btn-invert:hover {
     @apply bg-background text-foreground;

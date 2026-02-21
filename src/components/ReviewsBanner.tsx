@@ -77,7 +77,7 @@ const ReviewsBanner = memo(() => (
             <Quote className="absolute top-4 right-4 h-5 w-5 text-muted-foreground/15" strokeWidth={1.5} />
             <div className="flex gap-0.5 mb-3">
               {Array.from({ length: 5 }).map((_, j) => (
-                <Star key={j} className="h-3.5 w-3.5 fill-amber-400 text-amber-400" />
+                <Star key={j} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
               ))}
             </div>
             <p className="text-sm text-foreground/80 leading-relaxed mb-4">
@@ -102,7 +102,7 @@ const ReviewsBanner = memo(() => (
             target="_blank"
             rel="noopener noreferrer"
             aria-label={s.name}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-background border border-border/50 shadow-sm text-sm font-medium text-foreground hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-background border border-border/50 shadow-sm text-sm font-medium text-foreground hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
           >
             {s.icon}
             <span>{s.name}</span>

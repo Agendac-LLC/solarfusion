@@ -61,7 +61,7 @@ const Reviews = () => (
                 <div className="glass-card p-6 sm:p-8 h-full flex flex-col rounded-2xl">
                   <div className="mb-5 flex gap-0.5">
                     {Array.from({ length: review.rating }).map((_, j) => (
-                      <Star key={j} className="h-3.5 w-3.5 fill-primary-foreground text-primary-foreground" />
+                      <Star key={j} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
                   <p className="mb-6 flex-1 text-primary-foreground/75 leading-relaxed text-sm">

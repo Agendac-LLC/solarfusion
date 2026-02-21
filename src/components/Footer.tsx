@@ -31,7 +31,6 @@ const Footer = () => (
                 { to: "/particuliers", label: "Particuliers" },
                 { to: "/b2b", label: "Professionnels" },
                 { to: "/domotique-pac", label: "Domotique & PAC" },
-                { to: "/notre-expertise", label: "Notre expertise" },
                 { to: "/simulateur", label: "Simulateur" },
                 { to: "/mentions-legales", label: "Mentions légales" },
               ].map((link) => (

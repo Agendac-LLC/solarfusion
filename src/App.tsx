@@ -19,7 +19,6 @@ import Index from "./pages/Index";
 const Particuliers = lazy(() => import("./pages/Particuliers"));
 const B2B = lazy(() => import("./pages/B2B"));
 const DomotiquePAC = lazy(() => import("./pages/DomotiquePAC"));
-const Expertise = lazy(() => import("./pages/Expertise"));
 const SimulateurPage = lazy(() => import("./pages/SimulateurPage"));
 const MentionsLegales = lazy(() => import("./pages/MentionsLegales"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -52,7 +51,6 @@ const App = () => (
                 <Route path="/particuliers" element={<Particuliers />} />
                 <Route path="/b2b" element={<B2B />} />
                 <Route path="/domotique-pac" element={<DomotiquePAC />} />
-                <Route path="/notre-expertise" element={<Expertise />} />
                 <Route path="/simulateur" element={<SimulateurPage />} />
                 <Route path="/mentions-legales" element={<MentionsLegales />} />
                 <Route path="*" element={<NotFound />} />

@@ -90,9 +90,9 @@ const Particuliers = () => {
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed">
             Installation solaire en Savoie et Haute-Savoie. On dimensionne, on pose, on garantit. Père et fils depuis 15 ans.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 w-full px-4 sm:w-auto sm:px-0">
-            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-10">Simuler mon projet</MagneticButton>
-            <MagneticButton href="tel:+33762111470" className="btn-glass-hero px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-8">Être rappelé gratuitement</MagneticButton>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 w-full px-4 sm:w-auto sm:px-0">
+            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center">Simuler mon projet</MagneticButton>
+            <MagneticButton href="tel:+33762111470" className="btn-glass-hero px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center">Être rappelé gratuitement</MagneticButton>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
@@ -168,7 +168,7 @@ const Particuliers = () => {
                   <div className="glass-card-light embossed p-8 rounded-2xl h-full">
                     <div className="mb-4 flex gap-0.5">
                       {Array.from({ length: review.rating }).map((_, j) => (
-                        <Star key={j} className="h-3.5 w-3.5 fill-foreground text-foreground" />
+                        <Star key={j} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
                       ))}
                     </div>
                     <p className="mb-4 text-muted-foreground leading-relaxed text-sm">« {review.text} »</p>

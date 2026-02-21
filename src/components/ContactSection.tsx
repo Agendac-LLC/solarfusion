@@ -143,7 +143,7 @@ const ContactSection = () => {
                         key={item.label}
                         onClick={handleEmailClick}
                         aria-label={item.label}
-                        className="h-14 w-14 rounded-2xl bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center hover:bg-primary-foreground/25 transition-all duration-300 hover:scale-110 cursor-pointer"
+                        className="h-14 w-14 rounded-full bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center hover:bg-primary-foreground/25 transition-all duration-300 hover:scale-110 cursor-pointer"
                       >
                         {emailCopied ? (
                           <Check className="h-6 w-6 text-green-400" strokeWidth={1.5} />
@@ -158,7 +158,7 @@ const ContactSection = () => {
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
                         aria-label={item.label}
-                        className="h-14 w-14 rounded-2xl bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center hover:bg-primary-foreground/25 transition-all duration-300 hover:scale-110"
+                        className="h-14 w-14 rounded-full bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center hover:bg-primary-foreground/25 transition-all duration-300 hover:scale-110"
                       >
                         <item.icon className="h-6 w-6 text-primary-foreground" strokeWidth={1.5} />
                       </a>

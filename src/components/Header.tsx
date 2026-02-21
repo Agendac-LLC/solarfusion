@@ -75,6 +75,12 @@ const Header = () => {
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           to="/"
+          onClick={(e) => {
+            if (location.pathname === "/") {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }
+          }}
           className={`flex items-center gap-2 font-bold tracking-[0.1em] transition-colors duration-300 shrink-0 min-w-[120px] ${textColor}`}
           style={{ textShadow }}
         >
@@ -149,7 +155,7 @@ const Header = () => {
           <button
             onClick={() => setOpen(!open)}
             aria-label="Menu"
-            className={`inline-flex items-center justify-center h-11 w-11 transition-colors duration-300 border border-border rounded-md bg-background/60 backdrop-blur-sm ${textColor}`}
+            className={`inline-flex items-center justify-center h-11 w-11 transition-colors duration-300 border border-border rounded-full bg-background/60 backdrop-blur-sm ${textColor}`}
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
