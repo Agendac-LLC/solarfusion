@@ -56,7 +56,7 @@ const Hero = () => {
       <FloatingShapes variant="dark" />
       <motion.div
         style={{ opacity, y: contentY }}
-        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center"
+        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-5 sm:px-6 text-center"
       >
         {/* Logo hero au dessus du texte */}
         <motion.img
@@ -65,7 +65,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-          className="w-full max-w-[180px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-1 -mt-[3cm]"
+          className="w-full max-w-[140px] sm:max-w-[240px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-4 sm:mb-6"
           style={{ filter: 'invert(1) brightness(2)' }}
           loading="eager"
           decoding="async"
@@ -75,7 +75,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-          className="max-w-lg text-sm sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0 text-white drop-shadow-lg text-center mb-[2.5cm] -mt-[3cm]"
+          className="max-w-md text-xs sm:text-sm md:text-base leading-relaxed font-light px-2 sm:px-0 text-white drop-shadow-lg text-center mb-6 sm:mb-8"
         >
           Une solution maîtrisée.<br />
           Conçue selon vos besoins réels.<br />
@@ -88,17 +88,17 @@ const Hero = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
-          className="flex flex-col gap-3 sm:flex-row sm:gap-4 px-4 sm:px-0"
+          className="flex flex-col gap-3 sm:flex-row sm:gap-4 w-full max-w-sm sm:max-w-none sm:w-auto px-4 sm:px-0"
         >
           <MagneticButton
             href="/particuliers"
-            className="btn-glass-hero glow-pulse px-8 py-4 sm:px-12 sm:py-5 text-sm font-semibold uppercase tracking-[0.2em] text-center bg-white/90 text-primary"
+            className="btn-glass-hero glow-pulse px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center bg-white/90 text-primary"
           >
             Espace Particuliers
           </MagneticButton>
           <MagneticButton
             href="/b2b"
-            className="btn-glass-hero px-8 py-4 sm:px-12 sm:py-5 text-sm font-semibold uppercase tracking-[0.2em] text-center bg-white/90 text-primary"
+            className="btn-glass-hero px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center bg-white/90 text-primary"
           >
             Espace Professionnels
           </MagneticButton>

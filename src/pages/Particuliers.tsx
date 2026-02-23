@@ -72,23 +72,23 @@ const Particuliers = () => {
         jsonLd={breadcrumbLd}
       />
       {/* Hero */}
-      <section ref={heroRef} className="relative h-[85vh] sm:h-[70vh] w-full overflow-hidden grain px-4 sm:px-6 md:px-12" aria-label="Panneaux solaires pour particuliers partout en France">
+      <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain px-4 sm:px-6 md:px-12" aria-label="Panneaux solaires pour particuliers partout en France">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
           <img src={heroImage} alt="Installation de panneaux solaires sur chalet en Savoie, Solar Fusion installateur photovoltaïque" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center">
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Particuliers</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl font-bold leading-[1.08] text-primary-foreground sm:text-4xl md:text-6xl">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Particuliers</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-2xl sm:text-3xl font-bold leading-[1.08] text-primary-foreground md:text-6xl">
             Votre toit produit,<br />vous économisez.
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
             Installation solaire en Savoie et Haute-Savoie. On dimensionne, on pose, on garantit. Père et fils depuis 15 ans.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 w-full px-2 sm:w-auto sm:px-0">
-            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-8 py-4 sm:px-12 sm:py-5 text-sm font-semibold uppercase tracking-[0.2em] text-center">Simuler mon projet</MagneticButton>
-            <MagneticButton href="#contact" className="btn-glass-hero px-8 py-4 sm:px-12 sm:py-5 text-sm font-semibold uppercase tracking-[0.2em] text-center">Être rappelé gratuitement</MagneticButton>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 w-full max-w-sm sm:max-w-none sm:w-auto px-2 sm:px-0">
+            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center">Simuler mon projet</MagneticButton>
+            <MagneticButton href="#contact" className="btn-glass-hero px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center">Être rappelé gratuitement</MagneticButton>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
