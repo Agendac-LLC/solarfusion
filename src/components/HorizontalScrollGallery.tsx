@@ -1,6 +1,5 @@
-import { useRef, memo } from "react";
-import { motion, AnimatePresence, useTransform, MotionValue } from "framer-motion";
-import { useState } from "react";
+import { memo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import BlurFade from "./BlurFade";
 
 import img1 from "@/assets/install-chalet-village.webp";
@@ -17,7 +16,6 @@ const images = [
   { src: img5, alt: "Ferme alpine - installation photovoltaïque", label: "Ferme alpine" },
 ];
 
-/** Extracted to avoid useTransform inside .map() - hooks rule violation */
 const GalleryImage = memo(({
   img,
   index,
@@ -25,11 +23,11 @@ const GalleryImage = memo(({
 }: {
   img: (typeof images)[number];
   index: number;
-  scrollYProgress: MotionValue<number>;
+  direction: number;
 }) => {
   return (
     <motion.div
-      className="relative shrink-0 w-[95vw] sm:w-[90vw] md:w-[70vw] lg:w-[50vw] aspect-[16/9] rounded-3xl overflow-hidden group shadow-xl"
+      className="relative shrink-0 w-[90vw] sm:w-[90vw] md:w-[70vw] lg:w-[50vw] aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden group shadow-xl"
       initial={{ x: direction === 1 ? 300 : -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: direction === 1 ? -300 : 300, opacity: 0 }}
@@ -43,10 +41,9 @@ const GalleryImage = memo(({
         decoding="async"
         width={1200}
         height={675}
-        style={{}}
       />
       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-      <p className="absolute bottom-6 left-6 text-base font-semibold uppercase tracking-[0.15em] text-white drop-shadow-lg">
+      <p className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 text-sm sm:text-base font-semibold uppercase tracking-[0.15em] text-white drop-shadow-lg">
         {img.label}
       </p>
     </motion.div>
@@ -57,7 +54,7 @@ GalleryImage.displayName = "GalleryImage";
 
 const HorizontalScrollGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1); // 1 = next, -1 = prev
+  const [direction, setDirection] = useState(1);
   const total = images.length;
   const scrollTo = (dir: number) => {
     setDirection(dir);
@@ -70,27 +67,24 @@ const HorizontalScrollGallery = () => {
   };
 
   return (
-    <section className="overflow-hidden py-16 sm:py-24 md:py-36 bg-gradient-to-br from-background via-primary/5 to-background">
-      <div className="mx-auto max-w-6xl px-5 sm:px-6 mb-10 sm:mb-14">
+    <section className="overflow-hidden py-12 sm:py-24 md:py-36 bg-gradient-to-br from-background via-primary/5 to-background">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 mb-8 sm:mb-14">
         <BlurFade>
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary font-medium">
             Nos réalisations
           </p>
-          <h2 className="text-3xl font-bold sm:text-4xl md:text-6xl text-foreground drop-shadow-lg">
+          <h2 className="text-2xl sm:text-3xl font-bold md:text-5xl text-foreground">
             Installation dans toute la France.
           </h2>
         </BlurFade>
       </div>
       <div className="flex items-center justify-center">
-        {/* Flèches visibles uniquement sur desktop */}
         <button
           className="hidden sm:flex items-center px-2 py-2 bg-transparent border-none text-3xl font-bold text-primary hover:text-primary/80 transition mr-2"
           onClick={() => scrollTo(-1)}
           aria-label="Précédent"
         >
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M20 8L12 16L20 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M20 8L12 16L20 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
         <div className="relative flex justify-center items-center">
           <AnimatePresence initial={false} mode="wait">
@@ -102,12 +96,10 @@ const HorizontalScrollGallery = () => {
           onClick={() => scrollTo(1)}
           aria-label="Suivant"
         >
-          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 8L20 16L12 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M12 8L20 16L12 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
       </div>
-      <div className="flex justify-center mt-8 gap-2">
+      <div className="flex justify-center mt-6 sm:mt-8 gap-2">
         {images.map((_, i) => (
           <button
             key={i}
@@ -123,4 +115,3 @@ const HorizontalScrollGallery = () => {
 };
 
 export default HorizontalScrollGallery;
-  

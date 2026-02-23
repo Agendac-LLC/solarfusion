@@ -44,22 +44,22 @@ const DomotiquePAC = () => {
         canonical="https://solarfusion.lovable.app/domotique-pac"
         jsonLd={breadcrumbLd}
       />
-      <section ref={heroRef} className="relative h-[85vh] sm:h-[70vh] w-full overflow-hidden grain" aria-label="Domotique et pompes à chaleur en Savoie">
+      <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain" aria-label="Domotique et pompes à chaleur en Savoie">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
           <img src={heroImage} alt="Maison moderne avec domotique énergétique et panneaux solaires en Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
-        <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Domotique & PAC</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl font-bold leading-[1.08] text-primary-foreground sm:text-4xl md:text-6xl">
+        <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-5 sm:px-6 md:px-12 text-center">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Domotique & PAC</motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-2xl sm:text-3xl font-bold leading-[1.08] text-primary-foreground md:text-6xl">
             Chauffez malin,<br />consommez moins.
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-6 max-w-lg text-base text-primary-foreground/75 font-light leading-relaxed">
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
             PAC Hitachi + domotique + solaire. Le trio qui réduit vos factures de chauffage sans compromis sur le confort.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-10">
-            <MagneticButton href="#contact" className="btn-glass-hero glow-pulse px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]" strength={0.4}>Être rappelé gratuitement</MagneticButton>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-8 sm:mt-10 w-full max-w-sm sm:max-w-none sm:w-auto px-4 sm:px-0">
+            <MagneticButton href="#contact" className="btn-glass-hero glow-pulse px-8 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em]" strength={0.4}>Être rappelé gratuitement</MagneticButton>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
@@ -82,7 +82,7 @@ const DomotiquePAC = () => {
             {services.map((service) => (
               <StaggerItem key={service.title} direction="scale">
                 <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={6}>
-                  <div className="glass-card-light embossed p-10 md:p-12 h-full rounded-2xl group cursor-default">
+                  <div className="glass-card-light embossed p-6 sm:p-10 md:p-12 h-full rounded-2xl group cursor-default">
                     <div className="mb-8 h-14 w-14 rounded-2xl bg-foreground/5 flex items-center justify-center group-hover:bg-foreground/10 transition-colors duration-300">
                       <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
                     </div>

@@ -70,9 +70,7 @@ function Footer() {
         </StaggerChildren>
 
         <BlurFade delay={0.3}>
-          <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
-            <p className="text-sm text-background/50"></p>
-            {/* Bouton devis à distance retiré */}
+          <div className="pt-8 flex flex-col items-center gap-3 text-xs sm:text-sm text-background/50">
             <p>© {new Date().getFullYear()} Solar Fusion. Tous droits réservés.</p>
             <p>TVA : FR61929522175</p>
           </div>
