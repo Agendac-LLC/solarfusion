@@ -118,30 +118,27 @@ const Hero = () => {
 
       >
 
-        <div className="flex flex-col items-center justify-start w-full h-full pt-[2vh] gap-5 sm:gap-8 max-w-2xl mx-auto relative" style={{ transform: 'translateY(-3cm)' }}>
+        <div
+          className="flex flex-col items-center justify-start w-full h-full pt-8 sm:pt-[2vh] gap-5 sm:gap-8 max-w-2xl mx-auto relative"
+          style={{
+            transform: 'none',
+            // Sur desktop, on applique le translateY négatif pour garder l'effet original
+            ...(window.innerWidth >= 640 ? { transform: 'translateY(-3cm)' } : {})
+          }}
+        >
 
           {/* Logo hero au dessus du texte */}
 
           <motion.img
-
             src={logoHero}
-
             alt="Logo Solar Fusion"
-
             initial={{ opacity: 0, y: 20 }}
-
             animate={{ opacity: 1, y: 140 }}
-
             transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-
-            className="w-full max-w-[220px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-0"
-
-            style={{ filter: 'invert(1) brightness(2)', transform: 'translateY(3cm)' }}
-
+            className="w-full max-w-[180px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-0"
+            style={{ filter: 'invert(1) brightness(2)', transform: window.innerWidth >= 640 ? 'translateY(3cm)' : 'none' }}
             loading="eager"
-
             decoding="async"
-
           />
 
           {/* Texte centré au milieu */}
@@ -154,7 +151,7 @@ const Hero = () => {
 
             transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
 
-            className="max-w-lg text-sm sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0 text-white drop-shadow-lg text-center mb-4 sm:mb-6"
+            className="max-w-lg text-sm sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0 text-white drop-shadow-lg text-center mt-24 md:mt-0 mb-4 sm:mb-6"
 
           >
 
