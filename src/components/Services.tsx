@@ -88,7 +88,7 @@ const Services = () => (
           </MagneticButton>
           <MagneticButton
             href="#contact"
-            className="btn-ghost-fill inline-block px-10 py-5 text-sm font-semibold uppercase tracking-[0.2em] rounded-full"
+            className="btn-pill bg-muted text-foreground inline-block px-10 py-5 text-sm font-semibold uppercase tracking-[0.2em] rounded-full border border-border"
           >
             Être rappelé gratuitement
           </MagneticButton>
