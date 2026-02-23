@@ -65,7 +65,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-          className="w-full max-w-[140px] sm:max-w-[240px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-4 sm:mb-6"
+          className="w-full max-w-[220px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-4 sm:mb-6"
           style={{ filter: 'invert(1) brightness(2)' }}
           loading="eager"
           decoding="async"
