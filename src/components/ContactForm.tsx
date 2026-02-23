@@ -52,18 +52,18 @@ const ContactForm = () => {
   }, [key]);
 
   return (
-    <section id="contact-form" className="section-padding relative grain">
+    <section id="contact-form" className="section-padding relative grain w-full px-4 sm:px-6 md:px-12">
       <FloatingShapes variant="light" />
-      <div className="mx-auto max-w-lg relative z-10">
+      <div className="mx-auto max-w-lg w-full relative z-10">
         <BlurFade>
-          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium text-center">
+          <p className="mb-2 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium text-center">
             Contact
           </p>
           <TextReveal
             text="Contactez-nous."
-            className="mb-4 text-3xl font-bold md:text-4xl text-center text-foreground"
+            className="mb-2 text-3xl font-bold md:text-4xl text-center text-foreground"
           />
-          <p className="mb-10 text-muted-foreground/80 text-sm text-center font-medium">
+          <p className="mb-4 text-muted-foreground/80 text-sm text-center font-medium">
             Remplissez ce formulaire rapide, nous vous rappelons pour discuter de votre projet.
           </p>
         </BlurFade>

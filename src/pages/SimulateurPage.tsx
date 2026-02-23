@@ -48,9 +48,9 @@ const SimulateurPage = () => {
         canonical="https://solarfusion.lovable.app/simulateur"
         jsonLd={breadcrumbLd}
       />
-      <section className="pt-28 pb-8 px-6 relative" aria-label="Simulateur d'économies solaires">
+      <section className="pt-20 pb-8 w-full px-4 sm:px-6 md:px-12 relative" aria-label="Simulateur d'économies solaires">
         <FloatingShapes variant="light" />
-        <div className="mx-auto max-w-3xl text-center relative z-10">
+        <div className="mx-auto max-w-3xl w-full text-center relative z-10">
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -80,15 +80,15 @@ const SimulateurPage = () => {
 
       <SectionDivider />
 
-      <section className="px-6 pb-28 pt-8 relative grain" aria-label="Outil de simulation photovoltaïque">
+      <section className="pb-28 pt-8 w-full px-4 sm:px-6 md:px-12 relative grain" aria-label="Outil de simulation photovoltaïque">
         <FloatingShapes variant="light" />
-        <div className="mx-auto max-w-3xl relative z-10">
+        <div className="mx-auto max-w-3xl w-full relative z-10">
           {/* Tabs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center gap-2 mb-10"
+            className="flex flex-col sm:flex-row justify-center gap-2 mb-8"
           >
             {tabs.map((tab) => (
               <button
@@ -106,7 +106,7 @@ const SimulateurPage = () => {
           </motion.div>
 
           <BlurFade delay={0.3}>
-            <div className="section-alt rounded-3xl p-4 sm:p-8 md:p-20 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
+            <div className="section-alt rounded-3xl p-4 sm:p-8 md:p-16 embossed w-full" style={{ boxShadow: "var(--shadow-dramatic)" }}>
               {activeTab === "b2c" ? (
                 <div
                   data-reonic-type="element"

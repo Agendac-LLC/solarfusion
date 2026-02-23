@@ -9,23 +9,7 @@ import { motion } from "framer-motion";
 import { memo } from "react";
 import maisonPierreImage from "@/assets/install-maison-pierre.webp";
 
-const reviews = [
-  {
-    name: "Marie L.",
-    text: "Posé en une journée. Propre, carré, rien à redire. On produit plus que prévu.",
-    rating: 5,
-  },
-  {
-    name: "Jean-Pierre D.",
-    text: "Production conforme aux estimations. Sébastien et son fils connaissent leur métier.",
-    rating: 5,
-  },
-  {
-    name: "Sophie M.",
-    text: "Suivi du début à la fin. On sent l'entreprise familiale sérieuse. Je recommande.",
-    rating: 5,
-  },
-];
+const reviews = [];
 
 const socials = [
   { name: "Google", url: "https://www.google.com/maps/place/Solar+Fusion" },
@@ -54,25 +38,7 @@ const Reviews = () => (
             as="p"
           />
         </BlurFade>
-        <StaggerChildren className="grid gap-4 sm:gap-6 md:grid-cols-3 mb-12 sm:mb-20" stagger={0.12}>
-          {reviews.map((review) => (
-            <StaggerItem key={review.name} direction="scale">
-              <TiltCard className="rounded-2xl h-full" tiltMax={5} glare>
-                <div className="glass-card p-6 sm:p-8 h-full flex flex-col rounded-2xl">
-                  <div className="mb-5 flex gap-0.5">
-                    {Array.from({ length: review.rating }).map((_, j) => (
-                      <Star key={j} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="mb-6 flex-1 text-primary-foreground/75 leading-relaxed text-sm">
-                    « {review.text} »
-                  </p>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-primary-foreground">{review.name}</p>
-                </div>
-              </TiltCard>
-            </StaggerItem>
-          ))}
-        </StaggerChildren>
+        {/* Aucun avis affiché, uniquement Google ou rien */}
         <BlurFade delay={0.3}>
           <div className="flex flex-wrap items-center justify-center gap-4">
             {socials.map((s, i) => (

@@ -7,7 +7,7 @@ import FloatingShapes from "./FloatingShapes";
 
 const certs = [
   {
-    title: "QualiPV 36K",
+    title: "Certification RGE",
     subtitle: "Certification RGE",
     description: "Obligatoire pour bénéficier des aides de l'État. Renouvelée tous les 4 ans après audit.",
   },
@@ -57,7 +57,7 @@ const Certifications = () => (
         <div className="mt-16 text-center">
           <MagneticButton
             href="/simulateur"
-            className="btn-pill bg-foreground text-background glow-pulse inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]"
+            className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]"
           >
             Simuler mes économies
           </MagneticButton>

@@ -46,13 +46,13 @@ const B2B = () => {
         canonical="https://solarfusion.lovable.app/b2b"
         jsonLd={breadcrumbLd}
       />
-      <section ref={heroRef} className="relative h-[85vh] sm:h-[70vh] w-full overflow-hidden grain" aria-label="Installation solaire pour professionnels">
+      <section ref={heroRef} className="relative h-[85vh] sm:h-[70vh] w-full overflow-hidden grain px-4 sm:px-6 md:px-12" aria-label="Installation solaire pour professionnels partout en France">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
           <img src={heroB2b} alt="Installation de panneaux solaires sur bâtiment professionnel, toiture industrielle photovoltaïque Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
-        <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
+        <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Professionnels</motion.p>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl font-bold leading-[1.08] text-primary-foreground sm:text-4xl md:text-6xl">
             Réduisez vos charges<br />énergétiques.
@@ -61,7 +61,7 @@ const B2B = () => {
             Installations photovoltaïques pour entreprises, collectivités et industriels. Dimensionnement sur mesure, retour sur investissement calculé.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-10">
-            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]" strength={0.4}>Calculer ma rentabilité</MagneticButton>
+            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-8 py-4 sm:px-12 sm:py-5 text-sm font-semibold uppercase tracking-[0.2em]" strength={0.4}>Calculer ma rentabilité</MagneticButton>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
@@ -71,19 +71,19 @@ const B2B = () => {
 
       <SectionDivider />
 
-      <section className="section-padding relative grain" aria-label="Avantages solaire pour les entreprises">
+      <section className="section-padding relative grain w-full px-4 sm:px-6 md:px-12" aria-label="Avantages solaire pour les entreprises">
         <FloatingShapes variant="light" />
-        <div className="mx-auto max-w-6xl relative z-10">
+        <div className="mx-auto max-w-6xl w-full relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Chiffres clés</p>
             <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en Savoie</h2>
             <TextReveal text="Le solaire, un investissement rentable." className="mb-16 text-3xl font-bold md:text-5xl" />
           </BlurFade>
-          <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
+          <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (
               <StaggerItem key={b.title} direction="scale">
                 <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5}>
-                  <div className="flex gap-6 p-8 rounded-2xl glass-card-light embossed h-full">
+                  <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-8 rounded-2xl glass-card-light embossed h-full">
                     <div className="shrink-0">
                       <p className="text-2xl font-bold tracking-tight">
                         {b.metricNum !== undefined ? <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} /> : b.metric}
@@ -91,8 +91,8 @@ const B2B = () => {
                       <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
                     </div>
                     <div>
-                      <h3 className="mb-2 text-base font-semibold">{b.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm">{b.description}</p>
+                      <h3 className="mb-2 text-base sm:text-lg font-semibold">{b.title}</h3>
+                      <p className="text-muted-foreground leading-relaxed text-sm break-words">{b.description}</p>
                     </div>
                   </div>
                 </TiltCard>
@@ -110,7 +110,7 @@ const B2B = () => {
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Simulateur pro</p>
             <TextReveal text="Calculez votre rentabilité." className="mb-6 text-3xl font-bold md:text-5xl" />
             <p className="mb-10 text-muted-foreground text-base max-w-2xl mx-auto">Chaque bâtiment est différent. Simulez votre potentiel solaire en 2 minutes.</p>
-            <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
+            <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-14 py-6 text-sm font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
           </BlurFade>
         </div>
       </section>

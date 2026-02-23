@@ -1,7 +1,8 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import heroImage from "@/assets/hero-solar.webp";
-import logoSite from "@/assets/logo-solar-fusion-white.png";
+// import logoSite from "@/assets/logo-solar-fusion-white.png";
+import logoHero from "@/assets/logo-hero.png";
 import MagneticButton from "./MagneticButton";
 import FloatingShapes from "./FloatingShapes";
 
@@ -33,7 +34,7 @@ const Hero = () => {
   const words = ["Là", "où", "le", "soleil", "devient", "solution"];
 
   return (
-    <section ref={ref} className="relative h-[100svh] w-full overflow-hidden grain">
+    <section ref={ref} className="relative h-[100svh] w-full overflow-hidden grain flex items-center justify-center">
       <motion.div
         className="absolute inset-0 w-full h-full"
         style={{ scale, y: imageY }}
@@ -50,46 +51,31 @@ const Hero = () => {
           sizes="100vw"
         />
       </motion.div>
-      {/* Logo pinned to background */}
-      <motion.div
-        className="absolute inset-0 w-full h-full flex items-center justify-center pb-[calc(44vh+10px)] sm:pb-[calc(42vh+10px)] pointer-events-none z-[1]"
-        style={{ scale, y: imageY }}
-      >
-        <img
-          src={logoSite}
-          alt="Logo SolarFusion"
-          className="max-h-10 md:max-h-14 w-auto drop-shadow-2xl object-contain"
-          loading="eager"
-          decoding="async"
-        />
-      </motion.div>
+      {/* Logo white supprimé, seul logo-hero affiché dans le contenu */}
       <div className="hero-overlay absolute inset-0" />
       <FloatingShapes variant="dark" />
       <motion.div
         style={{ opacity, y: contentY }}
-        className="relative z-10 flex h-full items-center justify-center px-6 text-center"
+        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-6 text-center"
       >
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-0 w-full max-w-2xl bg-black/60 backdrop-blur-sm rounded-xl" />
-        <div className="relative z-10 w-full max-w-2xl mx-auto p-6 rounded-xl flex flex-col items-center justify-center">
-        <h1 className="mb-6 text-4xl font-bold md:text-6xl text-white drop-shadow-xl">
-          {words.map((word, i) => (
-            <motion.span
-              key={i}
-              initial="hidden"
-              animate="visible"
-              variants={wordVariants}
-              custom={i}
-              className="inline-block mr-[0.25em] text-white drop-shadow-lg"
-            >
-              {word}
-            </motion.span>
-          ))}
-        </h1>
+        {/* Logo hero au dessus du texte */}
+        <motion.img
+          src={logoHero}
+          alt="Logo Solar Fusion"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
+          className="w-full max-w-[180px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-1 -mt-[3cm]"
+          style={{ filter: 'invert(1) brightness(2)' }}
+          loading="eager"
+          decoding="async"
+        />
+        {/* Texte centré au milieu */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-          className="mt-5 max-w-lg text-sm sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0 text-white drop-shadow-lg"
+          className="max-w-lg text-sm sm:text-base md:text-lg leading-relaxed font-light px-2 sm:px-0 text-white drop-shadow-lg text-center mb-[2.5cm] -mt-[3cm]"
         >
           Une solution maîtrisée.<br />
           Conçue selon vos besoins réels.<br />
@@ -97,26 +83,26 @@ const Hero = () => {
           Réalisée par notre équipe, sans intermédiaire.<br />
           Pensée pour rester fiable et rentable dans le temps.
         </motion.p>
+        {/* Boutons sous le texte */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
-          className="mt-8 flex flex-col gap-3 sm:flex-row sm:gap-4 w-full px-4 sm:w-auto sm:px-0"
+          className="flex flex-col gap-3 sm:flex-row sm:gap-4 px-4 sm:px-0"
         >
           <MagneticButton
             href="/particuliers"
-            className="btn-glass-hero glow-pulse px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-10 bg-white/90 text-primary"
+            className="btn-glass-hero glow-pulse px-8 py-4 sm:px-12 sm:py-5 text-sm font-semibold uppercase tracking-[0.2em] text-center bg-white/90 text-primary"
           >
             Espace Particuliers
           </MagneticButton>
           <MagneticButton
             href="/b2b"
-            className="btn-glass-hero px-6 py-4 text-xs font-semibold uppercase tracking-[0.2em] text-center sm:px-8 bg-white/90 text-primary"
+            className="btn-glass-hero px-8 py-4 sm:px-12 sm:py-5 text-sm font-semibold uppercase tracking-[0.2em] text-center bg-white/90 text-primary"
           >
             Espace Professionnels
           </MagneticButton>
         </motion.div>
-        </div>
       </motion.div>
 
       {/* Scroll indicator - pure CSS animation */}

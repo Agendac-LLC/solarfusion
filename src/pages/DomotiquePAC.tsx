@@ -59,7 +59,7 @@ const DomotiquePAC = () => {
             PAC Hitachi + domotique + solaire. Le trio qui réduit vos factures de chauffage sans compromis sur le confort.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-10">
-            <MagneticButton href="tel:+33762111470" className="btn-glass-hero glow-pulse px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]" strength={0.4}>Être rappelé gratuitement</MagneticButton>
+            <MagneticButton href="#contact" className="btn-glass-hero glow-pulse px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]" strength={0.4}>Être rappelé gratuitement</MagneticButton>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
@@ -103,7 +103,7 @@ const DomotiquePAC = () => {
         <div className="mx-auto max-w-4xl text-center">
           <BlurFade>
             <div className="flex flex-wrap items-center justify-center gap-4 mb-10">
-              {["Partenaire Hitachi", "Garantie Décennale", "QualiPV 36K"].map((badge, i) => (
+              {["Partenaire Hitachi", "Garantie Décennale", "Certification RGE"].map((badge, i) => (
                 <motion.div key={badge} className="glass-card-light embossed px-6 py-3 rounded-full" whileHover={{ scale: 1.05, y: -3 }} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.2 + i * 0.1 }}>
                   <p className="text-xs font-semibold uppercase tracking-wider">{badge}</p>
                 </motion.div>
@@ -112,8 +112,8 @@ const DomotiquePAC = () => {
             <TextReveal text="On étudie votre projet ?" className="text-3xl font-bold md:text-5xl mb-6" />
             <p className="mb-10 text-muted-foreground text-sm max-w-lg mx-auto">Chaque maison est différente. On vient chez vous, on mesure, on propose.</p>
             <div className="flex flex-col gap-4 sm:flex-row justify-center">
-              <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-10 py-4 text-xs font-semibold uppercase tracking-[0.2em]">Simuler mon projet</MagneticButton>
-              <MagneticButton href="tel:+33762111470" className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] rounded-full">Être rappelé gratuitement</MagneticButton>
+              <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]">Simuler mon projet</MagneticButton>
+              <MagneticButton href="#contact" className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] rounded-full">Être rappelé gratuitement</MagneticButton>
             </div>
           </BlurFade>
         </div>
