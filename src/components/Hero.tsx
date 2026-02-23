@@ -133,7 +133,7 @@ const Hero = () => {
             src={logoHero}
             alt="Logo Solar Fusion"
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 175 }}
+            animate={{ opacity: 1, y: 135 }}
             transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
             className="w-full max-w-[270px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-0"
             style={{ filter: 'invert(1) brightness(2)', transform: window.innerWidth >= 640 ? 'translateY(3cm)' : 'none' }}
@@ -147,7 +147,7 @@ const Hero = () => {
 
             initial={{ opacity: 0, y: 20 }}
 
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: -50 }}
 
             transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
 
@@ -173,7 +173,7 @@ const Hero = () => {
 
             initial={{ opacity: 0, y: 30 }}
 
-            animate={{ opacity: 1, y: 0 }}
+            animate={{ opacity: 1, y: -50 }}
 
             transition={{ duration: 0.8, delay: 1.5, ease: "easeOut" }}
 
