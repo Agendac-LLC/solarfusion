@@ -82,13 +82,13 @@ const Services = () => (
         <div className="mt-16 flex flex-col gap-4 sm:flex-row justify-center items-center">
           <MagneticButton
             href="/simulateur"
-            className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]"
+            className="btn-pill bg-foreground text-background glow-pulse h-16 w-full sm:w-[340px] text-sm font-semibold uppercase tracking-[0.2em]"
           >
             Simuler mon projet
           </MagneticButton>
           <MagneticButton
             href="#contact"
-            className="btn-pill bg-muted text-foreground inline-block px-10 py-5 text-sm font-semibold uppercase tracking-[0.2em] rounded-full border border-border"
+            className="btn-pill bg-muted text-foreground h-16 w-full sm:w-[340px] text-sm font-semibold uppercase tracking-[0.2em] border border-border"
           >
             Être rappelé gratuitement
           </MagneticButton>

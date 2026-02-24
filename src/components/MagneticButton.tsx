@@ -3,8 +3,10 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { Link } from "react-router-dom";
 
-// Check if href is an internal route (starts with / but not //)
-const isInternal = (href?: string) => href && href.startsWith("/") && !href.startsWith("//");
+// Check if href is an internal route (starts with / but not //) or a hash link
+const isInternalOrHash = (href?: string) => href && (href.startsWith("#") || (href.startsWith("/") && !href.startsWith("//")));
+const isRoute = (href?: string) => href && href.startsWith("/") && !href.startsWith("//");
+const isHash = (href?: string) => href && href.startsWith("#");
 
 interface MagneticButtonProps {
   children: ReactNode;
@@ -52,11 +54,13 @@ const MagneticButton = memo(({
     y.set(0);
   }, [x, y]);
 
-  const internal = as === "a" && isInternal(href);
+  const internal = as === "a" && isInternalOrHash(href);
+  const useLink = as === "a" && isRoute(href);
+  const useAnchor = as === "a" && isHash(href);
 
   // On mobile, skip magnetic effect entirely
   if (isMobile) {
-    if (internal) {
+    if (useLink) {
       return (
         <Link to={href!} onClick={onClick} className={className}>
           {children}
@@ -78,13 +82,25 @@ const MagneticButton = memo(({
   }
 
   // Desktop with magnetic effect
-  if (internal) {
+  if (useLink) {
     return (
       <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="inline-flex">
         <motion.div style={{ x: springX, y: springY }}>
           <Link to={href!} onClick={onClick} className={className}>
             {children}
           </Link>
+        </motion.div>
+      </div>
+    );
+  }
+
+  if (useAnchor) {
+    return (
+      <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="inline-flex">
+        <motion.div style={{ x: springX, y: springY }}>
+          <a href={href} onClick={onClick} className={className}>
+            {children}
+          </a>
         </motion.div>
       </div>
     );
