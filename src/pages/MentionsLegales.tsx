@@ -52,11 +52,6 @@ const MentionsLegales = () => (
             <h2 className="mb-3 text-lg font-semibold text-foreground">Certifications</h2>
             <p>Certification RGE - Partenaire agréé Hitachi - Garantie décennale française.</p>
           </section>
-
-          <section>
-            <h2 className="mb-3 text-lg font-semibold text-foreground">Hébergement</h2>
-            <p>Ce site est hébergé par Lovable (lovable.dev).</p>
-          </section>
         </div>
       </AnimatedSection>
     </div>
