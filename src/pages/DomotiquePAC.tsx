@@ -113,7 +113,7 @@ const DomotiquePAC = () => {
             <p className="mb-10 text-muted-foreground text-sm max-w-lg mx-auto">Chaque maison est différente. On vient chez vous, on mesure, on propose.</p>
             <div className="flex flex-col gap-4 sm:flex-row justify-center">
               <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]">Simuler mon projet</MagneticButton>
-              <MagneticButton href="#contact" className="btn-ghost-fill inline-block px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] rounded-full">Être rappelé gratuitement</MagneticButton>
+              <MagneticButton href="#contact" className="btn-ghost-fill inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em] rounded-full">Être rappelé gratuitement</MagneticButton>
             </div>
           </BlurFade>
         </div>
