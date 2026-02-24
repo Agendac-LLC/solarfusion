@@ -8,6 +8,15 @@ const isInternalOrHash = (href?: string) => href && (href.startsWith("#") || (hr
 const isRoute = (href?: string) => href && href.startsWith("/") && !href.startsWith("//");
 const isHash = (href?: string) => href && href.startsWith("#");
 
+/** Programmatic scroll to an element by hash id – works with HashRouter */
+const scrollToHash = (hash: string) => {
+  const id = hash.replace("#", "");
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
 interface MagneticButtonProps {
   children: ReactNode;
   className?: string;
@@ -67,6 +76,17 @@ const MagneticButton = memo(({
         </Link>
       );
     }
+    if (useAnchor) {
+      return (
+        <button
+          type="button"
+          onClick={() => { scrollToHash(href!); onClick?.(); }}
+          className={className}
+        >
+          {children}
+        </button>
+      );
+    }
     if (as === "button") {
       return (
         <button onClick={onClick} className={className}>
@@ -98,9 +118,13 @@ const MagneticButton = memo(({
     return (
       <div ref={ref} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} className="inline-flex">
         <motion.div style={{ x: springX, y: springY }}>
-          <a href={href} onClick={onClick} className={className}>
+          <button
+            type="button"
+            onClick={() => { scrollToHash(href!); onClick?.(); }}
+            className={className}
+          >
             {children}
-          </a>
+          </button>
         </motion.div>
       </div>
     );

@@ -35,27 +35,11 @@ const Header = () => {
   const handleNavClick = (to: string, e: React.MouseEvent) => {
     setOpen(false);
     if (to.startsWith("#")) {
+      e.preventDefault();
       const id = to.replace("#", "");
-      if (
-        location.pathname === "/" ||
-        location.pathname === "/index.html" ||
-        location.pathname.endsWith("/solarfusion/") ||
-        location.pathname.endsWith("/solarfusion/index.html") ||
-        window.location.hash.startsWith("#/")) {
-        // On est déjà sur la landing (hash routing ou non)
-        e.preventDefault();
-        setTimeout(() => {
-          document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-        }, 50);
-      } else {
-        // Si hash routing (GitHub Pages), modifie window.location.hash
-        e.preventDefault();
-        if (window.location.hash.startsWith("#/")) {
-          window.location.hash = `#/` + (id ? `#${id}` : "");
-        } else {
-          window.location.href = `${window.location.origin}${window.location.pathname.includes('solarfusion') ? '/solarfusion/' : '/'}#${id}`;
-        }
-      }
+      setTimeout(() => {
+        document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+      }, 50);
     }
   };
 
