@@ -315,13 +315,7 @@
     will-change: transform;
   }
 
-  /* Content containment for below-fold sections */
-  .section-padding,
-  .section-alt,
-  .section-alt-deep {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
-  }
+  /* Content containment removed – conflicts with React lazy loading */
 
   /* Parallax container */
   .parallax-container {
