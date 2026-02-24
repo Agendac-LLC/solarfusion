@@ -5,6 +5,8 @@ import { Phone, Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoIcon from "@/assets/logo-icon.png";
 import logoWhite from "@/assets/logo-solar-fusion-white.png";
+import logoBlack from "@/assets/logo-solarfusion-black.png";
+import { getLogoByBg } from "@/lib/logoSwitcher";
 
 const navLinks = [
   { label: "Accueil", to: "/" },
@@ -61,6 +63,8 @@ const Header = () => {
   const textMuted = useLight ? "text-primary-foreground" : "text-foreground";
   const textActive = useLight ? "text-primary-foreground font-semibold" : "text-foreground font-semibold";
   const textShadow = useLight ? "0 1px 3px rgba(0,0,0,0.4)" : "none";
+  // Logo dynamique selon fond
+  const logoSrc = useLight ? logoWhite : logoBlack;
 
   return (
     <header
@@ -85,10 +89,9 @@ const Header = () => {
           style={{ textShadow }}
         >
              <img
-               src={logoWhite}
+               src={logoSrc}
                alt="Logo Solar Fusion"
                className="h-16 w-auto sm:h-20 sm:w-auto transition-all duration-300"
-               style={{ filter: scrolled ? "invert(1)" : "none" }}
              />
         </Link>
 

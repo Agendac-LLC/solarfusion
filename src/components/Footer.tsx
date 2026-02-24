@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { MapPin, Phone, Mail, FileText } from "lucide-react";
+import { toast } from "sonner";
 import MagneticButton from "./MagneticButton";
 import StaggerChildren, { StaggerItem } from "./StaggerChildren";
 import BlurFade from "./BlurFade";
@@ -8,6 +9,13 @@ import logoWhite from "@/assets/logo-solar-fusion-white.png";
 
 
 function Footer() {
+  const location = useLocation();
+  const handleAccueilClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    if (location.pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  };
   return (
     <footer className="bg-foreground text-background" role="contentinfo" itemScope itemType="https://schema.org/LocalBusiness">
       <div className="mx-auto max-w-7xl px-5 py-12 sm:px-6 sm:py-16 md:px-12">
@@ -28,7 +36,7 @@ function Footer() {
                 Navigation
               </h4>
               <nav className="flex flex-col gap-3" aria-label="Plan du site">
-                {[
+                {[ 
                   { to: "/", label: "Accueil" },
                   { to: "/particuliers", label: "Particuliers" },
                   { to: "/b2b", label: "Professionnels" },
@@ -36,9 +44,20 @@ function Footer() {
                   { to: "/simulateur", label: "Simulateur" },
                   { to: "/mentions-legales", label: "Mentions légales" },
                 ].map((link) => (
-                  <Link key={link.to} to={link.to} className="text-sm text-background/60 hover:text-background transition-colors duration-200">
-                    {link.label}
-                  </Link>
+                  link.to === "/" ? (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      className="text-sm text-background/60 hover:text-background transition-colors duration-200"
+                      onClick={handleAccueilClick}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <Link key={link.to} to={link.to} className="text-sm text-background/60 hover:text-background transition-colors duration-200">
+                      {link.label}
+                    </Link>
+                  )
                 ))}
               </nav>
             </div>
@@ -54,9 +73,18 @@ function Footer() {
                 <a href="tel:+33762111470" className="flex items-center gap-2 text-sm text-background/60 hover:text-background transition-colors duration-200">
                   <Phone className="h-3.5 w-3.5" strokeWidth={1.5} /> 07 62 11 14 70
                 </a>
-                <a href="mailto:sebastien@solarfusion.fr" className="flex items-center gap-2 text-sm text-background/60 hover:text-background transition-colors duration-200">
-                  <Mail className="h-3.5 w-3.5" strokeWidth={1.5} /> sebastien@solarfusion.fr
-                </a>
+                <button
+                  type="button"
+                  className="flex items-center gap-2 text-sm text-background/60 hover:text-background transition-colors duration-200"
+                  onClick={() => {
+                    navigator.clipboard.writeText('sebastien@solarfusion.fr');
+                    toast.success('Email copié !');
+                  }}
+                  title="Copier l'email"
+                >
+                  <Mail className="h-3.5 w-3.5" strokeWidth={1.5} />
+                  <span>sebastien@solarfusion.fr</span>
+                </button>
                 <p className="flex items-start gap-2 text-sm text-background/60" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                   <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0" strokeWidth={1.5} />
                   <span><span itemProp="addressLocality">Chambéry</span></span>
