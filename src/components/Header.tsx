@@ -96,7 +96,7 @@ const Header = () => {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden md:flex items-center gap-4 lg:gap-7 h-full flex-nowrap whitespace-nowrap" aria-label="Navigation principale">
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-7 h-full flex-nowrap whitespace-nowrap" aria-label="Navigation principale">
           {navLinks.map((link) =>
             link.to.startsWith("/#") ? (
               <a
@@ -147,7 +147,7 @@ const Header = () => {
         </nav>
 
         {/* Mobile */}
-        <div className="flex items-center md:hidden gap-2">
+        <div className="flex items-center lg:hidden gap-2">
           <a
             href="tel:+33762111470"
             aria-label="Appeler"
@@ -173,7 +173,7 @@ const Header = () => {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="overflow-hidden glass border-t border-border/50 md:hidden"
+            className="overflow-hidden glass border-t border-border/50 lg:hidden"
           >
             <div className="flex flex-col gap-4 px-4 py-6 sm:px-6 sm:py-8">
               {navLinks.map((link) =>
