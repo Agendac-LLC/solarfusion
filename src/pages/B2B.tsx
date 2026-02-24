@@ -42,13 +42,13 @@ const B2B = () => {
     <>
       <SEOHead
         title="Panneaux Solaires Professionnels Chambéry - Installation Photovoltaïque Entreprise | Solar Fusion"
-        description="Installation photovoltaïque pour entreprises, collectivités et industriels en Savoie et Haute-Savoie. ROI en 4-7 ans, -70% sur l'énergie, valorisation du patrimoine. Étude gratuite à Chambéry."
+        description="Installation photovoltaïque pour entreprises, collectivités et industriels partout en France. ROI en 4-7 ans, -70% sur l'énergie, valorisation du patrimoine. Étude gratuite à Chambéry."
         canonical="https://solarfusion.lovable.app/b2b"
         jsonLd={breadcrumbLd}
       />
       <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain px-4 sm:px-6 md:px-12" aria-label="Installation solaire pour professionnels partout en France">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img src={heroB2b} alt="Installation de panneaux solaires sur bâtiment professionnel, toiture industrielle photovoltaïque Savoie" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
+          <img src={heroB2b} alt="Installation de panneaux solaires sur bâtiment professionnel, toiture industrielle photovoltaïque en France" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
@@ -76,7 +76,7 @@ const B2B = () => {
         <div className="mx-auto max-w-6xl w-full relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Chiffres clés</p>
-            <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en Savoie</h2>
+            <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en France</h2>
             <TextReveal text="Le solaire, un investissement rentable." className="mb-16 text-3xl font-bold md:text-5xl" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>

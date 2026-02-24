@@ -11,7 +11,7 @@ import img5 from "@/assets/install-ferme-alpine.webp";
 const images = [
   { src: img1, alt: "Chalet en village - installation solaire", label: "Chalet alpin" },
   { src: img2, alt: "Maison moderne - panneaux solaires", label: "Villa contemporaine" },
-  { src: img3, alt: "Champ solaire en Savoie", label: "Champ solaire" },
+  { src: img3, alt: "Champ solaire en France", label: "Champ solaire" },
   { src: img4, alt: "Toiture industrielle - énergie solaire", label: "Toiture pro" },
   { src: img5, alt: "Ferme alpine - installation photovoltaïque", label: "Ferme alpine" },
 ];

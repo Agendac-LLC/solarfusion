@@ -84,7 +84,7 @@ const Hero = () => {
 
           src={heroImage}
 
-          alt="Panneaux solaires installés sur toiture en Savoie"
+          alt="Panneaux solaires installés sur toiture en France"
 
           className="w-full h-full object-cover"
 
@@ -132,7 +132,7 @@ const Hero = () => {
           <motion.img
             src={logoHero}
             alt="Logo Solar Fusion"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 135 }}
             transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
             className="w-full max-w-[270px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-0"

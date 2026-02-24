@@ -44,7 +44,7 @@ const SimulateurPage = () => {
     <>
       <SEOHead
         title="Simulateur Solaire Gratuit - Calculez Vos Économies | Solar Fusion Chambéry"
-        description="Simulez gratuitement vos économies avec le photovoltaïque en Savoie et Haute-Savoie. Résultat en 2 minutes : retour sur investissement, production annuelle, économies sur facture. Sans engagement."
+        description="Simulez gratuitement vos économies avec le photovoltaïque partout en France. Résultat en 2 minutes : retour sur investissement, production annuelle, économies sur facture. Sans engagement."
         canonical="https://solarfusion.lovable.app/simulateur"
         jsonLd={breadcrumbLd}
       />

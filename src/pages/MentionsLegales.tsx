@@ -5,7 +5,7 @@ const MentionsLegales = () => (
   <div className="pt-24 section-padding">
     <SEOHead
       title="Mentions Légales - Solar Fusion | Installateur Solaire Chambéry"
-      description="Mentions légales de Solar Fusion. Entreprise familiale d'installation photovoltaïque à Chambéry, Savoie. RGPD, certifications Certification RGE, garantie décennale."
+      description="Mentions légales de Solar Fusion. Entreprise familiale d'installation photovoltaïque à Chambéry, France. RGPD, certifications Certification RGE, garantie décennale."
       canonical="https://solarfusion.lovable.app/mentions-legales"
     />
     <div className="mx-auto max-w-3xl">
@@ -34,7 +34,7 @@ const MentionsLegales = () => (
           <section>
             <h2 className="mb-3 text-lg font-semibold text-foreground">Zone d'intervention</h2>
             <p>
-              Départements de la Savoie (73) et de la Haute-Savoie (74). Déplacements possibles dans l'ensemble de la région Auvergne-Rhône-Alpes. Villes principales : Chambéry, Aix-les-Bains, Albertville, Annecy, Annemasse, Thonon-les-Bains, Évian-les-Bains, Megève, Chamonix.
+              Intervention partout en France. Localisation de la société : Chambéry, Savoie. Déplacements possibles dans l'ensemble de la région Auvergne-Rhône-Alpes. Villes principales : Chambéry, Aix-les-Bains, Albertville, Annecy, Annemasse, Thonon-les-Bains, Évian-les-Bains, Megève, Chamonix.
             </p>
           </section>
 

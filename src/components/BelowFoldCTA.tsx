@@ -40,7 +40,7 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
   return (
     <ParallaxBackground
       image={fermeImage}
-      alt="Installation solaire sur ferme alpine en Savoie"
+      alt="Installation solaire sur ferme alpine en France"
       overlayOpacity={0.55}
       blur={2}
     >

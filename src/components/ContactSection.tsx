@@ -95,7 +95,7 @@ const ContactSection = () => {
   return (
     <ParallaxBackground
       image={installImage}
-      alt="Installation solaire en Savoie"
+      alt="Installation solaire en France"
       overlayOpacity={0.7}
       blur={2}
     >

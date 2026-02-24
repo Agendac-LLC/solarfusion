@@ -66,15 +66,15 @@ const Particuliers = () => {
   return (
     <>
       <SEOHead
-        title="Panneaux Solaires Particuliers Chambéry - Autoconsommation Savoie | Solar Fusion"
-        description="Installation de panneaux solaires pour particuliers à Chambéry, Savoie et Haute-Savoie. Jusqu'à -70% sur votre facture d'électricité. Batterie, autoconsommation, garantie décennale. Devis gratuit."
+        title="Panneaux Solaires Particuliers Chambéry - Autoconsommation France | Solar Fusion"
+        description="Installation de panneaux solaires pour particuliers à Chambéry et partout en France. Jusqu'à -70% sur votre facture d'électricité. Batterie, autoconsommation, garantie décennale. Devis gratuit."
         canonical="https://solarfusion.lovable.app/particuliers"
         jsonLd={breadcrumbLd}
       />
       {/* Hero */}
       <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain px-4 sm:px-6 md:px-12" aria-label="Panneaux solaires pour particuliers partout en France">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>
-          <img src={heroImage} alt="Installation de panneaux solaires sur chalet en Savoie, Solar Fusion installateur photovoltaïque" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
+          <img src={heroImage} alt="Installation de panneaux solaires sur chalet en France, Solar Fusion installateur photovoltaïque" className="w-full h-full object-cover" loading="eager" fetchPriority="high" decoding="async" width={1920} height={1080} />
         </motion.div>
         <div className="hero-overlay absolute inset-0" />
         <FloatingShapes variant="dark" />
@@ -84,7 +84,7 @@ const Particuliers = () => {
             Votre toit produit,<br />vous économisez.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
-            Installation solaire en Savoie et Haute-Savoie. On dimensionne, on pose, on garantit. Père et fils depuis 15 ans.
+            Installation solaire partout en France. On dimensionne, on pose, on garantit. Père et fils.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 w-full max-w-sm sm:max-w-none sm:w-auto px-2 sm:px-0">
             <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center">Simuler mon projet</MagneticButton>
@@ -104,7 +104,7 @@ const Particuliers = () => {
         <div className="mx-auto max-w-6xl w-full relative z-10">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Concrètement</p>
-            <h2 className="sr-only">Avantages du solaire pour les particuliers en Savoie</h2>
+            <h2 className="sr-only">Avantages du solaire pour les particuliers en France</h2>
             <TextReveal text="Ce que le solaire change chez vous." className="mb-4 text-3xl font-bold md:text-5xl" as="p" />
             <p className="mb-16 text-muted-foreground text-base max-w-xl">Des résultats mesurables, pas des promesses.</p>
           </BlurFade>
@@ -133,7 +133,7 @@ const Particuliers = () => {
 
       <SectionDivider />
 
-      <ParallaxBackground image={chaletVillage} alt="Chalet avec panneaux solaires en village alpin de Savoie" overlayOpacity={0.55} blur={2}>
+      <ParallaxBackground image={chaletVillage} alt="Chalet avec panneaux solaires en village alpin de France" overlayOpacity={0.55} blur={2}>
         <FloatingShapes variant="dark" />
         <div className="section-padding w-full px-4 sm:px-6 md:px-12">
           <div className="mx-auto max-w-4xl w-full text-center">
