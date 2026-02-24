@@ -24,13 +24,7 @@ const Hero = () => {
       <motion.div className="absolute inset-0 w-full h-full" style={{ scale, y: imageY }}>
         <img
           src={heroImage}
-<<<<<<< HEAD
-
           alt="Panneaux solaires installés sur toiture en France"
-
-=======
-          alt="Panneaux solaires installés sur toiture en Savoie"
->>>>>>> b9691cd9e9efb58e140ddca2fe89b8a199168587
           className="w-full h-full object-cover"
           loading="eager"
           fetchPriority="high"
@@ -57,19 +51,11 @@ const Hero = () => {
           <motion.img
             src={logoHero}
             alt="Logo Solar Fusion"
-<<<<<<< HEAD
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 135 }}
-            transition={{ duration: 0.8, delay: 1.0, ease: "easeOut" }}
-            className="w-full max-w-[270px] sm:max-w-[280px] md:max-w-[360px] lg:max-w-[440px] drop-shadow-2xl mb-0"
-            style={{ filter: 'invert(1) brightness(2)', transform: window.innerWidth >= 640 ? 'translateY(3cm)' : 'none' }}
-=======
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
             className="max-h-[150px] w-auto drop-shadow-2xl"
             style={{ filter: "invert(1) brightness(2)" }}
->>>>>>> b9691cd9e9efb58e140ddca2fe89b8a199168587
             loading="eager"
             decoding="async"
           />
