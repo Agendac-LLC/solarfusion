@@ -105,7 +105,7 @@ const Particuliers = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Concrètement</p>
             <h2 className="sr-only">Avantages du solaire pour les particuliers en France</h2>
-            <TextReveal text="Là où le soleil devient solution" className="mb-16 text-3xl font-bold md:text-5xl" as="p" />
+            <TextReveal text="Là où le soleil devient solution" className="mb-16 text-3xl font-bold md:text-5xl font-heading uppercase" as="p" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (

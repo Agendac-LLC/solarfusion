@@ -75,7 +75,7 @@ const DomotiquePAC = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Nos solutions</p>
             <h2 className="sr-only">Pompes à chaleur Hitachi et domotique énergétique en France</h2>
-            <TextReveal text="Pompe à chaleur & pilotage intelligent." className="mb-4 text-3xl font-bold md:text-5xl" />
+            <TextReveal text="Pompe à chaleur & pilotage intelligent." className="mb-4 text-3xl font-bold md:text-5xl font-heading uppercase" />
             <p className="mb-16 text-muted-foreground text-base max-w-xl">Chaque solution se couple au solaire pour maximiser vos économies.</p>
           </BlurFade>
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>

@@ -77,7 +77,7 @@ const B2B = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Pourquoi pas vous ?</p>
             <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en France</h2>
-            <TextReveal text="L’énergie est votre première vulnérabilité." className="mb-16 text-3xl font-bold md:text-5xl" />
+            <TextReveal text="L'énergie est votre première vulnérabilité." className="mb-16 text-3xl font-bold md:text-5xl font-heading uppercase" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (

@@ -34,7 +34,7 @@ const Certifications = () => (
         <h2 className="sr-only">Certifications et qualifications - Hitachi, garantie décennale</h2>
         <TextReveal
           text="Votre sécurité, notre priorité."
-          className="mb-20 text-3xl font-bold md:text-5xl"
+          className="mb-20 text-3xl font-bold md:text-5xl font-heading uppercase"
           as="p"
         />
       </BlurFade>

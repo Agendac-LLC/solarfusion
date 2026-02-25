@@ -46,7 +46,7 @@ const Services = () => (
         <h2 className="sr-only">Services d'installation solaire partout en France - Panneaux, batterie, domotique, PAC</h2>
         <TextReveal
           text="Produire moins de dépendance. Plus de maîtrise."
-          className="mb-4 text-3xl font-bold md:text-5xl"
+          className="mb-4 text-3xl font-bold md:text-5xl font-heading uppercase"
           as="p"
         />
         <p className="mb-6 text-muted-foreground text-base max-w-xl">
