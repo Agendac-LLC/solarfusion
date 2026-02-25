@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BlurFade from "./BlurFade";
 
@@ -56,7 +56,10 @@ const HorizontalScrollGallery = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const total = images.length;
-  const scrollTo = (dir: number) => {
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  const scrollTo = useCallback((dir: number) => {
     setDirection(dir);
     setActiveIndex((prev) => {
       let next = prev + dir;
@@ -64,7 +67,24 @@ const HorizontalScrollGallery = () => {
       if (next >= total) return 0;
       return next;
     });
-  };
+  }, [total]);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+    const deltaY = e.changedTouches[0].clientY - touchStartY.current;
+    // Only trigger if horizontal swipe is dominant and exceeds threshold
+    if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      scrollTo(deltaX < 0 ? 1 : -1);
+    }
+    touchStartX.current = null;
+    touchStartY.current = null;
+  }, [scrollTo]);
 
   return (
     <section className="overflow-hidden py-12 sm:py-24 md:py-36 bg-gradient-to-br from-background via-primary/5 to-background">
@@ -78,7 +98,11 @@ const HorizontalScrollGallery = () => {
           </h2>
         </BlurFade>
       </div>
-      <div className="flex items-center justify-center">
+      <div
+        className="flex items-center justify-center"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <button
           className="hidden sm:flex items-center px-2 py-2 bg-transparent border-none text-3xl font-bold text-primary hover:text-primary/80 transition mr-2"
           onClick={() => scrollTo(-1)}
@@ -86,7 +110,7 @@ const HorizontalScrollGallery = () => {
         >
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M20 8L12 16L20 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
-        <div className="relative flex justify-center items-center">
+        <div className="relative flex justify-center items-center touch-pan-y">
           <AnimatePresence initial={false} mode="wait">
             <GalleryImage key={activeIndex} img={images[activeIndex]} index={activeIndex} direction={direction} />
           </AnimatePresence>
