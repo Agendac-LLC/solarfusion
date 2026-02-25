@@ -13,7 +13,7 @@ import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/install-maison-moderne.webp";
 
 const services = [
-  { icon: Thermometer, title: "Pompes à chaleur Hitachi", description: "Air-air et air-eau. Installation réalisée par nos partenaires qualifiés, coordination et suivi assurés par Solar Fusion.", detail: "Partenaire Hitachi." },
+  { icon: Thermometer, title: "Pompes à chaleur Hitachi", description: "Air-air et air-eau.\nInstallation qualifiée, coordination et suivi par Solar Fusion.", detail: "Partenaire Hitachi." },
   { icon: Wifi, title: "Domotique énergétique", description: "Pilotez chauffage et appareils depuis votre téléphone. Vous voyez ce que vous consommez, en temps réel.", detail: "Programmation sur mesure." },
   { icon: Zap, title: "Couplage solaire + PAC", description: "Vos panneaux alimentent votre pompe à chaleur. Résultat : chauffage quasi gratuit en mi-saison.", detail: "Jusqu'à 90% d'autoconsommation." },
   { icon: BarChart3, title: "Suivi en temps réel", description: "Production, consommation, économies - tout sur votre smartphone. Alertes si quelque chose ne va pas.", detail: "Tableaux de bord personnalisés." },
@@ -53,7 +53,7 @@ const DomotiquePAC = () => {
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-5 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Domotique & PAC</motion.p>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-bold leading-[1.08] text-primary-foreground md:text-6xl">
-            Chauffez malin,<br />consommez moins.
+            Le confort maîtrisé.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
             PAC Hitachi + domotique + solaire. Le trio qui réduit vos factures de chauffage sans compromis sur le confort.
@@ -75,7 +75,7 @@ const DomotiquePAC = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Nos solutions</p>
             <h2 className="sr-only">Pompes à chaleur Hitachi et domotique énergétique en France</h2>
-            <TextReveal text="Chauffage, clim, pilotage." className="mb-4 text-3xl font-bold md:text-5xl" />
+            <TextReveal text="Pompe à chaleur & pilotage intelligent." className="mb-4 text-3xl font-bold md:text-5xl" />
             <p className="mb-16 text-muted-foreground text-base max-w-xl">Chaque solution se couple au solaire pour maximiser vos économies.</p>
           </BlurFade>
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
@@ -87,7 +87,7 @@ const DomotiquePAC = () => {
                       <service.icon className="h-7 w-7 text-foreground/80 group-hover:text-foreground transition-colors duration-300" strokeWidth={1.2} />
                     </div>
                     <h3 className="mb-3 text-lg font-semibold">{service.title}</h3>
-                    <p className="text-muted-foreground leading-relaxed text-sm">{service.description}</p>
+                    <p className="text-muted-foreground leading-relaxed text-sm whitespace-pre-line">{service.description}</p>
                     <p className="mt-auto pt-6 text-xs text-muted-foreground/70 uppercase tracking-wider font-medium">{service.detail}</p>
                   </div>
                 </TiltCard>

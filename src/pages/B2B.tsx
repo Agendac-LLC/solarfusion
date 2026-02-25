@@ -12,13 +12,13 @@ import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
 import SEOHead from "@/components/SEOHead";
 import heroB2b from "@/assets/hero-b2b.webp";
-import { TrendingUp, Zap, BarChart3, Building2 } from "lucide-react";
+import { Coins, Zap, BarChart3, Building2 } from "lucide-react";
 
 const benefits = [
-  { icon: TrendingUp, title: "Amorti en 4 à 7 ans", description: "Le retour sur investissement dépend de votre surface de toiture et de votre consommation. On calcule ça avec vous.", metric: "4-7 ans" },
-  { icon: Zap, title: "Jusqu'à -70% sur l'énergie", description: "L'autoconsommation réduit votre facture dès le premier mois. Le surplus est revendu à EDF OA.", metricNum: 70, metricSuffix: "%" },
-  { icon: BarChart3, title: "Patrimoine valorisé", description: "Un bâtiment équipé en solaire vaut plus à la revente. C'est un actif, pas une dépense.", metricNum: 15, metricSuffix: "%", metricPrefix: "+" },
-  { icon: Building2, title: "Engagement RSE concret", description: "Vos panneaux produisent. Vos clients et partenaires le voient. C'est du concret, pas un logo.", metric: "RSE" },
+  { icon: Coins, title: "stabilisez vos coûts", description: "L'énergie devient prévisible.\nMoins d'exposition aux hausses. Plus de visibilité budgétaire." },
+  { icon: Zap, title: "transformez votre bâtiment", description: "Votre toiture travaille.\nVotre site devient un outil de production énergétique intégré à votre entreprise." },
+  { icon: BarChart3, title: "Renforcez votre position commerciale.", description: "C'est une installation visible et mesurable.\nVos clients la constatent. Vos partenaires aussi." },
+{ icon: Building2, title: " Ceux qui anticipent prennent l'avance.", description: "Ils produisent.\nIls maîtrisent.\nIls gagnent." },
 ];
 
 const B2B = () => {
@@ -75,9 +75,9 @@ const B2B = () => {
         <FloatingShapes variant="light" />
         <div className="mx-auto max-w-6xl w-full relative z-10">
           <BlurFade>
-            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Chiffres clés</p>
+            <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Pourquoi pas vous ?</p>
             <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en France</h2>
-            <TextReveal text="Le solaire, un investissement rentable." className="mb-16 text-3xl font-bold md:text-5xl" />
+            <TextReveal text="L’énergie est votre première vulnérabilité." className="mb-16 text-3xl font-bold md:text-5xl" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (
@@ -85,14 +85,25 @@ const B2B = () => {
                 <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={5}>
                   <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 p-4 sm:p-8 rounded-2xl glass-card-light embossed h-full">
                     <div className="shrink-0">
-                      <p className="text-2xl font-bold tracking-tight">
-                        {b.metricNum !== undefined ? <CountUp end={b.metricNum} prefix={b.metricPrefix} suffix={b.metricSuffix} /> : b.metric}
-                      </p>
-                      <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+                      {'metricNum' in b && b.metricNum !== undefined ? (
+                        <>
+                          <p className="text-2xl font-bold tracking-tight">
+                            <CountUp end={b.metricNum as number} prefix={(b as any).metricPrefix} suffix={(b as any).metricSuffix} />
+                          </p>
+                          <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+                        </>
+                      ) : 'metric' in b && (b as any).metric ? (
+                        <>
+                          <p className="text-2xl font-bold tracking-tight">{(b as any).metric}</p>
+                          <b.icon className="mt-2 h-5 w-5 text-muted-foreground" strokeWidth={1.2} />
+                        </>
+                      ) : (
+                        <b.icon className="h-8 w-8 text-muted-foreground" strokeWidth={1} />
+                      )}
                     </div>
                     <div>
                       <h3 className="mb-2 text-base sm:text-lg font-semibold">{b.title}</h3>
-                      <p className="text-muted-foreground leading-relaxed text-sm break-words">{b.description}</p>
+                      <p className="text-muted-foreground leading-relaxed text-sm break-words whitespace-pre-line">{b.description}</p>
                     </div>
                   </div>
                 </TiltCard>

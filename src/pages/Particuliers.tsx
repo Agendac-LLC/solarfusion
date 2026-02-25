@@ -81,10 +81,10 @@ const Particuliers = () => {
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Particuliers</motion.p>
           <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-bold leading-[1.08] text-primary-foreground md:text-6xl">
-            Votre toit produit,<br />vous économisez.
+            Votre maison<br />travaille pour vous.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
-            Installation solaire partout en France. On dimensionne, on pose, on garantit. Père et fils.
+            Installation solaire partout en France.<br />On dimensionne, on pose, on garantit.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-6 sm:mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 w-full max-w-sm sm:max-w-none sm:w-auto px-2 sm:px-0">
             <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center">Simuler mon projet</MagneticButton>
@@ -105,8 +105,7 @@ const Particuliers = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Concrètement</p>
             <h2 className="sr-only">Avantages du solaire pour les particuliers en France</h2>
-            <TextReveal text="Ce que le solaire change chez vous." className="mb-4 text-3xl font-bold md:text-5xl" as="p" />
-            <p className="mb-16 text-muted-foreground text-base max-w-xl">Des résultats mesurables, pas des promesses.</p>
+            <TextReveal text="Là où le soleil devient solution" className="mb-16 text-3xl font-bold md:text-5xl" as="p" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (
