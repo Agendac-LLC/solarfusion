@@ -5,10 +5,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
-  // Flexible base: use '/solarfusion/' for production (GitHub Pages), '/' for development
-  const base = mode === "production" ? "/solarfusion/" : "/";
   return {
-    base,
+    base: "/",
     server: {
       host: "::",
       port: 8080,

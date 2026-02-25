@@ -28,9 +28,8 @@ const ScrollProgress = lazy(() => import("@/components/ScrollProgress"));
 
 const queryClient = new QueryClient();
 
-const isGithubPages = import.meta.env.MODE === "production" && import.meta.env.BASE_URL === "/solarfusion/";
-
-const Router = isGithubPages ? HashRouter : BrowserRouter;
+// Custom domain on GitHub Pages: use HashRouter in production for SPA routing
+const Router = import.meta.env.MODE === "production" ? HashRouter : BrowserRouter;
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
