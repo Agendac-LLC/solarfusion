@@ -61,7 +61,7 @@ const ContactForm = () => {
           </p>
           <TextReveal
             text="Contactez-nous."
-            className="mb-2 text-3xl font-bold md:text-4xl text-center text-foreground"
+            className="mb-2 text-3xl font-bold md:text-4xl text-center text-foreground font-heading"
           />
           <p className="mb-4 text-muted-foreground/80 text-sm text-center font-medium">
             Remplissez ce formulaire rapide, nous vous rappelons pour discuter de votre projet.

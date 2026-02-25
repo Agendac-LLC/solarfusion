@@ -80,7 +80,7 @@ const Particuliers = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Particuliers</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading uppercase">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading">
             Votre maison<br />travaille pour vous.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
@@ -105,7 +105,7 @@ const Particuliers = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Concrètement</p>
             <h2 className="sr-only">Avantages du solaire pour les particuliers en France</h2>
-            <TextReveal text="Là où le soleil devient solution" className="mb-16 text-3xl font-bold md:text-5xl font-heading uppercase" as="p" />
+            <TextReveal text="Là où le soleil devient solution" className="mb-16 text-3xl font-bold md:text-5xl font-heading" as="p" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (
@@ -137,7 +137,7 @@ const Particuliers = () => {
         <div className="section-padding w-full px-4 sm:px-6 md:px-12">
           <div className="mx-auto max-w-4xl w-full text-center">
             <BlurFade>
-              <TextReveal text="Combien économiseriez-vous ?" className="text-3xl font-bold md:text-5xl text-primary-foreground mb-6" variant="light" />
+              <TextReveal text="Combien économiseriez-vous ?" className="text-3xl font-bold md:text-5xl text-primary-foreground mb-6 font-heading" variant="light" />
               <p className="mb-10 text-primary-foreground/70 text-base max-w-lg mx-auto">Entrez votre adresse et votre facture. Résultat en 2 minutes.</p>
               <MagneticButton href="/simulateur" className="btn-pill bg-primary-foreground text-primary glow-pulse inline-block px-8 py-4 sm:px-14 sm:py-6 text-sm font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
             </BlurFade>

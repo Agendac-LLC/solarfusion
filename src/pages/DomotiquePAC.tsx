@@ -52,7 +52,7 @@ const DomotiquePAC = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-5 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Domotique & PAC</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading uppercase">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading">
             Le confort maîtrisé.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
@@ -75,7 +75,7 @@ const DomotiquePAC = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Nos solutions</p>
             <h2 className="sr-only">Pompes à chaleur Hitachi et domotique énergétique en France</h2>
-            <TextReveal text="Pompe à chaleur & pilotage intelligent." className="mb-4 text-3xl font-bold md:text-5xl font-heading uppercase" />
+            <TextReveal text="Pompe à chaleur & pilotage intelligent." className="mb-4 text-3xl font-bold md:text-5xl font-heading" />
             <p className="mb-16 text-muted-foreground text-base max-w-xl">Chaque solution se couple au solaire pour maximiser vos économies.</p>
           </BlurFade>
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
@@ -109,7 +109,7 @@ const DomotiquePAC = () => {
                 </motion.div>
               ))}
             </div>
-            <TextReveal text="On étudie votre projet ?" className="text-3xl font-bold md:text-5xl mb-6" />
+            <TextReveal text="On étudie votre projet ?" className="text-3xl font-bold md:text-5xl mb-6 font-heading" />
             <p className="mb-10 text-muted-foreground text-sm max-w-lg mx-auto">Chaque maison est différente. On vient chez vous, on mesure, on propose.</p>
             <div className="flex flex-col gap-4 sm:flex-row justify-center">
               <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]">Simuler mon projet</MagneticButton>

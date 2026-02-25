@@ -19,7 +19,7 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
           <BlurFade>
             <TextReveal
               text="Votre toiture peut faire mieux."
-              className="mb-4 text-3xl font-bold md:text-5xl"
+              className="mb-4 text-3xl font-bold md:text-5xl font-heading"
               as="p"
             />
             <p className="mb-8 text-muted-foreground text-sm max-w-xl mx-auto">
@@ -50,7 +50,7 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
           <BlurFade>
             <TextReveal
               text="Votre toit peut générer des économies."
-              className="text-2xl font-bold md:text-4xl text-primary-foreground mb-6"
+              className="text-2xl font-bold md:text-4xl text-primary-foreground mb-6 font-heading"
               variant="light"
               as="p"
             />

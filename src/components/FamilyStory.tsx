@@ -13,7 +13,7 @@ const FamilyStory = () => (
         <h2 className="sr-only">Qui sommes-nous - Installateurs solaires père et fils à Chambéry</h2>
         <TextReveal
           text="Une entreprise. Une famille. Une exigence"
-            className="mb-8 text-2xl sm:text-3xl font-bold md:text-5xl leading-snug sm:leading-[1.1]"
+            className="mb-8 text-2xl sm:text-3xl font-bold md:text-5xl leading-snug sm:leading-[1.1] font-heading"
           as="p"
         />
       </BlurFade>

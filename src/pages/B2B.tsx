@@ -54,7 +54,7 @@ const B2B = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Professionnels</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading uppercase">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading">
             Réduisez vos charges<br />énergétiques.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground font-normal" style={{ textShadow: "0 2px 12px hsla(0,0%,0%,0.7), 0 0 4px hsla(0,0%,0%,0.5)" }}>
@@ -77,7 +77,7 @@ const B2B = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Pourquoi pas vous ?</p>
             <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en France</h2>
-            <TextReveal text="L'énergie est votre première vulnérabilité." className="mb-16 text-3xl font-bold md:text-5xl font-heading uppercase" />
+            <TextReveal text="L'énergie est votre première vulnérabilité." className="mb-16 text-3xl font-bold md:text-5xl font-heading" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (
@@ -119,7 +119,7 @@ const B2B = () => {
         <div className="mx-auto max-w-4xl text-center">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Simulateur pro</p>
-            <TextReveal text="Calculez votre rentabilité." className="mb-6 text-3xl font-bold md:text-5xl" />
+            <TextReveal text="Calculez votre rentabilité." className="mb-6 text-3xl font-bold md:text-5xl font-heading" />
             <p className="mb-10 text-muted-foreground text-base max-w-2xl mx-auto">Chaque bâtiment est différent. Simulez votre potentiel solaire en 2 minutes.</p>
             <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-14 py-6 text-sm font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
           </BlurFade>
