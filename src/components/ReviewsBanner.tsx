@@ -39,7 +39,7 @@ const reviews = [];
 const socials = [
   {
     name: "Instagram",
-    url: "https://www.instagram.com/solarfusion73",
+    url: "https://www.instagram.com/solar.fusion/",
     color: "#E4405F",
     icon: (
       <svg viewBox="0 0 24 24" className="h-5 w-5">

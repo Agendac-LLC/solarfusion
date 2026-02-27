@@ -13,7 +13,7 @@ const reviews = [];
 
 const socials = [
   { name: "Google", url: "https://www.google.com/maps/place/Solar+Fusion" },
-  { name: "Instagram", url: "https://www.instagram.com/solarfusion73" },
+  { name: "Instagram", url: "https://www.instagram.com/solar.fusion/" },
 ];
 
 function InstagramProfileEmbed() {
