@@ -20,5 +20,21 @@ export default defineConfig(({ mode }) => {
         "@": path.resolve(__dirname, "./src"),
       },
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Router — changes rarely
+            "vendor-router": ["react-router-dom"],
+            // Animation — largest dep, separate cache
+            "vendor-motion": ["framer-motion"],
+            // UI lib
+            "vendor-ui": ["@radix-ui/react-tooltip", "@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu"],
+          },
+        },
+      },
+      // Slightly larger warning threshold — framer-motion is inherently heavy
+      chunkSizeWarningLimit: 600,
+    },
   };
 });

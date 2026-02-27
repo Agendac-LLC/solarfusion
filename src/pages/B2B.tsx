@@ -23,7 +23,7 @@ const benefits = [
 ];
 
 const realisationsPro = [
-  { src: heroB2b, alt: "Installation solaire professionnelle sur toiture en France — Solar Fusion", label: "Installation professionnelle" },
+  { src: heroB2b, alt: "Installation solaire professionnelle sur toiture en France - Solar Fusion", label: "Installation professionnelle" },
   { src: proImg1, alt: "Panneaux solaires bâtiment professionnel en Savoie", label: "Bâtiment professionnel" },
   { src: proImg2, alt: "Installation photovoltaïque entreprise en France", label: "Site industriel" },
 ];

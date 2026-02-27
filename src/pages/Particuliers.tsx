@@ -50,7 +50,7 @@ const benefits = [
 
 
 const realisations = [
-  { src: heroImage, alt: "Maison avec panneaux solaires en Savoie — Solar Fusion", label: "Maison de particulier" },
+  { src: heroImage, alt: "Maison avec panneaux solaires en Savoie - Solar Fusion", label: "Maison de particulier" },
   { src: realImg1, alt: "Installation solaire sur toiture particulier à Chambéry", label: "Installation sur toiture" },
   { src: realImg2, alt: "Panneaux solaires sur maison individuelle en France", label: "Maison individuelle" },
   { src: realImg3, alt: "Installation photovoltaïque maison particulier en France", label: "Installation photovoltaïque" },
