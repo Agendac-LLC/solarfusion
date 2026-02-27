@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useMemo } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { useRef, useMemo, useState, useCallback } from "react";
 import BlurFade from "@/components/BlurFade";
 import TextReveal from "@/components/TextReveal";
 import CountUp from "@/components/CountUp";
@@ -11,9 +11,12 @@ import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
 import SEOHead from "@/components/SEOHead";
-import { Sun, Battery, TrendingDown, Shield, Star } from "lucide-react";
-import heroImage from "@/assets/install-chalet-savoie.webp";
-import chaletVillage from "@/assets/install-chalet-village.webp";
+import { Sun, Battery, TrendingDown, Shield, ChevronLeft, ChevronRight } from "lucide-react";
+import heroImage from "@/assets/maison-solaire-particulier-savoie.webp";
+import chaletVillage from "@/assets/panneaux-solaires-maison-individuelle-france.webp";
+import realImg1 from "@/assets/installation-solaire-toiture-particulier-chambery.webp";
+import realImg2 from "@/assets/panneaux-solaires-maison-individuelle-france.webp";
+import realImg3 from "@/assets/installation-photovoltaique-maison-particulier.webp";
 
 const benefits = [
   {
@@ -45,6 +48,144 @@ const benefits = [
   },
 ];
 
+
+const realisations = [
+  { src: heroImage, alt: "Maison avec panneaux solaires en Savoie — Solar Fusion", label: "Maison de particulier" },
+  { src: realImg1, alt: "Installation solaire sur toiture particulier à Chambéry", label: "Installation sur toiture" },
+  { src: realImg2, alt: "Panneaux solaires sur maison individuelle en France", label: "Maison individuelle" },
+  { src: realImg3, alt: "Installation photovoltaïque maison particulier en France", label: "Installation photovoltaïque" },
+];
+
+const ParticuliersGallery = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
+  const startX = useRef<number | null>(null);
+  const startY = useRef<number | null>(null);
+  const total = realisations.length;
+
+  const scrollTo = useCallback((dir: number) => {
+    setDirection(dir);
+    setActiveIndex((prev) => {
+      const next = prev + dir;
+      if (next < 0) return total - 1;
+      if (next >= total) return 0;
+      return next;
+    });
+  }, [total]);
+
+  // Touch events (mobile - most reliable)
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    startX.current = e.touches[0].clientX;
+    startY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    if (startX.current === null || startY.current === null) return;
+    const deltaX = e.changedTouches[0].clientX - startX.current;
+    const deltaY = e.changedTouches[0].clientY - startY.current;
+    if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      scrollTo(deltaX < 0 ? 1 : -1);
+    }
+    startX.current = null;
+    startY.current = null;
+  }, [scrollTo]);
+
+  // Pointer events (PC tactile, stylet)
+  const handlePointerDown = useCallback((e: React.PointerEvent) => {
+    if (e.pointerType === 'touch') return; // handled by touch events
+    startX.current = e.clientX;
+    startY.current = e.clientY;
+  }, []);
+
+  const handlePointerUp = useCallback((e: React.PointerEvent) => {
+    if (e.pointerType === 'touch') return;
+    if (startX.current === null || startY.current === null) return;
+    const deltaX = e.clientX - startX.current;
+    const deltaY = e.clientY - startY.current;
+    if (Math.abs(deltaX) > 30 && Math.abs(deltaX) > Math.abs(deltaY)) {
+      scrollTo(deltaX < 0 ? 1 : -1);
+    }
+    startX.current = null;
+    startY.current = null;
+  }, [scrollTo]);
+
+  const img = realisations[activeIndex];
+
+  return (
+    <section className="overflow-hidden py-12 sm:py-24 md:py-36 bg-gradient-to-br from-background via-primary/5 to-background">
+      <div className="mx-auto max-w-6xl px-5 sm:px-6 mb-8 sm:mb-14">
+        <BlurFade>
+          <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary font-medium">
+            Nos réalisations
+          </p>
+          <h2 className="text-2xl sm:text-3xl font-medium md:text-5xl text-foreground font-heading">
+            Installations chez les particuliers.
+          </h2>
+        </BlurFade>
+      </div>
+      <div className="flex items-center justify-center">
+        <button
+          className="hidden sm:flex items-center px-2 py-2 bg-transparent border-none text-3xl font-bold text-primary hover:text-primary/80 transition mr-2"
+          onClick={() => scrollTo(-1)}
+          aria-label="Précédent"
+        >
+          <ChevronLeft size={32} strokeWidth={2.5} />
+        </button>
+        <div
+          className="relative flex justify-center items-center cursor-grab active:cursor-grabbing select-none"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
+        >
+          <AnimatePresence initial={false} mode="wait">
+          <motion.div
+            key={activeIndex}
+            className="relative shrink-0 w-[90vw] sm:w-[90vw] md:w-[70vw] lg:w-[50vw] aspect-[16/9] rounded-2xl sm:rounded-3xl overflow-hidden group shadow-xl"
+            initial={{ x: direction === 1 ? 200 : -200, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: direction === 1 ? -200 : 200, opacity: 0 }}
+            transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            <img
+              src={img.src}
+              alt={img.alt}
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 pointer-events-none"
+              loading="lazy"
+              decoding="async"
+              width={1200}
+              height={675}
+              draggable={false}
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+            <p className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 text-sm sm:text-base font-semibold uppercase tracking-[0.15em] text-white drop-shadow-lg">
+              {img.label}
+            </p>
+          </motion.div>
+          </AnimatePresence>
+        </div>
+        <button
+          className="hidden sm:flex items-center px-2 py-2 bg-transparent border-none text-3xl font-bold text-primary hover:text-primary/80 transition ml-2"
+          onClick={() => scrollTo(1)}
+          aria-label="Suivant"
+        >
+          <ChevronRight size={32} strokeWidth={2.5} />
+        </button>
+      </div>
+      <div className="flex justify-center mt-6 sm:mt-8 gap-2">
+        {realisations.map((_, i) => (
+          <button
+            key={i}
+            className={`w-2.5 h-2.5 rounded-full ${i === activeIndex ? 'bg-primary' : 'bg-muted-foreground/40'} transition-all duration-200`}
+            onClick={() => { setDirection(i > activeIndex ? 1 : -1); setActiveIndex(i); }}
+            aria-label={`Aller à la réalisation ${i + 1}`}
+            style={{ minWidth: '10px', minHeight: '10px', maxWidth: '10px', maxHeight: '10px', padding: 0, border: 'none', boxShadow: i === activeIndex ? '0 0 4px 1px rgba(0,0,0,0.10)' : 'none' }}
+          />
+        ))}
+      </div>
+    </section>
+  );
+};
 
 const Particuliers = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -80,7 +221,7 @@ const Particuliers = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Particuliers</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading" style={{ textShadow: "0 2px 20px hsla(0,0%,0%,0.65), 0 1px 6px hsla(0,0%,0%,0.4)" }}>
             Votre maison<br />travaille pour vous.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
@@ -147,8 +288,10 @@ const Particuliers = () => {
 
       <SectionDivider />
 
-      {/* Trust */}
+      {/* Réalisations particuliers */}
+      <ParticuliersGallery />
 
+      <SectionDivider />
 
       <ContactSection />
     </>

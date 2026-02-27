@@ -61,7 +61,7 @@ const Services = () => (
       <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
         {services.map((service) => (
           <StaggerItem key={service.title} direction="scale">
-            <div className="flex flex-col bg-background border border-border/60 shadow-md p-4 sm:p-7 md:p-10 h-full rounded-2xl hover:shadow-lg transition-shadow duration-300">
+            <div className="flex flex-col bg-background border border-black/20 shadow-md p-4 sm:p-7 md:p-10 h-full rounded-2xl hover:shadow-lg transition-shadow duration-300">
               <div className="mb-4 sm:mb-6 h-10 w-10 sm:h-14 sm:w-14 rounded-2xl bg-foreground/5 flex items-center justify-center">
                 <service.icon className="h-7 w-7 text-foreground/80" strokeWidth={1.2} />
               </div>
@@ -88,7 +88,7 @@ const Services = () => (
           </MagneticButton>
           <MagneticButton
             href="#contact"
-            className="btn-pill bg-muted text-foreground h-16 w-full sm:w-[340px] text-sm font-semibold uppercase tracking-[0.2em] border border-border"
+            className="btn-pill bg-muted text-foreground h-16 w-full sm:w-[340px] text-sm font-semibold uppercase tracking-[0.2em] border border-black/70 shadow-[0_2px_12px_rgba(0,0,0,0.18)]"
           >
             Être rappelé gratuitement
           </MagneticButton>

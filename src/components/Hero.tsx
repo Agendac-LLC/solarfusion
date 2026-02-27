@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import heroImage from "@/assets/hero-solar.webp";
+import heroImage from "@/assets/maison-solaire-particulier-savoie.webp";
 import logoHero from "@/assets/logo-hero.png";
 import MagneticButton from "./MagneticButton";
 import FloatingShapes from "./FloatingShapes";
@@ -83,13 +83,13 @@ const Hero = () => {
           >
             <MagneticButton
               href="/particuliers"
-              className="btn-glass-hero glow-pulse px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center bg-white/90 text-primary shadow-md hover:scale-105 transition-transform"
+              className="btn-glass-hero glow-pulse px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center bg-white/90 text-primary shadow-[0_6px_40px_rgba(0,0,0,0.75),0_2px_12px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_56px_rgba(0,0,0,0.9),0_4px_16px_rgba(0,0,0,0.65)] hover:scale-105 transition-all"
             >
               Espace Particuliers
             </MagneticButton>
             <MagneticButton
               href="/b2b"
-              className="btn-glass-hero px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center bg-white/90 text-primary shadow-md hover:scale-105 transition-transform"
+              className="btn-glass-hero px-6 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em] text-center bg-white/90 text-primary shadow-[0_6px_40px_rgba(0,0,0,0.75),0_2px_12px_rgba(0,0,0,0.5)] hover:shadow-[0_10px_56px_rgba(0,0,0,0.9),0_4px_16px_rgba(0,0,0,0.65)] hover:scale-105 transition-all"
             >
               Espace Professionnels
             </MagneticButton>

@@ -4,7 +4,7 @@ import MagneticButton from "./MagneticButton";
 import FloatingShapes from "./FloatingShapes";
 import ParallaxBackground from "./ParallaxBackground";
 import { memo } from "react";
-import fermeImage from "@/assets/install-ferme-alpine.webp";
+import fermeImage from "@/assets/panneaux-solaires-batiment-professionnel-savoie.webp";
 
 interface BelowFoldCTAProps {
   variant?: "simulator" | "contact";

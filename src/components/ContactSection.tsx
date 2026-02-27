@@ -5,7 +5,7 @@ import ParallaxBackground from "./ParallaxBackground";
 import FloatingShapes from "./FloatingShapes";
 import { Phone, Mail, MessageCircle, MapPin, Copy, Check } from "lucide-react";
 import { toast } from "sonner";
-import installImage from "@/assets/install-chalet-savoie.webp";
+import installImage from "@/assets/installation-photovoltaique-entreprise-france.webp";
 
 const PHONE_LINK = "tel:+33762111470";
 const EMAIL = "sebastien@solarfusion.fr";

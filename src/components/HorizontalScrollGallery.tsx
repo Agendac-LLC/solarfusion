@@ -2,18 +2,22 @@ import { memo, useState, useRef, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BlurFade from "./BlurFade";
 
-import img1 from "@/assets/install-chalet-village.webp";
-import img2 from "@/assets/install-maison-moderne.webp";
-import img3 from "@/assets/install-champ-solaire.webp";
-import img4 from "@/assets/install-toiture-industrielle.webp";
-import img5 from "@/assets/install-ferme-alpine.webp";
+import img1 from "@/assets/maison-solaire-particulier-savoie.webp";
+import img2 from "@/assets/installation-solaire-toiture-particulier-chambery.webp";
+import img3 from "@/assets/panneaux-solaires-maison-individuelle-france.webp";
+import img4 from "@/assets/installation-photovoltaique-maison-particulier.webp";
+import img5 from "@/assets/installation-solaire-professionnelle-toiture.webp";
+import img6 from "@/assets/panneaux-solaires-batiment-professionnel-savoie.webp";
+import img7 from "@/assets/installation-photovoltaique-entreprise-france.webp";
 
 const images = [
-  { src: img1, alt: "Chalet en village - installation solaire", label: "Chalet alpin" },
-  { src: img2, alt: "Maison moderne - panneaux solaires", label: "Villa contemporaine" },
-  { src: img3, alt: "Champ solaire en France", label: "Champ solaire" },
-  { src: img4, alt: "Toiture industrielle - énergie solaire", label: "Toiture pro" },
-  { src: img5, alt: "Ferme alpine - installation photovoltaïque", label: "Ferme alpine" },
+  { src: img1, alt: "Maison avec panneaux solaires en Savoie", label: "Maison de particulier" },
+  { src: img2, alt: "Installation solaire sur toiture particulier", label: "Installation sur toiture" },
+  { src: img3, alt: "Panneaux solaires sur maison individuelle en France", label: "Maison individuelle" },
+  { src: img4, alt: "Installation photovoltaïque maison particulier en France", label: "Installation photovoltaïque" },
+  { src: img5, alt: "Installation solaire professionnelle sur toiture en France", label: "Installation professionnelle" },
+  { src: img6, alt: "Panneaux solaires bâtiment professionnel", label: "Bâtiment professionnel" },
+  { src: img7, alt: "Installation photovoltaïque entreprise en France", label: "Site industriel" },
 ];
 
 const GalleryImage = memo(({
@@ -31,7 +35,7 @@ const GalleryImage = memo(({
       initial={{ x: direction === 1 ? 300 : -300, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: direction === 1 ? -300 : 300, opacity: 0 }}
-      transition={{ duration: 0.5, ease: "easeInOut" }}
+      transition={{ duration: 0.45, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <img
         src={img.src}

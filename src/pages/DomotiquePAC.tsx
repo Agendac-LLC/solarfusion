@@ -10,7 +10,7 @@ import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
 import SEOHead from "@/components/SEOHead";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
-import heroImage from "@/assets/install-maison-moderne.webp";
+import heroImage from "@/assets/installation-photovoltaique-maison-particulier.webp";
 
 const services = [
   { icon: Thermometer, title: "Pompes à chaleur Hitachi", description: "Air-air et air-eau.\nInstallation qualifiée, coordination et suivi par Solar Fusion.", detail: "Partenaire Hitachi." },
@@ -52,7 +52,7 @@ const DomotiquePAC = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-5 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Domotique & PAC</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading">
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading" style={{ textShadow: "0 2px 20px hsla(0,0%,0%,0.65), 0 1px 6px hsla(0,0%,0%,0.4)" }}>
             Le confort maîtrisé.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">
