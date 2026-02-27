@@ -34,7 +34,7 @@ const Certifications = () => (
         <h2 className="sr-only">Certifications et qualifications - Hitachi, garantie décennale</h2>
         <TextReveal
           text="Votre sécurité, notre priorité."
-          className="mb-20 text-3xl font-medium md:text-5xl font-heading"
+          className="mb-10 sm:mb-20 text-3xl font-medium md:text-5xl font-heading"
           as="p"
         />
       </BlurFade>
@@ -42,7 +42,7 @@ const Certifications = () => (
         {certs.map((cert) => (
           <StaggerItem key={cert.title} direction="scale">
             <TiltCard className="rounded-2xl h-full depth-layer" tiltMax={6}>
-              <div className="glass-card-light embossed p-10 rounded-2xl h-full">
+              <div className="glass-card-light embossed p-6 sm:p-10 rounded-2xl h-full">
                 <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground font-medium mb-4">
                   {cert.subtitle}
                 </p>
@@ -57,7 +57,7 @@ const Certifications = () => (
         <div className="mt-16 text-center">
           <MagneticButton
             href="/simulateur"
-            className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]"
+            className="btn-pill bg-foreground text-background glow-pulse inline-block px-7 py-2.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em]"
           >
             Simuler mes économies
           </MagneticButton>

@@ -33,7 +33,7 @@ const Reviews = () => (
           <h2 className="sr-only">Avis clients Solar Fusion - installations solaires en France</h2>
           <TextReveal
             text="Ils ont sauté le pas."
-            className="mb-20 text-3xl font-medium md:text-5xl text-primary-foreground font-heading"
+            className="mb-10 sm:mb-20 text-3xl font-medium md:text-5xl text-primary-foreground font-heading"
             variant="light"
             as="p"
           />

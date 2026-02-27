@@ -111,7 +111,7 @@ const ContactSection = () => {
                 </p>
                 <TextReveal
                   text="Parler à ceux qui font."
-                  className="mb-4 text-xl sm:text-2xl md:text-3xl font-medium lg:text-5xl text-primary-foreground font-heading"
+                  className="mb-4 text-3xl md:text-4xl font-medium lg:text-5xl text-primary-foreground font-heading"
                   variant="light"
                 />
                 <p className="mb-8 text-primary-foreground/75 text-sm max-w-md">
@@ -171,8 +171,8 @@ const ContactSection = () => {
             {/* Right: Contact form */}
             <div>
               <BlurFade delay={0.2}>
-                <div className="rounded-2xl bg-background/95 backdrop-blur-md p-4 sm:p-6 shadow-2xl">
-                  <div ref={containerRef} className="min-h-[350px]" />
+                <div className="rounded-2xl bg-background/95 backdrop-blur-md p-0 sm:p-6 shadow-2xl overflow-hidden">
+                  <div ref={containerRef} className="min-h-[260px] sm:min-h-[350px]" />
                 </div>
               </BlurFade>
             </div>

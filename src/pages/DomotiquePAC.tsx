@@ -76,7 +76,7 @@ const DomotiquePAC = () => {
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Nos solutions</p>
             <h2 className="sr-only">Pompes à chaleur Hitachi et domotique énergétique en France</h2>
             <TextReveal text="Pompe à chaleur & pilotage intelligent." className="mb-4 text-3xl font-medium md:text-5xl font-heading" />
-            <p className="mb-16 text-muted-foreground text-base max-w-xl">Chaque solution se couple au solaire pour maximiser vos économies.</p>
+            <p className="mb-8 sm:mb-16 text-muted-foreground text-base max-w-xl">Chaque solution se couple au solaire pour maximiser vos économies.</p>
           </BlurFade>
           <StaggerChildren className="grid gap-6 md:grid-cols-2" stagger={0.1}>
             {services.map((service) => (
@@ -112,8 +112,8 @@ const DomotiquePAC = () => {
             <TextReveal text="On étudie votre projet ?" className="text-3xl font-medium md:text-5xl mb-6 font-heading" />
             <p className="mb-10 text-muted-foreground text-sm max-w-lg mx-auto">Chaque maison est différente. On vient chez vous, on mesure, on propose.</p>
             <div className="flex flex-col gap-4 sm:flex-row justify-center">
-              <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em]">Simuler mon projet</MagneticButton>
-              <MagneticButton href="#contact" className="btn-ghost-fill inline-block px-12 py-5 text-sm font-semibold uppercase tracking-[0.2em] rounded-full">Être rappelé gratuitement</MagneticButton>
+              <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-7 py-2.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em]">Simuler mon projet</MagneticButton>
+              <MagneticButton href="#contact" className="btn-ghost-fill inline-block px-7 py-2.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em] rounded-full">Être rappelé gratuitement</MagneticButton>
             </div>
           </BlurFade>
         </div>

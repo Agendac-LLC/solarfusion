@@ -97,7 +97,7 @@ const HorizontalScrollGallery = () => {
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary font-medium">
             Nos réalisations
           </p>
-          <h2 className="text-2xl sm:text-3xl font-medium md:text-5xl text-foreground font-heading">
+          <h2 className="text-3xl font-medium md:text-5xl text-foreground font-heading">
             Installation dans toute la France.
           </h2>
         </BlurFade>
@@ -127,15 +127,23 @@ const HorizontalScrollGallery = () => {
           <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M12 8L20 16L12 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" /></svg>
         </button>
       </div>
-      <div className="flex justify-center mt-6 sm:mt-8 gap-2">
+      {/* Mobile swipe hint */}
+      <p className="sm:hidden text-center text-xs text-muted-foreground/40 mt-4 tracking-widest select-none">
+        ← Glissez →
+      </p>
+      <div className="flex justify-center mt-2 sm:mt-6 gap-1">
         {images.map((_, i) => (
           <button
             key={i}
-            className={`w-2.5 h-2.5 rounded-full ${i === activeIndex ? 'bg-primary' : 'bg-muted-foreground/40'} transition-all duration-200`}
+            className="p-2 flex items-center justify-center"
             onClick={() => setActiveIndex(i)}
             aria-label={`Aller à la réalisation ${i + 1}`}
-            style={{ minWidth: '10px', minHeight: '10px', maxWidth: '10px', maxHeight: '10px', padding: 0, border: 'none', boxShadow: i === activeIndex ? '0 0 4px 1px rgba(0,0,0,0.10)' : 'none' }}
-          />
+            style={{ background: 'transparent', border: 'none' }}
+          >
+            <span
+              className={`block w-2.5 h-2.5 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-primary scale-125' : 'bg-muted-foreground/40'}`}
+            />
+          </button>
         ))}
       </div>
     </section>

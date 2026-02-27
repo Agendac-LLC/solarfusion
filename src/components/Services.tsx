@@ -49,11 +49,11 @@ const Services = () => (
           className="mb-4 text-3xl font-medium md:text-5xl font-heading"
           as="p"
         />
-        <p className="mb-6 text-muted-foreground text-base max-w-xl">
+        <p className="mb-3 sm:mb-6 text-muted-foreground text-base max-w-xl">
           L'énergie n'est pas un produit.<br/>
           C'est un système.
         </p>
-        <p className="mb-16 text-muted-foreground text-base max-w-xl">
+        <p className="mb-8 sm:mb-16 text-muted-foreground text-base max-w-xl">
           Nous concevons des installations cohérentes, dimensionnées selon votre mode de vie, votre toiture et vos objectifs.<br/>
           Chaque choix technique a un seul but : performance, stabilité et rentabilité sur le long terme.
         </p>
@@ -82,13 +82,13 @@ const Services = () => (
         <div className="mt-16 flex flex-col gap-4 sm:flex-row justify-center items-center">
           <MagneticButton
             href="/simulateur"
-            className="btn-pill bg-foreground text-background glow-pulse h-16 w-full sm:w-[340px] text-sm font-semibold uppercase tracking-[0.2em]"
+            className="btn-pill bg-foreground text-background glow-pulse h-11 sm:h-16 w-full sm:w-[340px] text-xs sm:text-sm font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em]"
           >
             Simuler mon projet
           </MagneticButton>
           <MagneticButton
             href="#contact"
-            className="btn-pill bg-muted text-foreground h-16 w-full sm:w-[340px] text-sm font-semibold uppercase tracking-[0.2em] border border-black/70 shadow-[0_2px_12px_rgba(0,0,0,0.18)]"
+            className="btn-pill bg-muted text-foreground h-11 sm:h-16 w-full sm:w-[340px] text-xs sm:text-sm font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em] border border-black/70 shadow-[0_2px_12px_rgba(0,0,0,0.18)]"
           >
             Être rappelé gratuitement
           </MagneticButton>

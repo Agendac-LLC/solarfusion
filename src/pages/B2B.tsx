@@ -88,7 +88,7 @@ const B2BGallery = () => {
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary font-medium">
             Nos réalisations
           </p>
-          <h2 className="text-2xl sm:text-3xl font-medium md:text-5xl text-foreground font-heading">
+          <h2 className="text-3xl font-medium md:text-5xl text-foreground font-heading">
             Installations chez les professionnels.
           </h2>
         </BlurFade>
@@ -142,15 +142,23 @@ const B2BGallery = () => {
           <ChevronRight size={32} strokeWidth={2.5} />
         </button>
       </div>
-      <div className="flex justify-center mt-6 sm:mt-8 gap-2">
+      {/* Mobile swipe hint */}
+      <p className="sm:hidden text-center text-xs text-muted-foreground/40 mt-4 tracking-widest select-none">
+        ← Glissez →
+      </p>
+      <div className="flex justify-center mt-2 sm:mt-8 gap-1">
         {realisationsPro.map((_, i) => (
           <button
             key={i}
-            className={`w-2.5 h-2.5 rounded-full ${i === activeIndex ? 'bg-primary' : 'bg-muted-foreground/40'} transition-all duration-200`}
+            className="p-2 flex items-center justify-center"
             onClick={() => { setDirection(i > activeIndex ? 1 : -1); setActiveIndex(i); }}
             aria-label={`Aller à la réalisation ${i + 1}`}
-            style={{ minWidth: '10px', minHeight: '10px', maxWidth: '10px', maxHeight: '10px', padding: 0, border: 'none', boxShadow: i === activeIndex ? '0 0 4px 1px rgba(0,0,0,0.10)' : 'none' }}
-          />
+            style={{ background: 'transparent', border: 'none' }}
+          >
+            <span
+              className={`block w-2.5 h-2.5 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-primary scale-125' : 'bg-muted-foreground/40'}`}
+            />
+          </button>
         ))}
       </div>
     </section>
@@ -197,7 +205,7 @@ const B2B = () => {
             Installations photovoltaïques pour entreprises, collectivités et industriels. Dimensionnement sur mesure, retour sur investissement calculé.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-8 sm:mt-10 w-full max-w-sm sm:max-w-none sm:w-auto px-4 sm:px-0">
-            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-8 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.15em] sm:tracking-[0.2em]" strength={0.4}>Calculer ma rentabilité</MagneticButton>
+            <MagneticButton href="/simulateur" className="btn-glass-hero glow-pulse px-8 py-3.5 sm:px-12 sm:py-5 text-xs sm:text-sm font-semibold uppercase tracking-[0.08em] sm:tracking-[0.2em] whitespace-nowrap" strength={0.4}>Calculer ma rentabilité</MagneticButton>
           </motion.div>
         </motion.div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5, duration: 1 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
@@ -213,7 +221,7 @@ const B2B = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Pourquoi pas vous ?</p>
             <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en France</h2>
-            <TextReveal text="L'énergie est votre première vulnérabilité." className="mb-16 text-3xl font-medium md:text-5xl font-heading" />
+            <TextReveal text="L'énergie est votre première vulnérabilité." className="mb-8 sm:mb-16 text-3xl font-medium md:text-5xl font-heading" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (
@@ -257,7 +265,7 @@ const B2B = () => {
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Simulateur pro</p>
             <TextReveal text="Calculez votre rentabilité." className="mb-6 text-3xl font-medium md:text-5xl font-heading" />
             <p className="mb-10 text-muted-foreground text-base max-w-2xl mx-auto">Chaque bâtiment est différent. Simulez votre potentiel solaire en 2 minutes.</p>
-            <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-14 py-6 text-sm font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
+            <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-7 py-2.5 sm:px-14 sm:py-6 text-xs sm:text-sm font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em]">Lancer le simulateur</MagneticButton>
           </BlurFade>
         </div>
       </section>

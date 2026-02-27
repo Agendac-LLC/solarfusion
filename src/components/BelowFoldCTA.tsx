@@ -27,7 +27,7 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
             </p>
             <MagneticButton
               href="#contact"
-              className="btn-pill bg-foreground text-background glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+              className="btn-pill bg-foreground text-background glow-pulse inline-block px-7 py-2.5 sm:px-12 sm:py-5 text-xs font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em]"
             >
               Nous contacter
             </MagneticButton>
@@ -50,7 +50,7 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
           <BlurFade>
             <TextReveal
               text="Votre toit peut générer des économies."
-              className="text-2xl font-medium md:text-4xl text-primary-foreground mb-6 font-heading"
+              className="text-3xl font-medium md:text-4xl text-primary-foreground mb-6 font-heading"
               variant="light"
               as="p"
             />
@@ -59,7 +59,7 @@ const BelowFoldCTA = memo(({ variant = "simulator" }: BelowFoldCTAProps) => {
             </p>
             <MagneticButton
               href="/simulateur"
-              className="btn-pill bg-primary-foreground text-primary glow-pulse inline-block px-12 py-5 text-xs font-semibold uppercase tracking-[0.2em]"
+              className="btn-pill bg-primary-foreground text-primary glow-pulse inline-block px-7 py-2.5 sm:px-12 sm:py-5 text-xs font-semibold uppercase tracking-[0.1em] sm:tracking-[0.2em]"
             >
               Simuler mes économies
             </MagneticButton>
