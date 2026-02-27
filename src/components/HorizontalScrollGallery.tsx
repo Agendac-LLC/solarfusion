@@ -93,7 +93,7 @@ const HorizontalScrollGallery = () => {
           <p className="mb-3 text-xs uppercase tracking-[0.4em] text-primary font-medium">
             Nos réalisations
           </p>
-          <h2 className="text-2xl sm:text-3xl font-bold md:text-5xl text-foreground font-heading">
+          <h2 className="text-2xl sm:text-3xl font-medium md:text-5xl text-foreground font-heading">
             Installation dans toute la France.
           </h2>
         </BlurFade>

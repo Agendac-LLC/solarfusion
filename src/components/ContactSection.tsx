@@ -111,7 +111,7 @@ const ContactSection = () => {
                 </p>
                 <TextReveal
                   text="Parler à ceux qui font."
-                  className="mb-4 text-xl sm:text-2xl md:text-3xl font-bold lg:text-5xl text-primary-foreground font-heading"
+                  className="mb-4 text-xl sm:text-2xl md:text-3xl font-medium lg:text-5xl text-primary-foreground font-heading"
                   variant="light"
                 />
                 <p className="mb-8 text-primary-foreground/75 text-sm max-w-md">

@@ -77,7 +77,7 @@ const B2B = () => {
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Pourquoi pas vous ?</p>
             <h2 className="sr-only">Avantages du photovoltaïque pour les entreprises en France</h2>
-            <TextReveal text="L'énergie est votre première vulnérabilité." className="mb-16 text-3xl font-bold md:text-5xl font-heading" />
+            <TextReveal text="L'énergie est votre première vulnérabilité." className="mb-16 text-3xl font-medium md:text-5xl font-heading" />
           </BlurFade>
           <StaggerChildren className="grid grid-cols-1 sm:grid-cols-2 gap-6" stagger={0.1}>
             {benefits.map((b) => (
@@ -119,7 +119,7 @@ const B2B = () => {
         <div className="mx-auto max-w-4xl text-center">
           <BlurFade>
             <p className="mb-3 text-xs uppercase tracking-[0.4em] text-muted-foreground font-medium">Simulateur pro</p>
-            <TextReveal text="Calculez votre rentabilité." className="mb-6 text-3xl font-bold md:text-5xl font-heading" />
+            <TextReveal text="Calculez votre rentabilité." className="mb-6 text-3xl font-medium md:text-5xl font-heading" />
             <p className="mb-10 text-muted-foreground text-base max-w-2xl mx-auto">Chaque bâtiment est différent. Simulez votre potentiel solaire en 2 minutes.</p>
             <MagneticButton href="/simulateur" className="btn-pill bg-foreground text-background glow-pulse inline-block px-14 py-6 text-sm font-semibold uppercase tracking-[0.2em]">Lancer le simulateur</MagneticButton>
           </BlurFade>
