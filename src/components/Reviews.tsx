@@ -6,7 +6,7 @@ import ParallaxBackground from "./ParallaxBackground";
 import FloatingShapes from "./FloatingShapes";
 import { Star, ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import { memo } from "react";
+import { memo, useEffect } from "react";
 import maisonPierreImage from "@/assets/installation-photovoltaique-entreprise-france.webp";
 
 const reviews = [];
@@ -15,6 +15,39 @@ const socials = [
   { name: "Google", url: "https://www.google.com/maps/place/Solar+Fusion" },
   { name: "Instagram", url: "https://www.instagram.com/solarfusion73" },
 ];
+
+function InstagramProfileEmbed() {
+  useEffect(() => {
+    // If the Instagram embed script is already loaded, re-process embeds
+    if ((window as any).instgrm) {
+      (window as any).instgrm.Embeds.process();
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://www.instagram.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  return (
+    <blockquote
+      className="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/solar.fusion/?utm_source=ig_embed&utm_campaign=loading"
+      data-instgrm-version="14"
+      style={{
+        background: "#FFF",
+        border: 0,
+        borderRadius: 3,
+        boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+        margin: 1,
+        maxWidth: 540,
+        minWidth: 326,
+        padding: 0,
+        width: "calc(100% - 2px)",
+      }}
+    />
+  );
+}
 
 const Reviews = () => (
   <ParallaxBackground
@@ -58,6 +91,12 @@ const Reviews = () => (
                 <ArrowUpRight className="h-3 w-3" />
               </motion.a>
             ))}
+          </div>
+        </BlurFade>
+
+        <BlurFade delay={0.5}>
+          <div className="mt-12 flex justify-center">
+            <InstagramProfileEmbed />
           </div>
         </BlurFade>
       </div>

@@ -1,5 +1,37 @@
 import { Star, Quote } from "lucide-react";
-import { memo } from "react";
+import { memo, useEffect } from "react";
+
+function InstagramProfileEmbed() {
+  useEffect(() => {
+    if ((window as any).instgrm) {
+      (window as any).instgrm.Embeds.process();
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = "https://www.instagram.com/embed.js";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
+
+  return (
+    <blockquote
+      className="instagram-media"
+      data-instgrm-permalink="https://www.instagram.com/solar.fusion/?utm_source=ig_embed&utm_campaign=loading"
+      data-instgrm-version="14"
+      style={{
+        background: "#FFF",
+        border: 0,
+        borderRadius: 3,
+        boxShadow: "0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15)",
+        margin: "0 auto",
+        maxWidth: 540,
+        minWidth: 326,
+        padding: 0,
+        width: "calc(100% - 2px)",
+      }}
+    />
+  );
+}
 
 // Faux avis supprimés, ne garder que Google
 const reviews = [];
@@ -79,6 +111,11 @@ const ReviewsBanner = memo(() => (
             <span>{s.name}</span>
           </a>
         ))}
+      </div>
+
+      {/* Instagram profile embed */}
+      <div className="mt-10 flex justify-center">
+        <InstagramProfileEmbed />
       </div>
     </div>
   </section>
