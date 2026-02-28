@@ -29,7 +29,7 @@ const ParallaxBackground = memo(({
   const y = useTransform(scrollYProgress, [0, 1], isMobile ? ["0%", "0%"] : ["-25%", "25%"]);
 
   return (
-    <section ref={ref} className={`relative overflow-hidden ${className}`} style={{ contain: "layout style" }}>
+    <section ref={ref} className={`relative overflow-hidden parallax-container ${className}`}>
       <motion.img
         src={image}
         alt={alt}

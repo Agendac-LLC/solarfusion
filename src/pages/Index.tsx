@@ -15,7 +15,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" }
     ]
   }), []);
 
@@ -24,7 +24,7 @@ const Index = () => {
       <SEOHead
         title="Solar Fusion - Panneaux Solaires Chambéry | France entière"
         description="Expert photovoltaïque à Chambéry. Installation panneaux solaires, batterie, domotique partout en France. Garantie décennale."
-        canonical="https://solarfusion.lovable.app/"
+        canonical="https://solar-fusion.fr/"
         jsonLd={breadcrumbLd}
       />
       <Hero />

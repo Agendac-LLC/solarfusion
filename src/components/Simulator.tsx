@@ -42,7 +42,7 @@ const Simulator = ({ variant = "b2c" }: SimulatorProps) => {
               : "Surface de toiture, consommation actuelle, tarif d'achat - le simulateur calcule votre ROI et le temps d'amortissement."}
           </p>
         </BlurFade>
-        <div className="section-alt rounded-3xl p-4 sm:p-12 md:p-16 embossed" style={{ boxShadow: "var(--shadow-dramatic)" }}>
+        <div className="section-alt rounded-3xl p-4 sm:p-12 md:p-16 embossed shadow-dramatic-box">
           {variant === "b2c" ? (
             <div
               data-reonic-type="element"

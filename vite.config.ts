@@ -28,8 +28,12 @@ export default defineConfig(({ mode }) => {
             "vendor-router": ["react-router-dom"],
             // Animation - largest dep, separate cache
             "vendor-motion": ["framer-motion"],
+            // Icons - large set, separate cache
+            "vendor-icons": ["lucide-react"],
+            // Notifications
+            "vendor-sonner": ["sonner"],
             // UI lib
-            "vendor-ui": ["@radix-ui/react-tooltip", "@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu"],
+            "vendor-ui": ["@radix-ui/react-tooltip", "@radix-ui/react-dialog", "@radix-ui/react-dropdown-menu", "@radix-ui/react-accordion", "@radix-ui/react-select"],
           },
         },
       },

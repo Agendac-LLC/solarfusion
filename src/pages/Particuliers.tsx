@@ -180,10 +180,9 @@ const ParticuliersGallery = () => {
         {realisations.map((_, i) => (
           <button
             key={i}
-            className="p-2 flex items-center justify-center"
+            className="p-2 flex items-center justify-center bg-transparent border-0"
             onClick={() => { setDirection(i > activeIndex ? 1 : -1); setActiveIndex(i); }}
             aria-label={`Aller à la réalisation ${i + 1}`}
-            style={{ background: 'transparent', border: 'none' }}
           >
             <span
               className={`block w-2.5 h-2.5 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-primary scale-125' : 'bg-muted-foreground/40'}`}
@@ -207,8 +206,8 @@ const Particuliers = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
-      { "@type": "ListItem", "position": 2, "name": "Particuliers", "item": "https://solarfusion.lovable.app/particuliers" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Particuliers", "item": "https://solar-fusion.fr/particuliers" }
     ]
   }), []);
 
@@ -217,7 +216,7 @@ const Particuliers = () => {
       <SEOHead
         title="Panneaux Solaires Particuliers Chambéry - Autoconsommation France | Solar Fusion"
         description="Installation de panneaux solaires pour particuliers à Chambéry et partout en France. Jusqu'à -70% sur votre facture d'électricité. Batterie, autoconsommation, garantie décennale. Devis gratuit."
-        canonical="https://solarfusion.lovable.app/particuliers"
+        canonical="https://solar-fusion.fr/particuliers"
         jsonLd={breadcrumbLd}
       />
       {/* Hero */}
@@ -229,7 +228,7 @@ const Particuliers = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Particuliers</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading" style={{ textShadow: "0 2px 20px hsla(0,0%,0%,0.65), 0 1px 6px hsla(0,0%,0%,0.4)" }}>
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading text-shadow-hero">
             Votre maison<br />travaille pour vous.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">

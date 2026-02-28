@@ -6,7 +6,7 @@ const MentionsLegales = () => (
     <SEOHead
       title="Mentions Légales - Solar Fusion | Installateur Solaire Chambéry"
       description="Mentions légales de Solar Fusion. Entreprise familiale d'installation photovoltaïque à Chambéry, France. RGPD, certifications Certification RGE, garantie décennale."
-      canonical="https://solarfusion.lovable.app/mentions-legales"
+      canonical="https://solar-fusion.fr/mentions-legales"
     />
     <div className="mx-auto max-w-3xl">
       <AnimatedSection>

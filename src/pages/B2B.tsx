@@ -150,10 +150,9 @@ const B2BGallery = () => {
         {realisationsPro.map((_, i) => (
           <button
             key={i}
-            className="p-2 flex items-center justify-center"
+            className="p-2 flex items-center justify-center bg-transparent border-0"
             onClick={() => { setDirection(i > activeIndex ? 1 : -1); setActiveIndex(i); }}
             aria-label={`Aller à la réalisation ${i + 1}`}
-            style={{ background: 'transparent', border: 'none' }}
           >
             <span
               className={`block w-2.5 h-2.5 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-primary scale-125' : 'bg-muted-foreground/40'}`}
@@ -177,8 +176,8 @@ const B2B = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
-      { "@type": "ListItem", "position": 2, "name": "Professionnels", "item": "https://solarfusion.lovable.app/b2b" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Professionnels", "item": "https://solar-fusion.fr/b2b" }
     ]
   }), []);
 
@@ -187,7 +186,7 @@ const B2B = () => {
       <SEOHead
         title="Panneaux Solaires Professionnels Chambéry - Installation Photovoltaïque Entreprise | Solar Fusion"
         description="Installation photovoltaïque pour entreprises, collectivités et industriels partout en France. ROI en 4-7 ans, -70% sur l'énergie, valorisation du patrimoine. Étude gratuite à Chambéry."
-        canonical="https://solarfusion.lovable.app/b2b"
+        canonical="https://solar-fusion.fr/b2b"
         jsonLd={breadcrumbLd}
       />
       <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain px-4 sm:px-6 md:px-12" aria-label="Installation solaire pour professionnels partout en France">
@@ -198,10 +197,10 @@ const B2B = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-4 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Professionnels</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading" style={{ textShadow: "0 2px 20px hsla(0,0%,0%,0.65), 0 1px 6px hsla(0,0%,0%,0.4)" }}>
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading text-shadow-hero">
             Réduisez vos charges<br />énergétiques.
           </motion.h1>
-          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground font-normal" style={{ textShadow: "0 2px 12px hsla(0,0%,0%,0.7), 0 0 4px hsla(0,0%,0%,0.5)" }}>
+          <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground font-normal text-shadow-sub">
             Installations photovoltaïques pour entreprises, collectivités et industriels. Dimensionnement sur mesure, retour sur investissement calculé.
           </motion.p>
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.9 }} className="mt-8 sm:mt-10 w-full max-w-sm sm:max-w-none sm:w-auto px-4 sm:px-0">

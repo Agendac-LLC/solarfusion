@@ -35,8 +35,8 @@ const SimulateurPage = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
-      { "@type": "ListItem", "position": 2, "name": "Simulateur", "item": "https://solarfusion.lovable.app/simulateur" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Simulateur", "item": "https://solar-fusion.fr/simulateur" }
     ]
   }), []);
 
@@ -45,7 +45,7 @@ const SimulateurPage = () => {
       <SEOHead
         title="Simulateur Solaire Gratuit - Calculez Vos Économies | Solar Fusion Chambéry"
         description="Simulez gratuitement vos économies avec le photovoltaïque partout en France. Résultat en 2 minutes : retour sur investissement, production annuelle, économies sur facture. Sans engagement."
-        canonical="https://solarfusion.lovable.app/simulateur"
+        canonical="https://solar-fusion.fr/simulateur"
         jsonLd={breadcrumbLd}
       />
       <section className="pt-20 pb-8 w-full px-4 sm:px-6 md:px-12 relative" aria-label="Simulateur d'économies solaires">
@@ -106,7 +106,7 @@ const SimulateurPage = () => {
           </motion.div>
 
           <BlurFade delay={0.3}>
-            <div className="section-alt rounded-3xl p-4 sm:p-8 md:p-16 embossed w-full" style={{ boxShadow: "var(--shadow-dramatic)" }}>
+            <div className="section-alt rounded-3xl p-4 sm:p-8 md:p-16 embossed w-full shadow-dramatic-box">
               {activeTab === "b2c" ? (
                 <div
                   data-reonic-type="element"

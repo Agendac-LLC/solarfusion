@@ -31,8 +31,8 @@ const DomotiquePAC = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.lovable.app/" },
-      { "@type": "ListItem", "position": 2, "name": "Domotique & PAC", "item": "https://solarfusion.lovable.app/domotique-pac" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Domotique & PAC", "item": "https://solar-fusion.fr/domotique-pac" }
     ]
   }), []);
 
@@ -41,7 +41,7 @@ const DomotiquePAC = () => {
       <SEOHead
         title="Domotique & Pompe à Chaleur Chambéry - PAC Hitachi France | Solar Fusion"
         description="Installation pompe à chaleur Hitachi et domotique énergétique à Chambéry et partout en France. Couplage solaire + PAC pour jusqu'à 90% d'autoconsommation. Partenaire agréé Hitachi."
-        canonical="https://solarfusion.lovable.app/domotique-pac"
+        canonical="https://solar-fusion.fr/domotique-pac"
         jsonLd={breadcrumbLd}
       />
       <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain" aria-label="Domotique et pompes à chaleur partout en France">
@@ -52,7 +52,7 @@ const DomotiquePAC = () => {
         <FloatingShapes variant="dark" />
         <motion.div style={{ opacity, y: contentY }} className="relative z-10 flex h-full flex-col items-center justify-center px-5 sm:px-6 md:px-12 text-center">
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }} className="mb-3 sm:mb-4 text-xs uppercase tracking-[0.4em] text-primary-foreground/60 font-medium">Domotique & PAC</motion.p>
-          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading" style={{ textShadow: "0 2px 20px hsla(0,0%,0%,0.65), 0 1px 6px hsla(0,0%,0%,0.4)" }}>
+          <motion.h1 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.5, ease: "easeOut" }} className="max-w-4xl text-3xl sm:text-4xl font-medium leading-[1.08] text-primary-foreground md:text-6xl font-heading text-shadow-hero">
             Le confort maîtrisé.
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.7 }} className="mt-4 sm:mt-6 max-w-lg text-sm sm:text-base text-primary-foreground/75 font-light leading-relaxed">

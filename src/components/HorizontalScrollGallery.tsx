@@ -135,10 +135,9 @@ const HorizontalScrollGallery = () => {
         {images.map((_, i) => (
           <button
             key={i}
-            className="p-2 flex items-center justify-center"
+            className="p-2 flex items-center justify-center bg-transparent border-0"
             onClick={() => setActiveIndex(i)}
             aria-label={`Aller à la réalisation ${i + 1}`}
-            style={{ background: 'transparent', border: 'none' }}
           >
             <span
               className={`block w-2.5 h-2.5 rounded-full transition-all duration-200 ${i === activeIndex ? 'bg-primary scale-125' : 'bg-muted-foreground/40'}`}

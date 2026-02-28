@@ -463,4 +463,18 @@
     inset: 12px 6px -10px 6px;
     opacity: 0.4;
   }
+
+  /* Inline-style replacements - SEO / performance */
+  .text-shadow-hero {
+    text-shadow: 0 2px 20px hsla(0,0%,0%,0.65), 0 1px 6px hsla(0,0%,0%,0.4);
+  }
+  .text-shadow-sub {
+    text-shadow: 0 2px 12px hsla(0,0%,0%,0.7), 0 0 4px hsla(0,0%,0%,0.5);
+  }
+  .shadow-dramatic-box {
+    box-shadow: var(--shadow-dramatic);
+  }
+  .mb-safe {
+    margin-bottom: env(safe-area-inset-bottom, 0px);
+  }
 }
