@@ -83,7 +83,7 @@ function Footer() {
                   title="Copier l'email"
                 >
                   <Mail className="h-3.5 w-3.5" strokeWidth={1.5} />
-                  <span>sebastien@solarfusion.fr</span>
+                  <span>Nous écrire</span>
                 </button>
                 <p className="flex items-start gap-2 text-sm text-background/60" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
                   <MapPin className="h-3.5 w-3.5 mt-0.5 shrink-0" strokeWidth={1.5} />

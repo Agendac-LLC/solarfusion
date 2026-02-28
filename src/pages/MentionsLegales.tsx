@@ -25,7 +25,7 @@ const MentionsLegales = () => (
               <br />
               Téléphone : <a href="tel:+33762111470" className="underline">+33 7 62 11 14 70</a>
               <br />
-              Email : <a href="mailto:sebastien@solarfusion.fr" className="underline">sebastien@solarfusion.fr</a>
+              Email : <a href="mailto:sebastien@solarfusion.fr" className="underline">sebastien&#64;solarfusion.fr</a>
               <br />
               N° TVA intracommunautaire : FR61929522175
             </p>
@@ -44,7 +44,7 @@ const MentionsLegales = () => (
               Conformément au Règlement Général sur la Protection des Données (RGPD), les données personnelles collectées via ce site sont utilisées uniquement dans le cadre de la relation commerciale avec Solar Fusion.
             </p>
             <p className="mt-2">
-              Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à l'adresse : <a href="mailto:sebastien@solarfusion.fr" className="underline">sebastien@solarfusion.fr</a>
+              Vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ce droit, contactez-nous à l'adresse : <a href="mailto:sebastien@solarfusion.fr" className="underline">sebastien&#64;solarfusion.fr</a>
             </p>
           </section>
 

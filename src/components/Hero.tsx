@@ -47,6 +47,9 @@ const Hero = () => {
       >
         <div className="flex flex-col items-center max-w-2xl mx-auto gap-[30px]">
 
+          {/* H1 visually hidden pour le SEO */}
+          <h1 className="sr-only">Solar Fusion – Installation Panneaux Solaires Chambéry | France entière</h1>
+
           {/* Logo */}
           <motion.img
             src={logoHero}
