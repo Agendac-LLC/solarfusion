@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { ChevronDown } from "lucide-react";
 import heroImage from "@/assets/maison-solaire-particulier-savoie.webp";
 import logoHero from "@/assets/logo-hero.png";
 import MagneticButton from "./MagneticButton";
@@ -100,15 +101,22 @@ const Hero = () => {
         </div>
       </motion.div>
 
-      {/* Scroll indicator */}
-      <motion.div
+      {/* Scroll arrow */}
+      <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 2, duration: 1 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
+        onClick={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}
+        aria-label="Défiler vers le bas"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-white/50 hover:text-white/90 transition-colors duration-300 cursor-pointer"
       >
-        <div className="w-[1px] h-10 bg-primary-foreground/30 scroll-indicator" />
-      </motion.div>
+        <motion.div
+          animate={{ y: [0, 6, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ChevronDown strokeWidth={1} size={30} />
+        </motion.div>
+      </motion.button>
 
     </section>
   );

@@ -1,4 +1,4 @@
-import { memo, useState, useRef, useCallback } from "react";
+import { memo, useState, useRef, useCallback, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import BlurFade from "./BlurFade";
 
@@ -41,7 +41,7 @@ const GalleryImage = memo(({
         src={img.src}
         alt={img.alt}
         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-        loading="lazy"
+        loading="eager"
         decoding="async"
         width={1200}
         height={675}
@@ -62,6 +62,14 @@ const HorizontalScrollGallery = () => {
   const total = images.length;
   const touchStartX = useRef<number | null>(null);
   const touchStartY = useRef<number | null>(null);
+
+  // Preload all images on mount so slides are instant
+  useEffect(() => {
+    images.forEach(({ src }) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   const scrollTo = useCallback((dir: number) => {
     setDirection(dir);
