@@ -13,7 +13,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.fr/" }
     ]
   }), []);
 
@@ -21,7 +21,7 @@ const Index = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Solar Fusion",
-    "url": "https://solar-fusion.fr",
+    "url": "https://solarfusion.fr",
     "description": "Expert en autoconsommation photovoltaïque. Installation de panneaux solaires, batteries, domotique et pompes à chaleur partout en France."
   }), []);
 

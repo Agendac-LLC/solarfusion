@@ -206,8 +206,8 @@ const Particuliers = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Particuliers", "item": "https://solar-fusion.fr/particuliers" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Particuliers", "item": "https://solarfusion.fr/particuliers" }
     ]
   }), []);
 
@@ -215,7 +215,7 @@ const Particuliers = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Installation de panneaux solaires pour particuliers",
-    "provider": { "@id": "https://solar-fusion.fr/#business" },
+    "provider": { "@id": "https://solarfusion.fr/#business" },
     "areaServed": [{ "@type": "Country", "name": "France" }],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

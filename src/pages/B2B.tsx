@@ -176,8 +176,8 @@ const B2B = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Professionnels", "item": "https://solar-fusion.fr/b2b" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Professionnels", "item": "https://solarfusion.fr/b2b" }
     ]
   }), []);
 
@@ -185,7 +185,7 @@ const B2B = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "serviceType": "Installation photovoltaïque pour entreprises et professionnels",
-    "provider": { "@id": "https://solar-fusion.fr/#business" },
+    "provider": { "@id": "https://solarfusion.fr/#business" },
     "areaServed": [{ "@type": "Country", "name": "France" }],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",

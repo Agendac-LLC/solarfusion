@@ -10,13 +10,13 @@ interface SEOProps {
   noIndex?: boolean;
 }
 
-const SITE_URL = "https://solar-fusion.fr";
-const DEFAULT_OG_IMAGE = "https://solar-fusion.fr/og-image.webp";
+const SITE_URL = "https://solarfusion.fr";
+const DEFAULT_OG_IMAGE = "https://solarfusion.fr/og-image.webp";
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
-  "@id": "https://solar-fusion.fr/#business",
+  "@id": "https://solarfusion.fr/#business",
   name: "Solar Fusion",
   description:
     "Expert en autoconsommation photovoltaïque. Installation de panneaux solaires, batteries, domotique et pompes à chaleur partout en France!",

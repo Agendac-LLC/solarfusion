@@ -7,8 +7,8 @@ const MentionsLegales = () => {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
-      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" },
-      { "@type": "ListItem", "position": 2, "name": "Mentions légales", "item": "https://solar-fusion.fr/mentions-legales" }
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solarfusion.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Mentions légales", "item": "https://solarfusion.fr/mentions-legales" }
     ]
   }), []);
 

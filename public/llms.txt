@@ -17,7 +17,7 @@
 ## Informations de contact
 
 - Téléphone : 07 62 11 14 70
-- Site web : https://solar-fusion.fr
+- Site web : https://solarfusion.fr
 - Réseaux sociaux : https://instagram.com/solarfusion73
 
 ## Certifications et garanties
@@ -27,9 +27,9 @@
 
 ## Pages du site
 
-- [Accueil](https://solar-fusion.fr/)
-- [Particuliers](https://solar-fusion.fr/particuliers)
-- [Professionnels B2B](https://solar-fusion.fr/b2b)
-- [Domotique & PAC](https://solar-fusion.fr/domotique-pac)
-- [Simulateur solaire](https://solar-fusion.fr/simulateur)
-- [Mentions légales](https://solar-fusion.fr/mentions-legales)
+- [Accueil](https://solarfusion.fr/)
+- [Particuliers](https://solarfusion.fr/particuliers)
+- [Professionnels B2B](https://solarfusion.fr/b2b)
+- [Domotique & PAC](https://solarfusion.fr/domotique-pac)
+- [Simulateur solaire](https://solarfusion.fr/simulateur)
+- [Mentions légales](https://solarfusion.fr/mentions-legales)
