@@ -8,7 +8,7 @@ import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
-import SEOHead from "@/components/SEOHead";
+import SEO from "@/components/SEO";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/installation-photovoltaique-maison-particulier.webp";
 
@@ -36,13 +36,30 @@ const DomotiquePAC = () => {
     ]
   }), []);
 
+  const serviceSchema = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Installation domotique énergétique et pompe à chaleur",
+    "provider": { "@id": "https://solar-fusion.fr/#business" },
+    "areaServed": [{ "@type": "Country", "name": "France" }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Domotique & PAC",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Pompe à chaleur Hitachi", "description": "PAC air-air et air-eau haute performance, couplées au solaire. Partenaire agréé Hitachi." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Domotique énergétique", "description": "Pilotage à distance de votre chauffage et appareils. Suivi de consommation en temps réel." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Couplage solaire + PAC", "description": "Vos panneaux alimentent votre pompe à chaleur. Chauffage quasi gratuit en mi-saison. Jusqu'à 90% d'autoconsommation." } }
+      ]
+    }
+  }), []);
+
   return (
     <>
-      <SEOHead
+      <SEO
         title="Domotique & Pompe à Chaleur Chambéry - PAC Hitachi France | Solar Fusion"
         description="Installation pompe à chaleur Hitachi et domotique énergétique à Chambéry et partout en France. Couplage solaire + PAC pour jusqu'à 90% d'autoconsommation. Partenaire agréé Hitachi."
-        canonical="https://solar-fusion.fr/domotique-pac"
-        jsonLd={breadcrumbLd}
+        canonicalUrl="/domotique-pac"
+        structuredData={[breadcrumbLd, serviceSchema]}
       />
       <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain" aria-label="Domotique et pompes à chaleur partout en France">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>

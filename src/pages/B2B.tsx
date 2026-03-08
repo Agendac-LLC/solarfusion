@@ -9,7 +9,7 @@ import SectionDivider from "@/components/SectionDivider";
 import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
-import SEOHead from "@/components/SEOHead";
+import SEO from "@/components/SEO";
 import heroB2b from "@/assets/installation-solaire-professionnelle-toiture.webp";
 import proImg1 from "@/assets/panneaux-solaires-batiment-professionnel-savoie.webp";
 import proImg2 from "@/assets/installation-photovoltaique-entreprise-france.webp";
@@ -181,13 +181,29 @@ const B2B = () => {
     ]
   }), []);
 
+  const serviceSchema = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Installation photovoltaïque pour entreprises et professionnels",
+    "provider": { "@id": "https://solar-fusion.fr/#business" },
+    "areaServed": [{ "@type": "Country", "name": "France" }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Solaire Professionnels",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Panneaux solaires toiture industrielle", "description": "Installation photovoltaïque sur bâtiments professionnels. Dimensionnement sur mesure, retour sur investissement en 4-7 ans." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Autoconsommation entreprise", "description": "Réduction de charges énergétiques jusqu'à 70%. Stabilisation des coûts, visibilité budgétaire." } }
+      ]
+    }
+  }), []);
+
   return (
     <>
-      <SEOHead
+      <SEO
         title="Panneaux Solaires Professionnels Chambéry - Installation Photovoltaïque Entreprise | Solar Fusion"
         description="Installation photovoltaïque pour entreprises, collectivités et industriels partout en France. ROI en 4-7 ans, -70% sur l'énergie, valorisation du patrimoine. Étude gratuite à Chambéry."
-        canonical="https://solar-fusion.fr/b2b"
-        jsonLd={breadcrumbLd}
+        canonicalUrl="/b2b"
+        structuredData={[breadcrumbLd, serviceSchema]}
       />
       <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain px-4 sm:px-6 md:px-12" aria-label="Installation solaire pour professionnels partout en France">
         <motion.div className="absolute inset-0 w-full h-full" style={{ y: imageY, scale }}>

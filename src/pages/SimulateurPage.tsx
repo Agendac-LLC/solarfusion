@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import BlurFade from "@/components/BlurFade";
 import FloatingShapes from "@/components/FloatingShapes";
 import SectionDivider from "@/components/SectionDivider";
-import SEOHead from "@/components/SEOHead";
+import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 
 const useReonicLoader = (activeTab: string) => {
@@ -40,13 +40,25 @@ const SimulateurPage = () => {
     ]
   }), []);
 
+  const howToSchema = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "Comment simuler vos économies solaires",
+    "description": "Estimez gratuitement vos économies photovoltaïques en 2 minutes avec le simulateur Solar Fusion.",
+    "step": [
+      { "@type": "HowToStep", "position": 1, "name": "Entrez votre adresse", "text": "Indiquez l'adresse de votre maison ou bâtiment pour calculer l'ensoleillement." },
+      { "@type": "HowToStep", "position": 2, "name": "Renseignez votre consommation", "text": "Entrez votre facture d'électricité annuelle pour un dimensionnement sur mesure." },
+      { "@type": "HowToStep", "position": 3, "name": "Obtenez vos résultats", "text": "Découvrez vos économies annuelles, votre retour sur investissement et votre production estimée." }
+    ]
+  }), []);
+
   return (
     <>
-      <SEOHead
+      <SEO
         title="Simulateur Solaire Gratuit - Calculez Vos Économies | Solar Fusion Chambéry"
         description="Simulez gratuitement vos économies avec le photovoltaïque partout en France. Résultat en 2 minutes : retour sur investissement, production annuelle, économies sur facture. Sans engagement."
-        canonical="https://solar-fusion.fr/simulateur"
-        jsonLd={breadcrumbLd}
+        canonicalUrl="/simulateur"
+        structuredData={[breadcrumbLd, howToSchema]}
       />
       <section className="pt-20 pb-8 w-full px-4 sm:px-6 md:px-12 relative" aria-label="Simulateur d'économies solaires">
         <FloatingShapes variant="light" />

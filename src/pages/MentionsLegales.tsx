@@ -1,12 +1,24 @@
 import AnimatedSection from "@/components/AnimatedSection";
-import SEOHead from "@/components/SEOHead";
+import SEO from "@/components/SEO";
+import { useMemo } from "react";
 
-const MentionsLegales = () => (
+const MentionsLegales = () => {
+  const breadcrumbLd = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://solar-fusion.fr/" },
+      { "@type": "ListItem", "position": 2, "name": "Mentions légales", "item": "https://solar-fusion.fr/mentions-legales" }
+    ]
+  }), []);
+
+  return (
   <div className="pt-24 section-padding">
-    <SEOHead
+    <SEO
       title="Mentions Légales - Solar Fusion | Installateur Solaire Chambéry"
       description="Mentions légales de Solar Fusion. Entreprise familiale d'installation photovoltaïque à Chambéry, France. RGPD, certifications Certification RGE, garantie décennale."
-      canonical="https://solar-fusion.fr/mentions-legales"
+      canonicalUrl="/mentions-legales"
+      structuredData={breadcrumbLd}
     />
     <div className="mx-auto max-w-3xl">
       <AnimatedSection>
@@ -57,5 +69,6 @@ const MentionsLegales = () => (
     </div>
   </div>
 );
+};
 
 export default MentionsLegales;

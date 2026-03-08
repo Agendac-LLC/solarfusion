@@ -10,7 +10,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ParallaxBackground from "@/components/ParallaxBackground";
 import ContactSection from "@/components/ContactSection";
-import SEOHead from "@/components/SEOHead";
+import SEO from "@/components/SEO";
 import { Sun, Battery, TrendingDown, Shield, ChevronLeft, ChevronRight } from "lucide-react";
 import heroImage from "@/assets/maison-solaire-particulier-savoie.webp";
 import chaletVillage from "@/assets/panneaux-solaires-maison-individuelle-france.webp";
@@ -211,13 +211,29 @@ const Particuliers = () => {
     ]
   }), []);
 
+  const serviceSchema = useMemo(() => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Installation de panneaux solaires pour particuliers",
+    "provider": { "@id": "https://solar-fusion.fr/#business" },
+    "areaServed": [{ "@type": "Country", "name": "France" }],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Solaire Particuliers",
+      "itemListElement": [
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Panneaux solaires photovoltaïques", "description": "Dimensionnement et installation sur mesure. Pose en toiture ou au sol. Autoconsommation avec revente du surplus." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Batterie solaire", "description": "Batterie physique ou virtuelle pour utiliser votre production le soir et les jours gris. Jusqu'à 70% d'économie." } }
+      ]
+    }
+  }), []);
+
   return (
     <>
-      <SEOHead
+      <SEO
         title="Panneaux Solaires Particuliers Chambéry - Autoconsommation France | Solar Fusion"
         description="Installation de panneaux solaires pour particuliers à Chambéry et partout en France. Jusqu'à -70% sur votre facture d'électricité. Batterie, autoconsommation, garantie décennale. Devis gratuit."
-        canonical="https://solar-fusion.fr/particuliers"
-        jsonLd={breadcrumbLd}
+        canonicalUrl="/particuliers"
+        structuredData={[breadcrumbLd, serviceSchema]}
       />
       {/* Hero */}
       <section ref={heroRef} className="relative h-[100svh] sm:h-[70vh] w-full overflow-hidden grain px-4 sm:px-6 md:px-12" aria-label="Panneaux solaires pour particuliers partout en France">

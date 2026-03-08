@@ -1,5 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useEffect } from "react";
+import SEO from "@/components/SEO";
 import logoFullSlogan from "@/assets/logo-full-slogan.webp";
 
 const NotFound = () => {
@@ -11,6 +12,11 @@ const NotFound = () => {
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-background">
+      <SEO
+        title="Page introuvable - 404 | Solar Fusion"
+        description="Cette page n'existe pas ou a été déplacée. Retournez à l'accueil de Solar Fusion."
+        noIndex
+      />
       <div className="text-center px-6">
         <img
           src={logoFullSlogan}
