@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import BlurFade from "./BlurFade";
 import TextReveal from "./TextReveal";
 import ParallaxBackground from "./ParallaxBackground";
@@ -6,11 +6,12 @@ import FloatingShapes from "./FloatingShapes";
 import { Phone, Mail, MessageCircle, MapPin, Copy, Check } from "lucide-react";
 import { toast } from "sonner";
 import installImage from "@/assets/installation-photovoltaique-entreprise-france.webp";
+import TypeformWidget from "@/components/TypeformWidget";
+import { CONTACT_TYPEFORM_FORM_ID, CONTACT_TYPEFORM_URL } from "@/lib/typeform";
 
 const PHONE_LINK = "tel:+33762111470";
 const EMAIL = "sebastien@solarfusion.fr";
 const WHATSAPP_LINK = `https://wa.me/33762111470?text=${encodeURIComponent("Bonjour, je souhaite discuter d'un projet solaire.")}`;
-const TYPEFORM_ID = "01KH9FQCC8R8ACRSMMZFD8N2HV";
 
 const contactIcons = [
   {
@@ -32,8 +33,6 @@ const contactIcons = [
 ];
 
 const ContactSection = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [key, setKey] = useState(0);
   const [emailCopied, setEmailCopied] = useState(false);
 
   const handleEmailClick = async () => {
@@ -65,32 +64,6 @@ const ContactSection = () => {
       setTimeout(() => setEmailCopied(false), 2500);
     }
   };
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-    containerRef.current.innerHTML = "";
-
-    const tfDiv = document.createElement("div");
-    tfDiv.setAttribute("data-tf-live", TYPEFORM_ID);
-    containerRef.current.appendChild(tfDiv);
-
-    document.querySelectorAll('script[src*="embed.typeform.com"]').forEach((s) => s.remove());
-    if ((window as any).tf) {
-      try { (window as any).tf = undefined; } catch { /* ignore */ }
-    }
-
-    const script = document.createElement("script");
-    script.src = "https://embed.typeform.com/next/embed.js";
-    script.async = true;
-    script.onerror = () => {
-      setTimeout(() => setKey((k) => k + 1), 2000);
-    };
-    document.body.appendChild(script);
-
-    return () => {
-      document.querySelectorAll('script[src*="embed.typeform.com"]').forEach((s) => s.remove());
-    };
-  }, [key]);
 
   return (
     <ParallaxBackground
@@ -172,7 +145,15 @@ const ContactSection = () => {
             <div>
               <BlurFade delay={0.2}>
                 <div className="rounded-2xl bg-background/95 backdrop-blur-md p-0 sm:p-6 shadow-2xl overflow-hidden">
-                  <div ref={containerRef} className="min-h-[260px] sm:min-h-[350px]" />
+                  <TypeformWidget
+                    formId={CONTACT_TYPEFORM_FORM_ID}
+                    formUrl={CONTACT_TYPEFORM_URL}
+                    title="Prise de contact"
+                    embedClassName="min-h-[260px] sm:min-h-[350px]"
+                    secondaryActionHref={WHATSAPP_LINK}
+                    secondaryActionLabel="Ecrire sur WhatsApp"
+                    secondaryActionExternal
+                  />
                 </div>
               </BlurFade>
             </div>
