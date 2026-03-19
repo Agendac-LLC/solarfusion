@@ -101,6 +101,10 @@ function Footer() {
           <div className="pt-8 flex flex-col items-center gap-3 text-xs sm:text-sm text-background/50">
             <p>© {new Date().getFullYear()} Solar Fusion. Tous droits réservés.</p>
             <p>TVA : FR61929522175</p>
+            <p className="mt-2">
+              Site réalisé avec ❤️ par{" "}
+              <a href="https://agendac.fr" target="_blank" rel="noopener" className="underline hover:text-background transition-colors duration-200">Agendac</a>
+            </p>
           </div>
         </BlurFade>
       </div>
