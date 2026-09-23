@@ -9,6 +9,7 @@ import StaggerChildren, { StaggerItem } from "@/components/StaggerChildren";
 import FloatingShapes from "@/components/FloatingShapes";
 import ContactSection from "@/components/ContactSection";
 import SEO from "@/components/SEO";
+import FranceRenovBanner from "@/components/FranceRenovBanner";
 import { Thermometer, Wifi, Zap, BarChart3 } from "lucide-react";
 import heroImage from "@/assets/installation-photovoltaique-maison-particulier.webp";
 
@@ -83,6 +84,8 @@ const DomotiquePAC = () => {
           <div className="w-[1px] h-10 bg-primary-foreground/30 scroll-indicator" />
         </motion.div>
       </section>
+
+      <FranceRenovBanner />
 
       <SectionDivider />
 

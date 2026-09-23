@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import Hero from "@/components/Hero";
 import SectionDivider from "@/components/SectionDivider";
 import SEO from "@/components/SEO";
+import FranceRenovBanner from "@/components/FranceRenovBanner";
 import FamilyStory from "@/components/FamilyStory";
 import Reassurance from "@/components/Reassurance";
 import Services from "@/components/Services";
@@ -65,6 +66,7 @@ const Index = () => {
         structuredData={[breadcrumbLd, websiteSchema, faqSchema]}
       />
       <Hero />
+      <FranceRenovBanner />
       <SectionDivider />
       <FamilyStory />
       <Reassurance />
