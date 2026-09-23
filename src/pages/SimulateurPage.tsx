@@ -89,8 +89,10 @@ const SimulateurPage = () => {
             Entrez votre adresse et votre consommation. Le simulateur calcule vos économies annuelles et votre retour sur investissement.
           </motion.p>
         </div>
-        <FranceRenovBanner className="mt-8 -mx-4 sm:-mx-6 md:-mx-12" />
       </section>
+
+      <FranceRenovBanner />
+
 
       <SectionDivider />
 
