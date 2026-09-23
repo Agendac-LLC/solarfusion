@@ -3,6 +3,7 @@ import BlurFade from "@/components/BlurFade";
 import FloatingShapes from "@/components/FloatingShapes";
 import SectionDivider from "@/components/SectionDivider";
 import SEO from "@/components/SEO";
+import FranceRenovBanner from "@/components/FranceRenovBanner";
 import { motion } from "framer-motion";
 
 const useReonicLoader = (activeTab: string) => {
@@ -88,6 +89,7 @@ const SimulateurPage = () => {
             Entrez votre adresse et votre consommation. Le simulateur calcule vos économies annuelles et votre retour sur investissement.
           </motion.p>
         </div>
+        <FranceRenovBanner className="mt-8" />
       </section>
 
       <SectionDivider />
